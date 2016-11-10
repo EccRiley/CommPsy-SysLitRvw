@@ -1,0 +1,25 @@
+# ========================================== #
+#    Rmarkdown YAML Output Specifications    #
+#      Created and maintained by Riley Smith     #
+# Saved with string encoding Unicode (UTF8)  #
+#    ~/Dropbox/rstudio   #
+#
+# Higlight themes: "default", "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", "haddock"
+# ========================================== #
+
+
+pdf_document:
+  number_sections: no
+  latex_engine: pdflatex
+  keep_tex: yes
+  toc: no
+  # toc_depth: 2
+  includes:
+    in_header: header.tex
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables+grid_tables
+  pandoc_args: [
+    "--variable", "mainfont=ETBembo",
+    "--variable", "sansfont=GillSansMT",
+    "--variable", "monofont=Menlo",
+    "--filter", "pandoc-citeproc",
+  ]
