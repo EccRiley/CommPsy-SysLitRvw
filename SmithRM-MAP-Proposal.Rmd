@@ -1,17 +1,37 @@
 ---
 title: "Comprehensive Examination: Major Area Paper Proposal"
 author: "Rachel M. Smith"
-date: "`r format(Sys.Date, '%d %B %Y')`"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
 ---
+
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE}
+source("SETUP.R")
+knitr::opts_chunk$set(
+    tidy = FALSE,
+    echo = FALSE,
+    cache = FALSE,
+    fig.keep = 'high',
+    fig.show = 'hold',
+    results = 'asis',
+    autodep = TRUE,
+    Rplot = TRUE,
+    dev = 'pdf',
+    fig.path = 'graphics/HW2/rplot-q1-',
+    fig.width = 7,
+    fig.height = 7,
+    out.width = "\\linewidth"
+    )
+```
 
 \newpage
 # (A) Completed Foundational Coursework
 
 # Major,  Minor,  \& Core Program Requirements
 
-`r margin_note("\\textit{Note: '\\textsuperscript{*}' denotes courses applicable to both the major and minor areas.}")`
+`r tufte::margin_note("\\textit{Note: '\\textsuperscript{*}' denotes courses applicable to both the major and minor areas.}")`
 
-```{r}
+```{r echo=FALSE, results='asis'}
 maj <-
     data.frame(
         CRN = c("`PSY 610`",
@@ -24,14 +44,14 @@ maj <-
                   "_Top: Program Evaluation^`*`^_",
                   "_Applied Survey Research^`*`^_",
                   "_Top: Place-Based Research^`*`^_"),
-        Grade = c("**B+**",
-                  "**A**",
-                  "**A**",
-                  "**A-**",
-                  "**A**"),
+        Grade = c("B+",
+                  "A",
+                  "A",
+                  "A-",
+                  "A"),
         Hrs = rep(4, 5))
 
-kable(maj, caption = "**Major Area Coursework**: Applied
+knitr::kable(maj, caption = "**Major Area Coursework**: Applied
       Social \\& Community Psychology",
       col.names = c("CRN",
                     "Title",
@@ -56,18 +76,17 @@ minr <-
                   "_HLM/Mixed Effects Models for Longitudinal Data Analysis_",
                   "_Mixed Methods Research_",
                   "_Applied Survey Research^`*`^_",
-                  "_Place-Based Research^`*`^_",
-                  "__"),
-        Grade = c("**A**",
-                  "**A**",
-                  "**A**",
-                  "**A**",
-                  "**A**",
-                  "**A-**",
-                  "**A**"),
+                  "_Place-Based Research^`*`^_"),
+        Grade = c("A",
+                  "A",
+                  "A",
+                  "A",
+                  "A",
+                  "A-",
+                  "A"),
         Hrs = rep(4, 7))
 
-kable(minr, caption = "**Minor Area Coursework**: Mixed Methods Research",
+knitr::kable(minr, caption = "**Minor Area Coursework**: Mixed Methods Research",
       col.names = c("CRN",
                     "Title",
                     "Grade",
@@ -86,16 +105,16 @@ reqr <-
                   "_Ethics \\& Professional Issues in Applied Research and Practice_",
                   "_Multiple Regression \\& Multivariate Quantitative Methods_",
                   "_Research Design in Applied Psychology_"),
-        Grade = c("**A-*",
-                  "**A**",
-                  "**B+*",
-                  "**A**"),
+        Grade = c("A-",
+                  "A",
+                  "B+",
+                  "A"),
         Hrs = c(5,
                 4,
                 5,
                 4))
 
-kable(reqr, caption = "Research Methods \\& Statistics Coursework Required by Program",
+knitr::kable(reqr, caption = "Research Methods \\& Statistics Coursework Required by Program",
       col.names = c("CRN",
                     "Title",
                     "Grade",
@@ -111,14 +130,14 @@ prac <-
         Title = c("_Prac: Violence Prevention I_",
                   "_Prac: Violence Prevention II_",
                   "_Res: BIP Staff Interviews_"),
-        Grade = c("**P**",
-                  "**P**",
-                  "**A**"),
+        Grade = c("P",
+                  "P",
+                  "A"),
         Hrs = c(1,
                 1,
                 6))
 
-kable(prac, caption = "Research \\& Field-Based Practica",
+knitr::kable(prac, caption = "Research \\& Field-Based Practica",
       col.names = c("CRN",
                     "Title",
                     "Grade",
