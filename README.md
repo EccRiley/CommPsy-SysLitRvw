@@ -1,20 +1,18 @@
 # Community Psychology Comprehensive Exam
 
-
-
 I. Background & Significance
 
 II. Theoretical Grounding \(Community Psychology Lens\)
 
 III. Paper Parameters \/ Systematic Literature Review Methodology
 
- A. Key literature search strategy
+\_A. Key literature search strategy\_
 
- B. Focal data bases
+\_B. Focal data bases\_
 
- C. Key search terms
+\_C. Key search terms\_
 
- D. Inclusion\/exclusion criteria
+\_D. Inclusion\/exclusion criteria\_
 
 IV. Methodological Considerations
 
@@ -22,9 +20,9 @@ V. Integrative Literature Review
 
 VI. Critique of Literature
 
- A. Strengths
+\_A. Strengths\_
 
- B. Limitations
+\_B. Limitations\_
 
 VII. Summary of Findings
 
