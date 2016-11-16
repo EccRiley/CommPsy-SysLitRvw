@@ -1,0 +1,239 @@
+---
+title: "Completed \\& In-Progress Graduate Coursework"
+author: "Rachel M. Smith"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+---
+
+```{r setup, echo=FALSE, results='hide', message = FALSE, warning=FALSE, cache=FALSE}
+source("SETUP.R")
+knitr::opts_chunk$set(tidy = TRUE, echo = FALSE, cache = FALSE, fig.show = 'hold', results = 'asis', Rplot = TRUE, fig.path = "graphics/rplot_", dev = 'pdf', dpi = 300)
+```
+
+
+# Major,  Minor,  \& Core Program Requirements
+
+`r margin_note("\\textit{Note: '\\textsuperscript{*}' denotes courses applicable to both the major and minor areas.}")`
+
+```{r}
+maj <-
+    data.frame(
+        CRN = c("`PSY 610`", 
+                "`PSY 614`", 
+                "`PSY 610`", 
+                "`PSY 597`", 
+                "`PSY 510`"),
+        Title = c("_Top: Community \\& Social Interventions_",
+                  "_Advanced Applied Social Psychology \\& 
+                  Community Psychology_",
+                  "_Top: Program Evaluation^`*`^_",
+                  "_Applied Survey Research^`*`^_",
+                  "_Top: Place-Based Research^`*`^_"), 
+        Grade = c("**B+**", 
+                  "**A**", 
+                  "**A**", 
+                  "**A-**", 
+                  "**A**"), 
+        Hrs = rep(4, 5))
+    
+kable(maj, caption = "**Major Area Coursework**: Applied 
+      Social \\& Community Psychology", 
+      col.names = c("CRN", 
+                    "Title", 
+                    "Grade", 
+                    "Credit Hours"),
+      align = c('c', 'l', 'c', 'c'))
+```
+
+```{r}
+minr <-
+    data.frame(
+        CRN = c("`SOC 610`", 
+                "`PSY 610`", 
+                "`SOC 610`", 
+                "`PSY 510`", 
+                "`SOC 610`", 
+                "`PSY 597`", 
+                "`PSY 510`"),
+        Title = c("_Focus Groups_",
+                  "_Program Evaluation^`*`^_",
+                  "_Qualitative Data Analysis_",
+                  "_HLM/Mixed Effects Models for Longitudinal 
+                  Data Analysis_",
+                  "_Mixed Methods Research_",
+                  "_Applied Survey Research^`*`^_",
+                  "_Place-Based Research^`*`^_",
+                  "__"), 
+        Grade = c("**A**",
+                  "**A**",
+                  "**A**",
+                  "**A**",
+                  "**A**",
+                  "**A-**",
+                  "**A**"), 
+        Hrs = rep(4, 7))
+    
+kable(minr, caption = "**Minor Area Coursework**: 
+      Mixed Methods Research", 
+      col.names = c("CRN", 
+                    "Title", 
+                    "Grade", 
+                    "Credit Hours"),
+      align = c('c', 'l', 'c', 'c'))
+```
+
+```{r}
+reqr <-
+    data.frame(
+        CRN = c("`PSY 621`",
+                "`PSY 618`",
+                "`PSY 622`",
+                "`PSY 624`"),
+        Title = c("_Univariate Quantitative Methods_",
+                  "_Ethics \\& Professional Issues in Applied Research 
+                  and Practice_",
+                  "_Multiple Regression \\& Multivariate 
+                  Quantitative Methods_",
+                  "_Research Design in Applied Psychology_"), 
+        Grade = c("**A-*",
+                  "**A**",
+                  "**B+*",
+                  "**A**"), 
+        Hrs = c(5,
+                4,
+                5,
+                4))
+
+kable(reqr, caption = "Research Methods \\& Statistics Coursework 
+      Required by Program", 
+      col.names = c("CRN", 
+                    "Title", 
+                    "Grade", 
+                    "Credit Hours"),
+      align = c('c', 'l', 'c', 'c'))
+```
+```{r}
+prac <-
+    data.frame(
+        CRN = c("`PSY 609`",
+                "`PSY 609`",
+                "`PSY 501`"),
+        Title = c("_Prac: Violence Prevention I_",
+                  "_Prac: Violence Prevention II_",
+                  "_Res: BIP Staff Interviews_"), 
+        Grade = c("**P**",
+                  "**P**",
+                  "**A**"), 
+        Hrs = c(1,
+                1,
+                6))
+
+kable(prac, caption = "Research \\& Field-Based Practica", 
+      col.names = c("CRN", 
+                    "Title", 
+                    "Grade", 
+                    "Credit Hours"),
+      align = c('c', 'l', 'c', 'c'))
+```
+
+Table: Credit Hours and GPA in Major and Minor Areas (for completed courses)
+
+| $N_{courses}$ | GPA Hours | GPA
+| :--------- | :-------- | :----
+| **Major**
+| 5 (2 Major-Only) | 20.000 | 3.80
+| **Minor:**
+| 8 (4 Minor-Only) | 32.000 | 3.96
+| **Combined Major \& Minor**
+| 9 | 36.000 | 3.88
+| **Combined Major, Minor, \& Methods/Statistics Requirements**
+| 12 | 50 | 3.85
+
+
+
+\newpage
+
+# Full Transcript for All Graduate Coursework
+
+
+Table: All Completed and In-Progress Courses
+
+| `CRN`      | _Title_  | **Grade** | Credit Hours
+| :--------- | :----- | :---- | :------------|
+| `R Tufte::Newthought("Fall 2013 Quarter")` | | |
+| `PSY 609` | _Prac: Violence Prevention I_ | **P** | 1
+| `PSY 610` | _Top: Community \& Social Interventions_ | **B+** | 4
+| `PSY 621` | _Univariate Quantitative Methods_ | **A-** | 5
+| `R Tufte::Newthought("Winter 2014 Quarter")` | | |
+| `PSY 609` | _Prac: Violence Prevention II_ | **P** | 1
+| `PSY 618` | _Ethics \& Prof Iss App Rsrch/Pr_ | **A** | 4
+| `PSY 622` | _Multiple Regression \& Multivariate Quantitative Methods_ | **B+** | 5
+| `R Tufte::Newthought("Spring 2014 Quarter")` | | |
+| `PSY 614` | _Advanced Applied Social Psychology \& Community Psychology_ | **A** | 4
+| `PSY 624` | _Research Design in Applied Psychology_ | **A** | 4
+| `SOC 610` | _Top: Focus Groups_ | **A** | 4
+| `R Tufte::Newthought("Summer 2014 Quarter")` | | |
+| `PSY 503` | _Thesis_ | `Ip` | 5
+| `R Tufte::Newthought("Fall 2014 Quarter")` | | |
+| `PSY 503` | _Thesis_ | `Ip` | 1
+| `PSY 610` | _Top: Program Evaluation_ | **A** | 4
+| `SOC 610` | _Top: Qualitative Data Analysis_ | **A** | 4
+| `R Tufte::Newthought("Winter 2015 Quarter")` | | |
+| `PSY 510` | _Top: HLM/Mixed Effects Models for Longitudinal Data Analysis_ | **A** | 4
+| `PSY 615` | _Advanced Applied Developmental Psychology_ | **A** | 4
+| `SOC 610` | _Top: Mixed Methods Research_ | **A** | 4
+| `R Tufte::Newthought("Spring 2015 Quarter")` | | |
+| `PSY 501` | _Res: BIP Staff Interviews_ | **A** | 2
+| `PSY 503` | _Thesis_ | `Ip` | 3
+| `PSY 597` | _Applied Survey Research_ | **A-** | 4
+| `R Tufte::Newthought("Fall 2015 Quarter")` | | |
+| `PSY 501` | _Res: BIP Staff Interview_ | **A** | 3
+| `PSY 503` | _Thesis_ | `Ip` | 2
+| `PSY 516` | _Advanced Organizational Psychology_ | **A-** | 4
+| `R Tufte::Newthought("Winter 2016 Quarter")` | | |
+| `PSY 503` | _Thesis_ | `Ip` | 4
+| `PSY 510` | _Top: Place-Based Research_ | **A** | 4
+| `PSY 601` | _Res: BIP Staff Interview_ | **A** | 1
+| `R Tufte::Newthought("_Term: Spring 2016 Quarter `(In Progress")`_)` | | |
+| `PSY 610` | _Top: Introduction to Psychological Measure_ | **C** | 4
+| `R Tufte::Newthought("_Term: Fall 2016 Quarter `(In Progress")`_)` | | |
+| `PSY 610` | _Top: Categorical Data Analysis_ | `Na` | 4
+
+
+Table: Credit Hours and GPA
+
+| GPA Hours | Quality Points | GPA
+| :-------- | :------------- | :----
+| `r tufte::newthought("Fall 2013 Quarter")`
+| 9 | 31.67 | 3.51
+| _PSU Cumulative:_
+| 9 | 31.67 | 3.51
+| `r tufte::newthought("Winter 2014 Quarter")`
+| 9 | 32.65 | 3.62 |
+| _PSU Cumulative:_
+| 18 | 64.32 | 3.57 |
+| `r tufte::newthought("Spring 2014 Quarter")`
+| 12 | 48.00 | 4.00
+| _PSU Cumulative:_
+| 30 | 112.32 | 3.74
+| `r tufte::newthought("Fall 2014 Quarter")`
+| 8 | 32.00 | 4.00
+| _PSU Cumulative:_
+| 38 | 144.32 | 3.79
+| `r tufte::newthought("Winter 2015 Quarter")`
+| 12 | 48.00 | 4.00
+| _PSU Cumulative:_
+| 50 | 192.32 | 3.84
+| `r tufte::newthought("Spring 2015 Quarter")`
+| 6 | 22.68 | 3.78
+| _PSU Cumulative:_
+| 56 | 215.00 | 3.83
+| `r tufte::newthought("Fall 2015 Quarter")`
+| 7 | 26.68 | 3.81
+| _PSU Cumulative:_
+| 63 | 241.68 | 3.83
+| `r tufte::newthought("Winter 2016 Quarter")`
+| 5 | 20.00 | 4.00
+| _PSU Cumulative:_
+| 68 | 261.68 | 3.84
+| `r tufte::newthought("\\large{Total Institution:}")`
+| 68 | 261.68 | 3.84
