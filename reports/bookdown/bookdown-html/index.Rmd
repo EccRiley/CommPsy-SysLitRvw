@@ -1,0 +1,35 @@
+---
+title: "Integrating Theory, Methods, \\& Social Justice"
+author: "Rachel M. Smith"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+link-citations: yes
+---
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE}
+source("SETUP.R")
+knitr::opts_chunk$set(
+    tidy = FALSE,
+    echo = FALSE,
+    cache = FALSE,
+    fig.keep = 'high',
+    fig.show = 'hold',
+    results = 'asis',
+    autodep = TRUE,
+    Rplot = TRUE,
+    dev = 'pdf',
+    fig.path = 'graphics/HW2/rplot-q1-',
+    fig.width = 7,
+    fig.height = 7,
+    out.width = "\\linewidth"
+    )
+```
+
+![](auxDocs/quill_small.png)
+
+`r tufte::newthought("Community Psychology Comprehensive Examination: Major Area Paper Proposal")`
+
+-----
+
+`r newthought("Portland State University")`
+
+-----

@@ -1,0 +1,76 @@
+---
+title: " "
+author: " "
+date: " "
+link-citations: yes
+---
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE}
+source("SETUP.R")
+knitr::opts_chunk$set(
+    tidy = FALSE,
+    echo = FALSE,
+    cache = FALSE,
+    fig.keep = 'high',
+    fig.show = 'hold',
+    results = 'asis',
+    autodep = TRUE,
+    Rplot = TRUE,
+    dev = 'pdf',
+    fig.path = 'graphics/HW2/rplot-q1-',
+    fig.width = 7,
+    fig.height = 7,
+    out.width = "\\linewidth"
+    )
+```
+\newpage
+
+\newpage
+
+\begin{center}
+
+`r tufte::newthought("\\Huge{Integrating Theory, Methods, \\& Social Justice}")`
+
+\LARGE{by: Rachel M. Smith}
+
+\end{center}
+
+![](auxDocs/quill_small.png)
+
+\begin{center}
+
+\Large{\textit{Community Psychology Comprehensive Examination}} \\
+
+
+\Large{\textit{Major Area Paper Proposal}} \\
+
+
+\end{center}
+
+
+-----
+
+\begin{center}
+
+`r newthought("Portland State University")` \\
+
+`r format(Sys.Date(), '%d %B %Y')`
+
+\end{center}
+
+
+\newpage
+
+# Comprehensive Proposal Outline
+
+`r tufte::newthought("\\textbf{I.} \href{0-PersonalStatement.Rmd}{Personal Statement}")`
+
+`r tufte::newthought("\\textbf{II.} \href{A-coursework.Rmd}{Foundational Coursework}")`
+
+`r tufte::newthought("\\textbf{III.} \href{B-rational.Rmd}{Rational \\& Significance}")`
+
+`r tufte::newthought("\\textbf{IV.} \href{C-MAP.Rmd}{Major Area Paper (MAP) Outline}")`
+
+`r tufte::newthought("\\textbf{V.} \href{D-dissertationTopic.Rmd}{Relevance to Dissertation Topic}")`
+
+`r tufte::newthought("\\textbf{VI.} \href{E-ReadingList.Rmd}{Reading List}")`

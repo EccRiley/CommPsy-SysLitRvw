@@ -1,0 +1,194 @@
+---
+title: "Comprehensive Examination: Major Area Paper Proposal"
+author: "Rachel M. Smith"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+---
+
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE}
+source("SETUP.R")
+knitr::opts_chunk$set(
+    tidy = FALSE,
+    echo = FALSE,
+    cache = FALSE,
+    fig.keep = 'high',
+    fig.show = 'hold',
+    results = 'asis',
+    autodep = TRUE,
+    Rplot = TRUE,
+    dev = 'pdf',
+    fig.path = 'graphics/HW2/rplot-q1-',
+    fig.width = 7,
+    fig.height = 7,
+    out.width = "\\linewidth"
+    )
+```
+
+\newpage
+# (A) Completed Foundational Coursework \complete
+
+`r tufte::margin_note("\\textit{Note: '\\textsuperscript{*}' denotes courses applicable to both the major and minor areas.}")`
+
+```{r maj}
+maj <-
+    data.frame(
+        CRN = c("`PSY 610`",
+                "`PSY 614`",
+                "`PSY 610`",
+                "`PSY 597`",
+                "`PSY 510`"),
+        Title = c("_Top: Community \\& Social Interventions_",
+                  "_Advanced Applied Social Psychology \\& Community Psychology_",
+                  "_Top: Program Evaluation^`*`^_",
+                  "_Applied Survey Research^`*`^_",
+                  "_Top: Place-Based Research^`*`^_"),
+        Grade = c("B+",
+                  "A",
+                  "A",
+                  "A-",
+                  "A"),
+        Hrs = rep(4, 5))
+
+knitr::kable(maj, caption = "**Major Area Coursework**: Applied
+      Social \\& Community Psychology",
+      col.names = c("CRN",
+                    "Title",
+                    "Grade",
+                    "Credit Hours"),
+      align = c('c', 'l', 'c', 'c'))
+```
+
+```{r, minr}
+minr <-
+    data.frame(
+        CRN = c("`SOC 610`",
+                "`PSY 610`",
+                "`SOC 610`",
+                "`PSY 510`",
+                "`SOC 610`",
+                "`PSY 597`",
+                "`PSY 510`"),
+        Title = c("_Focus Groups_",
+                  "_Program Evaluation^`*`^_",
+                  "_Qualitative Data Analysis_",
+                  "_HLM/Mixed Effects Models for Longitudinal Data Analysis_",
+                  "_Mixed Methods Research_",
+                  "_Applied Survey Research^`*`^_",
+                  "_Place-Based Research^`*`^_"),
+        Grade = c("A",
+                  "A",
+                  "A",
+                  "A",
+                  "A",
+                  "A-",
+                  "A"),
+        Hrs = rep(4, 7))
+
+knitr::kable(minr, caption = "**Minor Area Coursework**: Mixed Methods Research",
+      col.names = c("CRN",
+                    "Title",
+                    "Grade",
+                    "Credit Hours"),
+      align = c('c', 'l', 'c', 'c'))
+```
+
+```{r reqr}
+reqr <-
+    data.frame(
+        CRN = c("`PSY 621`",
+                "`PSY 618`",
+                "`PSY 622`",
+                "`PSY 624`"),
+        Title = c("_Univariate Quantitative Methods_",
+                  "_Ethics \\& Professional Issues in Applied Research and Practice_",
+                  "_Multiple Regression \\& Multivariate Quantitative Methods_",
+                  "_Research Design in Applied Psychology_"),
+        Grade = c("A-",
+                  "A",
+                  "B+",
+                  "A"),
+        Hrs = c(5,
+                4,
+                5,
+                4))
+
+knitr::kable(reqr, caption = "Research Methods \\& Statistics Coursework Required by Program",
+      col.names = c("CRN",
+                    "Title",
+                    "Grade",
+                    "Credit Hours"),
+      align = c('c', 'l', 'c', 'c'))
+```
+
+```{r prac}
+prac <-
+    data.frame(
+        CRN = c("`PSY 609`",
+                "`PSY 609`",
+                "`PSY 501`"),
+        Title = c("_Prac: Violence Prevention I_",
+                  "_Prac: Violence Prevention II_",
+                  "_Res: BIP Staff Interviews_"),
+        Grade = c("P",
+                  "P",
+                  "A"),
+        Hrs = c(1,
+                1,
+                6))
+
+knitr::kable(prac, caption = "Research \\& Field-Based Practica",
+      col.names = c("CRN",
+                    "Title",
+                    "Grade",
+                    "Credit Hours"),
+      align = c('c', 'l', 'c', 'c'))
+```
+
+
+\newpage
+# (B) Significance \& Rationale `(1 page)` \todo
+
+\newpage
+# (C) Major Area Paper Outline (2-3 pages) \todo
+
+I propose conducting a systematic critical review of research conducted with marginalized populations, with a specific focus on violence-related research with sexual minority women (SMW).^[[see relevance to dissertation topic](D-dissertationTopic.html)] The scope of reviewed research will include published work in the Community Psychology discipline, as well as research published in related fields such as Social and Clinical Psychology, Social Work, Public Health, Epidemiology, and Sociology. The critical review will attempt to map core components of community psychological theory and methodologies to the body of research available under the above-defined content and research discipline scopes. In particular, I am interested in evaluating the extent to which community psychological theory and methodologies are implemented, or not, in research related to the historically marginalized population of interest^[i.e., sexual minority women]. I am further interested in examining how the implementation of community psychological research has evolved over time since the origination of the field, as well as potential trajectories based on the current state of discourse within Community Psychology and closely related research and practice disciplines.
+
+# I. Background \& Significance
+
+# II. Theoretical Grounding `(Community Psychology Lens)`
+
+# III. Paper Parameters / Systematic Literature Review Methodology
+
+## A. Key literature search strategy
+
+## B. Focal data bases
+
+## C. Key search terms
+
+## D. Inclusion/exclusion criteria
+
+# IV. Methodological Considerations
+
+# V. Integrative Literature Review
+
+# VI. Critique of Literature
+
+## A. Strengths
+
+## B. Limitations
+
+# VII. Summary of Findings
+
+# VIII. Applied Implications
+
+# IX. References
+
+
+\newpage
+# (D) Relevance to Dissertation Topic `(1 page)` \todo
+
+\todo
+
+
+\newpage
+# (E) Reading List \inprogress

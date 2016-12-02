@@ -1,0 +1,42 @@
+bookdown::tufte_html_book:
+  highlight: textmate
+  fig_caption: yes
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  toc: yes
+  pandoc_args: [
+    "--filter", "pandoc-tablenos",
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-citeproc",
+    "--csl", "auxDocs/chicago.csl",
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]
+
+
+bookdown::tufte_html2:
+  highlight: textmate
+  fig_caption: yes
+  keep_md: yes
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  # toc: yes
+  # toc_depth: 2
+  pandoc_args: [
+    # "--filter", "pandoc-tablenos",
+    # "--filter", "pandoc-fignos",
+    "--filter", "pandoc-citeproc",
+    "--csl", "auxDocs/chicago.csl",
+    "--bibliography", "auxDocs/REFs.bib"
+  ]
+
+bookdown::tufte_book2:
+  number_sections: yes
+  toc: no
+  latex_engine: pdflatex
+  fig_caption: yes
+  keep_tex: yes
+  pandoc_args: [
+    "--filter", "pandoc-citeproc",
+    "--csl", "auxDocs/chicago.csl",
+    "--bibliography", "auxDocs/REFs.bib"
+  ]
+  includes:
+    in_header: auxDocs/header.tex
