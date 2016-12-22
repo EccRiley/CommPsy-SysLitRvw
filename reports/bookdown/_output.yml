@@ -9,8 +9,8 @@ bookdown::tufte_html2:
     # "--filter", "pandoc-tablenos",
     # "--filter", "pandoc-fignos",
     "--filter", "pandoc-citeproc",
-    "--csl", "auxDocs/chicago.csl",
-    "--bibliography", "auxDocs/REFs.bib"
+    "--csl", "~/GitHub/auxDocs/chicago.csl",
+    "--bibliography", "~/GitHub/auxDocs/REFs.bib"
   ]
 
 bookdown::tufte_book2:
@@ -21,8 +21,8 @@ bookdown::tufte_book2:
   keep_tex: yes
   pandoc_args: [
     "--filter", "pandoc-citeproc",
-    "--csl", "auxDocs/chicago.csl",
-    "--bibliography", "auxDocs/REFs.bib"
+    "--csl", "~/GitHub/auxDocs/chicago.csl",
+    "--bibliography", "~/GitHub/auxDocs/REFs.bib"
   ]
   includes:
     in_header: auxDocs/header.tex
