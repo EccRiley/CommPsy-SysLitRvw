@@ -1,0 +1,193 @@
+---
+title: "Community Psychology and Related Journals"
+author: "Rachel M. Smith (via the Society for Community Research \\& Action)"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+---
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE}
+source("../SETUP.R")
+knitr::opts_chunk$set(
+    tidy = FALSE,
+    echo = FALSE,
+    cache = FALSE,
+    fig.keep = 'high',
+    fig.show = 'hold',
+    results = 'asis',
+    autodep = TRUE,
+    Rplot = TRUE,
+    dev = 'pdf',
+    fig.path = 'graphics/rplot-',
+    fig.width = 7,
+    fig.height = 7,
+    out.width = "\\linewidth"
+    )
+```
+
+Below is a list of academic journals specific or related to Community Psychology research and practice compiled by the [_Society for Community Research \& Action (SCRA)_](http://www.scra27.org).
+`r tufte::margin_note("Read more at http://www.scra27.org/publications/other-journals-relevant-community-psychology/#m5Vu8JuA8fjHXfBE.99")`
+
+1. _Action Research_
+2. _American Journal of Community Psychology_
+3. _American Journal of Health Promotion_
+4. _American Journal of Orthopsychiatry_
+5. _American Journal of Preventive Medicine^\textborn^_
+6. _American Journal of Public Health_
+7. _Australian Community Psychologist^\textborn^_
+8. _Community Development^\textborn^_
+9. _Community Development Journal_
+10. _Community Mental Health Journal_
+11. _Community Psychology in Global Perspective^\textborn^_
+12. _Cultural Diversity & Ethnic Minority Psychology^\textborn^_
+13. _Global Journal of Community Psychology Practice^\textborn^_
+14. _Health Education & Behavior_
+15. _Health Promotion Practice_
+16. _Journal of Applied Social Psychology_
+17. _Journal of Community & Applied Social Psychology_
+18. _Journal of Community Practice_
+19. _Journal of Health & Social Behavior_
+20. _Journal of Prevention & Intervention_
+21. _Journal of Primary Prevention_
+22. _Journal of Rural Community Psychology^\textborn^_
+23. _Journal of Social Issues_
+24. _Journal of Community Psychology_
+25. _Psychiatric Rehabilitation Journal_
+26. _Psychology of Women Quarterly_
+27. _Psychosocial Intervention/Intervenci\acute{o}n Psicosocial_
+28. _Social Science & Medicine_
+29. _The Community Psychologist^\textdagger^_
+30. _Transcultural Psychiatry_
+31. _Progress in Community Health Partnerships: Research, Education, & Action_
+
+`r tufte::margin_note("\\textsc{Note:} \\textborn Indicates journals for which no \\textit{\\rhref{http://www.scimagojr.com}{Scimago Journal Rank (SJR)}} impact is available. \\textdagger Indicates informal publications. ")`
+
+-----
+
+
+[\textsc{Action Research}](http://arj.sagepub.com/).
+:    _Action Research_ is an international, interdisciplinary, peer reviewed, quarterly published refereed journal which is a forum for the development of the theory and practice of action research. The journal publishes quality articles on accounts of action research projects, explorations in the philosophy and methodology of action research, and considerations of the nature of quality in action research practice. This journal is a member of the [Committee on Publication Ethics (COPE)](http://publicationethics.org/about)
+
+[\textsc{American Journal of Community Psychology}](http://www.scra27.org/publications/ajcp/).
+:    _American Journal of Community Psychology (AJCP)_ publishes original quantitative, qualitative, and mixed methods research; theoretical papers; empirical reviews; reports of innovative community programs or policies; and first person accounts of stakeholders involved in research, programs, or policy.
+
+[\textsc{American Journal of Health Promotion}](https://www.healthpromotionjournal.com/).
+:    The _American Journal of Health Promotion_  is a peer-reviewed journal on the science of lifestyle change.   The editorial goal of the American Journal of Health Promotion is to provide a forum for exchange among the many disciplines involved in health promotion and an interface between researchers and practitioners.
+
+
+[\textsc{American Journal of Orthopsychiatry}](http://www.apa.org/pubs/journals/ort/).
+:    The _American Journal of Orthopsychiatry (AJO)_ reflects the Association's purpose: "to facilitate the generation and exchange of knowledge relevant to the development and implementation of policies and practices consistent with the promotion of mental health and social justice, including the protection of human rights." Consistent with that mission, the journal publishes articles that clarify, challenge, or reshape the prevailing understanding of factors in the prevention and correction of injustice and in the sustainable development of a humane and just society. AJO publishes theoretical, policy–analytic, and empirical articles on topics related to the Association's historic values and themes.
+
+
+[\textsc{American Journal of Preventive Medicine }](http://www.ajpmonline.org/home).
+:    The _American Journal of Preventive Medicine_ is the official journal of the American College of Preventive Medicine and the Association for Prevention Teaching and Research. It publishes articles in the areas of prevention research, teaching, practice and policy. Original research is published on interventions aimed at the prevention of chronic and acute disease and the promotion of individual and community health. Of particular emphasis are papers that address the primary and secondary prevention of important clinical, behavioral and public health issues such as injury and violence, infectious disease, women's health, smoking, sedentary behaviors and physical activity, nutrition, diabetes, obesity, and alcohol and drug abuse. Papers also address educational initiatives aimed at improving the ability of health professionals to provide effective clinical prevention and public health services. Papers on health services research pertinent to prevention and public health are also published. The journal also publishes official policy statements from the two co-sponsoring organizations, review articles, media reviews, and editorials. Finally, the journal periodically publishes supplements and special theme issues devoted to areas of current interest to the prevention community.
+
+
+[\textsc{American Journal of Public Health}](http://ajph.aphapublications.org/).
+:    The _American Journal of Public Health (AJPH)_ is dedicated to publication of original work in research, research methods, and program evaluation in the field of public health. The Journal also regularly publishes editorials and commentaries and serves as a forum for health policy analysis. The mission of the Journal is to advance public health research, policy, practice, and education. Each month, national and international public health professionals turn to AJPH for the most current, authoritative, in-depth information in the field.
+
+
+[\textsc{Australian Community Psychologist}](http://www.groups.psychology.org.au/ccom/publications/).
+:    The _Australian Community Psychologist_ publishes work that is of relevance to community psychology practitioners and researchers and others interested in the field. Local and national manuscripts may be published, and submissions by emerging researchers and practitioners are encouraged. The journal features contributions that are state of the art reviews of professional and applied areas, and reviews and essays on matters of general relevance to community psychologists, in addition to empirical research reports relevant to community psychologists. The journal also features individual manuscripts and collections of manuscripts which address matters of general, professional and public relevance, techniques and approaches in psychological practice, professional development issues, and professional and public policy issues, and reviews of books which relate directly to the major areas of practice in community psychology.
+
+
+[\textsc{Community Development}](http://www.tandfonline.com/toc/rcod20/current#.VZgph2Bh1E5).
+:    _Community Development_ is the peer-reviewed journal of the Community Development Society. Published five times per year, Community Development is devoted to improving knowledge and practice in the field of purposive community change. The mission of the journal is to advance critical theory, research, and practice in all domains of community development, including sociocultural, political, environmental, and economic.
+
+
+[\textsc{Community Development Journal}](http://cdj.oxfordjournals.org/).
+:    The _Community Development Journal_ is the leading international journal in its field, covering a wide range of topics, reviewing significant developments and providing a forum for cutting-edge debates about theory and practice. It adopts a broad definition of community development to include policy, planning and action as they impact on the life of communities. It seeks to publish critically focused articles which challenge received wisdom, report and discuss innovative practices, and relate issues of community development to questions of social justice, diversity and environmental sustainability.
+
+
+[\textsc{Community Mental Health Journal}](http://link.springer.com/journal/10597).
+:    The _Community Mental Health Journal_ is devoted to the evaluation and improvement of public sector mental health services for people affected by severe mental disorders, serious emotional disturbances and/or addictions. Coverage includes: nationally representative epidemiologic projects intervention research involving benefit and risk comparisons between service programs methodology, such as instrumentation, where particularly pertinent to public sector behavioral health evaluation or research
+
+
+[\textsc{Community Psychology in Global Perspective}](http://siba-ese.unisalento.it/index.php/cpgp).
+:    _Community Psychology in Global Perspective_ is an open access, on-line, interdisciplinary, peer-reviewed journal devoted to research, theory and intervention, and review articles exploring human interactions in community settings across the globe. Its special focus is on making explicit the ways in which culture acts as a framework organizing and guiding our experiences, utilizing ecological perspectives to enhance our understanding and promotion of individual and community well-being, and advancing work aimed at the creation of positive social change and social justice.  It especially encourages submissions of field-based, culturally situated research and intervention, as well as psychologically framed qualitative research.
+
+
+[\textsc{Cultural Diversity \& Ethnic Minority Psychology}](http://www.apa.org/pubs/journals/cdp/).
+:    _Cultural Diversity \& Ethnic Minority Psychology_ seeks to advance the psychological science of culture, ethnicity, and race through the publication of empirical research, as well as theoretical, conceptual, and integrative review articles that will stimulate further empirical research, on basic and applied psychological issues relevant to racial and ethnic groups that have been historically subordinated, underrepresented, or underserved.
+
+
+[\textsc{Global Journal of Community Psychology Practice}](http://www.gjcpp.org/).
+:    The _Global Journal of Community Psychology Practice (GJCCP)_ is an e-journal for practitioners of community psychology and community improvement around the globe. We look forward to working with practitioners and applied researchers to share quality work and to foster a learning community that will contribute to ongoing advances in the broad field of Community Practice, both in psychology and related disciplines. We seek contributions from community practitioners in many fields, including community psychology, but also including community development, public health, community organizing and others. Please consider sharing your knowledge, insights and accomplishments with the practice community along with innovations that may help communities throughout the world.
+
+
+[\textsc{Health Education \& Behavior}](http://heb.sagepub.com/).
+:    The _Health Education \& Behavior (HEB)_ is a peer-reviewed bi-monthly journal that provides empirical research, case studies, program evaluations, literature reviews, and discussions of theories of health behavior and health status, as well as strategies to improve social and behavioral health. HEB also examines the processes of planning, implementing, managing, and assessing health education and social-behavioral interventions. This journal is a member of the Committee on Publication Ethics (COPE).
+
+
+[\textsc{Health Promotion Practice}](http://hpp.sagepub.com/).
+:    The _Health Promotion Practice (HPP)_ publishes authoritative, peer-reviewed articles devoted to the practical application of health promotion and education. The journal is unique in its focus on critical and strategic information for professionals engaged in the practice of developing, implementing, and evaluating health promotion and disease prevention programs. Health Promotion Practice will serve as a forum to explore the applications of health promotion/public health education interventions programs and best practice strategies in various settings, including but not limited to: community, health care, worksite, educational and international settings. It also examines practice-related issues, including program descriptions, teaching methods, needs assessment tools and methodologies, intervention strategies, health promotion, problem-solving issues, and evaluation presentations.
+
+
+[\textsc{Journal of Applied Social Psychology}](http://www.wiley.com/WileyCDA/WileyTitle/productCd-JASP.html).
+:    The _Journal of Applied Social Psychology_ is a monthly publication devoted to applications of experimental behavioral science research to problems of society (e.g., organizational and leadership psychology, safety, health, and gender issues; perceptions of war and natural hazards; jury deliberation; performance, AIDS, cancer, heart disease, exercise, and sports).
+
+
+[\textsc{Journal of Community \& Applied Social Psychology}](http://www.wiley.com/WileyCDA/WileyTitle/productCd-CASP.html).
+:    The _Journal of Community and Applied Social Psychology_ aims to complete a thorough review and assessment of papers, returning a first decision to authors, within 12 weeks of submission.
+
+
+[\textsc{Journal of Community Practice}](https://www.acosa.org/joomla/journalinfo).
+:    The _Journal of Community Practice: Organizing, Planning, Development \& Change_ is a interdisciplinary journal designed to provide a forum for community practice, including community organizing, planning, social administration, organizational development, community development and social change. The journal contributes to the development of knowledge related to numerous disciplines, including social work and the social sciences, urban planning, social and economic development, community organizing, policy analysis, urban and rural sociology, public administration, and nonprofit management. The Journal of Community Practice articulates contemporary issues, providing direction on how to think about social problems, developing approaches to dealing with them, and outlining ways to implement these concepts in classrooms and practice settings. As a forum for authors and a resource for readers, the Journal of Community Practice makes an invaluable contribution to community practice its conceptualization, applications, and practice. As the only journal focusing on community practice, it covers research, theory, practice, and curriculum strategies for the full range of work with communities and organizations.
+
+
+[\textsc{Journal of Community Psychology}](http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1520-6629).
+:    The _Journal of Community Psychology_ is a peer-reviewed journal devoted to research, evaluation, assessment and intervention, and review articles that deal with human behavior in community settings. Articles of interest include descriptions and evaluations of service programs and projects, studies of youth, parenting, and family development, methodology and design for work in the community, the interaction of groups in the larger community, and criminals and corrections.
+
+
+[\textsc{Journal of Health \& Social Behavior}](http://hsb.sagepub.com/).
+:    The _Journal of Health and Social Behavior (JHSB)_ is a medical sociology journal that publishes empirical and theoretical articles that apply sociological concepts and methods to the understanding of health and illness and the organization of medicine and health care. Its editorial policy favors manuscripts that are grounded in important theoretical issues in medical sociology or the sociology of mental health and that advance theoretical understanding of the processes by which social factors and human health are inter-related.
+
+
+[\textsc{Journal of Prevention \& Intervention in the Community}](http://www.tandfonline.com/action/journalInformation?journalCode=wpic20#.U1p9ieZdXTM).
+:    The _Journal of Prevention \& Intervention in the Community_ is on the cutting edge of social action and change, not only covering current thought and developments, but also defining future directions in the field. Under the editorship of Joseph R. Ferrari since 1995, Prevention in Human Services was retitled as theJournal of Prevention \& Intervention in the Community to reflect its focus of providing professionals with information on the leading, effective programs for community intervention and prevention of problems. Because of its intensive coverage of selected topics and the sheer length of each issue, the Journal of Prevention \& Intervention in the Community is the first–and in many cases, primary–source of information for mental health and human services development. This innovative journal is of interest not only to human services program administrators, clinical supervisors, planners, education specialists, and researchers, but also to health care and helping professionals in other fields where new methods of services delivery and new models of practice can be achieved within the community.
+
+
+[\textsc{Journal of Primary Prevention}](http://link.springer.com/journal/10935).
+:    The _Journal of Primary Prevention_ is dedicated to a better understanding of primary prevention theory, practice, and research. Primary prevention involves preventing predictable and interrelated problems, protecting existing states of health and healthy functioning, and promoting psychosocial wellness for identified populations of people. The journal publishes along the spectrum of prevention research including research on determinants, intervention development, intervention evaluation, methodology, dissemination, policy-to-practice, and meta-analyses. JPP particularly welcomes manuscripts on behaviors that may be established during childhood and adolescence that can lead to the major causes of morbidity, mortality, and poor quality of life in adult years. Both qualitative and quantitative studies are welcome. Content areas include, but are not limited to, intentional and unintentional injury, substance use, sexual behaviors, physical activity, nutrition, mental health, and school functioning. The journal also focuses on the major causes of disparities, social determinants, school- and community-based programs, cross-cultural comparisons, community-based participatory research, and factors contributing to social injustice.Specific types of papers published in the journal include original research, research methods and practice, brief reports, and literature reviews.
+
+
+[\textsc{Journal of Rural Community Psychology}](http://www.marshall.edu/jrcp/).
+:    The _Journal of Rural Community Psychology (JRCP)_ is a peer-reviewed, scholarly journal published in electronic form by Marshall University, in Huntington, West Virginia. This journal has been devoted to the dissemination of information related to the sociological, psychological and mental health issues in rural and small community settings.
+
+
+[\textsc{Journal of Social Issues}](https://www.spssi.org/index.cfm?fuseaction=page.viewpage&pageid=950).
+:    The _Journal of Social Issues (JSI)_ is the flagship journal of the Society for the Psychological Study of Social Issues. The goal of JSI is to communicate scientific findings and interpretations relevant to pressing social issues in a non-technical manner but without the sacrifice of professional standards.  Each issue of JSI is organized around an integral theme. Issues of the Journal are proposed and developed by social researchers, who serve as issue editors under the direction of the JSI board. JSI does not publish unsolicited manuscripts or book reviews. Our sister journal, Analyses of Social Issues and Public Policy (ASAP) accepts unsolicited manuscripts and book reviews.
+
+
+[\textsc{Psychiatric Rehabilitation Journal}](http://www.uspra.org/knowledge-center/psychiatric-rehabilitation-journal).
+:    The _Psychiatric Rehabilitation_ Journal is the official professional journal of PRA and features original contributions related to the rehabilitation, psychosocial treatment, and recovery of people with serious mental illnesses. PRJ's target audience includes psychiatric rehabilitation practitioners and researchers, as well as recipients of mental health and rehabilitation services.
+
+
+[\textsc{Psychology of Women Quarterly}](http://www.apadivisions.org/division-35/publications/journal/index.aspx).
+:    The _Psychology of Women Quarterly (PWQ)_ is the official journal of Division 35.  PWQ is a feminist, scientific, peer-reviewed journal that publishes empirical research, critical reviews and theoretical articles that advance a field of inquiry, brief reports on timely topics, teaching briefs, and invited book reviews related to the psychology of women and gender. Topics include (but are not limited to) feminist approaches, methodologies, and critiques; violence against women; body image and objectification; sexism, stereotyping, and discrimination; intersectionality of gender with other social locations (such as age, ability status, class, ethnicity, race, and sexual orientation); international concerns; lifespan development and change; physical and mental well being; therapeutic interventions; sexuality; social activism; and career development.
+
+
+[\textsc{Psychosocial Intervention/Intervenci\acute{o}n Psicosocial}](http://psychosocial-intervention.elsevier.es/en/vol-23-num-01/sumario/13018163/#.U1p7nOZdXTM).
+:    The Psychosocial Intervention is a peer-reviewed journal that publishes papers in all areas relevant to psychosocial intervention at the individual, family, social networks, organization, community, and population levels. The Journal emphasizes an evidence-based perspective and welcomes papers reporting original basic and applied research, program evaluation, and intervention results. The journal will also feature integrative reviews, and specialized papers on theoretical advances and methodological issues.
+
+
+[\textsc{Social Science \& Medicine}](http://www.journals.elsevier.com/social-science-and-medicine/).
+:    The _Social Science \& Medicine_ Journal provides an international and interdisciplinary forum for the dissemination of social science research on health. We publish original research articles (both empirical and theoretical), reviews, position papers and commentaries on health issues, to inform current research, policy and practice in all areas of common interest to social scientists, health practitioners, and policy makers. The journal publishes material relevant to any aspect of health from a wide range of social science disciplines (anthropology, economics, epidemiology, geography, policy, psychology, and sociology), and material relevant to the social sciences from any of the professions concerned with physical and mental health, health care, clinical practice, and health policy and organization. We encourage material which is of general interest to an international readership.
+
+[\textsc{The Community Psychologist}](http://www.scra27.org/publications/tcp/).
+:    _The Community Psychologist (TCP)_ is the Society for Community Research and Action's newsletter, provides an informal venue for SCRA members to exchange ideas and information. It includes briefreports and reflections on the practice of community research and action, as well as updates and announcements of interest to members. Regular features include columns on women's issues, public policy, international issues, students' concerns, racial and cultural affairs, and job opportunities. SCRA members receive three to four issues of TCP each year.
+
+
+[\textsc{Transcultural Psychiatry}](http://tps.sagepub.com/).
+:    The _Transcultural Psychiatry_ is a fully peer reviewed international journal that publishes original research and review articles on cultural psychiatry and mental health. Cultural psychiatry is concerned with the social and cultural determinants of psychopathology and psychosocial treatments of the range of mental and behavioural problems in individuals, families and communities. In addition to the clinical research methods of psychiatry, it draws from the disciplines of psychiatric epidemiology, medical anthropology and cultural psychology.
+
+
+[\textsc{Progress in Community Health Partnerships: Research, Education, \& Action}](https://www.press.jhu.edu/journals/progress_in_community_health_partnerships/).
+:    _Progress in Community Health Partnerships (PCHP)_ is a national, peer-reviewed journal whose mission is to identify and publicize model programs that use community partnerships to improve public health, promote progress in the methods of research and education involving community health partnerships, and stimulate action that will improve the health of people and communities. The first scholarly journal dedicated to Community-Based Participatory Research (CBPR), PCHP is a must for public health professionals and the libraries that serve them
+
+
+\newpage
+
+# Journal Statistics
+
+```{r }
+source("journals.R")
+```

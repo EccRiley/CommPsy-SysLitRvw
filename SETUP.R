@@ -273,7 +273,7 @@ mpal <- function(x, p = colsHC, a = 1, ...) { ## Random color palette generation
     if (class(x) == "data.frame") l <- nrow(x)
     else l <- length(x)
     s <- sample(p(l), l, replace = F)
-    adjustcolor(s, alpha.f = a)
+    s <- adjustcolor(s, alpha.f = a)
     return(s)
 }
 #'
@@ -306,7 +306,7 @@ thm_tft <- function(base_size = 12, base_family = "ETBembo", lpos = "right", ldi
         theme(plot.background = element_rect(colour = "transparent", fill = 'transparent'),
               plot.title = element_text(size = rel(1.25), face = "italic", colour = mypal[19]),
               plot.margin = unit(rep(0.15, 4), "cm"),
-              panel.margin = unit(0.15, "cm"),
+              panel.spacing = unit(0.15, "cm"),
               panel.background = element_blank(),
               panel.border = element_blank(),
               strip.text = element_text(size = rel(0.7), colour = mypal[20]),
@@ -389,7 +389,7 @@ thm_cl <- function(base_size = 12, base_family = "ETBembo") {
               legend.key.size = unit(0.35, "cm"),
               strip.text = element_text(colour = "#3d3d3d",size = rel(.85)),
               strip.background = element_rect(colour = "#708090", fill = "#ffffff"),
-              panel.margin = unit(0.2, "lines"),
+              panel.spacing = unit(0.2, "lines"),
               plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), "lines"),
               complete = TRUE)
 }
@@ -418,7 +418,7 @@ thm_tr <- function(base_size = 12, base_family = "Helvetica") {
         panel.border = element_rect(fill = NA, colour = mypal[20]),
         #   panel.grid.major = element_line(colour = "grey20", size = 0.2),
         #   panel.grid.minor = element_line(colour = "grey5", size = 0.5),
-        #   panel.margin = unit(0.25, "lines"),
+        #   panel.spacing = unit(0.25, "lines"),
         strip.background = element_rect(fill = mypal[20], colour = mypal[20]),
         strip.text = element_text(size = rel(0.8), colour = 'white'),
         strip.text.y = element_text(angle = -90, colour = 'white'),
@@ -454,7 +454,7 @@ thm_A <- function(base_size = 12, base_family = "Helvetica") {
               strip.background = element_rect(fill = mypal[20], colour = mypal[20]),
               strip.text.x = element_text(colour = mypal[1], size = rel(0.85), margin = margin(1,0,1,0), face = 'bold'),
               strip.text.y = element_text(angle = -90, colour = mypal[1], size = rel(0.85), margin = margin(1,0,1,0), face = 'bold'),
-              panel.margin = unit(0.2, "lines"),
+              panel.spacing = unit(0.2, "lines"),
               plot.margin = unit(c(0.75, 0.5, 0, 0.5), "lines"), #top, right, bottom, left
               plot.title = element_text(size = rel(1), colour = mypal[20], margin = margin(0,0,10,0), face = "bold"), #,
               complete = TRUE)
@@ -1233,7 +1233,14 @@ R.glmdf <- function(x){ ## "x" must be an object of class "summary.glm"...
                        p.value = p.x)
     return(x.df)
 }
-
+#'
+#' ## **`tdf()`**
+#'
+#' This is a simple convenience wrapper function to print or store `table`-class objects as `dataframes`.
+#'
+tdf <- function(x) {
+	as.data.frame(table(x))
+}
 #'
 #' ## Rmarkdown Rendering Shortcuts
 #'
