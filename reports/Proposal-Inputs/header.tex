@@ -52,6 +52,12 @@
 %
 \usepackage{setspace}
 \expandafter\def\expandafter\quote\expandafter{\quote\small\singlespacing\color{myblack!65}\vspace{-0.5\baselineskip}}
+
+\usepackage{enumitem}
+\setlist[itemize, 1]{leftmargin=2em, label=$\bullet$, partopsep=0em, topsep=0.15em}
+\setlist[itemize, 2]{leftmargin=4em, label=$\centerdot$, topsep=0em}
+% \setlength{\itemindent}{5in}
+
 %
 % ------------------- %
 % Make Links Standout
@@ -160,4 +166,9 @@
 % \newcommand{\Rerule}{\textcolor[HTML]{0a09a3}{\rule{\linewidth}{0.05mm}}}
 % \hdashrule [⟨raise⟩] [⟨leader⟩] {⟨width⟩} {⟨height⟩} {⟨dash⟩}
 
-\newcommand{\tdef}[3][-0.5em]{\rowgroup[#1]{\textsc{#2}} \newline {#3}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wrapper for Chi-Square %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\chisq}{\chi^{2}}
+\newcommand{\sq}{^{2}}

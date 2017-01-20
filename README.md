@@ -2,17 +2,17 @@
 
 I. Background & Significance
 
-II. Theoretical Grounding \(Community Psychology Lens\)
+II. Theoretical Grounding (Community Psychology Lens)
 
-III. Paper Parameters \/ Systematic Literature Review Methodology
+III. Paper Parameters / Systematic Literature Review Methodology
 
-\_A. Key literature search strategy\_
+_A. Key literature search strategy_
 
-\_B. Focal data bases\_
+_B. Focal data bases_
 
-\_C. Key search terms\_
+_C. Key search terms_
 
-\_D. Inclusion\/exclusion criteria\_
+_D. Inclusion/exclusion criteria_
 
 IV. Methodological Considerations
 
@@ -20,13 +20,12 @@ V. Integrative Literature Review
 
 VI. Critique of Literature
 
-\_A. Strengths\_
+_A. Strengths_
 
-\_B. Limitations\_
+_B. Limitations_
 
 VII. Summary of Findings
 
 VIII. Applied Implications
 
 IX. References
-

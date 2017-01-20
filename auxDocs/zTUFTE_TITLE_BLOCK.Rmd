@@ -1,0 +1,44 @@
+---
+title: " "
+date: " "
+---
+
+# A Community Engaged Approach to Address Intimate Partner Violence among Sexual Minority Women
+
+## by: Rachel M. Smith
+
+```{r fig.fullwidth = TRUE, echo = FALSE, fig.width = 8, out.width = '\\linewidth'}
+knitr::include_graphics('graphics/inputsPDF/intmodel.pdf')
+```
+
+
+
+\begin{center}
+
+\Large{\textit{A thesis submitted in partial fulfillment of the}} \\
+  
+  
+\Large{\textit{requirements for the degree of}} \\
+  
+  
+\Large{\textit{Master of Science}} \\
+  
+  
+\Large{\textit{in}} \\
+  
+  
+\Large{\textit{Psychology}}
+  
+  
+\end{center} 
+  
+   
+-----
+
+\begin{center}
+
+\textbf{\textit{Portland State University}} \\
+  
+\textit{`r format(Sys.Date(), '%d %b %Y')`}
+
+\end{center}

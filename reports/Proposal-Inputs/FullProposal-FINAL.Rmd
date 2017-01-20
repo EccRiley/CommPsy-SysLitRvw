@@ -1,0 +1,396 @@
+---
+title: " "
+author: " "
+date: " "
+---
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE}
+source("../SETUP.R")
+knitr::opts_chunk$set(
+    echo = FALSE,
+    cache = FALSE,
+    results = 'asis'
+    )
+```
+\newpage
+
+\newpage
+
+\begin{center}
+
+`r tufte::newthought("\\Huge{Integrating Theory, Methods, \\& Social Justice}")`
+
+\LARGE{by: Rachel M. Smith}
+
+\end{center}
+
+![](quill_small.png)
+
+\begin{center}
+
+\Large{\textit{Community Psychology Comprehensive Examination}} \\
+
+
+\Large{\textit{Major Area Paper Proposal}} \\
+
+
+\end{center}
+
+
+-----
+
+\begin{center}
+
+`r tufte::newthought("Portland State University")` \\
+
+7 December 2016
+
+\end{center}
+
+
+\newpage
+
+# Comprehensive Proposal Outline
+
+`r tufte::newthought("\\textbf{I.} Personal Statement")`
+
+`r tufte::newthought("\\textbf{II.} Foundational Coursework")`
+
+`r tufte::newthought("\\textbf{III.} Rational \\& Significance")`
+
+`r tufte::newthought("\\textbf{IV.} Major Area Paper (MAP) Outline")`
+
+`r tufte::newthought("\\textbf{V.} Relevance to Dissertation Topic")`
+
+`r tufte::newthought("\\textbf{VI.} Reading List")`
+
+
+# I. Personal Statement
+
+My research is strongly informed by my community-based work. Prior to beginning the graduate program here Oregon, I served as an shelter, crisis line, and legal advocate at an Atlanta-based intimate partner violence (IPV) response and prevention organization^[[Partnership Against Domestic Violence](padv.org) and the Safe Families Office at the Superior Court of Fulton County]. Serving as an advocate in multiple settings (i.e., crisis line, shelter, and legal services) allowed me to integrate my academic-based understanding of survivors' and perpetrators' experiences with the contextual framework of the structure and organization of local IPSV coordinated community response and prevention efforts.
+
+As a graduate student researcher, I have continued to be an active member of the violence intervention and prevention community in Oregon by working closely with a diverse network of community partners throughout the state to address the range of community health and social justice issues  intersecting with violence and oppression intervention and prevention efforts. In order to engrain myself as a researcher within local and statewide coordinated community response efforts in I relocated to Portland three months before my graduate studies would officially begin. During those initial three months, I began a 12-month internship with the [Oregon Attorney General's Sexual Assault Task Force's (ORSATF)](http://oregonsatf.org) Prevention and Education Subcommittee (PEC), became a founding member of a local community organizing group focused on engaging men as allies in efforts to prevent violence against women ([Men Engaging Now](https://www.facebook.com/MENPDX/)), and volunteered for and completed multiple trainings with the [YWCA of Greater Portland's Social Justice Program](http://www.ywcapdx.org/what-we-do/social-justice/).
+
+I have since served as an appointed advisory committee member with the ORSATF Prevention and Education Subcommittee and the prevention liaison for the ORSATF Offender Management Subcommittee. My work with the ORSATF included reviewing and updating the statewide sexual violence prevention plan and reviewing rape prevention and education grantee programs' progress and needs assessment data. I co-represented the state of Oregon and Portland State University as part of the ORSATF’s Campus Sexual Violence Prevention Workgroup's participation in a two-day sexual violence prevention action planning meeting hosted by the American Public Health Association and Centers for Disease Control and Prevention's Division of Violence Prevention in Atlanta, GA. This action planning meeting was conducted as part of the White House Task Force to Protect Students from Sexual Assault's "Not Alone" project.
+
+I also continued to participate in the Tri-County Batterer Intervention Providers Network monthly meetings, and continued my membership with the Men Engaging Now Coordinating Committee, with whom I have co-presented multiple lectures and workshops related to social justice activism and violence prevention. I also worked with the Oregon Center for Children and Youth with Special Healthcare Needs where I assisted with the data entry and analysis for the organization's state-wide needs assessment with Oregon families and healthcare providers.
+
+Collectively, these community-based activities facilitated my participation in Oregon's coordinated community response to ending violence against women and marginalized populations, and has led to several practical and intellectual resources vital to the success of my program of research. In particular, my community engagement provides access to the populations of interest for my research (i.e., LGBTQ women and women with histories of IPV perpetration and victimization), and insights on the design and implementation of my research activities.
+
+The knowledge and perspectives I have gained through my work in my local communities, both in Oregon as a graduate student researcher and previously in Atlanta, GA while completing my undergraduate degree, motivated the design and implementation of my National Science Foundation (NSF) Graduate Research Fellowship program of research. My Masters Thesis project constituted the first phase of my NSF-proposed program of research, in which I conducted a series of one-on-one interviews and one focus group with LGBTQ women recruited from the Greater Portland, OR area. The success of this project hinged on my ability to maintain working collaborative relationships with a variety of community-based professionals, who assisted with direct and indirect participant recruitment and who I am currently working with to disseminate the study's qualitative findings and corresponding recommendations for IPV-related government and community-based service providers in Oregon.
+
+Throughout the course of designing and implementing my Masters Thesis project, I also served as a graduate research assistant on a national survey of IPV intervention programs' standards committees. The data collection management for this study involved my coordination of fellow graduate and undergraduate research assistants to recruit one or more representatives from each U.S. state's IPV intervention programs' standards committee to participate in an audio-recorded telephone interview with a member from our research team. My responsibilities also included overseeing and participating in transcribing the telephone interview recordings, developing and implementing a data analysis plan for both the quantitative and qualitative interview data, and developing presentations and reports to be disseminated to relevant local and national stakeholders (e.g., Oregon's and other states' IPV intervention programs' standards committees, IPV intervention program providers, etc.).
+
+In addition to the project and organizational management skills gained from my roles in the latter national survey project and my Masters Thesis project, I used the unique circumstance of having two simultaneous leadership roles during my first two years of graduate school as an opportunity to further develop and apply several of the data analytic and presentation techniques I learned through my graduate coursework. I became proficient in developing and implementing team-based protocols for qualitative data analytic procedures including Grounded Theory methods [@charmaz2006constructing; @corbin1990basics], _thematic analysis_, and _content analysis_; as well as quantitive data analytic techniques for both categorical and continuous data (e.g., _cluster analysis_, _inter-rater reliability_, _factor analysis_, _multple linear regression_, _mixed-effects,_ and _structural equation modeling_, etc.). These data analytic skills have further allowed me to become proficient in multiple statistical programming software packages and languages including _R_, _SQL_, _Mplus_, _SAS_, and _SPSS_.
+
+## Readiness for Comprehensive Examination
+
+Collectively, my completed graduate coursework (see _Section A._) and the above outlined community-engaged research activities and experiences have prepared me to demonstrate my aptitude as a community psychology researcher and scholar. I therefore propose demonstrating my expertise in this field via the proposed _Major Area Paper_ (see _Section C._`), an oral examination on the paper's content and community psychological theory and research, and a written and oral examination in the _Community Methods_ minor area. Regarding the latter, because a large portion of my graduate coursework (see _Section A._) has focused on mixed-methods research, I believe my minor area examination would be most reflective of my graduate training in community psychology methods if it were specifically focused around _mixed-methods community psychology research_.
+
+# II. Completed Foundational Coursework
+
+```{r crswk}
+maj <-
+    data.frame(
+        CRN = c(" ",
+                "`PSY 610`",
+                "`PSY 614`",
+                "`PSY 610`",
+                "`PSY 510`",
+                "\\midrule"),
+        Title = c(
+            "\\rowgroup{\\textbf{\\textit{Major Area Coursework: Applied Social \\& Community Psychology}}}",
+            "Top: Community \\& Social Interventions",
+            "Advanced Applied Social Psychology \\& Community Psychology",
+            "Top: Program Evaluation",
+            "Top: Place-Based Research",
+            " "),
+        Grade = c(" ",
+                  "B+",
+                  "A",
+                  "A",
+                  "A",
+                  " "),
+        Hrs = c(" ", rep("`4`", 4),
+                " "),
+        Term = c(" ",
+                 "`FA-2013`",
+                 "`SP-2014`",
+                 "`FA-2014`",
+                 "`WI-2016`",
+                 " "))
+#
+# knitr::kable(maj, caption = "_Major Area Coursework: Applied
+#       Social \\& Community Psychology_",
+#       col.names = c("`CRN`",
+#                     "Title",
+#                     "Grade",
+#                     "Credit Hours",
+#                     "Term"),
+#       align = c('c', 'l', 'c', 'c', 'l'))
+#
+prac <-
+    data.frame(
+        CRN = c(" ",
+                "`PSY 609`",
+                "`PSY 609`",
+                "\\midrule"),
+        Title = c("\\rowgroup{\\textbf{\\textit{Applied Community Psychology Parctica}}}",
+                  "Prac: Violence Prevention I",
+                  "Prac: Violence Prevention II",
+                  " "),
+        Grade = c(" ",
+                  "P",
+                  "P",
+                  " "),
+        Hrs = c(" ",
+                rep("`1`", 2),
+                " "),
+        Term = c(" ",
+                 "`FA-2013`",
+                 "`WI-2014`",
+                 " "))
+
+# knitr::kable(prac, caption = "_Applied Community Psychology Parctica_",
+#       col.names = rep(" ", 5),
+#       align = c('c', 'l', 'c', 'c', 'l'))
+minr <-
+    data.frame(
+        CRN = c(" ",
+                "`SOC 610`",
+                "`SOC 610`",
+                "`PSY 510`",
+                "`SOC 610`",
+                "`PSY 597`",
+                "`PSY 510`",
+                "`PSY 610`",
+                "\\midrule"),
+        Title = c("\\rowgroup{\\textbf{\\textit{Minor Area Coursework: Mixed Methods Research}}}",
+                  "Focus Groups",
+                  "Qualitative Data Analysis",
+                  "HLM/Mixed Effects Models for Longitudinal Data Analysis",
+                  "Mixed Methods Research",
+                  "Applied Survey Research",
+                  "Categorical Data Analysis",
+                  "Structural Equation Modeling",
+                  " "),
+        Grade = c(" ",
+                  "A",
+                  "A",
+                  "A",
+                  "A",
+                  "A-",
+                  "A",
+                  "IP",
+                  " "),
+        Hrs = c(" ",
+                rep("`4`", 7),
+                " "),
+        Term = c(" ",
+                 "`SP-2014`",
+                 "`FA-2014`",
+                 "`WI-2015`",
+                 "`WI-2015`",
+                 "`SP-2015`",
+                 "`FA-2016`",
+                 "`WI-2017`",
+                 " "))
+
+# knitr::kable(minr, caption = "_Minor Area Coursework: Mixed Methods Research_",
+#       col.names = rep(" ", 5),
+#       align = c('c', 'l', 'c', 'c', 'l'))
+reqr <-
+    data.frame(
+        CRN = c(" ",
+                "`PSY 621`",
+                "`PSY 618`",
+                "`PSY 622`",
+                "`PSY 624`",
+                " "),
+        Title = c("\\rowgroup{\\textbf{\\textit{Research Methods \\& Statistics Coursework Required by Program}}}",
+                  "Univariate Quantitative Methods",
+                  "Ethics \\& Professional Issues in Applied Research and Practice",
+                  "Multiple Regression \\& Multivariate Quantitative Methods",
+                  "Research Design in Applied Psychology",
+                  " "),
+        Grade = c(" ",
+                  "A-",
+                  "A",
+                  "B+",
+                  "A",
+                  " "),
+        Hrs = c(" ",
+                rep(c("`5`", "`4`"), 2),
+                " "),
+        Term = c(" ",
+                 "`FA-2013`",
+                 "`WI-2014`",
+                 "`WI-2014`",
+                 "`SP-2014`",
+                 " "))
+
+all <- rbind(maj, prac, minr, reqr) %>% as.data.frame()
+
+
+# knitr::kable(reqr, caption = "_Research Methods \\& Statistics Coursework Required by Program_",
+#       col.names = rep(" ", 5),
+#       align = c('c', 'l', 'c', 'c', 'l'))
+clmns <- paste0("**",
+               c("`CRN`",
+                 "Title",
+                 "Grade",
+                 "Credit Hours",
+                 "Term"),
+               "**")
+
+knitr::kable(all, col.names = clmns, align = c('c', 'l', 'c', 'c', 'l'))
+
+```
+
+# III. Rationale <!--`(1 page)`-->
+
+There are two core components of my action-oriented research framework: (1) a focus on developing and implementing innovative and inclusive research methodologies, data analytic approaches, and dissemination strategies; and (2) a diligent focus on the importance of critical reflexivity throughout the research process. The action-oriented and values-transparent community psychological research approach was born out of a resistance to research methodologies, social policies, and implementation practices that ultimately served to reinforce and/or strengthen social and economic inequalities. This foundation necessitates vigilance in critical reflexivity throughout and beyond the research process. The critical literature review I am proposing here is intended to serve this key characteristic of community psychology.
+
+# IV Major Area Paper Outline <!--`(2-3 pages)`-->
+
+## Background \& Significance
+
+I propose conducting a systematic critical review of research conducted with marginalized populations, with a specific focus on violence-related research with sexual minority women (SMW).^[[see relevance to dissertation topic]] The critical review will attempt to map core components of community psychological theory and methodologies to the body of research available under the above-defined content and research discipline scopes. In particular, I am interested in evaluating the extent to which community psychological theory and methodologies are implemented, or not, in community psychology-based research related to the phenomenon of interest (i.e., intimate partner violence). I am further interested in examining how the implementation of community psychological research has evolved over time since the origination of the field, as well as potential trajectories based on the current state of discourse within Community Psychology and closely related research and practice disciplines.
+
+Community psychological theory values the notion that the communities in which research is taking place and/or affecting (whether directly or indirectly) should be as involved as possible in all phases of the research process, rather than solely as anonymous data points in the analysis. Community psychology thus favors inclusion over exclusion, participant voices equally with researchers' voices, and participatory and/or purposive sampling methods over convenience sampling methods. The reviewed literature will be evaluated and critiqued according to these types of community psychological standards regarding (1) _research methodologies_, (2) _data analytic approaches_, (3) _interpretations of findings_, and (4) _research dissemination._
+
+
+## Theoretical Grounding
+
+In a sense, the proposed review's theoretical grounding is best summarized in terms of the of the Community Psychology Practice Council's [_"Theory into Action Bulletin"_](http://www.scra27.org/what-we-do/practice/practice-council-initatives/theory-action-bulletin/)^[[Society for Community Research and Action (SCRA)](http://www.scra27.org/)]. The review will be grounded in theories related to action-oriented research and their applications [@chandler2003transforming; @brydon-miller2003why; @friedman-nimz2006blending; @kelly2004community; @noffke1997professional; @prilleltensky2001value-based; @prilleltensky1997values; @seidman2012emerging], as well as social and community psychological theories related to female same-sex intimate partner violence. In particular, I am interested in the intersections that exist across these theoretical, methodological, and problem-specific domains in terms of their actual applications and manifestations in various settings. Below is a list of theoretical and conceptual frameworks specifically guiding the proposed review.
+
+`r tufte::newthought("Theory Specific to Community Psychology (CP):")`
+
+- _The Action Research Cycle & Community-Based Participatory Action Research_ [CBPR; @fine2004participatory; @chandler2003transforming; @brydon-miller2003why; @friedman-nimz2006blending; @kelly2004community; @noffke1997professional; @prilleltensky2001value-based; @prilleltensky1997values; @seidman2012emerging; @anders1966action]
+- _Ecological systems theory and the Social Ecological Model_ [@stokols1996translating; @visser2007social; @walker2006handful; @centers2015social; @kloos2009social; @anderies2004framework; @baral2013modified; @stokols1996translating]
+- _Community Empowerment & Individual Empowerment_ [@speer1995community; @riger1993what; @beeker1998community; @cobb1993empowerment; @collins2002black]
+- _[Community] Health Promotion_ [@stokols1996translating]
+
+`r tufte::newthought("Theory Related to both Community Psychology and IPV Intervention and Prevention:")`
+
+- _Coordinated Community Response_ [CCR; @gondolf2007theoretical; @barner2011interventions; @dutton2007duluth]
+- _Minority Stress Theory & Resilience_ [MS; @meyer2003prejudice; @meyer2010right; @meyer1995minority; @meyer2015resilience]
+- _Risk Factors vs. Protective Factors_ [@baral2013modified; @whitaker2014linking; @tharp2013systematic; @walton-moss2005risk; @heckert2004battered]
+
+`r tufte::newthought("Intersecting Community Psychology Theory \\& Research Methodology")`
+
+- _Grounded Theory Methods_ [@charmaz2006constructing; @corbin1990basics; @strauss1994grounded]
+- _Mixed-Methods Research_ [@morgan2014mmr; @creswell2013research; @greene1989toward; @johnson2007toward]
+- _Program Evaluation_ [@greene1989toward; @kidder1987qualitative; @mertens2012program; @owen1999program; @royse2009program]
+
+## Paper Parameters / Systematic Literature Review Methodology
+
+`r tufte::newthought("A. Key literature search strategy")`
+
+The scope of reviewed research will include published work in the Community Psychology discipline, as well as research published in related fields such as Social and Clinical Psychology, Social Work, Public Health, and Sociology.
+
+`r tufte::newthought("B. Focal data bases.")` The collection process will primarily utilize the robust literature search capabilities provided by _PsychInfo_, _Google Scholar_, and _Web of Science/Web of Knowledge_. In addition, resources specific to community psychology, including _The American Journal of Community Psychology_, [_"Theory into Action Bulletin"_](http://www.scra27.org/what-we-do/practice/practice-council-initatives/theory-action-bulletin/), and [_"The Community Toolbox" (TCB)_](http://ctb.ku.edu/en), will be surveyed as potential sources of information for this review. In the case that these databases and resources do not collectively yield a substantial sample of literature appropriate under the parameters of this review, additional databases from related research fields will be used in finding additional research for inclusion in the review. Potential additional databases include the _Gender Studies Database_ (Social Psychology and Sociology), _PubMed_ (Public Health and Clinical Psychology), and _Social Services Abstracts_ (Social Work).
+
+`r tufte::newthought("C. Key search terms.")` Key search terms will focus on both the focal research content area for this paper (i.e., female same-sex intimate partner vioelence) and terms related to community-psychological methods or theories. Sample _Boolean_ search queries are provied below to demonstrate this aspect of the proposed search methodology.
+
+- `("intimate partner violence" OR "domestic violence") OR (Aggression OR violence) `
+- `("intimate partner violence" OR "domestic violence") AND (intervention OR evaluation)`
+- `("intimate partner violence" OR "domestic violence") AND (prevention)`
+- `("intimate partner violence" OR "domestic violence") OR (Aggression OR violence) AND (lesbian OR bisexual OR "sexual minority") AND women`
+- `female AND ("same-sex" OR "same-gender") AND ("intimate partner violence" OR "domestic violence") AND (intervention OR evaluation)`
+- `female AND ("same-sex" OR "same-gender") AND ("intimate partner violence" OR "domestic violence") AND (ecological OR multilevel)`
+
+`r tufte::newthought("D. Inclusion/exclusion criteria.")`
+
+- **Dates published**: Between 1965 & 2016
+- **Topics**:
+    - Intimate partner violence (IPV) among sexual minority women (causes, correlates, and/or consequences)
+    - IPV intervention and/or prevention strategies/approaches
+    - IPV intervention and/or prevention program evaluation
+- **Research & Practice Fields/Frameworks**:
+    - Community Psychology
+    - Other Psychology Sub-fields (Social, Clinical, Organizational)
+    - Sociology
+    - Public Health
+    - Social Work
+
+
+## Integrative Literature Review & Critique of Literature
+
+Research conducted within the subset of community psychology focused around intimate partner violence will be initially evaluated according to the level of inclusion and exclusion of the historically marginalized population of interest (i.e., sexual minority women). The implementation of community psychology methodologies and analytic approaches will then be reviewed within each of these categories (i.e., inclusion or exclusion of sexual minority women) in terms of (1) the appropriateness of the methods to the research question, (2) how the methods facilitated the inclusion or exclusion of sexual minority women, and (3) whether and how (where applicable) exclusion of sexual minority women is justified. 
+
+## Summary of Findings & Applied Implications
+
+`r tufte::newthought("1. Methodological Considerations.")` Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
+
+`r tufte::newthought("3. Interpretations of Findings.")` Is feedback from key stakeholders and informants to the research accepted and genuinely considered by the core research team? Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
+
+`r tufte::newthought("4. Research Dissemination.")` Are key stakeholders and informants to the research given access to reports of a given project's progress and/or findings? Is such access in fact accessible (i.e., free and easy to locate)?
+
+
+# V. Relevance to Dissertation Topic <!--`(1 page)`-->
+
+The proposed review paper is motivated by the program of research I have pursued over the past three years. I intend to continue pursuing this program of research via my dissertation. This program of research is focused on developing comprehensive and intersectional intimate partner violence (IPV) prevention strategies specific to the experiences and needs of historically marginalized populations.
+
+## Dissertation Topic Background
+
+My Masters thesis project served as the first phase of this research program. The purposes of this study were to (1) inform the finalization of a working intersectional model of same-gender IPV among sexual minority women, and (2) evaluate the face, construct, content validity, and coverage of existing survey measures related to the model's constructs in terms of their relevance and accuracy to sexual minority women's experiences and identities. A series of in-depth semi-structured, open-ended one-on-one interviews (n=10) and one focus group (ngroup=4) were conducted with fourteen lesbian, gay, bisexual, transgender, and queer (LGBTQ) women in Portland, Oregon. Individuals were recruited and engaged in the study via a combination of purposive and convenience sampling methods aided by involvement of multiple community partners working in violence and education related fields. Interview and focus group questions addressed participants' experiences with gender role stress and minority stress. Grounded theory analysis of participants' narrative responses informed the coverage and relevance of constructs in a working intersectional model predicting women's use of violence in their same-gender intimate relationships. Findings from this analysis support an intersectional and contextually-minded approach to IPV intervention and prevention strategies.
+
+## Intended Dissertation Research
+
+The first exploratory phase's findings and corresponding conclusions will directly inform the work for my dissertation, which will constitute the second phase of this research program. Specifically, I will use insights gained from this first phase of of research to make necessary revisions to the evaluated survey measures, and the modified measures will be used in the second phase of research to collect data from 200-300 LGBTQ women recruited from the greater Portland, OR area. The intersectional model will be subsequently tested for fit using these data, and findings from this second phase will be used in collaboration with local community partners to develop strategies for IPV intervention and prevention specifically tailored to the experiences, identities, and needs of LGBTQ women.
+
+## Proposed Review Paper's Relevance
+
+The theoretical and methodological groundings for the proposed review paper have and continue to serve as guiding frameworks for the above-described program of research. Further, the proposed critical review of community psychological theory and methodology applications aligns with the critical review I conducted as part of my Masters Thesis, which focused on the influence and consequences of second-wave feminism on IPV-related research, activism, policy, and practice. Through the latter critical review process, I developed a comprehensive understanding of the context in which the research area I am pursuing is situated. Similarly, I intend to utilize the proposed review paper as an in-depth critical reflection on the community psychology-specific context in which my dissertation research will be conducted.
+
+# VI. Reading List
+
+1. @anderies2004framework
+2. @anders1966action
+3. @baral2013modified
+4. @barner2011interventions
+5. @beeker1998community
+6. @brydon-miller2003why
+7. @centers2015social
+8. @chandler2003transforming
+9. @charmaz2006constructing
+10. @cobb1993empowerment
+11. @collins2002black
+12. @corbin1990basics
+13. @creswell2013research
+14. @dutton2007duluth
+15. @fine2004participatory
+16. @friedman-nimz2006blending
+17. @gondolf2007theoretical
+18. @greene1989toward
+19. @heckert2004battered
+20. @johnson2007toward
+21. @kelly2004community
+22. @kidder1987qualitative
+23. @kloos2009social
+24. @mertens2012program
+25. @meyer1995minority
+26. @meyer2003prejudice
+27. @meyer2010right
+28. @meyer2015resilience
+29. @morgan2014mmr
+30. @noffke1997professional
+31. @owen1999program
+32. @prilleltensky1997values
+33. @prilleltensky2001value-based
+34. @riger1993what
+35. @royse2009program
+36. @seidman2012emerging
+37. @speer1995community
+38. @stokols1996translating
+39. @strauss1994grounded
+40. @tharp2013systematic
+41. @visser2007social
+42. @walker2006handful
+43. @walton-moss2005risk
+44. @whitaker2014linking
+
+
+
+# References
