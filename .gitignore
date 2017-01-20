@@ -33,3 +33,11 @@ book.pdf
 book.epub
 book.mobi
 >>>>>>> origin/master
+
+_output.yml
+
+.Rapp.history
+
+.Rhistory
+
+comps-r alias
