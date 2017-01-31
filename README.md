@@ -1,4 +1,4 @@
-# Community Psychology Comprehensive Exam
+# Major Area Paper Outline
 
 I. Background & Significance
 
