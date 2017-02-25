@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 #'
 
 
-Title <- c("Action Research", "American Journal of Community Psychology", "American Journal of Health Promotion", "American Journal of Orthopsychiatry", "American Journal of Preventive Medicine", "American Journal of Public Health", "Australian Community Psychologist", "Community Development", "Community Development Journal", "Community Mental Health Journal", "Community Psychology in Global Perspective", "Cultural Diversity and Ethnic Minority Psychology", "Global Journal of Community Psychology Practice", "Health Education and Behavior", "Health Promotion Practice", "Journal of Applied Social Psychology", "Journal of Community and Applied Social Psychology", "Journal of Community Practice", "Journal of Health and Social Behavior", "Journal of Prevention and Intervention", "Journal of Primary Prevention", "Journal of Rural Community Psychology", "Journal of Social Issues", "Journal of Community Psychology", "Psychiatric Rehabilitation Journal", "Psychology of Women Quarterly", "Psychosocial Intervention", "Social Science and Medicine", "The Community Psychologist", "Transcultural Psychiatry", "Progress in Community Health Partnerships: Research, Education, and Action")
+JOURNAL <- c("Action Research", "American Journal of Community Psychology", "American Journal of Health Promotion", "American Journal of Orthopsychiatry", "American Journal of Preventive Medicine", "American Journal of Public Health", "Australian Community Psychologist", "Community Development", "Community Development Journal", "Community Mental Health Journal", "Community Psychology in Global Perspective", "Cultural Diversity and Ethnic Minority Psychology", "Global Journal of Community Psychology Practice", "Health Education and Behavior", "Health Promotion Practice", "Journal of Applied Social Psychology", "Journal of Community and Applied Social Psychology", "Journal of Community Practice", "Journal of Health and Social Behavior", "Journal of Prevention and Intervention", "Journal of Primary Prevention", "Journal of Rural Community Psychology", "Journal of Social Issues", "Journal of Community Psychology", "Psychiatric Rehabilitation Journal", "Psychology of Women Quarterly", "Psychosocial Intervention", "Social Science and Medicine", "The Community Psychologist", "Transcultural Psychiatry", "Progress in Community Health Partnerships: Research, Education, and Action")
 
 Year <- c(2003, 1973, 1986, 1930, 1985, 1971, 2006, 2005, 1966, 1965, 2015, 1995, 2010, 1997, 2000, 1971, 1991, 1994, 1967, 1996, 1981, 1980, 1997, 1973, 1996, 1976, 2011, 1967, 1975, 1997, 2007)
 
@@ -48,7 +48,7 @@ HealthProf <- c(rep(0, 21), 1, 0, 0, 1, 0, 0, 0, 1, 0, 0)
 
 Location <- c("UK", "US", "US", "US", "US", "US", "AU", "UK", "UK", "NL", "IT", "US", "US", "US", "US", "UK", "UK", "US", "US", "US", "US", "US", "UK", "US", "US", "UK", "ES", "UK", "US", "UK", "US")
 
-dat <- data.frame(Title, Location, Year, SJR, H)
+dat <- data.frame(JOURNAL, Location, Year, SJR, H)
 
 dat.subj <- data.frame(Med, Psych, SocSci, Biz, AH, Nurs, HealthProf)
 dat.subj$Nsubj <- apply(dat.subj, 1, sum)

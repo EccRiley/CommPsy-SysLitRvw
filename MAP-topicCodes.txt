@@ -1,0 +1,64 @@
+odoherty2016receiving: VI, HS-V
+sargent2016evaluating: EDU
+hackett2016therapeutic: VI, MH
+radatz2016integrating: BI, CJ, PR-EFF, EVAL, EMPL, EV-FRM, EV-PROC
+fox2015development: M, MDEV, ATT
+trebow2015outcomes: BI, PO, CC, EVAL, EV-SUM
+howell2015strengthening: VI, PAR, EMPW, EVAL, EV-SUM, PR-EFF
+ermentrout2014this: VI, CH, IFEAS, IDEV, EVAL, EV-FRM
+boal2014impact: BI, BIST, POL, IMPT, EVAL, EV-SUM
+boal2014barriers: BI, BIST, IMPL, EV-PROC, EVAL
+kan2014can: CPI, CH-AB, PO, PSYED, PR-EFF, EVAL, EV-SUM
+levesque2012evaluation: BI, EINT, PO, EVAL, EV-SUM
+portwood2011evaluation: CRI, CH-AB, PPREV, PRE-EFF, EVAL, EV-SUM
+potter2011bringing: SMC, BYS, IDEV, PR-DESCR, EVAL, EV-FRM, EV-DESCR
+feder2011need: PREV, EVAL, MTHDS-DESCR, IMPL
+enriquez2010development: PREV, IDEV, IFEAS, EVAL, EV-FRM
+welland2010culturally: BI, CS, IDEV, EVAL, EV-FRM
+price2009batterer: BI, PR-DESCR, EVAL, EV-PROC
+spangaro2009elusive: VS, SCR-V, HLTHCR
+gillum2008benefits: VI, CS, PR-EFF, EVAL, EV-SUM
+roffman2008mens: BI, MET, VOL-P, PO, EVAL, EV-SUM, RM-FEAS
+saunders2008group: BI, CCR, PR-DESCR, PR-EFF, EVAL, EV-SUM, CS
+contrino2007compliance: BI, PO, EVAL, PR-EFF, IMPT, EV-SUM
+muftic2007evaluation: CCR, BI, PO, EVAL, PR-EFF, EV-SUM
+hendricks2006recidivism: BI, PO, PR-EFF, EVAL, EV-SUM
+hovell2006evaluation: CJ, CJ-PLC-R, VS, PO, FVRT, PR-EFF, EVAL, EV-SUM
+silvergleid2006how: BI, EVAL, EV-PROC, EV-DESCR, IDEV, EV-FRM
+foshee2004assessing: PREV, SPREV, EVAL, PR-EFF, EV-SUM
+sullivan2002findings: VI, VS, PR-EFF, STRB, EVAL, EV-SUM
+gregory2002effects: V-PERSP, PR-EFF, MAND-P, PO, EVAL, EV-SUM
+oneill2001pragmatic: BI, PR-DESCR, MTHDS-DESCR, EV-DESCR, EV-PROC, EVAL, EV-FRM
+morgan2001pragmatic: BI, EVAL, EV-SUM, PO
+thompson2000identification: VS, HLTHCR, SCR-V, EDU, EV-SUM, PR-EFF
+loughlin2000emergency: VS, HLTHCR, EDU, SCR-V, PR-DESCR, EV-DESCR, EV-FRM, EVAL, EV-SUM, PR-EFF
+gondolf1999comparison: BI, EVAL, EV-SUM, PR-EFF, PO
+chalk1998assessing: BI, PREV, EVAL, EV-SUM
+rumptz1991ecological: VS, RM-FEAS, EVAL, EV-SUM, PR-EFF
+lewis2017empirical: RF-P, MDL-TST, ANT-P
+kelley2015discrepant: MDL-TST, CORR-P
+lewis2015emotional: BPV, MDL-TST, ANT-B, CORR-B, RF-B
+reuter2015exploratory: EXPL, TDV, RF-P
+wurtzburg2013review: NA
+kanuha2013relationships: IDX, CTXT, VDYN
+porter2011intimate: IDX, PRVL
+klostermann2011alcoholism: PRVL, HS-FCTRS, COMOR
+hardesty2011lesbian/bisexual: HS0FCTRS, V-PERSP, IDX, HS-V
+oswald2010lesbian: HS-V, HS-EXP, MHPR
+pierre2010external: HS-FCTRS, HS-BAR, MDL-TST
+brown2009perceptions: VS, VS-PERSP, VS-BIAS
+eaton2008examining: CORR-V, CTXT-MOD, HS-BAR, RPT-BAR, RSKB
+mckenry2006perpetration: EMPW, DEMPW, MDL-TST, ANT-P, CORR-P
+heintz2006intimate: COMOR, RSKB, RF
+seelau2005gender-role: REPL, PERSP, ATT
+golden2004exploring: NA
+fortunata2003demographic: CHR-P
+ristock2003review: NA
+kaschak2003review: NA
+worcester2002womens: NA
+giorgio2002speaking: V-PERSP, ID
+bernhard2000physical: VDYN, VRSP
+wise1997comparison: MHPR, PERSP
+lockhart1994letting: EXPL, PRVL, CORR, VDYN
+hamberger1994domestic: SOF
+coleman1994lesbian: CHR-P, CORR-P

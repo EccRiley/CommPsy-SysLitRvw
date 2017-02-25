@@ -7,8 +7,8 @@
 #+ setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE
 source("../SETUP.R")
 knitr::opts_chunk$set(
-    tidy = FALSE,
-    echo = FALSE,
+    tidy = TRUE,
+    echo = TRUE,
     cache = FALSE,
     fig.keep = 'high',
     fig.show = 'hold',
@@ -21,6 +21,102 @@ knitr::opts_chunk$set(
     fig.height = 7,
     out.width = "\\linewidth"
     )
+rpm()
+#'
+#' \newpage
+#'
+bib <- readLines("MAP.bib")
+keys <- bib[grep("\\@.*?\\{.*?,", bib, perl = TRUE)]
+keys <- gsub("\\@\\w+\\{(.*?)", "\\1", keys, perl = TRUE)
+keys <- keys[!grepl("\\%.*?,", keys, perl = TRUE)]
+keys <- gsub(" ", NA_character_, keys)
+bibdf <- bib2df("MAP.bib")
+bibdf <- bibdf[!is.na(bibdf$TITLE), ] %>% data.frame
+
+firstauth <- function(x) {
+	y <- c(seq(1:nrow(x)))
+	for(i in 1:nrow(x)) {
+		y[i] <- x$AUTHOR[[i]][1]
+	}
+	# y <- gsub("\\\"(.*?),.*?", "\\1", as.character(y), perl = TRUE)
+	return(y)
+}
+
+x <- firstauth(bibdf) %>% sort %>% as.data.frame
+
+firstauth <- bibdf$AUTHOR[grep("\\w+,", (bibdf$AUTHOR), perl = TRUE)]
+dt(bibdf)
+
+keys <- bib[grep("\\@.*?\\{.*?,", bib, perl = TRUE)]
+Etype <- gsub("\\@(.*?)\\{.*?,", "\\@\\1", keys, perl = TRUE)
+
+address <- bib[grep("address=\\{.*?\\},", bib, perl = TRUE)]
+annote <- bib[grep("annote=\\{.*?\\},", bib, perl = TRUE)]
+author <- bib[grep("author=\\{.*?\\},", bib, perl = TRUE)]
+booktitle <- bib[grep("booktitle=\\{.*?\\},", bib, perl = TRUE)]
+chapter <- bib[grep("chapter=\\{.*?\\},", bib, perl = TRUE)]
+crossref <- bib[grep("crossref=\\{.*?\\},", bib, perl = TRUE)]
+edition <- bib[grep("edition=\\{.*?\\},", bib, perl = TRUE)]
+editor <- bib[grep("editor=\\{.*?\\},", bib, perl = TRUE)]
+howpublished <- bib[grep("howpublished=\\{.*?\\},", bib, perl = TRUE)]
+institution <- bib[grep("institution=\\{.*?\\},", bib, perl = TRUE)]
+journal <- bib[grep("journal=\\{.*?\\},", bib, perl = TRUE)]
+key <- bib[grep("key=\\{.*?\\},", bib, perl = TRUE)]
+month <- bib[grep("month=\\{.*?\\},", bib, perl = TRUE)]
+note <- bib[grep("note=\\{.*?\\},", bib, perl = TRUE)]
+number <- bib[grep("number=\\{.*?\\},", bib, perl = TRUE)]
+organization <- bib[grep("organization=\\{.*?\\},", bib, perl = TRUE)]
+pages <- bib[grep("pages=\\{.*?\\},", bib, perl = TRUE)]
+publisher <- bib[grep("publisher=\\{.*?\\},", bib, perl = TRUE)]
+school <- bib[grep("school=\\{.*?\\},", bib, perl = TRUE)]
+series <- bib[grep("series=\\{.*?\\},", bib, perl = TRUE)]
+title <- bib[grep("title=\\{.*?\\},", bib, perl = TRUE)]
+type <- bib[grep("type=\\{.*?\\},", bib, perl = TRUE)]
+volume <- bib[grep("volume=\\{.*?\\},", bib, perl = TRUE)]
+year <- bib[grep("year=\\{.*?\\},", bib, perl = TRUE)]
+
+
+# f <- function(x, bib) {
+	# bib <- readLines(bib)
+	# y <- bib[grep(paste0(x, "=\\{.*?\\},"), bib, perl = TRUE)]
+	# # y <- gsub("[ ]+", x, "=\\{(.*?)\\},", "\\1", y, perl = TRUE)
+	# return(y)
+# }
+
+# bib <- "MAP.bib"
+x <- c("address", "annote", "author", "booktitle", "chapter", "crossref", "edition", 
+	"editor", "howpublished", "institution", "journal", "key", "month", "note", "number", 
+	"organization", "pages", "publisher", "school", "series", "title", "type", "volume", 
+	"year")
+
+# bib1 <- sapply(x, f, bib = bib)
+
+address <- gsub("[ ]+address=\\{(.*?)\\},", "\\1", address, perl = TRUE)
+annote <- gsub("[ ]+annote=\\{(.*?)\\},", "\\1", annote, perl = TRUE)
+author <- gsub("[ ]+author=\\{(.*?)\\},", "\\1", author, perl = TRUE)
+booktitle <- gsub("[ ]+booktitle=\\{(.*?)\\},", "\\1", booktitle, perl = TRUE)
+chapter <- gsub("[ ]+chapter=\\{(.*?)\\},", "\\1", chapter, perl = TRUE)
+crossref <- gsub("[ ]+crossref=\\{(.*?)\\},", "\\1", crossref, perl = TRUE)
+edition <- gsub("[ ]+edition=\\{(.*?)\\},", "\\1", edition, perl = TRUE)
+editor <- gsub("[ ]+editor=\\{(.*?)\\},", "\\1", editor, perl = TRUE)
+howpublished <- gsub("[ ]+howpublished=\\{(.*?)\\},", "\\1", howpublished, perl = TRUE)
+institution <- gsub("[ ]+institution=\\{(.*?)\\},", "\\1", institution, perl = TRUE)
+journal <- gsub("[ ]+journal=\\{(.*?)\\},", "\\1", journal, perl = TRUE)
+month <- gsub("[ ]+month=\\{(.*?)\\},", "\\1", month, perl = TRUE)
+note <- gsub("[ ]+note=\\{(.*?)\\},", "\\1", note, perl = TRUE)
+number <- gsub("[ ]+number=\\{(.*?)\\},", "\\1", number, perl = TRUE)
+organization <- gsub("[ ]+organization=\\{(.*?)\\},", "\\1", organization, perl = TRUE)
+pages <- gsub("[ ]+pages=\\{(.*?)\\},", "\\1", pages, perl = TRUE)
+publisher <- gsub("[ ]+publisher=\\{(.*?)\\},", "\\1", publisher, perl = TRUE)
+school <- gsub("[ ]+school=\\{(.*?)\\},", "\\1", school, perl = TRUE)
+series <- gsub("[ ]+series=\\{(.*?)\\},", "\\1", series, perl = TRUE)
+title <- gsub("[ ]+title=\\{(.*?)\\},", "\\1", title, perl = TRUE)
+type <- gsub("[ ]+type=\\{(.*?)\\},", "\\1", type, perl = TRUE)
+volume <- gsub("[ ]+volume=\\{(.*?)\\},", "\\1", volume, perl = TRUE)
+year <- gsub("[ ]+year=\\{(.*?)\\},", "\\1", year, perl = TRUE)
+
+x <- list(address = address, annote = annote, author = author, booktitle = booktitle, chapter = chapter, crossref = crossref, edition = edition, editor = editor, howpublished = howpublished, institution = institution, journal = journal, key = key, month = month, note = note, number = number, organization = organization, pages = pages, publisher = publisher, school = school, series = series, title = title, type = type, volume = volume, year = year)
+
 #'
 #' # BibEntry Types
 #'
@@ -118,89 +214,3 @@ knitr::opts_chunk$set(
 #'
 #' Table: BibEntry Fields
 #'
-#'
-#' ewpage
-#'
-#+
-bib <- readLines("MAP.bib")
-
-keys <- bib[grep("\\@\\w+\\{.*?,", bib, perl = TRUE)]
-Etype <- gsub("\\@(.*?)\\{.*?,", "\\@\\1", keys, perl = TRUE)
-keys <- gsub("\\@\\w+\\{(.*?)", "\\@\\1", keys, perl = TRUE)
-
-
-address <- bib[grep("address=\\{.*?\\},", bib, perl = TRUE)]
-annote <- bib[grep("annote=\\{.*?\\},", bib, perl = TRUE)]
-author <- bib[grep("author=\\{.*?\\},", bib, perl = TRUE)]
-booktitle <- bib[grep("booktitle=\\{.*?\\},", bib, perl = TRUE)]
-chapter <- bib[grep("chapter=\\{.*?\\},", bib, perl = TRUE)]
-crossref <- bib[grep("crossref=\\{.*?\\},", bib, perl = TRUE)]
-edition <- bib[grep("edition=\\{.*?\\},", bib, perl = TRUE)]
-editor <- bib[grep("editor=\\{.*?\\},", bib, perl = TRUE)]
-howpublished <- bib[grep("howpublished=\\{.*?\\},", bib, perl = TRUE)]
-institution <- bib[grep("institution=\\{.*?\\},", bib, perl = TRUE)]
-journal <- bib[grep("journal=\\{.*?\\},", bib, perl = TRUE)]
-key <- bib[grep("key=\\{.*?\\},", bib, perl = TRUE)]
-month <- bib[grep("month=\\{.*?\\},", bib, perl = TRUE)]
-note <- bib[grep("note=\\{.*?\\},", bib, perl = TRUE)]
-number <- bib[grep("number=\\{.*?\\},", bib, perl = TRUE)]
-organization <- bib[grep("organization=\\{.*?\\},", bib, perl = TRUE)]
-pages <- bib[grep("pages=\\{.*?\\},", bib, perl = TRUE)]
-publisher <- bib[grep("publisher=\\{.*?\\},", bib, perl = TRUE)]
-school <- bib[grep("school=\\{.*?\\},", bib, perl = TRUE)]
-series <- bib[grep("series=\\{.*?\\},", bib, perl = TRUE)]
-title <- bib[grep("title=\\{.*?\\},", bib, perl = TRUE)]
-type <- bib[grep("type=\\{.*?\\},", bib, perl = TRUE)]
-volume <- bib[grep("volume=\\{.*?\\},", bib, perl = TRUE)]
-year <- bib[grep("year=\\{.*?\\},", bib, perl = TRUE)]
-
-
-# f <- function(x, bib) {
-	# bib <- readLines(bib)
-	# y <- bib[grep(paste0(x, "=\\{.*?\\},"), bib, perl = TRUE)]
-	# # y <- gsub("[ ]+", x, "=\\{(.*?)\\},", "\\1", y, perl = TRUE)
-	# return(y)
-# }
-
-# bib <- "MAP.bib"
-x <- c("address", "annote", "author", "booktitle", "chapter", "crossref", "edition", 
-	"editor", "howpublished", "institution", "journal", "key", "month", "note", "number", 
-	"organization", "pages", "publisher", "school", "series", "title", "type", "volume", 
-	"year")
-
-# bib1 <- sapply(x, f, bib = bib)
-
-address <- gsub("[ ]+address=\\{(.*?)\\},", "\\1", address, perl = TRUE)
-annote <- gsub("[ ]+annote=\\{(.*?)\\},", "\\1", annote, perl = TRUE)
-author <- gsub("[ ]+author=\\{(.*?)\\},", "\\1", author, perl = TRUE)
-booktitle <- gsub("[ ]+booktitle=\\{(.*?)\\},", "\\1", booktitle, perl = TRUE)
-chapter <- gsub("[ ]+chapter=\\{(.*?)\\},", "\\1", chapter, perl = TRUE)
-crossref <- gsub("[ ]+crossref=\\{(.*?)\\},", "\\1", crossref, perl = TRUE)
-edition <- gsub("[ ]+edition=\\{(.*?)\\},", "\\1", edition, perl = TRUE)
-editor <- gsub("[ ]+editor=\\{(.*?)\\},", "\\1", editor, perl = TRUE)
-howpublished <- gsub("[ ]+howpublished=\\{(.*?)\\},", "\\1", howpublished, perl = TRUE)
-institution <- gsub("[ ]+institution=\\{(.*?)\\},", "\\1", institution, perl = TRUE)
-journal <- gsub("[ ]+journal=\\{(.*?)\\},", "\\1", journal, perl = TRUE)
-month <- gsub("[ ]+month=\\{(.*?)\\},", "\\1", month, perl = TRUE)
-note <- gsub("[ ]+note=\\{(.*?)\\},", "\\1", note, perl = TRUE)
-number <- gsub("[ ]+number=\\{(.*?)\\},", "\\1", number, perl = TRUE)
-organization <- gsub("[ ]+organization=\\{(.*?)\\},", "\\1", organization, perl = TRUE)
-pages <- gsub("[ ]+pages=\\{(.*?)\\},", "\\1", pages, perl = TRUE)
-publisher <- gsub("[ ]+publisher=\\{(.*?)\\},", "\\1", publisher, perl = TRUE)
-school <- gsub("[ ]+school=\\{(.*?)\\},", "\\1", school, perl = TRUE)
-series <- gsub("[ ]+series=\\{(.*?)\\},", "\\1", series, perl = TRUE)
-title <- gsub("[ ]+title=\\{(.*?)\\},", "\\1", title, perl = TRUE)
-type <- gsub("[ ]+type=\\{(.*?)\\},", "\\1", type, perl = TRUE)
-volume <- gsub("[ ]+volume=\\{(.*?)\\},", "\\1", volume, perl = TRUE)
-year <- gsub("[ ]+year=\\{(.*?)\\},", "\\1", year, perl = TRUE)
-
-x <- list(address = address, annote = annote, author = author, booktitle = booktitle, chapter = chapter, crossref = crossref, edition = edition, editor = editor, howpublished = howpublished, institution = institution, journal = journal, key = key, month = month, note = note, number = number, organization = organization, pages = pages, publisher = publisher, school = school, series = series, title = title, type = type, volume = volume, year = year)
-
-
-#' # Reduce to Journals Specific to 
-source("journals.R", echo = TRUE)
-bibdf <- bib2df("MAP.bib")
-bibdf$JOURNAL <- sapply(bibdf$JOURNAL, tolower)
-dat$Title <- sapply(dat$Title, tolower)
-bibdf.cp <- bibdf[bibdf$JOURNAL %in% dat$Title, ]
-

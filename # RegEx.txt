@@ -1,0 +1,88 @@
+---
+title: "Useful Regular Expressions for Bibtex Files"
+author: "Riley Smith"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+---
+
+# Re-format bib`BibTeX` Entries in `*.*md` Files
+
+```regex
+ó >> \\acute{o}
+á >> \\acute{o}
+í >> \\acute{i}
+é >> \\acute{e}
+ú >> \\acute{u}
+ä >> \\ddot{a}
+ö >> \\ddot{o}
+ć >> \\acute{c}
+
+[“|”] >> "
+[‘|’] >> '
+
+month={.*?},\n >> BLANK
+doi={.*?},\n >> BLANK
+note={.*?},\n >> BLANK
+isbn={.*?},\n >> BLANK
+url={.*?},\n >> BLANK
+language={.*?},\n >> BLANK
+
+(@.*?\{)\nauthor=\{(.*?)(,.*?\nyear=\{)(\d+)\},\ntitle={(.*?)( .*?)} >> $1$2$4$5,\nauthor={$2$3$4},\ntitle={$5$6}
+@\w+\{.*?, >> "ALT-ENTER" >> "CMD-P" >> "LOWER"
+
+\d{4}the,
+\d{4}a,
+\d{4}an,
+\d{4}are,
+\d{4}do,
+\d{4}does,
+
+(@\w+\{o)'(.*?,) >> $1$2
+(@\w+\{.*?)'.*?, >> $1,
+(@\w+\{.*?).*?", >> $1,
+
+(pages=\{\d+)\-(\d+\}) >> $1--$2
+```
+
+## Find All BibEntries in '.*md' Files:
+"@\w+{.*?,"
+(@\w*?)[ |'|;|\]]
+(@\w*?\-\w*?)[ |'|;|\]]
+
+// Save a list of BibEntries: //
+//
+// In [Atom Editor](https://atom.io):
+//
+// 1. [cmd-F]
+// 2. FIND:
+(@\w*?)[;|\]|'| ]
+// 3. [alt-enter]
+// 4. [cmd-C]
+// 5. [cmd-N]
+// 6. [cmd-V]
+// 7. FIND:
+(@\w*?\-\w*?)[ |'|;|\]|'| ])
+// 8. [alt-enter]
+// 9. [cmd-C]
+// 10. Navigate to end of newly created file window:
+// 11. [cmd-V]
+// 12. [cmd-F]
+// 13. FIND:
+[ |'|;|\]
+// 14. REPLACE: (leave blank)
+
+// 15. [f5] (sort lines)
+// 16. [ctrl-alt-R] (remove duplicates)
+// 17. [cmd-s]
+// ---------------------------------------------------- //
+
+// ------------------------------------------------------------------------------------------------ //
+// Find and Replace Text Across Multiple Files in Terminal. //
+//  In the below command, replace "SEARCH_FOR" and "REPLACE_WITH" with the search and replace text:
+//>> perl -pi -w -e 's/SEARCH_FOR/REPLACE_WITH/g;' *.txt
+// ------------------------------------------------------------------------------------------------ //
+
+// perl -pi -w -e 's/"auxDocs\/REFs.bib"/"..\/auxDocs\/REFs.bib"/g;' *.R
+// perl -pi -w -e 's/"auxDocs\/REFs.bib"/"..\/auxDocs\/REFs.bib"/g;' *.Rmd
+// perl -pi -w -e 's/"auxDocs\/REFs.bib"/"..\/auxDocs\/REFs.bib"/g;' *.yml
+
+// perl -pi -w -e 's/"SETUP.R"/"..\/SETUP.R"/g;' *.R
