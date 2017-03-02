@@ -29,16 +29,20 @@ language={.*?},\n >> BLANK
 (@.*?\{)\nauthor=\{(.*?)(,.*?\nyear=\{)(\d+)\},\ntitle={(.*?)( .*?)} >> $1$2$4$5,\nauthor={$2$3$4},\ntitle={$5$6}
 @\w+\{.*?, >> "ALT-ENTER" >> "CMD-P" >> "LOWER"
 
-\d{4}the,
-\d{4}a,
-\d{4}an,
-\d{4}are,
-\d{4}do,
-\d{4}does,
+(@.*?\{)\nauthor=\{(.*?)(,.*?\ntitle={)(.*?)( .*?)(\njournal=.*?\nyear=\{)(\d+)\}, >> $1$2$7$4,\nauthor={$2$3$4$5$6$7},
+@\w+\{.*?, >> "ALT-ENTER" >> "CMD-P" >> "LOWER"
+
+\d{4}the, >> BLANK
+\d{4}a, >> BLANK
+\d{4}an, >> BLANK
+\d{4}are, >> BLANK
+\d{4}do, >> BLANK
+\d{4}does, >> BLANK
 
 (@\w+\{o)'(.*?,) >> $1$2
-(@\w+\{.*?)'.*?, >> $1,
+(@\w+\{.*?)'s, >> $1,
 (@\w+\{.*?).*?", >> $1,
+(@\w+\{.*?\d+)[`]{1,} >> $1
 
 (pages=\{\d+)\-(\d+\}) >> $1--$2
 ```
@@ -86,3 +90,33 @@ language={.*?},\n >> BLANK
 // perl -pi -w -e 's/"auxDocs\/REFs.bib"/"..\/auxDocs\/REFs.bib"/g;' *.yml
 
 // perl -pi -w -e 's/"SETUP.R"/"..\/SETUP.R"/g;' *.R
+
+knitr::opts_chunk$set(
+    tidy = FALSE,
+    echo = FALSE,
+    cache = FALSE,
+    fig.keep = 'high',
+    fig.show = 'hold',
+    results = 'asis',
+    autodep = TRUE,
+    Rplot = TRUE,
+    dev = 'pdf',
+    fig.path = 'graphics/rplot-',
+    fig.width = 7,
+    fig.height = 7,
+    out.width = "\\linewidth"
+    )
+
+knitr\:\:opts_chunk\$set\(\n.*?,\n.*?,\n.*?,\n.*?,\n.*?,\n.*?,\n.*?,\n.*?,\n.*?,\n.*?,\n.*?,\n.*?,\n.*?\n[ ]+\)
+
+knitr\:\:opts_chunk\$set\((\n.*?){12},\n.*?\n[ ]+\)
+>>
+knitr::opts_chunk$$set(\n    tidy = FALSE,\n    echo = FALSE,\n    fig.keep = 'high',\n    fig.show = 'hold',\n    results = 'asis')
+
+knitr::opts_chunk$set(
+    tidy = FALSE,
+    echo = FALSE,
+    fig.keep = 'high',
+    fig.show = 'hold',
+    results = 'asis'
+)

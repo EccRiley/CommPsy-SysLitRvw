@@ -1,5 +1,5 @@
 #' ---
-#' title: "Community Psychology Journals"
+#' title: "Journals Included in Literature Search"
 #' author: "Riley M. Smith"
 #' date: "`r format(Sys.Date(), '%d %B %Y')`"
 #' ---
@@ -9,20 +9,14 @@ source("../SETUP.R")
 knitr::opts_chunk$set(
     tidy = FALSE,
     echo = FALSE,
-    cache = FALSE,
     fig.keep = 'high',
     fig.show = 'hold',
-    results = 'asis',
-    autodep = TRUE,
-    Rplot = TRUE,
-    dev = 'pdf',
-    fig.path = 'graphics/rplot-',
-    fig.width = 7,
-    fig.height = 7,
-    out.width = "\\linewidth"
-    )
+    results = 'asis'
+)
 #'
-
+#' \Frule
+#'
+#' # Community Psychology Journals^[http://www.scra27.org/publications/other-journals-relevant-community-psychology/]
 
 JOURNAL <- c("Action Research", "American Journal of Community Psychology", "American Journal of Health Promotion", "American Journal of Orthopsychiatry", "American Journal of Preventive Medicine", "American Journal of Public Health", "Australian Community Psychologist", "Community Development", "Community Development Journal", "Community Mental Health Journal", "Community Psychology in Global Perspective", "Cultural Diversity and Ethnic Minority Psychology", "Global Journal of Community Psychology Practice", "Health Education and Behavior", "Health Promotion Practice", "Journal of Applied Social Psychology", "Journal of Community and Applied Social Psychology", "Journal of Community Practice", "Journal of Health and Social Behavior", "Journal of Prevention and Intervention", "Journal of Primary Prevention", "Journal of Rural Community Psychology", "Journal of Social Issues", "Journal of Community Psychology", "Psychiatric Rehabilitation Journal", "Psychology of Women Quarterly", "Psychosocial Intervention", "Social Science and Medicine", "The Community Psychologist", "Transcultural Psychiatry", "Progress in Community Health Partnerships: Research, Education, and Action")
 
@@ -72,3 +66,25 @@ R.mdhist(x = dat[, 3:5], nrow = 1, ncol = 3, labs = c("Year", "\nScimagoJournal 
 
 cl <- mpal(H, p = cols3); bg <- adjustcolor(cl, alpha.f = 0.6)
 with(dat, {lm1 <- lm(H ~ SJR); plot(SJR, H, col = cl, bg = bg, pch = 21, xlab = "Scimago Journal Rating", ylab = "H Index"); abline(lm1, lwd = 2.5, col = mypal[18])})
+#'
+#' \newpage
+#' 
+#' # IPV-Related Journals 
+#'
+#' The following is for determining which IPV-related journals to include in the formal literature searches conducted for this review. 
+#'
+#' The data below contain the publication names and corresponding count of articles from each publication resulting from the inital broad-strokes database search `r margin_note("The initial broad-strokes IPV-related literature search was conducted using the following command-line search: \"`SU(\"intimate partner violence\" OR \"domestic violence\" OR \"partner abuse\") AND YR(>1965)`\"")`
+#'
+# distrs <- c("norm", "lnorm", "pois", "exp", "gamma", "nbinom", "geom", "beta", "unif", "logis")
+# for (i in 1:length(distrs)) {
+	# fitdist(dat2[, 2], distr = distrs[i]) %>% plot
+# }
+dat2 <- read.csv("data/ipvJournalsSearch.csv")[c(-1, -6, -7), ] ## Exclude Theses and Dissertations ##
+fitdist(dat2[, 2], "lnorm") %>% plot
+m.cnt <- mean(dat2[, 2])
+s.cnt <- sd(dat2[, 2])
+dat2.m <- dat2[dat2[,2] >= m.cnt, ]
+dat2.m
+dat2.s <- dat2[dat2[,2] >= s.cnt, ]
+dat2.s
+dat2.s$journal %>% as.character %>% print

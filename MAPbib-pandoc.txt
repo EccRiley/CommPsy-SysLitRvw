@@ -1,2 +1,0 @@
-cd GitHub/comps-git
-pandoc -s --smart --css="../auxDocs/css/bib.css" --normalize MAPbib2.md -f markdown -t html -o MAPbib2.html
