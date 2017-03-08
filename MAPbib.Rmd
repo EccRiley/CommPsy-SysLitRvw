@@ -8,110 +8,110 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 
 \centerline{\Large{\textsc{S3 - IPV Interventions \& Evaluations}}}
 
-# \textsc{\textcolor[HTML]{5b0057}{@odoherty2016receiving}} [@odoherty2016receiving]
+# \textsc{\textcolor[HTML]{5b0057}{odoherty2016receiving}} [@odoherty2016receiving]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} O'Doherty,Lorna and Taket,Ann and Valpied,Jodie and Hegarty,Kelsey
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Receiving care for intimate partner violence in primary care: Barriers and enablers for women participating in the weave randomised controlled trial
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Background: Interventions in health settings for intimate partner violence (IPV) are being increasingly recognised as part of a response to addressing this global public health problem. However, interventions targeting this sensitive social phenomenon are complex and highly susceptible to context. This study aimed to elucidate factors involved in women's uptake of a counselling intervention delivered by family doctors in the weave primary care trial (Victoria, Australia). Methods: We analysed associations between women's and doctors' baseline characteristics and uptake of the intervention. We interviewed a random selection of 20 women from an intervention group women to explore cognitions relating to intervention uptake. Interviews were audio-recorded, transcribed, coded in NVivo 10 and analysed using the theory of planned behaviour (TPB). Results: Abuse severity and socio-demographic characteristics (apart from current relationship status) were unrelated to uptake of counselling (67/137 attended sessions). Favourable doctor communication was strongly associated with attendance. Eight themes emerged, including four sets of beliefs that influenced attitudes to uptake: (i) awareness of the abuse and readiness for help; (ii) weave as an avenue to help; (iii) doctor's communication; and (iv) role in providing care for IPV; and four sets of beliefs regarding women's control over uptake: (v) emotional health, (vi) doctors' time, (vii) managing the disclosure process and (viii) viewing primary care as a safe option. Conclusions: This study has identified factors that can promote the implementation and evaluation of primary care-based IPV interventions, which are relevant across health research settings, for example, ensuring fit between implementation strategies and characteristics of the target group (such as range in readiness for intervention). On practice implications, providers' communication remains a key issue for engaging women. A key message arising from this work concerns the critical role of primary care and health services more broadly in reaching victims of domestic violence, and providing immediate and ongoing support (depending on the healthcare context). (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@sargent2016evaluating}} [@sargent2016evaluating]
+# \textsc{\textcolor[HTML]{5b0057}{sargent2016evaluating}} [@sargent2016evaluating]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Sargent,Kelli S. and McDonald,Renee and Vu,Nicole L. and Jouriles,Ernest N.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Evaluating an online program to help children exposed to domestic violence: Results of two randomized controlled trials
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The current study reports the results of two randomized controlled trials investigating effects of an online program (Change A Life) designed to educate individuals about children's exposure to domestic violence (DV), and to increase individuals' self-efficacy for providing support to children exposed to DV. In both a community sample ( n = 110) and a college student sample ( n = 146), participants who completed Change A Life, compared to those who completed a control program, reported increased knowledge about children's exposure to DV. In the community sample, but not the college student sample, those who completed Change A Life also reported increased self-efficacy for helping children exposed to DV. Neither participant sex nor history of exposure to domestic violence moderated intervention effects. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@hackett2016therapeutic}} [@hackett2016therapeutic]
+# \textsc{\textcolor[HTML]{5b0057}{hackett2016therapeutic}} [@hackett2016therapeutic]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Hackett,Shannon and McWhirter,Paula T. and Lesher,Susan
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The therapeutic efficacy of domestic violence victim interventions
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} A meta-analysis on domestic violence interventions was conducted to determine overall effectiveness of mental health programs involving women and children in joint treatment. These interventions were further analyzed to determine whether outcomes are differentially affected based on the outcome measure employed. To date, no meta-analyses have been published on domestic violence victim intervention efficacy. The 17 investigations that met study criteria yielded findings indicating that domestic violence interventions have a large effect size ( d = .812), which decreases to a medium effect size when compared to control groups ( d = .518). Effect sizes were assessed to determine whether treatment differed according to the focus of the outcome measure employed: (a) external stress (behavioral problems, aggression, or alcohol use); (b) psychological adjustment (depression, anxiety, or happiness); (c) self-concept (self-esteem, perceived competence, or internal locus of control); (d) social adjustment (popularity, loneliness, or cooperativeness); (e) family relations (mother–child relations, affection, or quality of interaction); and (f) maltreatment events (reoccurrence of violence, return to partner). Results reveal that domestic violence interventions across all outcome categories yield effects in the medium to large range for both internalized and externalized symptomatology. Implications for greater awareness and support for domestic violence treatment and programming are discussed. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@radatz2016integrating}} [@radatz2016integrating]
+# \textsc{\textcolor[HTML]{5b0057}{radatz2016integrating}} [@radatz2016integrating]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Radatz,Dana L. and Wright,Emily M.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Integrating the principles of effective intervention into batterer intervention programming: The case for moving toward more evidence-based programming
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The majority of batterer intervention program (BIP) evaluations have indicated they are marginally effective in reducing domestic violence recidivism. Meanwhile, correctional programs used to treat a variety of offenders (e.g., substance users, violent offenders, and so forth) that adhere to the "principles of effective intervention" (PEI) have reported significant reductions in recidivism. This article introduces the PEI—the principles on which evidence-based practices in correctional rehabilitation are based—and identifies the degree to which they are currently integrated into BIPs. The case is made that batterer programs could be more effective if they incorporate the PEI. Recommendations for further integration of the principles into BIPs are also provided. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@fox2015development}} [@fox2015development]
+# \textsc{\textcolor[HTML]{5b0057}{fox2015development}} [@fox2015development]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Fox,Claire L. and Gadd,David and Sim,Julius
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Development of the Attitudes to Domestic Violence questionnaire for children and adolescents
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} To provide a more robust assessment of the effectiveness of a domestic abuse prevention education program, a questionnaire was developed to measure children's attitudes to domestic violence. The aim was to develop a short questionnaire that would be easy to use for practitioners but, at the same time, sensitive enough to pick up on subtle changes in young people's attitudes. We therefore chose to ask children about different situations in which they might be willing to condone domestic violence. In Study 1, we tested a set of 20 items, which we reduced by half to a set of 10 items. The factor structure of the scale was explored and its internal consistency was calculated. In Study 2, we tested the factor structure of the 10-item Attitudes to Domestic Violence (ADV) Scale in a separate calibration sample. Finally, in Study 3, we then assessed the test–retest reliability of the 10-item scale. The ADV Questionnaire is a promising tool to evaluate the effectiveness of domestic abuse education prevention programs. However, further development work is necessary. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@trebow2015outcomes}} [@trebow2015outcomes]
+# \textsc{\textcolor[HTML]{5b0057}{trebow2015outcomes}} [@trebow2015outcomes]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Trebow,Elizabeth A. and Berkanovic,Emil and Harada,Priscilla U.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The outcomes and process improvement project: Batterers' intervention program evaluation comparing English-language and Spanish-language offenders
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This study was a longitudinal, naturalistic comparison of treatment completion and reoffense rates for two groups of offenders convicted of domestic violence (DV): Seventy-five men attending Spanish-language classes and 75 men attending English-language classes. Participant-specific background and psychosocial information, as well as alcohol and drug use, were assessed for influencing program success and DV reoffense. Overall, men who completed DV classes were less likely to reoffend than those who did not. Men in the Spanish-language group had better outcomes than men in the English-language group. In addition, substance use, timing of probation violations, employment, court rereferrals to DV classes, and previous DV convictions all had an impact on rate of class completion and/or reoffense. Psychosocial variables did not appear to influence outcomes. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
-# \textsc{\textcolor[HTML]{5b0057}{@howell2015strengthening}} [@howell2015strengthening]
+# \textsc{\textcolor[HTML]{5b0057}{howell2015strengthening}} [@howell2015strengthening]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Howell,Kathryn H. and Miller,Laura E. and Lilly,Michelle M. and Burlaka,Viktor and Grogan-Kaylor,Andrew and Graham-Bermann,Sandra
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Strengthening positive parenting through intervention: Evaluating the moms' empowerment program for women experiencing intimate partner violence
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This study examined the effectiveness of an evidence-based intervention in changing the positive and negative parenting practices of 120 mothers who experienced intimate partner violence (IPV) in the last 2 years. Mothers assigned to the treatment group participated in a 10-session evidence-based intervention, known as the Moms' Empowerment Program, which targets the mental health problems of women and works to increase access to resources and improve parenting abilities of women exposed to IPV. Participants were interviewed at baseline and immediately following the intervention or waitlist period, representing an elapsed time of approximately 5 weeks. After controlling for relevant demographic variables, violence severity, and mental health, women showed significantly more change in their positive parenting scores if they were in the treatment condition. No significant differences were found between the treatment and comparison groups in their negative parenting practices change scores. These findings suggest that even short-term intervention can improve positive parenting skills and parenting knowledge for women who have experienced partner abuse. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@ermentrout2014this}} [@ermentrout2014this]
+# \textsc{\textcolor[HTML]{5b0057}{ermentrout2014this}} [@ermentrout2014this]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Ermentrout,Dania M. and Rizo,Cynthia F. and Macy,Rebecca J.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} "This is about me": Feasibility findings from the children's component of an IPV intervention for justice-involved families
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Two community-based agencies collaborated to create a program for justice-involved female intimate partner violence (IPV) survivors and their children. Our research team conducted a feasibility study of the children's program using an exploratory, multimethod qualitative design with child participants ( n = 8), adult participants ( n = 18), and providers ( n = 7). Analyses determined four key findings: (a) importance of attendance; (b) the need for a flexible, child-driven curriculum; (c) improvement through expression and peer bonding; and (d) the value of specific program content. The findings point to indispensable program elements and enhancement recommendations. Implications for other communities and providers serving IPV-exposed children are described. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@boal2014impact}} [@boal2014impact]
+# \textsc{\textcolor[HTML]{5b0057}{boal2014impact}} [@boal2014impact]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Boal,Ashley L. and Mankowski,Eric S.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The impact of legislative standards on batterer intervention program practices and characteristics
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Changes in social policy are often pursued with the goal of reducing a social problem by improving prevention efforts, intervention program practices, or participant outcomes. State legislative standards for intimate partner violence intervention programs have been adopted nearly universally across the US, however, we do not know whether such standards actually achieve the intended goal of affecting programs' policies and practices. To assess the effect that batterer intervention program (BIP) standards have on policies and practices of programs, this study used longitudinal surveys collected as part of an ongoing evaluation conducted from 2001 to the present to compare intervention program ( N = 74) characteristics and practices at three time points before and after the adoption of standards in Oregon. Analyses were conducted to examine all BIPs in Oregon at each time point, as well as change among a subset of programs in existence at all survey assessments. Results indicate that across all programs, the use of mixed gender group co-facilitation increased by 14 % between 2004 and 2008, while program length increased by approximately 12 weeks. However, other practices such as programs' coordination with community partners were unchanged. Analyses of within-program change revealed fewer differences, with only program length increasing significantly over the three assessments. These and other findings indicate that while standards affected program length as intended, other practices commonly addressed by legislative standards remained unchanged. The findings provide needed information regarding programs' compliance with components of the standards, the potential need for compliance monitoring, and the potential impact of state standards on program effectiveness and on the prevalence of intimate partner violence. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@boal2014barriers}} [@boal2014barriers]
+# \textsc{\textcolor[HTML]{5b0057}{boal2014barriers}} [@boal2014barriers]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Barriers to compliance with Oregon Batterer Intervention Program standards
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Although standards for batterer intervention programs (BIPs) have been adopted in nearly all U.S. states, there is no evidence that standards are implemented and no information about challenges programs may encounter in efforts to comply with standards. This study uses qualitative survey data from BIPs in the state of Oregon ( N = 42) to identify barriers to implementation during a 2-year period following the introduction of state standards. Nine challenges were identified including difficulty finding qualified facilitators, inadequate funding, difficulty meeting training requirements, high workloads, trouble creating and maintaining collaborations, inability to accommodate diverse participant needs, conflict between state standards and county requirements, and perceived gaps between standards and evidence-based practices. These findings inform controversy surrounding BIP standards and efforts to increase BIP effectiveness. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@kan2014can}} [@kan2014can]
+# \textsc{\textcolor[HTML]{5b0057}{kan2014can}} [@kan2014can]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Kan,Marni L. and Feinberg,Mark E.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Can a family-focused, transition-to-parenthood program prevent parent and partner aggression among couples with young children?
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The need for prevention of children's exposure to family aggression is clear, yet studies have not examined effects of family based programs on both partner and parent-child aggression. This study examined moderated effects of an 8-session psychoeducational program for couples on partner psychological aggression and parent-child physical aggression when the child was 3 years old. A community sample of 169 expectant couples was randomized to intervention and control conditions. Significant program effects indicated reduced partner psychological aggression by fathers and reduced parent-child physical aggression by mothers for couples with frequent preprogram partner psychological aggression and reduced partner psychological aggression by fathers for couples with severe preprogram partner physical aggression. Efforts to prevent children's exposure to family aggression may most benefit couples exhibiting preprogram relationship risk. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@levesque2012evaluation}} [@levesque2012evaluation]
+# \textsc{\textcolor[HTML]{5b0057}{levesque2012evaluation}} [@levesque2012evaluation]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Levesque,Deborah A. and Ciavatta,Mary M. and Castle,Patricia H. and Prochaska,Janice M. and Prochaska,James O.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Evaluation of a stage-based, computer-tailored adjunct to usual care for domestic violence offenders
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Objective: Research assessing the efficacy of court-mandated domestic violence treatment continues to yield inconsistent results. The current study examined whether Journey to Change, a transtheoretical model of behavior change-based treatment adjunct that consists of 3 computer-administered sessions and a print guide, could improve outcomes. Method: Male domestic violence offenders (N = 492) attending court-mandated batterer treatment were assigned to usual care (UC) or usual care + Journey to Change (UC + Journey). Results: Compared with UC, participants receiving UC + Journey were significantly more likely to be in the action stage at the end of treatment and to seek help and services outside of group. Based on victim reports, the UC + Journey group was significantly less likely than the UC group to engage in physical violence during the 12-month follow-up. Both groups were equally likely to drop out of court-mandated treatment and to have further domestic violence-related police involvement. However, among participants with police involvement, the UC + Journey group had lower rates of documented violence and physical injury. Conclusion: The pattern of findings across the multiple outcomes suggests that the Journey to Change program holds promise for improving some outcomes for domestic violence offenders in treatment and warrants further investigation. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@portwood2011evaluation}} [@portwood2011evaluation]
+# \textsc{\textcolor[HTML]{5b0057}{portwood2011evaluation}} [@portwood2011evaluation]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Portwood,Sharon G. and Lambert,Richard G. and Abrams,Lyndon P. and Nelson,Ellissa B.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} An evaluation of the Adults and Children Together (ACT) Against Violence Parents Raising Safe Kids program
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This study evaluated the effectiveness of the Adults and Children Together (ACT) Against Violence Parents Raising Safe Kids program, developed by the American Psychological Association in collaboration with the National Association for the Education of Young Children, as an economical primary prevention intervention for child maltreatment. Using an experimental design with random assignment to groups, program impact on participating parents' knowledge, behavior, and attitudes compared to those of a comparison group of parents receiving standard community-based support services was examined. As hypothesized, the ACT Parents Raising Safe Kids program achieved positive results in several areas related to effective parenting, including a reduction in the use of harsh verbal and physical discipline and an increase in nurturing behavior. Positive results were observable both at the conclusion of the ACT program and at three-month follow-up. Results further indicated a positive impact on parent expectations and social support for those parents with the greatest need in these areas. Qualitative data collected through focus groups demonstrated that parents themselves perceived numerous benefits to the ACT program, including assistance in controlling their anger, learning and implementing better parenting and discipline strategies, and recognizing when their child's behavior is developmentally appropriate. Overall, findings suggest that the ACT Parents Raising Safe Kids program is a promising primary prevention strategy that can be implemented across diverse community settings. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@potter2011bringing}} [@potter2011bringing]
+# \textsc{\textcolor[HTML]{5b0057}{potter2011bringing}} [@potter2011bringing]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Potter,Sharyn J. and Stapleton,Jane G.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Bringing in the target audience in bystander social marketing materials for communities: Suggestions for practitioners
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The Know Your Power TM social marketing campaign images model active bystander behaviors that target audience members can use in situations where sexual and relationship violence and stalking are occurring, have occurred, or have the potential to occur. In this practitioner note, we describe strategies that we have used to engage target audience members in the development of the social marketing campaign that we hope can be used by practitioners. We give examples from the development and evaluation of the Know Your Power TM social marketing campaign that used focus group and other types of feedback from the target audience to inform the direction of the campaign. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@feder2011need}} [@feder2011need]
+# \textsc{\textcolor[HTML]{5b0057}{feder2011need}} [@feder2011need]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Feder,Lynette and Niolon,Phyllis H. and Campbell,Jacquelyn and Wallinder,Jan and Nelson,Robin and Larrouy,Hattie
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The need for experimental methodology in intimate partner violence: Finding programs that effectively prevent IPV
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The lack of rigorous evaluations of intimate partner violence (IPV) programs has severely limited our knowledge about what works. However, IPV programs can be rigorously evaluated through randomized controlled trials (RCTs) conducted ethically and safely. This article provides an example of how a RCT to test an IPV preventive intervention—the Enhanced Nurse Family Partnership Study (ENFPS)—was successfully implemented by a partnership of researchers and practitioners. The article concludes with some recommendations, arrived at by the researchers and practitioners on the ENFPS team, for achieving a successful collaboration thought to be essential in executing a field experiment. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@enriquez2010development}} [@enriquez2010development]
+# \textsc{\textcolor[HTML]{5b0057}{enriquez2010development}} [@enriquez2010development]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Enriquez,Maithe and Cheng,An-Lin and Kelly,Patricia J. and Witt,Jacki and Coker,Angela D. and Kashubeck-West,Susan
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Development and feasibility of an HIV and IPV prevention intervention among low-income mothers receiving services in a Missouri day care center
@@ -119,21 +119,21 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 
 \newpage
 
-# \textsc{\textcolor[HTML]{5b0057}{@welland2010culturally}} [@welland2010culturally]
+# \textsc{\textcolor[HTML]{5b0057}{welland2010culturally}} [@welland2010culturally]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Welland,Christauria and Ribner,Neil
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Culturally specific treatment for partner-abusive Latino men: A qualitative study to identify and implement program components
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Research based on a demographic survey and qualitative interviews of Latino intimate partner violence perpetrators in Southern California forms the basis of a Spanish-language treatment program designed to be culturally appropriate for Latino immigrant men, and piloted for 4 years with their input. Culturally-specific topics emphasized by participants and integrated into the program are: effective parenting skills for men; gender roles; discussion of discrimination towards immigrants and women; immigration and changing gender roles; marital sexual abuse; and spirituality as related to violence prevention. Attention is given to alcohol abuse and childhood trauma. Results suggest the desirability of an empathic and culturally-sensitive approach, without diminishing responsibility. This program was designed to help clinicians refine their skills and effectiveness in working with this rapidly expanding population. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@price2009batterer}} [@price2009batterer]
+# \textsc{\textcolor[HTML]{5b0057}{price2009batterer}} [@price2009batterer]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Price,Bethany J. and Rosenbaum,Alan
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Batterer intervention programs: A report from the field
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Over the past 25 years, batterer intervention has become the most probable disposition following a plea or conviction on domestic battery charges and, consequently, batterer intervention programs (BIPs) have proliferated. Despite their popularity, and recent attempts by states to regulate practice, little is known about the actual programs operating in the field. The aim of this study was to examine the philosophy, structure, leadership, curricula, and support systems of BIPs. Respondents from 276 batterer intervention programs in 45 states described their programs via an anonymous, Web-based survey. The results provide some insight regarding the workings of actual BIPs and also point out problems such as the dearth of programs in languages other than English and the failure to translate recommendations for prescriptive approaches into practice. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@spangaro2009elusive}} [@spangaro2009elusive]
+# \textsc{\textcolor[HTML]{5b0057}{spangaro2009elusive}} [@spangaro2009elusive]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Spangaro,Jo and Zwi,Anthony B. and Poulos,Roslyn
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The elusive search for definitive evidence on routine screening for intimate partner violence
@@ -141,21 +141,21 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 
 \newpage
 
-# \textsc{\textcolor[HTML]{5b0057}{@gillum2008benefits}} [@gillum2008benefits]
+# \textsc{\textcolor[HTML]{5b0057}{gillum2008benefits}} [@gillum2008benefits]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Gillum,Tameka L.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The benefits of a culturally specific intimate partner violence intervention for African American survivors
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} In light of evidence and theorization of culturally specific factors contributing to intimate partner violence (IPV) within African American relationships and the Eurocentric approach many mainstream agencies take to service delivery, researchers have indicated a need for culturally appropriate IPV interventions for African American survivors to adequately address the issue of IPV within this community. The purpose of the current study was to qualitatively investigate how helpful a culturally specific IPV program, which targets the African American community, has been to African American female survivors. Results suggest that this culturally specific agency is successfully meeting the needs of these survivors. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@roffman2008mens}} [@roffman2008mens]
+# \textsc{\textcolor[HTML]{5b0057}{roffman2008mens}} [@roffman2008mens]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Roffman,Roger A. and Edleson,Jeffrey L. and Neighbors,Clayton and Mbilinyi,Lyungai and Walker,Denise
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The men's domestic abuse check-up: A protocol for reaching the nonadjudicated and untreated man who batters and who abuses substances
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Batterer intervention programs primarily work with individuals mandated to participate. Commonly, attrition is high and outcomes are modest. Motivational enhancement therapy (MET), most widely studied in the substance abuse field, offers a potentially effective approach to improving self-referral to treatment, program retention, treatment compliance, and posttreatment outcomes among men who batter and who abuse substances. A strategy for using a catalyst variant of MET (a "check-up") to reach untreated, nonadjudicated perpetrators is described in detail. Unique challenges in evaluating the success of this approach are discussed, including attending to victim safety and determining indicators of increased motivation for change. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@saunders2008group}} [@saunders2008group]
+# \textsc{\textcolor[HTML]{5b0057}{saunders2008group}} [@saunders2008group]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Saunders,Daniel G.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Group interventions for men who batter: A summary of program descriptions and research
@@ -163,42 +163,42 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 
 \newpage
 
-# \textsc{\textcolor[HTML]{5b0057}{@contrino2007compliance}} [@contrino2007compliance]
+# \textsc{\textcolor[HTML]{5b0057}{contrino2007compliance}} [@contrino2007compliance]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Contrino,Kathleen M. and Dermen,Kurt H. and Nochajski,Thomas H. and Wieczorek,William F. and Navratil,Peter K.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Compliance and learning in an intervention program for partner-violent men
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Although research has yielded mixed findings regarding the effectiveness of intervention programs for partner-violent men, it appears that greater participant compliance with such programs is associated with better outcomes. However, no research to date has jointly examined compliance with intervention programs and the extent to which partner-violent men learn specific information presented during the programs. The current study makes use of existing data to evaluate general and specific elements of partner-violent men's compliance with (i.e., active, appropriate participation in) an intervention program and recall of key points from the program. Results from a subsample of 22 men indicate that at program termination, those rated as having been "process conscious" during intervention group sessions, having self-disclosed during sessions, having evidenced awareness and use of techniques to avoid violence, and having used respectful language show greater recall of material taught in the program. This finding points to the potential benefit of taking steps to increase men's active participation in programs and of studying active engagement as a mediator of program effects on men's violence toward partners. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@muftic2007evaluation}} [@muftic2007evaluation]
+# \textsc{\textcolor[HTML]{5b0057}{muftic2007evaluation}} [@muftic2007evaluation]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Mufti$\acute{c}$,Lisa R. and Bouffard,Jeffrey A.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} An Evaluation of Gender Differences in the Implementation and Impact of a Comprehensive Approach to Domestic Violence
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The primary goal of society's response to domestic violence is the protection of the victim from further abuse. Recently, the coordinated community response (CCR) has been developed as one example of an approach aimed at reaching this goal. Prior research has generally found support for the model, with male offenders recidivating at lower rates. The current study examines whether a comprehensive, community-based approach is capable of reducing recidivism rates among male and female offenders. Comparisons are made between 70 female and 131 male offenders. Specific attention is given to the intervention process, including differences in service or treatment component completion and recidivism by gender. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@hendricks2006recidivism}} [@hendricks2006recidivism]
+# \textsc{\textcolor[HTML]{5b0057}{hendricks2006recidivism}} [@hendricks2006recidivism]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Hendricks,Bryan and Werner,Todd and Shipway,Lee and Turinetti,Greg J.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Recidivism Among Spousal Abusers: Predictions and Program Evaluation
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The relative effectiveness of two interventions for dealing with 200 court-referred spousal abusers is examined. The overall failure rate is 17.5%, with most recidivism occurring during the first 6 months after treatment. Offenders who completed a 14-week group treatment program called SAFE manifest significantly lower rates of recidivism (10.6%) than do offenders who did not complete the mandated treatment (38.8%). Some high-risk clients are referred to a cognitive restructuring treatment program called R&R, and those completing both programs (despite their high-risk status) have a recidivism rate of only 23.5%. Prediction of recidivism is difficult, with the LSI-R scores correctly predicting only 66% of the outcomes, using a cut score of 11.5. The exploration of other predictors is encouraged. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@hovell2006evaluation}} [@hovell2006evaluation]
+# \textsc{\textcolor[HTML]{5b0057}{hovell2006evaluation}} [@hovell2006evaluation]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Hovell,Melbourne F. and Seid,Arlene G. and Liles,Sandy
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Evaluation of a Police and Social Services Domestic Violence Program: Empirical Evidence Needed to Inform Public Health Policies
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The Family Violence Response Team (FVRT) responded to police calls for domestic violence and provided services to victims. Police records were followed for (a) 327 FVRT clients with an index police visit in 1998 and (b) 498 nonconcurrent controls with an index visit in 1997. Except for marriage, no demographic characteristics were associated with batterer recidivism, as measured by police calls. The between-group odds ratio (OR) suggested that FVRT clients experienced a 1.7 (95% Confidence Interval CI]: 1.2 to 2.5) times greater recidivism rate than controls. Although increased reporting cannot be ruled out, results raise concerns about the effects of domestic violence interventions. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@silvergleid2006how}} [@silvergleid2006how]
+# \textsc{\textcolor[HTML]{5b0057}{silvergleid2006how}} [@silvergleid2006how]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Silvergleid,Courtenay S. and Mankowski,Eric S.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} How Batterer Intervention Programs Work: Participant and Facilitator Accounts of Processes of Change
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Understanding what facilitates change in men who perpetrate domestic violence can aid the development of more effective batterer intervention programs (BIPs). To identify and describe key change processes, in-depth interviews were conducted with nine successful BIP completers and with 10 intervention group facilitators. The accounts described a range of individual-level processes of change consistent with prior research but also included several processes spanning the community, organizational, and group levels of analysis. Program completers and facilitators gave mostly similar accounts, though differed in their emphasis of criminal justice system sanctions, group resocialization of masculinity, and the participants' own decision to change. All accounts especially emphasized group-level processes and the importance of balancing support and confrontation from facilitators and group members. The findings demonstrate the importance of obtaining multiple perspectives on change processes, and support ecological and systems models of batterer intervention. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@foshee2004assessing}} [@foshee2004assessing]
+# \textsc{\textcolor[HTML]{5b0057}{foshee2004assessing}} [@foshee2004assessing]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Foshee,Vangie A. and Bauman,Karl E. and Ennett,Susan T. and Linder,G. F. and Benefield,Thad and Suchindran,Chirayath
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Assessing the Long-Term Effects of the Safe Dates Program and a Booster in Preventing and Reducing Adolescent Dating Violence Victimization and Perpetration
@@ -206,42 +206,42 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 
 \newpage
 
-# \textsc{\textcolor[HTML]{5b0057}{@sullivan2002findings}} [@sullivan2002findings]
+# \textsc{\textcolor[HTML]{5b0057}{sullivan2002findings}} [@sullivan2002findings]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Sullivan,Cris M. and Bybee,Deborah I. and Allen,Nicole E.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Findings from a community-based program for battered women and their children
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The effectiveness of a strengths- and community-based support and advocacy intervention for battered women and their children was examined. The study included a longitudinal, experimental design and employed multimethod strategies to measure children's (aged 6.5-11 yrs old) exposure to abuse and their self-competence over a period of 8 mo. Maternal experience of abuse and maternal well-being were also assessed. The experimental intervention involved advocacy for mothers and their children and a 10-wk support and education group for the children. Families in the experimental condition received the free services of a trained paraprofessional for 6-8 hrs per wk over 16 wks. 80 (mean age 31 yrs old) mothers and their 80 children participated in the study. Findings were modest but promising. Children in the experimental condition reported significantly higher self-competence in several domains compared to children in the control group. The intervention caused improvement in women's depression and self-esteem over time. Policy, practice and research implications are discussed. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@gregory2002effects}} [@gregory2002effects]
+# \textsc{\textcolor[HTML]{5b0057}{gregory2002effects}} [@gregory2002effects]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Gregory,Carol and Erez,Edna
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The effects of batterer intervention programs: The battered women's perspectives
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Examined the perspectives of battered women, whose spouses or partners have been court-ordered to participate in a batterer intervention program, on the program's effects on their partners, themselves, and their families. Through in-depth interviews, 33 women (average age 36.5 yrs) described their experiences, expectations, and feelings before, during, and after their partner participated in the program. The interviewees also discussed the impact of the program on the batterers' behavior and their own lives. The results are seen to shed light on the effects of program participation on batterers' behavior and the way in which referral and program participation affect their female partners. It is concluded that the results underscore the value of incorporating battered women's perspectives and experiences in evaluating the effects of batterer intervention programs and designing their service delivery. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@oneill2001pragmatic}} [@oneill2001pragmatic]
+# \textsc{\textcolor[HTML]{5b0057}{oneill2001pragmatic}} [@oneill2001pragmatic]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} O'neill,Damian and Morgan,Mandy
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Pragmatic post-structuralism (I): Participant observation and discourse in evaluating violence intervention
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Discusses the process and merits of a post-structuralist approach to participant observation and describes the use of this research strategy in evaluating a community based 'stopping violence' program. This investigation sought to explore the discursive forms which underlie the intervention program. 11 Ss (aged 18–60 yrs) participated in the study. Data gathering involved one of the authors participating in 9 3-hour sessions and observing the social context and conduct of the group. Four discourses were identified as underlying the program. Dominating the program was the Liberal Humanist discourse which emphasizes personal freedom and responsibility. The Romantic discourse of violence as expressive of inner tension was also evident in the talk and practices of the program. Other practices were informed by the Structuralist social systems discourse and the social systemic discourse. The authors note that while the participant observation research strategy is commonly employed as a 'process evaluation' method, its role within a distinctly post-structuralist program is a novel application of a well-established research strategy. It is argued that this has significant implications for how social scientists may approach participant observation and evaluation in the future. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@morgan2001pragmatic}} [@morgan2001pragmatic]
+# \textsc{\textcolor[HTML]{5b0057}{morgan2001pragmatic}} [@morgan2001pragmatic]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Morgan,Mandy and O'neill,Damian
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Pragmatic post-structuralism (II): An outcomes evaluation of a stopping violence programme
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This paper reports features of a distinctly post-structuralist 'outcome evaluation' of a community based stopping violence program for men who have assaulted their spouses. 11 Ss (aged 24–45 yrs) participated in the study. Through analysis of pre- and post-program interviews it was found that the men's accounts of their violence shifted as a consequence of their participation in and exposure to the program's discursive resources. Overall the men's accounts demonstrated movement towards taking greater ownership and responsibility for their actions. However, this trend was not universal and was mitigated through other pre-program discursive resources. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@thompson2000identification}} [@thompson2000identification]
+# \textsc{\textcolor[HTML]{5b0057}{thompson2000identification}} [@thompson2000identification]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Thompson,Robert S. and Rivara,Frederick P. and Thompson,Diane C. and Barlow,William E. and Sugg,Nancy K. and Maiuro,Roland D. and Rubanowice,David M.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Identification and management of domestic violence: A randomized trial
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Examined the effectiveness of an intensive intervention program to increase asking about domestic violence (DV) and improve the identification of and assistance for DV victims. Adult care team members of 2 primary care clinics received intervention training, with opinion leaders receiving extra training sessions. Ss completed questionnaires concerning provider knowledge, attitudes, and beliefs at baseline and at 9–10 mo and 21–23 mo follow-ups. Level of care was measured by reviewing medical records at baseline and 9 mo. Results show that at 9 mo, scores for self-efficacy, fear of offense, safety concerns, and perceived asking about DV improved in intervention Ss. Scores for self-efficacy, fear of offense, and safety concerns remained high at 21–23 mo follow-up. Overall, asking about DV increased but the recorded quality of DV patient assistance did not change. Findings suggest that DV identification can be improved by including screening questions on physical examination questionnaires, placing posters in patient care areas, and displaying DV brochures in restrooms. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@loughlin2000emergency}} [@loughlin2000emergency]
+# \textsc{\textcolor[HTML]{5b0057}{loughlin2000emergency}} [@loughlin2000emergency]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Loughlin,Sue and Spinola,Carla and Stewart,Liz and Fanslow,Janet and Norton,Robyn
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Emergency department staff responses to a protocol of care for abused women
@@ -249,437 +249,508 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 
 \newpage
 
-# \textsc{\textcolor[HTML]{5b0057}{@gondolf1999comparison}} [@gondolf1999comparison]
+# \textsc{\textcolor[HTML]{5b0057}{gondolf1999comparison}} [@gondolf1999comparison]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Gondolf,Edward W.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} A comparison of four batterer intervention systems: Do court referral, program length, and services matter?
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Acomparative multisite evaluation was conducted in four geographically distributed cities to examine the relative effectiveness of different approaches to batterer intervention. The intervention systems represent a range of court-referral procedures (pretrial or postconviction), program duration (3 mo to 9 mo), and additional services (occasional referral or in-house alcohol treatment). At each site, 210 men (mean age 32 yrs) were recruited and assessed using the Millon Clinical Multiaxial Inventory and Michigan Alcoholism Screening Test. The batterers' partners were interviewed by phone every 3 mo over a 15-mo follow-up after intake, with a response rate of 77% overall. There was no significant difference in the reassault rate, portion of men making threats, and victim quality of life across the four sites. The longest, most comprehensive program did, however have a significantly lower rate of severe reassault substantiated in a logistic regression controlling background variables. The findings suggest that differing intervention systems that conform to fundamental standards can achieve similar outcomes. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@chalk1998assessing}} [@chalk1998assessing]
+# \textsc{\textcolor[HTML]{5b0057}{chalk1998assessing}} [@chalk1998assessing]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Chalk,Rosemary and King,Patricia
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Assessing family violence interventions
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} In order to improve the synthesis of and access to research in the field of family violence, and to improve the quality of both future programs and the evaluation of family violence interventions, the National Research Council and the Institute of Medicine organized a committee that carried out a research study focused on the assessment of family violence prevention and treatment services. This article summarizes the results of the study. The authors also describe the recommendations in the areas of policy and research that developed out of the study. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
 
-\newpage
-
-\centerline{\Large{\textsc{S4 - Female Same-Sex/Same-Gender Intimate Partner Violence}}}
-
-# \textsc{\textcolor[HTML]{5b0057}{@rumptz1991ecological}} [@rumptz1991ecological]
+# \textsc{\textcolor[HTML]{5b0057}{rumptz1991ecological}} [@rumptz1991ecological]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Rumptz,Maureen H. and Sullivan,Cris M. and Davidson,William S. and Basta,Joanne
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} An ecological approach to tracking battered women over time
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Examined the feasibility of using an experimental, longitudinal design to determine the effects of an advocacy program designed to increase battered women's access to community resources. The current research employed a multitude of techniques to follow 139 battered women over the 1st yr following their stay at a shelter for women with abusive partners. The tracking rate was very successful; 96% were found and interviewed at the 10-wk project termination point, 96% at the 6-mo follow-up, and 94% at the 12-mo follow-up. The intricate system of procedures used for successfully tracking this mobile population over time are presented as an effective methodology for doing necessary longitudinal research with battered women as well as other transient or difficult to follow populations. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
 
+\newpage
 
-# \textsc{\textcolor[HTML]{5b0057}{@lewis2017empirical}} [@lewis2017empirical]
+# \textsc{\textcolor[HTML]{5b0057}{bennett2002standards}} [@bennett2002standards]
+
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Bennett,Larry W. and Vincent,Neil
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Standards for batterer programs: A formative evaluation of the Illinois Protocol
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Our article reports data from a three-year formative study of the Illinois Protocol for Domestic Abuse Batterers Programs. This evaluation research is guided by 3 questions: (1) How do standards affect the way batterer programs deliver services to men who batter? (2) How do standards impact community efforts to prevent violence? and (3) How do standards affect judicial referral for domestic violence intervention? Data include: (1) surveys of 50 victim service agencies, 63 batterer programs, and 823 men in 27 batterer programs, and (2) structured interviews with 146 key informants, including judges and prosecutors, battered women's advocates, and batterer program staff. Results suggest that standards meet the goals set for them, although with some unintended consequences. The primary effects of the Illinois standards are providing a structure for programs working with men who batter, structuring collaboration between batterer programs and victim service agencies, increasing judicial confidence that batterers are being served appropriately, and forcing victim programs to think about batterer programs. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
+}
+
+# \textsc{\textcolor[HTML]{5b0057}{rosenbaum2002group}} [@rosenbaum2002group]
+
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Rosenbaum,Alan and Leisring,Penny A.
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Group intervention programs for batterers
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{journal:}}} Journal of Aggression, Maltreatment & Trauma
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Batterer intervention programs are extremely diverse yet share many common strategies. This article summarizes the relevant issues, and provides an overview of the intervention strategies most commonly included in these programs. Issues discussed include confidentiality, group structure and length, partner contacts, leadership configuration, and program goals. In the second part of the paper, topics and strategies are presented. These include power and control, anger management, time-out, feelings underlying anger, stress reduction, parenting, and the costs of aggression, substance abuse, communication, and cognitions. Finally, brief descriptions of 2 frequently modeled, pro-feminist programs, Duluth and Emerge, are presented. Similarities and differences between pro-feminist and cognitive-behavioral programs are discussed. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
+}
+
+# \textsc{\textcolor[HTML]{5b0057}{holtzworth-munroe2002standards}} [@holtzworth-munroe2002standards]
+
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Holtzworth-Munroe,Amy
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Standards for batterer treatment programs: How can research inform our decisions?
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The development of batterer treatment program standards was a well-intentioned and reasonable step, given the increasing number of batterers being court-referred to treatment, the poor quality of some treatment programs, and the move toward a coordinated community response to domestic violence. While treatment standards were derived from the understanding of husband violence, as it existed at the time, newer research data do not validate many of the assumptions underlying current standards. This point is illustrated by considering four such assumptions: (1) conjoint treatment is never appropriate, (2) we know the best length, content, and process of treatment, (3) in treatment, one size fits all, and (4) doing something is better than doing nothing. Recent research data relevant to each assumption is also considered. Given the lack of empirical support for these assumptions, it is too early to impose standards mandating one type of treatment. In fact, doing so may stifle what is needed most at this time--the development of new intervention approaches that may increase treatment efficacy. However, with the freedom to develop new interventions comes the responsibility to empirically validate these approaches. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
+}
+
+# \textsc{\textcolor[HTML]{5b0057}{murphy2002toward}} [@murphy2002toward]
+
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Murphy,Christopher M.
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Toward empirically based standards for abuser intervention: The Maryland model
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This article describes the development of operational guidelines for Abuser Intervention Programs in Maryland. Unlike in many states which have adopted quite specific standards regarding program format, duration, etc., the Maryland guidelines address a fairly narrow range of issues. These include outreach to victims, communication with the courts, and the need for intervention programs to address domestic abuse directly in their program content. Maryland has also established a research task force on Abuser Intervention Programs, whose goal is to use empirical data to inform the use of best practices in the state, to facilitate empirical research at abuser intervention programs in Maryland, and to develop more detailed program standards in the future. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
+}
+
+\newpage
+
+\centerline{\Large{\textsc{S4 - Female Same-Sex/Same-Gender Intimate Partner Violence}}}
+
+# \textsc{\textcolor[HTML]{5b0057}{lewis2017empirical}} [@lewis2017empirical]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Lewis,Robin J. and Mason,Tyler B. and Winstead,Barbara A. and Kelley,Michelle L.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Empirical investigation of a model of sexual minority specific and general risk factors for intimate partner violence among lesbian women
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Objective: This study proposed and tested the first conceptual model of sexual minority specific (discrimination, internalized homophobia) and more general risk factors (perpetrator and partner alcohol use, anger, relationship satisfaction) for intimate partner violence among partnered lesbian women. Method: Self-identified lesbian women (N = 1,048) were recruited from online market research panels. Participants completed an online survey that included measures of minority stress, anger, alcohol use and alcohol-related problems, relationship satisfaction, psychological aggression, and physical violence. Results: The model demonstrated good fit and significant links from sexual minority discrimination to internalized homophobia and anger, from internalized homophobia to anger and alcohol problems, and from alcohol problems to intimate partner violence. Partner alcohol use predicted partner physical violence. Relationship dissatisfaction was associated with physical violence via psychological aggression. Physical violence was bidirectional. Conclusions: Minority stress, anger, alcohol use, and alcohol-related problems play an important role in perpetration of psychological aggression and physical violence in lesbian women's intimate partner relationships. The results of this study provide evidence of potentially modifiable sexual minority specific and more general risk factors for lesbian women's partner violence. (PsycINFO Database Record (c) 2017 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@reuter2015exploratory}} [@reuter2015exploratory]
+# \textsc{\textcolor[HTML]{5b0057}{reuter2015exploratory}} [@reuter2015exploratory]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Reuter,Tyson R. and Sharp,Carla and Temple,Jeff R.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} An exploratory study of teen dating violence in sexual minority youth
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Objective: Teen dating violence (TDV) represents a serious social problem in adolescence and is associated with a host of physical and emotional consequences. Despite advances in identification of risk factors, prevention efforts, and treatment, the TDV literature has overwhelmingly used samples that do not assess sexual orientation or assume heterosexuality. Although a few studies have explicitly examined dating violence among sexual minorities in adolescents, methodological issues limit the generalizability of these findings, and no study to date has examined patterns of dating violence over time in sexual minority youth. Method: An ethnically diverse sample of 782 adolescents completed self-report measures of dating violence, hostility, alcohol use, exposure to interparental violence, and sexual orientation. Results: Sexual minority adolescents reported higher rates of both TDV perpetration and victimization, and this finding persisted across 2 years for perpetration but not victimization. Findings also revealed that traditional risk factors of TDV (i.e., alcohol use, exposure to interparental violence) were not associated with TDV for sexual minority youth, although sexual orientation itself emerged as a risk factor over and above covariates when considering severe (i.e., physical and sexual) dating violence perpetration. Conclusions: Sexual minorities may be at a greater risk for TDV than their heterosexual peers. Findings are discussed within the context of a minority stress model. Future research is needed to parse out factors specifically related to sexual orientation from a stressful or invalidating environment. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
+\newpage
 
-# \textsc{\textcolor[HTML]{5b0057}{@porter2011intimate}} [@porter2011intimate]
+# \textsc{\textcolor[HTML]{5b0057}{porter2011intimate}} [@porter2011intimate]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Porter,Judy and Williams,LaVerne M.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Intimate violence among underrepresented groups on a college campus
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Rape, sexual violence, psychological violence, and physical violence, among college students have been a concern. Lifetime events are often studied but not violence that specifically transpires while one is in college. Underrepresented groups such as Deaf and Hard of Hearing students, students who are gay, lesbian, and bisexual, and students who are members of racial and ethnic minorities have not been studied as extensively as White, heterosexual females. The authors used several measures to investigate the incidence of sexual violence, physical and psychological abuse among underrepresented groups in a random sample of 1,028 college students at a private, northeastern, technological campus in upstate New York, United States and analyzed victimization rates by gender, race/ethnicity, auditory status, and sexual orientation. Binary logistic regression analyses found that statistically significant differences are likely to exist between members of underrepresented groups and groups in the majority. The study found statistically significant associations between Deaf and Hard of Hearing students and students who were gay, lesbian, bisexual, or other sexual orientation with psychological abuse and physical abuse. Racial and ethnic minorities and gay, lesbian, bisexual, and other sexual orientation students were significantly more at risk for sexual abuse. Gay, lesbian, bisexual, and other sexual orientation students, students who were members of a racial or ethnic minority, and female students were significantly more likely to be raped. Female heterosexual students were more likely to be the victim of an attempted rape. Suggestions for further research and policy implications are provided. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
-# \textsc{\textcolor[HTML]{5b0057}{@pierre2010external}} [@pierre2010external]
+# \textsc{\textcolor[HTML]{5b0057}{pierre2010external}} [@pierre2010external]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} {St. Pierre},Melissa and Senn,Charlene Y.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} External barriers to help-seeking encountered by Canadian gay and lesbian victims of intimate partner abuse: An application of The Barriers Model
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} While understanding of intimate partner abuse (IPA) in gay and lesbian relationships has increased within the past decade, there remain several gaps in the help-seeking research. In particular, research examining the external barriers to help-seeking encountered by gay and lesbian victims of IPA has been largely atheoretical. To address this gap, an application of The Barriers Model was undertaken. This mixed-methods study surveyed 280 gay, lesbian, and/or queer participants living in Canada. Findings revealed that victims encountered external barriers in the environment (i.e., Layer 1 of the model), such as lack of availability of gay and lesbian specific services. Results also suggested that barriers due to family/socialization/role expectations (i.e., Layer 2 of the model), such as concealment of sexual orientation, had an impact on help-seeking. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@heintz2006intimate}} [@heintz2006intimate]
+# \textsc{\textcolor[HTML]{5b0057}{heintz2006intimate}} [@heintz2006intimate]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Heintz,Adam J. and Melendez,Rita M.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Intimate Partner Violence and HIV/STD Risk Among Lesbian, Gay, Bisexual, and Transgender Individuals
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} To date, there has been little research examining HIV/STD risk among lesbian, gay, bisexual, and transgender (LGBT) individuals who are in abusive relationships. This article uses data collected from a community-based organization that provides counseling for LGBT victims of intimate partner violence (IPV). A total of 58 clients completed the survey, which inquired as to sexual violence and difficulties negotiating safer sex with their abusive partners. A large percentage of participants reported being forced by their partners to have sex (41%). Many stated that they felt unsafe to ask their abusive partners to use safer sex protection or that they feared their partners' response to safer sex (28%). In addition, many participants experienced sexual (19%), physical (21%), and/or verbal abuse (32%) as a direct consequence of asking their partner to use safer sex protection. Training counselors on issues of sexuality and safer sex will benefit victims of IPV. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
-# \textsc{\textcolor[HTML]{5b0057}{@fortunata2003demographic}} [@fortunata2003demographic]
+# \textsc{\textcolor[HTML]{5b0057}{fortunata2003demographic}} [@fortunata2003demographic]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Fortunata,Blaise and Kohn,Carolynn S.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Demographic, psychosocial, and personality characteristics of lesbian batterers
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Prevalence of domestic violence (DV) in lesbian and heterosexual relationships appears to be similar. Despite this, few studies have examined factors associated with DV in lesbian relationships, and even fewer have examined characteristics of lesbian batterers. Demographic and psychosocial characteristics and personality traits were examined in 100 lesbians in current relationships (33 Batterers and 67 Nonbatterers). Results indicated that Batterers were more likely to report childhood physical and sexual abuse and higher rates of alcohol problems. Results from the MCMI-III indicated that, after controlling for Debasement and Desirability indices, Batterers were more likely to report aggressive, antisocial, borderline, and paranoid personality traits, and higher alcohol-dependent, drug-dependent, and delusional clinical symptoms compared to Nonbatterers. These results provide support for social learning and psychopathology theoretical models of DV and clinical observations of lesbian batterers, and expand our current DV paradigms to include information about same-sex DV. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@worcester2002womens}} [@worcester2002womens]
+# \textsc{\textcolor[HTML]{5b0057}{worcester2002womens}} [@worcester2002womens]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Worcester,Nancy
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Women's use of force: Complexities and challenges of taking the issue seriously
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This article discusses the complexities, challenges, and urgency surrounding addressing women's use of force. The author emphasizes that women's and girls' use of force needs to be analyzed using a framework that keeps power and control central to the definition of domestic violence and identifies that violence by men and women takes place within a social, historical, and economic context in which men's and women's roles, opportunities, and social power differ. The article builds on an understanding of women's use of force in heterosexual relationships; however, a similar contextual analysis is also applied to women's use of force in teen dating relationships, lesbian relationships, and against children. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
-\newpage
-
-# \textsc{\textcolor[HTML]{5b0057}{@giorgio2002speaking}} [@giorgio2002speaking]
+# \textsc{\textcolor[HTML]{5b0057}{giorgio2002speaking}} [@giorgio2002speaking]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Giorgio,Grace
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Speaking silence: Definitional dialogues in abuse lesbian relationships
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Long-term, in-depth interviews with 11 abused lesbians and 10 domestic violence advocates reveal how lesbian victims struggle to define the relationship's abuse, their lesbian identity, and their own understanding of gendered violence in the context of cultural and institutional stigmatization of lesbians. By understanding abused lesbians' silence as constitutive of their definitional dialogues about their relationships and the abuse, researchers and advocates can begin to determine who asserts definitional hegemony in the relationship. The author concludes by suggesting practical strategies that researchers and advocates can deploy to include abused lesbians in domestic violence theory, praxis, and services. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@bernhard2000physical}} [@bernhard2000physical]
+# \textsc{\textcolor[HTML]{5b0057}{bernhard2000physical}} [@bernhard2000physical]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Bernhard,Linda A.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Physical and sexual violence experienced by lesbian and heterosexual women
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Explored whether there are differences in the violence experienced by lesbian and heterosexual women and in the actions used in response to violence. A convenience sample of 136 lesbian and 79 heterosexual women (all Ss aged 19–67 yrs) completed survey questionnaires. Significantly more lesbians (51%) than heterosexual women (33%) had experienced nonsexual physical violence, and there was no difference between the groups in the prevalence of sexual violence (lesbian 54%, heterosexual 44%). The principal actions for all women in response to violence were avoidance, talking to someone, and doing nothing—passive strategies that have limited value. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@wise1997comparison}} [@wise1997comparison]
+# \textsc{\textcolor[HTML]{5b0057}{wise1997comparison}} [@wise1997comparison]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Wise,Amy J. and Bowman,Sharon L.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Comparison of beginning counselors' responses to lesbian vs heterosexual partner abuse
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This study compared responses of master and doctoral level counseling students to 2 domestic violence scenarios. Participants read a 2 paragraph description of a battering incident involving either a heterosexual or lesbian couple and then gave their impressions via a series of open and closed ended questions. Scenarios were identical save the manipulation of sexual partner as same or opposite sex. Experience and/or education with battered and/or gay/lesbian clients is also examined. Results indicated that Ss perceived the heterosexual battering incident as more violent than the lesbian battering incident and would be more likely to charge the male batterer than the female batterer with assault. Differences in treatment recommendations were made according to sexual orientation of the victim. Less than half or the respondents had coursework or practical experience pertaining to domestic violence and/or gay/lesbian concerns. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@lockhart1994letting}} [@lockhart1994letting]
+# \textsc{\textcolor[HTML]{5b0057}{lockhart1994letting}} [@lockhart1994letting]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Lockhart,Lettie L. and White,Barbara W. and Causby,Vicki and Isaac,Alicia
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Letting out the secret: Violence in lesbian relationships
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Examined the extent, nature, and correlates of conflict and violence in lesbian relationships. Survey responses of 284 lesbians (aged 21–60 yrs) suggest that lesbian violence was not rare. 90% of Ss had been recipients of one or more acts of verbal aggression from their intimate partners during the year prior to this study. These acts tended to revolve around conflicts about partner's job, partner's emotional dependency, money, housekeeping/cooking duties, sexual activities, and use of alcohol/drugs. 31% of the Ss reported one or more incidents of physical abuse. Physical abuse was triggered by or erupted around issues of power imbalance and/or a struggle for varying levels of interdependency and autonomy in the relationship. Ss who perceived that their partners felt less of a need for social fusion in the relationship reported lower levels of verbal aggression/abuse. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@hamberger1994domestic}} [@hamberger1994domestic]
+# \textsc{\textcolor[HTML]{5b0057}{hamberger1994domestic}} [@hamberger1994domestic]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Hamberger,L. K.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Domestic partner abuse: Expanding paradigms for understanding and intervention
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Discusses various types of domestic violence, including violence in married and unmarried heterosexual couples and in gay and lesbian couples. Recurrent issues or themes that have been the subject of considerable debate in the field of domestic violence are discussed, including the roles of psychopathology and/or biology in battering. The study of heterosexual women's violence toward domestic partners is discussed, and issues regarding gay and lesbian domestic violence are described. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@coleman1994lesbian}} [@coleman1994lesbian]
+# \textsc{\textcolor[HTML]{5b0057}{coleman1994lesbian}} [@coleman1994lesbian]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Coleman,Vallerie E.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Lesbian battering: The relationship between personality and the perpetuation of violence
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Proposes that a multidimensional theory of partner abuse, which emphasizes individual personality dynamics, is needed to better understand the heterogeneity of batterers. The relationship between psychopathology, sociocultural factors, social learning, and battering in lesbian relationships is examined, and dynamics related to borderline and narcissistic disorders in batterers are highlighted. It is suggested that to improve understanding of domestic violence and provide effective treatment, the role of personality dynamics and the relationship between these dynamics and other variables must be examined. (PsycINFO Database Record (c) 2016 APA, all rights reserved)
 
-# \textsc{\textcolor[HTML]{5b0057}{@babcock2016domestic}} [@babcock2016domestic]
+# \textsc{\textcolor[HTML]{5b0057}{babcock2016domestic}} [@babcock2016domestic]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Babcock, Julia and Armenti, Nicholas and Cannon, Clare and Lauve-Moon, Katie and Buttell, Fred and Ferreira, Regardt and Cantos, Arthur and Hamel, John and Kelly, Don and Jordan, Catheleen and Lehmann, Peter and Leisring, Penny A. and Murphy, Christopher and O'Leary, K. Daniel and Bannon, Sarah and Salis, Katie Lee and Solano, Ingrid
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Domestic Violence Perpetrator Programs: A Proposal for Evidence-Based Standards in the United States
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} In the United States, the judicial system response to violence between intimate partners, or intimate partner violence (IPV), typically mandates that adjudicated perpetrators complete a batterer intervention program (BIP). The social science data has found that these programs, on the whole, are only minimally effective in reducing rates of IPV. The authors examined the social science literature on the characteristics and efficacy of BIPs. More than 400 studies were considered, including a sweeping, recently conducted survey of BIP directors across the United States and Canada. Results of this review indicate that the limitations of BIPs are due, in large part, to the limitations of current state standards regulating these programs and, furthermore, that these standards are not grounded in the body of empirical research evidence or best practices. The authors, all of whom have considerable expertise in the area of domestic violence perpetrator treatment, conducted an exhaustive investigation of the following key intervention areas: overall effectiveness of BIPs; length of treatment/length of group sessions; number of group participants and number of facilitators; group format and curriculum; assessment protocol and instruments; victim contact; modality of treatment; differential treatment; working with female perpetrators; working with perpetrators in racial and ethnic minority groups; working with lesbian, gay, bisexual, and transgender (LGBT) perpetrators; perpetrator treatment and practitioner-client relationships; and required practitioner education and training. Recommendations for evidence-based national BIP standards were made based on findings from this review.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@dixon2016association}} [@dixon2016association]
+# \textsc{\textcolor[HTML]{5b0057}{dixon2016association}} [@dixon2016association]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Dixon, Kristiana J. and Edwards, Katie M. and Gidycz, Christine A.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The Association of Investment Model Variables and Dyadic Patterns of Physical Partner Violence: A Study of College Women
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Previous research has examined the association between intimate partner violence (IPV) victimization experiences and investment model variables, particularly with relation to leaving intentions. However, research only has begun to explore the impact that various dyadic patterns of IPV (i.e., unidirectional victimization, unidirectional perpetration, bidirectional violence, and non-violence) have on investment model variables. Grounded in behavioral principles, the current study used a sample of college women to assess the impact that perpetration and victimization have on investment model variables. Results indicated that 69.2\% of the sample was in a relationship with no IPV. Among those who reported IPV in their relationships, 11.9\% reported unidirectional perpetration, 10.6\% bidirectional violence, and 7.4\% unidirectional victimization. Overall, the findings suggest that women's victimization (i.e., victim only and bidirectional IPV) is associated with lower levels of satisfaction and commitment, and that women's perpetration (i.e., perpetration only and bidirectional IPV) is associated with higher levels of investment. Women in bidirectionally violent relationships reported higher quality alternatives than women in non-violent relationships. The current study emphasizes the importance of considering both IPV perpetration and IPV victimization experiences when exploring women's decisions to remain in relationships.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@edwards2016college}} [@edwards2016college]
+# \textsc{\textcolor[HTML]{5b0057}{edwards2016college}} [@edwards2016college]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Edwards, Katie M. and Littleton, Heather L. and Sylaska, Kateryna M. and Crossman, Annie L. and Craig, Meghan
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} College Campus Community Readiness to Address Intimate Partner Violence Among LGBTQ plus Young Adults: A Conceptual and Empirical Examination
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This paper provides an overview of a conceptual model that integrates theories of social ecology, minority stress, and community readiness to better understand risk for and outcomes of intimate partner violence (IPV) among LGBTQ+ college students. Additionally, online survey data was collected from a sample of 202 LGBTQ+ students enrolled in 119 colleges across the United States to provide preliminary data on some aspects of the proposed model. Results suggested that students generally thought their campuses were low in readiness to address IPV; that is, students felt that their campuses could do more to address IPV and provide IPV services specific to LGBTQ+ college students. Perceptions of greater campus readiness to address IPV among LGBTQ+ college students was significantly and positively related to a more favorable LGBTQ+ campus climate and a greater sense of campus community. Additionally, IPV victims were more likely to perceive higher levels of campus community readiness than non-IPV victims. There was no association between IPV perpetration and perceptions of campus community readiness. Greater sense of community was marginally and inversely related to IPV victimization and perpetration. Sense of community and LGBTQ+ campus climate also varied to some extent as a function of region of the country and type of institution. Implications for further development and refinement of the conceptual model, as well as future research applying this model to better understand IPV among sexual minority students are discussed.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@langenderfer-magruder2016experiences}} [@langenderfer-magruder2016experiences]
+# \textsc{\textcolor[HTML]{5b0057}{langenderfer-magruder2016experiences}} [@langenderfer-magruder2016experiences]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Langenderfer-Magruder, Lisa and Whitfield, Darren L. and Walls, N. Eugene and Kattari, Shanna K. and Ramos, Daniel
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Experiences of Intimate Partner Violence and Subsequent Police Reporting Among Lesbian, Gay, Bisexual, Transgender, and Queer Adults in Colorado: Comparing Rates of Cisgender and Transgender Victimization
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Research indicates that lesbian, gay, bisexual, transgender, and queer (LGBTQ) individuals are at high risk of victimization by others and that transgender individuals may be at even higher risk than their cisgender LGBQ peers. In examining partner violence in particular, extant literature suggests that LGBTQ individuals are at equal or higher risk of partner violence victimization compared with their heterosexual peers. As opposed to sexual orientation, there is little research on gender identity and partner violence within the LGBTQ literature. In the current study, the authors investigated intimate partner violence (IPV) in a large sample of LGBTQ adults (N = 1,139) to determine lifetime prevalence and police reporting in both cisgender and transgender individuals. Results show that more than one fifth of all participants ever experienced partner violence, with transgender participants demonstrating significantly higher rates than their cisgender peers. Implications focus on the use of inclusive language as well as future research and practice with LGBTQ IPV victims.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@kelley2015discrepant}} [@kelley2015discrepant]
+# \textsc{\textcolor[HTML]{5b0057}{kelley2015discrepant}} [@kelley2015discrepant]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Kelley, Michelle L. and Lewis, Robin J. and Mason, Tyler B.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Discrepant Alcohol Use, Intimate Partner Violence, and Relationship Adjustment among Lesbian Women and their Same-Sex Intimate Partners
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This study examined the association between relationship adjustment and discrepant alcohol use among lesbian women and their same-sex intimate partners after controlling for verbal and physical aggression. Lesbian women (N = 819) who were members of online marketing research panels completed an online survey in which they reported both their own and same-sex intimate partner's alcohol use, their relationship adjustment, and their own and their partner's physical aggression and psychological aggression (i.e., verbal aggression and dominance/isolation). Partners' alcohol use was moderately correlated. Discrepancy in alcohol use was associated with poorer relationship adjustment after controlling for psychological aggression and physical aggression. Results are discussed in terms of the similarity and differences with previous literature primarily focused on heterosexual couples.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@lewis2015emotional}} [@lewis2015emotional]
+# \textsc{\textcolor[HTML]{5b0057}{lewis2015emotional}} [@lewis2015emotional]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Lewis, Robin J. and Padilla, Miguel A. and Milletich, Robert J. and Kelley, Michelle L. and Winstead, Barbara A. and Lau-Barraco, Cathy and Mason, Tyler B.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Emotional Distress, Alcohol Use, and Bidirectional Partner Violence Among Lesbian Women
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This study examined the relationship between emotional distress (defined as depression, brooding, and negative affect), alcohol outcomes, and bidirectional intimate partner violence among lesbian women. Results lend support to the self-medication hypothesis, which predicts that lesbian women who experience more emotional distress are more likely to drink to cope, and in turn report more alcohol use, problem drinking, and alcohol-related problems. These alcohol outcomes were, in turn, associated with bidirectional partner violence (BPV). These results offer preliminary evidence that, similar to findings for heterosexual women, emotional distress, alcohol use, and particularly, alcohol-related problems are risk factors for BPV among lesbian women.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@sylaska2015disclosure}} [@sylaska2015disclosure]
+# \textsc{\textcolor[HTML]{5b0057}{sylaska2015disclosure}} [@sylaska2015disclosure]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Sylaska, Kateryna M. and Edwards, Katie M.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Disclosure Experiences of Sexual Minority College Student Victims of Intimate Partner Violence
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Although research on disclosure following intimate partner violence (IPV) victimization is burgeoning, sexual minority young adults' (lesbian, gay, bisexual, queer, questioning, etc.; LGBQ+) experiences have not received equal attention. The current study employed the minority stress framework to examine disclosure experiences of LGBQ+ college students across the United States reporting physical IPV victimization within their current relationship (n = 77). Participants completed measures assessing minority stress and IPV disclosure, and answered open-ended questions regarding the most and least helpful persons/responses to disclosure or reasons for non-disclosure. Results indicated that approximately one-third (35 \%) of victims disclosed to at least one person, with friends being the most common recipients. Thematic analyses indicated that talking or listening to the victim was considered the most helpful response and not understanding the situation least helpful. Reasons for non-disclosure centered on themes of the victims' perception that the IPV was not a big deal. Quantitative findings regarding physical IPV disclosure indicated that non-disclosers experienced greater minority stress than disclosers. The current study suggests the presence of differences between sexual minority (i.e., LGBQ +persons) and non-sexual minority persons, as well as between LGBQ+ young adults/college students and older adults and presents a theoretical structure (i.e., minority stress framework) through which these differences may be understood.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@wu2015association}} [@wu2015association]
+# \textsc{\textcolor[HTML]{5b0057}{wu2015association}} [@wu2015association]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Wu, Elwin and El-Bassel, Nabila and McVinney, L. Donald and Hess, Leona and Fopeano, Mark V. and Hwang, Hyesung G. and Charania, Mahnaz and Mansergh, Gordon
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The Association Between Substance Use and Intimate Partner Violence Within Black Male Same-Sex Relationships
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Compared with the extant research on heterosexual intimate partner violence (IPV)-including the knowledge base on alcohol and illicit drug use as predictors of such IPV-there is a paucity of studies on IPV among men who have sex with men (MSM), especially Black MSM. This study investigates the prevalence of experiencing and perpetrating IPV among a sample of Black MSM couples and examines whether heavy drinking and/or illicit substance use is associated with IPV. We conducted a secondary analysis on a data set from 74 individuals (constituting 37 Black MSM couples) screened for inclusion in a couple-based HIV prevention pilot study targeting methamphetamine-involved couples. More than one third (n=28, 38\%) reported IPV at some point with the current partner: 24 both experiencing and perpetrating, 2 experiencing only, and 2 perpetrating only. IPV in the past 30 days was reported by 21 (28\%) of the participants: 18 both experiencing and perpetrating, 1 experiencing only, and 2 perpetrating only. Heavy drinking and methamphetamine use each was associated significantly with experiencing and perpetrating IPV throughout the relationship as well as in the past 30 days. Rock/crack cocaine use was significantly associated with any history of experiencing and perpetrating IPV. Altogether, IPV rates in this sample of Black MSM couples equal or exceed those observed among women victimized by male partners as well as the general population of MSM. This exploratory study points to a critical need for further efforts to understand and address IPV among Black MSM. Similar to heterosexual IPV, results point to alcohol and illicit drug use treatment as important avenues to improve the health and social well-being of Black MSM.
 
-\newpage
-
-# \textsc{\textcolor[HTML]{5b0057}{@edwards2015physical}} [@edwards2015physical]
+# \textsc{\textcolor[HTML]{5b0057}{edwards2015physical}} [@edwards2015physical]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Edwards, Katie M. and Sylaska, Kateryna M. and Barry, Johanna E. and Moynihan, Mary M. and Banyard, Victoria L. and Cohn, Ellen S. and Walsh, Wendy A. and Ward, Sally K.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Physical Dating Violence, Sexual Violence, and Unwanted Pursuit Victimization: A Comparison of Incidence Rates Among Sexual-Minority and Heterosexual College Students
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The purpose of this study was to estimate the 6-month incidence rates of sexual assault, physical dating violence (DV), and unwanted pursuit (e.g., stalking) victimization among sexual-minority (i.e., individuals with any same-sex sexual experiences) college students with comparison data from non-sexual-minority (i.e., individuals with only heterosexual sexual experiences) college students. Participants (N = 6,030) were primarily Caucasian (92.7\%) and non-sexual-minority (82.3\%). Compared with nonsexual- minority students (N-SMS; n = 4,961), sexual-minority students (SMS; n = 1,069) reported significantly higher 6-month incidence rates of physical DV (SMS: 30.3\%; N-SMS: 18.5\%), sexual assault (SMS: 24.3\%; N-SMS: 11.0\%), and unwanted pursuit (SMS: 53.1\%; N-SMS: 36.0\%) victimization. We also explored the moderating role of gender and found that female SMS reported significantly higher rates of physical DV than female N-SMS, whereas male SMS and male N-SMS reported similar rates of physical DV. Gender did not moderate the relationship between sexual-minority status and victimization experiences for either unwanted pursuit or sexual victimization. These findings underscore the alarmingly high rates of interpersonal victimization among SMS and the critical need for research to better understand the explanatory factors that place SMS at increased risk for interpersonal victimization.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@witte2015perceived}} [@witte2015perceived]
+# \textsc{\textcolor[HTML]{5b0057}{witte2015perceived}} [@witte2015perceived]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Witte, Tricia H. and Mulla, Mazheruddin M. and Weaver, Alicia A.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Perceived Social Norms for Intimate Partner Violence in Proximal and Distal Groups
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This study investigated students' perceived descriptive social norms for intimate partner violence (IPV) among proximal and distal groups at college. Male and female college students estimated the prevalence rates for IPV among same-sex friends (proximal group) and same-sex "typical students" (distal group). In separate regression equations for men and women, perceived estimates of IPV rates for same-sex friends, but not estimates for same-sex typical students, were positively related with the participants' own IPV behaviors. Findings have important implications for IPV prevention and intervention programs for college students.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@kubicek2015same-sex}} [@kubicek2015same-sex]
+# \textsc{\textcolor[HTML]{5b0057}{kubicek2015same-sex}} [@kubicek2015same-sex]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Kubicek, Katrina and McNeeley, Miles and Collins, Shardae
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} "Same-Sex Relationship in a Straight World": Individual and Societal Influences on Power and Control in Young Men's Relationships
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Young men who have sex with men (YMSM) continue to experience higher rates of HIV infection than other populations. Recently, there have been recommendations to consider HIV prevention at the dyadic or couple level. Using a dyadic approach to HIV prevention would also address an unaddressed concern related to intimate partner violence (IPV) among YMSM. Although research on IPV among YMSM is still in its infancy, great strides have been made in the past 10 years to describe the prevalence and related correlates of IPV within older adult same-sex relationships. These studies have found rates of IPV among MSM to be similar to rates among heterosexual women, and to be on the rise. The present study is designed to provide insight into how power is conceptualized within YMSM relationships and the role it may play in relationship challenges. This study draws from qualitative data collected from 11 focus groups with 86 YMSM and 26 individual semi-structured interviews to understand relationship challenges and the experiences of YMSM involved in partner violence. YMSM described relationship power as stemming from numerous sources including sexual positioning, gender roles, education, income, prior relationship experiences, and internalized homophobia. The findings have a number of implications for service providers and program design. Interventionists and other researchers need to consider power dynamics and other contextual elements of IPV before effective interventions can be developed for YMSM and other sexual minority populations.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@lewis2014sexual}} [@lewis2014sexual]
+# \textsc{\textcolor[HTML]{5b0057}{lewis2014sexual}} [@lewis2014sexual]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Lewis, Robin J. and Milletich, Robert J. and Derlega, Valerian J. and Padilla, Miguel A.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Sexual Minority Stressors and Psychological Aggression in Lesbian Women's Intimate Relationships: The Mediating Roles of Rumination and Relationship Satisfaction
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Our study examined how two sexual minority stressors (internalized homophobia and social constraints in talking with others about one's minority sexual identity) are related to psychological aggression (PA) in lesbian women's relationships. PA includes a range of methods to hurt, coerce, control, and intimidate intimate partners. Rumination (i.e., brooding about one's self and life situation) and relationship satisfaction were examined as potential mediating variables. Self-identified lesbian women in a same-sex relationship (N = 220) were recruited from a market research firm's online panel. Participants completed measures of internalized homophobia, social constraints, rumination, relationship satisfaction, and frequency of past year PA victimization and perpetration. Internalized homophobia and social constraints in talking to friends about sexual identity yielded a positive indirect link with PA via a sequential path through rumination and relationship satisfaction. There was an additional indirect positive association of minority stressors with PA via a unique path through rumination. These results demonstrate the importance of continued efforts toward reducing minority stress, where possible, as well as enhancing coping. Given the importance of rumination and relationship satisfaction in the link between minority stressors and PA, it is imperative to improve adaptive coping responses to sexual minority stressors. Development and validation of individual- and couples-based interventions that address coping with sexual minority stressors using methods that decrease rumination and brooding and increase relationship satisfaction are certainly warranted.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@milletich2014predictors}} [@milletich2014predictors]
+# \textsc{\textcolor[HTML]{5b0057}{milletich2014predictors}} [@milletich2014predictors]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Milletich, Robert J. and Gumienny, Leslie A. and Kelley, Michelle L. and D'Lima, Gabrielle M.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Predictors of Women's Same-Sex Partner Violence Perpetration
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The present study examined family of origin, individual characteristics, and intimate relationship variables as predictors of women's reports (N = 209; M = 29.5 years) of physical aggression toward their current or most recent same-sex partner in the past year. Participants completed measures that assessed a series of family of origin, individual, and intimate relationship variables. Results of a least-squares regression revealed that identifying as heterosexual (as opposed to lesbian), higher levels of relationship fusion, more experiences of psychological aggression victimization, and having more prior physically aggressive relationships were associated with more frequent perpetration of partner violence. Results of exploratory models testing whether internalized homophobia or dominance/accommodation were indirectly related to physical aggression perpetration revealed that fusion (i.e., enmeshment with one's partner) mediated the relationship between internalized homophobia and perpetration of partner violence. Similarly, fusion mediated the association between dominance/accommodation and the perpetration of partner violence. Findings underscore the importance that individual and relationship characteristics have in predicting partner violence perpetration in women's same-sex relationships.
 
-\newpage
-
-# \textsc{\textcolor[HTML]{5b0057}{@tran2014prevalence}} [@tran2014prevalence]
+# \textsc{\textcolor[HTML]{5b0057}{tran2014prevalence}} [@tran2014prevalence]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Tran, Alvin and Lin, Lavinia and Nehl, Eric J. and Talley, Colin L. and Dunkle, Kristin L. and Wong, Frank Y.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Prevalence of Substance Use and Intimate Partner Violence in a Sample of A/PI MSM
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This study evaluates the prevalence of three forms of intimate partner violence (IPV) (i.e., experience of physical, psychological/symbolic, and sexual battering) among a national sample of Asian/Pacific Islander (A/PI) men who have sex with men (MSM) in the United States and identifies their characteristics. The study also reports the differences of substance use behavior between MSM with and without a previous history of IPV. Our sample was recruited through venue-based sampling from seven metropolitan cities as part of the national Men of Asia Testing for HIV (MATH) study. Among 412 MSM, 29.1\% experienced IPV perpetrated from a boyfriend or same-gender partner in the past 5 years. Within the previous 5 years, 62.5\%, 78.3\%, and 40.8\% of participants experienced physical, psychological/symbolic, and sexual battering, respectively. Collectively, 35.8\% of participants reported that they have experienced at least one type of victimization and 64.2\% have experienced multiple victimizations (two or three types of battering victimization). Overall, 21.2\% of our sample reported any substance use within the past 12 months. The present findings suggest that individuals with a history of IPV in the past 5 years were more likely to report substance use (33.6\%) compared to those without a history of IPV experience (16.1\%).
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@mustanski2014syndemic}} [@mustanski2014syndemic]
+# \textsc{\textcolor[HTML]{5b0057}{mustanski2014syndemic}} [@mustanski2014syndemic]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Mustanski, Brian and Andrews, Rebecca and Herrick, Amy and Stall, Ron and Schnarrs, Phillip W.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} A Syndemic of Psychosocial Health Disparities and Associations With Risk for Attempting Suicide Among Young Sexual Minority Men
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Objectives. We examined a syndemic of psychosocial health issues among young men who have sex with men (MSM), with men and women (MSMW), and with women (MSW). We examined hypothesized drivers of syndemic production and effects on suicide attempts. Methods. Using a pooled data set of 2005 and 2007 Youth Risk Behavior Surveys from 11 jurisdictions, we used structural equation modeling to model a latent syndemic factor of depression symptoms, substance use, risky sex, and intimate partner violence. Multigroup models examined relations between victimization and bullying experiences, syndemic health issues, and serious suicide attempts. Results. We found experiences of victimization to increase syndemic burden among all male youths, especially MSMW and MSM compared with MSW (variance explained = 44\%, 38\%, and 10\%, respectively). The syndemic factor was shown to increase the odds of reporting a serious suicide attempt, particularly for MSM (odds ratio {[}OR] = 5.75; 95\% confidence interval {[}CI] = 1.36, 24.39; P < .001) and MSMW (OR = 5.08; 95\% CI = 2.14, 12.28; P < .001) compared with MSW (OR = 3.47; 95\% CI = 2.50, 4.83; P < .001). Conclusions. Interventions addressing multiple psychosocial health outcomes should be developed and tested to better meet the needs of young MSM and MSMW.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@finneran2014antecedents}} [@finneran2014antecedents]
+# \textsc{\textcolor[HTML]{5b0057}{finneran2014antecedents}} [@finneran2014antecedents]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Finneran, Catherine and Stephenson, Rob
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Antecedents of Intimate Partner Violence Among Gay and Bisexual Men
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Examinations of gay and bisexual men's (GBM) perceptions of intimate partner violence (IPV), including their perceptions of events likely to precipitate IPV, are lacking. Focus group discussions with GBM (n = 83) yielded 24 unique antecedents, or triggers, of IPV in male-male relationships. Venue-recruited survey participants (n = 700) identified antecedents that were likely to cause partner violence in male-male relationships, including antecedents GBM-specific currently absent from the literature. Chi-square tests found significant variations in antecedent endorsement when tested against recent receipt of IPV. Linear regression confirmed that men reporting recent IPV endorsed significantly more IPV antecedents than men without recent IPV (beta = 1.8155, p < .012). A better understanding of the IPV event itself in male-male couples versus heterosexual couples, including its antecedents, can inform and strengthen IPV prevention efforts.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@frankland2014coercive}} [@frankland2014coercive]
+# \textsc{\textcolor[HTML]{5b0057}{frankland2014coercive}} [@frankland2014coercive]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Frankland, Andrew and Brown, Jac
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Coercive Control in Same-Sex Intimate Partner Violence
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Contemporary approaches to intimate partner violence (IPV) have been heavily shaped by the primacy given to coercive control over physical violence and the use of typologies. Few studies have attempted to apply these approaches to same-sex relationships. This study aimed to explore patterns of violence and control and examine the utility of typologies within same-sex domestic violence (SSDV). Data from 184 gay men and lesbians on their experiences with aggressive and controlling behaviors within same-sex relationships was used to identify categories consistent with Johnson's typology. Over half of the sample were non-violent and noncontrolling, while 13.0 \% of respondents and 14.7 \% of their partners had engaging in situational couple violence (SCV). Smaller proportions (4.4 \% of respondents and 6.5 \% of partners) engaged in coercive controlling violence (CCV). Rates of mutually violent control (MVC) were high (12.5 \%). This typology was expanded to identify cases of non-violent control (NVC), which included 7.1 \% of respondents and 5.4 \% of partners. To date, no other studies have reported on the use of controlling behaviors within same-sex relationships. These data demonstrated the presence of patterns of control and violence consistent with categories originally identified in heterosexual couples. Data also supported the growing acceptance of the central role of coercive control in IPV.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@kanuha2013relationships}} [@kanuha2013relationships]
+# \textsc{\textcolor[HTML]{5b0057}{kanuha2013relationships}} [@kanuha2013relationships]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Kanuha, Valli Kalei
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} "Relationships So Loving and So Hurtful": The Constructed Duality of Sexual and Racial/Ethnic Intimacy in the Context of Violence in Asian and Pacific Islander Lesbian and Queer Women's Relationships
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Intimate partner violence (IPV) in Asian, Pacific Islander, and Native Hawaiian (APINH) queer women's and lesbian relationships was examined through interviews with 24 APINH respondents. Seven major themes were uncovered in the dynamics of intimate violence: (a) control, intimidation, and instilling fear; (b) deep emotional intimacy; (c) first, early, or rebound relationships; (d) sexual jealousy and possessiveness; (e) shame as a barrier; (f) limited social and potential partner networks; and (g) crossing/intersecting gender in the butch as victim. Study implications include expanding research on same-sex IPV focusing on the intersection of ethnicity, gender, and sexual identity.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@chong2013risk}} [@chong2013risk]
+# \textsc{\textcolor[HTML]{5b0057}{chong2013risk}} [@chong2013risk]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Chong, Eddie S. K. and Mak, Winnie W. S. and Kwong, Mabel M. F.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Risk and Protective Factors of Same-Sex Intimate Partner Violence in Hong Kong
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Numerous studies have assessed risk and protective factors for intimate partner violence (IPV) among heterosexual couples around the globe. Nevertheless, few have addressed the same issue among same-sex couples, especially in cultures where same-sex intimate relationships have gained little acceptance. This exploratory study evaluated the substantial risk and protective factors for same-sex IPV based on gender-neutral theories. Three hundred and six Hong Kong residents who have been in a same-sex romantic relationship completed a web-based questionnaire. Logistic regression analyses indicated that relationship conflict and poor anger management were risk factors both of psychological and physical perpetration. Dominance and substance abuse were respectively associated with psychological aggression and physical battering despite their small effect sizes. Psychological aggression was also found to mediate the relationship between conflict and physical assault, and that between anger management and physical assault. Interventions related to the array of risk and protective factors were discussed and recommended.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@goldberg2013sexual}} [@goldberg2013sexual]
+# \textsc{\textcolor[HTML]{5b0057}{goldberg2013sexual}} [@goldberg2013sexual]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Goldberg, Naomi G. and Meyer, Ilan H.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Sexual Orientation Disparities in History of Intimate Partner Violence: Results From the California Health Interview Survey
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Few studies have examined history of intimate partner violence (IPV) among sexual minorities. We assessed prevalence and predictors of IPV using a probability sample of California residents ages 18 to 70. Lifetime and 1-year IPV prevalence was higher in sexual minorities compared with heterosexuals but this was significant only for bisexual women and gay men. IPV of bisexual women, but not gay men, occurred in a heterosexual relationship. We tested whether the higher prevalence of IPV in gay men and bisexual women was explained by two mental health indicators-psychological distress and binge drinking-but this hypothesis was not supported.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@witte2013social}} [@witte2013social]
+# \textsc{\textcolor[HTML]{5b0057}{witte2013social}} [@witte2013social]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Witte, Tricia H. and Mulla, Mazheruddin M.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Social Norms for Intimate Partner Violence
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This study investigated perceived descriptive norms (i.e., perceived prevalence) for intimate partner violence (IPV) among college students. Male and female college students were asked to estimate the prevalence of IPV for same-sex "typical students" on their campus. Perpetrators of IPV made higher estimates than nonperpetrators. Both perpetrators and nonperpetrators overestimated the prevalence of IPV when compared to actual prevalence rates. Findings lend support for using social-norms-based prevention programs on college campuses.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@gillum2012there}} [@gillum2012there]
+# \textsc{\textcolor[HTML]{5b0057}{gillum2012there}} [@gillum2012there]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Gillum, Tameka L. and DiFulvio, Gloria
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} "There's So Much at Stake": Sexual Minority Youth Discuss Dating Violence
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The purpose of this study was to explore perceptions of dating violence among a sample of sexual minority youth. Focus groups were conducted as part of a larger study that surveyed 109 sexual minority youth between the ages of 18 and 24 years. Participants identified four main themes contributing to dating violence among same-sex couples: homophobia (societal and internalized); negotiating socially prescribed gender roles; assumed female connection; and other relationship issues. Such information is essential for determining the need for and content of dating violence services, including education, safety planning, and referrals for mental and physical health services for sexual minority youth.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@nowinski2012partner}} [@nowinski2012partner]
+# \textsc{\textcolor[HTML]{5b0057}{nowinski2012partner}} [@nowinski2012partner]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Nowinski, Sabrina N. and Bowen, Erica
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Partner violence against heterosexual and gay men: Prevalence and correlates
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Female victims of intimate partner violence (IPV) have been the focus of a substantial amount of research. However, the subject of male victims of IPV remains a controversial topic, and one which has been comparatively neglected within the literature, despite some findings suggesting that men are victimized by intimate partners at an equivalent, or even higher rate than women. This paper reviews the literature on male victims of IPV, both within opposite and same-gender relationships, focusing on the prevalence and correlates of IPV, as well as exploring the relationship between IPV and ethnicity. According to the literature reviewed, the prevalence of female perpetrated IPV against heterosexual male victims ranges from 0.2\% to 93\%, homosexual male victimization ranges between 1.8\% and 93.7\%, and heterosexual female victimization ranges between 1.3\% and 86\% depending on the type of IPV included, whether the reference period includes the past 12 months, or lifetime experience, and the method used to assess IPV. These data indicate that victimization is as much an issue for men as it is for women. In addition, it appears that men of certain ethnicities may be more at risk than others. Finally, the empirical literature which examines the correlates of male victimization indicates that male victims in heterosexual and gay relationships share many correlates. Unfortunately however, methodological weaknesses in the available literature and a lack of research in some areas restrict the extent to which conclusions can be drawn, and findings generalized. Recommendations for future research are made. (C) 2011 Elsevier Ltd. All rights reserved.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@carvalho2011internalized}} [@carvalho2011internalized]
+# \textsc{\textcolor[HTML]{5b0057}{carvalho2011internalized}} [@carvalho2011internalized]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Carvalho, Amana F. and Lewis, Robin J. and Derlega, Valerian J. and Winstead, Barbara A. and Viggiano, Claudia
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Internalized Sexual Minority Stressors and Same-Sex Intimate Partner Violence
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Intimate partner violence (IPV) is a serious problem in both same-sex and heterosexual relationships. Although there are numerous similarities in the dynamics of IPV, gay men and lesbians experience unique stressors related to their sexual minority status. This preliminary, descriptive study examined the relationship among internalized homophobia, stigma consciousness, and openness to self-reported IPV victimization and perpetration. Among 581 men and lesbians, approximately one-quarter reported IPV victimization and almost 10\% reported IPV perpetration. When demographic variables of age, sex of participant, and relationship status were controlled, victims of IPV reported greater expectations of prejudice and discrimination, yet were more open about their sexual orientation. Similarly, expectations of prejudice and discrimination were related to IPV perpetration. As researchers and counselors focus on understanding, and ultimately reducing, same-sex IPV, it is imperative that sexual minority stressors are considered.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@davidovic2011impelling}} [@davidovic2011impelling]
+# \textsc{\textcolor[HTML]{5b0057}{davidovic2011impelling}} [@davidovic2011impelling]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Davidovic, Anna and Bell, Kurtis and Ferguson, Colin and Gorski, Elizabeth and Campbell, Anne
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Impelling and Inhibitory Forces in Aggression: Sex-of-Target and Relationship Effects
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The finding of symmetry in intimate partner aggression is now generally accepted, but the convergence of male and female rates in these relationships remains unexplained. From qualitative analysis of male and female focus group discussions, we identified factors believed to influence the expression of aggression toward targets differing in sex and degree of intimacy. These factors were then used to construct a questionnaire in which 355 respondents indicated the applicability of the items to conflicts with a partner, a same-sex friend, and an opposite-sex friend. Principal component analysis revealed a clear two-factor structure of impelling forces (tending to provoke or initiate aggression) and inhibitory forces (tending to suppress or diminish the likelihood of aggression). Participants' scores on scales derived from these two factors were used in the subsequent analyses. Men reported lower inhibition and greater impulsion toward same-sex friends than to female friends and partners, who did not differ significantly from one another. Women showed lower inhibition to male targets, regardless of relationship, than to a female target. However, women rated their male partners as significantly higher on impelling forces than their male friends, who in turn were rated significantly higher than female friends. The results are broadly consistent with a sex-of-target effect corresponding to a chivalry norm held by both sexes that inhibits the expression of aggression toward women. The reasons why women are especially impelled to aggression by intimate partners are explored. Disaggregating the dynamics of interpersonal conflict into impelling and inhibitory components may prove useful in understanding and treating dispute escalation and resolution.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@messinger2011invisible}} [@messinger2011invisible]
+# \textsc{\textcolor[HTML]{5b0057}{messinger2011invisible}} [@messinger2011invisible]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Messinger, Adam M.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Invisible Victims: Same-Sex IPV in the National Violence Against Women Survey
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} With intimate partner violence (IPV) among same-sex couples largely ignored by policy makers and researchers alike, accurately estimating the size of the problem is important in determining whether this minimal response is justified. As such, the present study is a secondary data analysis of the National Violence Against Women Survey and represents the first multiple variable regression analysis of U. S. adult same-sex IPV prevalence using a nationally representative sample (N = 14,182). Logistic regressions indicate that, independent of sex, respondents with a history of same-sex relationships are more likely to experience verbal, controlling, physical, and sexual IPV. Behaviorally "bisexual" respondents experience the highest IPV rates and are most likely to be victimized by an opposite-sex partner. Implications for future IPV research regarding sexual orientation and gender are discussed.
 
+\newpage
 
-# \textsc{\textcolor[HTML]{5b0057}{@klostermann2011alcoholism}} [@klostermann2011alcoholism]
+# \textsc{\textcolor[HTML]{5b0057}{klostermann2011alcoholism}} [@klostermann2011alcoholism]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Klostermann, Keith and Kelley, Michelle L. and Milletich, Robert J. and Mignone, Theresa
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Alcoholism and partner aggression among gay and lesbian couples
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The link between alcoholism and intimate partner violence (IPV) among heterosexual couples has received a great deal of attention in both the scientific and lay press. However, relative to heterosexual couples, IPV among alcohol-disordered homosexual couples has been grossly understudied. Despite the limited knowledge based on this topic, previous studies suggest that homosexual couples may experience more problematic drinking behaviors, higher rates of IPV, and in general, display more negative factors associated with treatment-seeking behaviors than heterosexual couples. In addition, because the study of alcoholism and IPV among homosexuals is a relatively new phenomenon, research on alcohol use patterns, dyadic adjustment, and partner violence is greatly lacking. Thus, the purpose of this review is to describe the prevalence of these comorbid conditions among lesbian and gay couples, discuss the link between alcohol misuse and partner violence in this population, identify factors that may reduce treatment-seeking behavior among same sex couples, and describe possible treatment approaches. (c) 2011 Elsevier Ltd. All rights reserved.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@hardesty2011lesbian/bisexual}} [@hardesty2011lesbian/bisexual]
+# \textsc{\textcolor[HTML]{5b0057}{hardesty2011lesbian/bisexual}} [@hardesty2011lesbian/bisexual]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Hardesty, Jennifer L. and Oswald, Ramona F. and Khaw, Lyndal and Fonseca, Carol
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Lesbian/Bisexual Mothers and Intimate Partner Violence: Help Seeking in the Context of Social and Legal Vulnerability
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Mothers in same-sex relationships face unique challenges when help seeking for intimate partner violence (IPV). Formal helping systems often invalidate their family relationships, leaving them vulnerable and distrustful when help seeking. To better understand their experiences, the authors interviewed 24 lesbian/bisexual mothers who were either in or had left abusive same-sex relationships. Increasing severity of violence, effects of violence on children and families, and "being tired" influenced their definitions of the situation. Decisions to seek formal help appeared to be influenced by their support from informal networks and perceived stigma related to the intersection of IPV and being lesbian or bisexual.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@iverson2011contribution}} [@iverson2011contribution]
+# \textsc{\textcolor[HTML]{5b0057}{iverson2011contribution}} [@iverson2011contribution]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Iverson, Katherine M. and Jimenez, Sherlyn and Harrington, Kelly M. and Resick, Patricia A.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The Contribution of Childhood Family Violence on Later Intimate Partner Violence Among Robbery Victims
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This study examined the relative contributions of the three forms of childhood family violence exposure on physical intimate partner violence (IPV) victimization among recent robbery victims and tested a gender-matching modeling prediction for IPV risk. Data from a sample of 103 male and 93 female victims of a robbery were analyzed to investigate the effects of exposure to childhood physical abuse (CPA), childhood sexual abuse (CSA), and witnessing parental violence on the likelihood of IPV in adulthood. As expected, witnessing parental violence was associated with a 2.4-fold increase in IPV for both men and women. Neither CPA nor CSA was significantly associated with IPV after accounting for the effect of witnessing parental violence. There was support for the gender-matching hypothesis with men more likely to report IPV if they had witnessed mother-to-father violence and women more likely to report IPV if they had witnessed father-to-mother violence. Witnessing parental violence is strongly associated with risk for IPV victimization, particularly when the victim is the same-gender parent. Future directions and clinical implications are discussed.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@ackerman2011gender}} [@ackerman2011gender]
+# \textsc{\textcolor[HTML]{5b0057}{ackerman2011gender}} [@ackerman2011gender]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Ackerman, Jeff and Field, Layton
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The Gender Asymmetric Effect of Intimate Partner Violence on Relationship Satisfaction
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Our research examined the association between intimate partner violence and relationship satisfaction among victims. The negative association between victimization and relationship satisfaction was substantially stronger for females than for males. Comparisons between respondents reporting about same-sex relationships with those reporting about opposite-sex relationships provided evidence that the amplified victimization/satisfaction association among female victims is a victim-gender effect rather than an actor-gender effect. In other words, our findings suggest that aggression harms the quality of the intimate partnerships of females much more so than the partnerships of males regardless of whether a male or a female is the perpetrator. We supplemented dialogue about the direct implications of our findings with discussions about how these results may raise conceptual questions about the adequacy of the instruments scholars use to study partner aggression.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@oswald2010lesbian}} [@oswald2010lesbian]
+# \textsc{\textcolor[HTML]{5b0057}{oswald2010lesbian}} [@oswald2010lesbian]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Oswald, Ramona F. and Fonseca, Carol A. and Hardesty, Jennifer L.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Lesbian Mothers' Counseling Experiences In The Context Of Intimate Partner Violence
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Intimate partner violence (IPV) is a significant concern for some lesbian households with children. Yet we know of only one study that has examined lesbian mothers' experiences with IPV. In the current study we analyzed the counseling experiences of participants in our prior study. Interviews with 24 lesbian mothers (12 Black, 9 White, and 3 Latina) 23 to 54 years of age (M = 39.5) were coded using thematic analysis. Overall, lesbian mothers experiencing IPV did seek help from counselors (n = 15, 63\%), typically after reaching a breaking point. Counselors were most helpful when addressing the abuse and promoting self-empowerment, and least helpful when victim-blaming or ignoring the abuse and/or the same-sex relationship. Lesbian mothers' perceptions that mental health professionals were sometimes ineffective have implications for provider training. In order to work effectively with this population, providers should attempt to eliminate or correct personal biases or prejudices with self-exploration and education. By becoming more aware and knowledgeable of the nuances, struggles, and strengths of the lesbian community, providers can gain competency in providing therapeutic services to such clients. Mental health professionals can also adopt an advocacy stance to assist in spreading cultural awareness to others and support policy or institutional changes to include same-sex IPV. Competencies can be assessed through future studies that identify the knowledge and skills gap among mental health professionals who frequently work with the lesbian population.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@edelen2009measurement}} [@edelen2009measurement]
+# \textsc{\textcolor[HTML]{5b0057}{edelen2009measurement}} [@edelen2009measurement]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Edelen, Maria Orlando and McCaffrey, Daniel F. and Marshall, Grant N. and Jaycox, Lisa H.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Measurement of Teen Dating Violence Attitudes An Item Response Theory Evaluation of Differential Item Functioning According to Gender
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Accurate assessment of attitudes about intimate partner violence is important for evaluation of prevention and early intervention programs. Assessment of attitudes about cross-gender interactions is particularly susceptible to bias because it requires specifying the gender of the perpetrator and the victim. As it is likely that respondents will tend to identify with the same-gender actor, items and scales assessing attitudes about intimate partner violence may not have equivalent measurement properties for male and female respondents. This article examines data from 2,575 high school students who participated in a teen-dating violence intervention study. The majority of participants were Latino (91\%), and the sample was nearly evenly split with respect to gender (51\% female). Items from two scales (boy-on-girl violence, 4 items; girl-on-boy violence, 5 items) reflecting teens' attitudes about dating violence were calibrated with the graded item response theory (IRT) model and evaluated for differential item functioning (DIF) by gender. A total of three items, two from the girl-on-boy violence scale and one from the boy-on-girl violence scale, were identified as functioning differently for girls and boys. In all cases where DIF was detected, the item's attitudinal statement was easier to accept for the gender group that was portrayed as victim rather than perpetrator. For both scales, accounting for the identified DIF influenced inferences about the magnitude of mean differences in attitudes between boys and girls. These results support the use of IRT scores that account for DIF to minimize measurement error and improve inferences about gender differences in attitudes about dating violence.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@brown2009perceptions}} [@brown2009perceptions]
+# \textsc{\textcolor[HTML]{5b0057}{brown2009perceptions}} [@brown2009perceptions]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Brown, Michael J. and Groscup, Jennifer
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Perceptions of Same-sex Domestic Violence Among Crisis Center Staff
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Crisis center staff help form the frontline in the fight against domestic violence. Therefore, it is important that we understand any biases they may have when addressing cases of same-sex domestic violence. In this study, 120 crisis center staff members were given a vignette depicting a domestic dispute and asked to complete a questionnaire about their perceptions of the incident and the parties involved. We manipulated the sex of the perpetrator and victim. All other aspects of the vignette remained consistent. Because gay and lesbian relationships are often perceived as less serious than heterosexual relationships, we hypothesized that participants would perceive same-sex domestic violence as such. Consistent with this hypothesis, participants rated same-sex domestic violence scenarios as less serious than opposite-sex domestic violence and as less likely to get worse over time.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@eaton2008examining}} [@eaton2008examining]
+# \textsc{\textcolor[HTML]{5b0057}{eaton2008examining}} [@eaton2008examining]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Eaton, Lisa and Kaufman, Michelle and Fuhrel, Andrea and Cain, Demetria and Cherry, Charsey and Pope, Howard and Kalichman, Seth C.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Examining factors co-existing with interpersonal violence in lesbian relationships
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Interpersonal violence within lesbian relationships is a significant yet understudied problem. Women attending a gay pride festival in Atlanta, GA, were asked to complete a survey concerning same-sex interpersonal violence. Women who reported being in a current or previous same-sex partner relationship were included in the analyses (N = 226). Factors that occurred in the context of interpersonal violence were investigated: substance use, HIV/STI risk behaviors, barriers to reporting abuse, and attitudes inhibiting seeking of social support. In addition, the survey assessed relationship-related power dynamics. Results of multivariate analyses support the hypotheses that power imbalance and inequality when making sex-related decisions within women's same-sex relationships are associated with interpersonal violence. Further findings suggested that a combination of factors must be considered when dealing with and reducing the risk for violence in same-sex relationships.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@glass2008risk}} [@glass2008risk]
+# \textsc{\textcolor[HTML]{5b0057}{glass2008risk}} [@glass2008risk]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Glass, Nancy and Perrin, Nancy and Hanson, Ginger and Bloom, Tina and Gardner, Emily and Campbell, Jacquelyn C.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Risk for reassault in abusive female same-sex relationships
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Objectives. We revised the Danger Assessment to predict reassault in abusive female same-sex relationships. Methods. We used focus groups and interviews to evaluate the assessment tool and identify new risk factors and telephone interviews at baseline and at 1-month follow-up to evaluate the revised assessment. Results. The new assessment tool comprised 8 original and 10 new items. Predictors included increase in physical violence (relative risk ratio {[}RRR] = 1.95; 95\% confidence interval {[}CI]=0.84, 4.54), constant jealousy or possessiveness of abuser (RRR = 4.07; 95\% CI = 0.61, 27.00), cohabitation (RRR = 1.96; 95\% CI = 0.54, 7.12), threats or use of gun by abuser (RRR=1.93; 95\% 0=039, 4.75), alcoholism or problem drinking of abuser (RRR = 1.47; 95\% CI =0.79, 2.71), illegal drug use or abuse of prescription medications by abuser (RRR = 1.33; 95\% CI = 0.72, 2.46), stalking by abuser (RRR = 1.39; 95\% CI = 0.70, 2.76), failure of individuals to take victim seriously when she sought help (RRR 1.66; 95\% CI 0.90, 3.05), victim's fear of reinforcing negative stereotypes (RRR 1.42; 95\% CI 0.73, 2.77), and secrecy of abuse (RRR=1.72; 95\% CI=0.74, 3.99). Both unweighted (P <.005) and weighted (P <.004) versions of the revised assessment were significant predictors of reassault. Conclusions. The revised Danger Assessment accurately assesses risk of reassault in abusive female relationships.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@bossarte2008clustering}} [@bossarte2008clustering]
+# \textsc{\textcolor[HTML]{5b0057}{bossarte2008clustering}} [@bossarte2008clustering]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Bossarte, Robert M. and Simon, Thomas R. and Swahn, Monica H.
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Clustering of adolescent dating violence, peer violence, and suicidal behavior
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} To understand the co-occurrence of multiple types of violence, the authors developed a behavioral typology based on self-reports of suicidal behaviors, physical violence, and psychological abuse. Using a sample of dating adolescents from a high-risk school district, they identified five clusters of behaviors among the 1,653 students who reported being abusive or violent in the past year. Victimization and perpetration with same-sex peers and dating partners clustered together among the students who reported the highest levels of abusive (n = 357) or violent behavior (n = 146). These students also reported high levels of suicidal behavior. There were few significant demographic differences across clusters. The implications of the results for the need to design and evaluate efforts to prevent multiple types of violence are discussed.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@hassouneh2008influence}} [@hassouneh2008influence]
+# \textsc{\textcolor[HTML]{5b0057}{hassouneh2008influence}} [@hassouneh2008influence]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Hassouneh, Dena and Glass, Nancy
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The influence of gender role stereotyping on women's experiences of female same-sex intimate partner violence
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Female same-sex intimate partner violence (FSSIPV) is a serious problem that affects the health and safety of lesbian and bisexual women. To begin to address the paucity of research, a mixed methods study was conducted to identify shared and unique risk and protective factors for FSSIPV. This article reports on qualitative findings related to the influence of gender role stereotyping on women's experiences of FSSIPV Findings indicate that gender role stereotyping shapes women's experiences of FSSIPV by influencing individual, familial, community, and societal perceptions and responses to this phenomenon.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@mckenry2006perpetration}} [@mckenry2006perpetration]
+# \textsc{\textcolor[HTML]{5b0057}{mckenry2006perpetration}} [@mckenry2006perpetration]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} McKenry, Patrick C. and Serovich, Julianne M. and Mason, Tina L. and Mosack, Katie
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Perpetration of gay and lesbian partner violence: A disempowerment perspective
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Gay men and lesbians may experience domestic violence at rates as high as, or higher than heterosexuals, yet there is a noticeable absence of empirical research investigating this phenomenon. This study investigated same-sex partner violence from a disempowerment perspective to determine the influence of (a) individual characteristics, (b) family of origin factors, and (c) intimate relationship factors. A sample of 77 individuals in distressed relationships (40 gay men and 37 lesbians) were administered a series of quantitative measures in our project office. Data primarily were analyzed using two-way ANOVAs (genderxperpetrator of violence). The greatest number of differences between perpetrators and nonperpetrators was found in individual characteristics. Implications for practitioners working with gay men and lesbians experiencing partner violence are discussed.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@seelau2005gender-role}} [@seelau2005gender-role]
+# \textsc{\textcolor[HTML]{5b0057}{seelau2005gender-role}} [@seelau2005gender-role]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Seelau, SM and Seelau, EP
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Gender-role stereotypes and perceptions of heterosexual, gay and lesbian domestic violence
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Although domestic violence occurs in all types of relationships, non-prototypical cases (e.g., gay male, lesbian, female-against-male) are often overlooked. We replicated and extended previous research demonstrating that perceptions of heterosexual and same-sex domestic violence are generally consistent with gender-role stereotypes. Male and female undergraduates read one of four domestic abuse cases varying by victim and perpetrator sex and sexual orientation. Victim sex, ratherthan sexual orientation, was the most potent predictor of responses, although male-against-female violence was considered the most serious and deserving of active intervention. Domestic violence perpetrated by men or against women was judged more serious than violence perpetrated by women or against men. Perceptions that male perpetrators were more capable of injuring victims, and female victims were more likely to suffer serious injury were consistent with gender-role stereotypes.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@sorenson2005restraining}} [@sorenson2005restraining]
+# \textsc{\textcolor[HTML]{5b0057}{sorenson2005restraining}} [@sorenson2005restraining]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Sorenson, SB and Shen, HK
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Restraining orders in California - A look at statewide data
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The authors tabulated statewide administrative data for all types of restraining orders. On June 6, 2003, there were 227,941 active restraining orders against adults in California; most were for domestic violence. Rates of restraining orders (i.e., restrained persons) were highest for men, African Americans, and 25- to 34-year-olds. In 72.2\% of the orders, a woman was to be protected and a man was to be restrained, in 19.3\%, the restrained and protected persons were of the same sex. Although state law prohibits the purchase or possession of a firearm by persons against whom a restraining order is issued, 9.2\% of the orders documented no firearm restrictions.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@mcclennen2005domestic}} [@mcclennen2005domestic]
+# \textsc{\textcolor[HTML]{5b0057}{mcclennen2005domestic}} [@mcclennen2005domestic]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} McClennen, JC
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Domestic violence between same-gender partners - Recent findings and future research
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Empirical literature about same-gender domestic violence was relatively nonexistent until the past 20 years, and conducting research with this population about a sensitive topic remains a daunting endeavor Existing studies reveal similarities between opposite- and same-gender domestic violence in prevalence, types of abuse, and various dynamics, as well as dispel myths and establish a theoretical basis on which to conduct future research. Differences are evident in areas such as help-seeking behaviors and correlates, thus demanding unique assessment and intervention strategies. This article presents further explanation of the latest research, recommendations for future studies, and effective as well as problematic methodological practices about same-gender domestic violence.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@carlson2005most}} [@carlson2005most]
+# \textsc{\textcolor[HTML]{5b0057}{carlson2005most}} [@carlson2005most]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Carlson, BE
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The most important things learned about violence and trauma in the past 20 years
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} In the past 2 decades, important insights have been gained regarding violence and trauma. Complications occur in how violence and trauma, their causes, and their effects on victims should be defined. Violence and abuse to women-physical, sexual, and emotional-are not rare events and are most often perpetrated by partners or acquaintances rather than strangers and occur in nonmarital as well as marital relationships, including same-sex relationships. A promising methodological innovation in the study of violence and trauma is the use of longitudinal designs. Innovations in treatments for victims such as evidence-based interventions have beet? slow to emerge; they include eye movement desensitization and reprocessing (EMDR) and the Seeking Safety group intervention for drug-abusing women with trauma histories. Future research should address increased understanding of variation in individual responses to violence and trauma, matching of treatment to different types of male offenders, better understanding of how culture affects violence perpetration and victimization, and evaluation of domestic violence interventions.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@glass2004female-perpetrated}} [@glass2004female-perpetrated]
+# \textsc{\textcolor[HTML]{5b0057}{glass2004female-perpetrated}} [@glass2004female-perpetrated]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Glass, N and Koziol-McLain, J and Campbell, J and Block, CR
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Female-perpetrated femicide and attempted femicide - A case study
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Femicide, the homicide of women, is the seventh leading cause of premature death for women overall. Intimate partner (IP) homicide accounts for approximately 40\% to 50\% of U.S. femicides. The vast majority of IP femicides are perpetrated by male partners, with .05\% of IP femicides in the U.S. perpetrated by female partners. Few studies have examined intimate partner violence (IPV) between female partners and no study (to the authors' knowledge) has examined female-perpetrated IP femicide and attempted femicide in same-sex relationships. This case study examines IP femicide and attempted femicide among a small Sample of women in same-sex relationships. The findings call attention to this important women's health issue, expand our contextual understanding of violence in female same-sex relationships, and assist health care, law enforcement, judiciary, service, and advocacy professionals to develop prevention strategies and resources to reduce the risk of serious injury and death among women in same-sex relationships.
 
-\newpage
-
-# \textsc{\textcolor[HTML]{5b0057}{@mccloskey2003contribution}} [@mccloskey2003contribution]
+# \textsc{\textcolor[HTML]{5b0057}{mccloskey2003contribution}} [@mccloskey2003contribution]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} McCloskey, LA and Lichter, EL
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The contribution of marital violence to adolescent aggression across different relationships
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Different forms of aggression were measured in 296 young men and women participating in a study dating from their childhood that included families with marital violence. The youth reported on their perpetration of physical aggression with same-sex peers, dating partners, and parents. Measures were also collected on youth depression and empathy. Childhood exposure to marital violence predicted aggression toward peers for all youth. Marital violence was also related to child-to-parent aggression but only for youth older than 18. Youth from maritally violent homes were more likely to be depressed as adolescents. Elevated depression partially mediated the impact of marital violence on peer aggression and was associated with dating aggression among girls. Although marital violence in childhood was unrelated to empathy scores in adolescence, empathic youth were less likely to engage in dating aggression and peer aggression. Findings indicate that further emphasis should be placed on mental health problems and empathy building in youth exposed to marital violence.
 
 
-# \textsc{\textcolor[HTML]{5b0057}{@younglove2002law}} [@younglove2002law]
+# \textsc{\textcolor[HTML]{5b0057}{younglove2002law}} [@younglove2002law]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Younglove, JA and Kerr, MG and Vitello, CJ
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Law enforcement officers' perceptions of same sex domestic violence - Reason for cautious optimism
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} In 1994, California amended its domestic violence legislation to include same sex couples. It is commonly believed within the gay and lesbian community that homophobia induces law enforcement officers to respond differently to incidents of domestic violence involving same sex couples than to incidents involving opposite sex couples. However, the dearth of empirical research has precluded assessing the validity of this assumption, especially since the legal mandate has changed. This study addressed whether the assumption of homophobia among police officers is supported through a survey designed to ascertain perceptions about same sex domestic violence. Results showed no differences in how police perceived a scenario of domestic violence based on the sexual orientation of the involved couple. To the extent that expressed perception reflects acknowledging a need to comply with the legal mandate, there is reason to be hopcful that hornophobia need not deterappropriate /ou, entowetnent response to theproblem of domestic violence among same sex couples.
 
+# \textsc{\textcolor[HTML]{5b0057}{barnes2013survivor}} [@barnes2013survivor]
 
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Barnes,Rebecca
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} "I'm over it": Survivor narratives after woman-to-woman partner abuse
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This article uses qualitative data gathered through semi-structured, in-depth interviews with 40 women in the United Kingdom who identified as having experienced abuse (physical, sexual, emotional, and/or financial) in a previous same-sex relationship. Participants' narratives of "life after abuse" are examined through two lenses; the first contributing to understandings of the varied and enduring material, psychological and relational impacts of abuse, and the second offering insights into the cultural values that shape such narratives. Applying Arthur Frank's (1995) illness narratives, this article argues that narratives emphasizing recovery ("restitution") or transformation ("quest") are culturally privileged over a "chaos" narrative. It also proposes a fourth narrative of "active recovery." The article concludes that recovery from partner abuse is neither a linear process nor one guaranteed to reach an end point. Further research is needed to understand how to better support survivors of partner abuse to move toward recovery. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
+}
+
+# \textsc{\textcolor[HTML]{5b0057}{valentine2013finding}} [@valentine2013finding]
+
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Valentine,Sarah E. and Bankoff,Sarah M. and Pantalone,David W.
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Finding meaning after same-sex partner abuse: A content analysis of experiences of men with HIV
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Given the high rates of partner abuse (PA) among sexual minority men with HIV, it is surprising that this phenomenon remains largely understudied in this group. The extant literature reveals little about the lived experiences of the men who experience abuse in their primary relationships. Furthermore, the role of meaning making in recovery from PA remains unclear for any demographic group. Knowledge of such appraisals may provide insight into the ways that sexual minority men with HIV understand or assign value to their abuse experiences. Here, we aim to qualitatively explore the ways in which such men ( N = 28) find meaning following their experiences of PA. In general, most men reported a sense of personal strength from having endured and survived PA. Surprisingly, the men did not link their postabuse recovery experiences to their sexual minority identity nor to their HIV status. Some men mentioned an increased sense of agency and attention to their own needs in their postabuse lives. With the exception of positive relationships with providers, the men described little use of peer or family support and ongoing social isolation. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
+}
+
+# \textsc{\textcolor[HTML]{5b0057}{alhusen2010perceptions}} [@alhusen2010perceptions]
+
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Alhusen,Jeanne L. and Lucea,Marguerite B. and Glass,Nancy
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Perceptions of and experience with system responses to female same-sex intimate partner violence
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Female same-sex intimate partner violence (FSSIPV) is a significant problem that affects the physical and mental health and the safety of sexual minority women. A mixed-methods study was conducted to (a) identify risk and protective factors for victimization and perpetration of repeat violence in abusive same-sex relationships and (b) examine participant experiences with system responses (by domestic violence services, criminal justice systems, and health care services) to FSSIPV. The purpose of the article is to report the findings from the qualitative component (e.g., focus groups and individual interviews) of the parent study that are specific to survivors’ perceptions of and experiences with domestic violence services, criminal justice systems, and health care services. The findings indicate a significant need across all systems for increased awareness, enhanced understanding, and provision of services specific to survivors of FSSIPV. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
+}
+
+# \textsc{\textcolor[HTML]{5b0057}{blosnich2009comparisons}} [@blosnich2009comparisons]
+
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Blosnich,John R. and Bossarte,Robert M.
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Comparisons of intimate partner violence among partners in same-sex and opposite-sex relationships in the United States
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Using 2005–2007 Behavioral Risk Factor Surveillance System data, we examined intimate partner violence (IPV) by same-sex and opposite-sex relationships and by Metropolitan Statistical Area status. Same-sex victims differed from opposite-sex victims in some forms of IPV prevalence, and urban same-sex victims had increased odds of poor self-perceived health status (adjusted odds ratio = 2.41; 95% confidence interval= 1.17, 4.94). Same-sex and opposite-sex victims experienced similar poor health outcomes, underscoring the need both of inclusive service provision and consideration of sexual orientation in population-based research. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
+}
+
+# \textsc{\textcolor[HTML]{5b0057}{swahn2008measuring}} [@swahn2008measuring]
+
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Swahn,Monica H. and Simon,Thomas R. and Arias,Ileana and Bossarte,Robert M.
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Measuring sex differences in violence victimization and perpetration within date and same-sex peer relationships
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} This study examines sex differences in the patterns of repeated perpetration and victimization of physical violence and psychological aggression within dating relationships and same-sex peer relationships. Data were obtained from the Youth Violence Survey: Linkages among Different Forms of Violence, conducted in 2004, and administered to all public school students enrolled in grades 7, 9, 11 and 12 (N = 4,131) in a high-risk school district. Analyses of adolescents who dated in the past year (n = 2,888) show that girls are significantly more likely than boys to report physical violence and psychological aggression perpetration within dating relationships. However, boys are significantly more likely than girls to report physically injuring a date. Boys are also significantly more likely than girls to report physical violence victimization and perpetration within same-sex peer relationships. Implications and directions for future research are discussed. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
+}
+
+# \textsc{\textcolor[HTML]{5b0057}{pattavina2007comparison}} [@pattavina2007comparison]
+
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Pattavina,April and Hirschel,David and Buzawa,Eve and Faggiani,Don and Bentley,Helen
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} A comparison of the police response to heterosexual versus same-sex intimate partner violence
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} It has been argued that the police do not respond to domestic calls involving same-sex couples in the same manner as they respond to calls involving heterosexual couples. A major problem facing researchers examining the police response to cases involving same-sex couples has been the lack of adequately sized samples. In this article, the authors utilize the 2000 National Incident Based Reporting System database, which contains 176,488 intimate partner assaults and intimidation incidents reported to 2,819 police departments in 19 states. The key issue examined is whether similar cases involving same-sex and heterosexual couples result in the same police response. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
+}
+
+# \textsc{\textcolor[HTML]{5b0057}{balsam2005relationship}} [@balsam2005relationship]
+
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Balsam,Kimberly F. and Szymanski,Dawn M.
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Relationship Quality and Domestic Violence in Women's Same-Sex Relationships: The Role of Minority Stress
+- \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} Despite a large body of literature addressing relationship quality and domestic violence in women's same-sex relationships, few studies have empirically examined how stress specific to living as a lesbian or bisexual woman might correlate with these relationship variables. Degree of outness, internalized homophobia, lifetime and recent experiences of discrimination, butch/femme identity, relationship quality, and lifetime and recent experiences of domestic violence were assessed in a sample of 272 predominantly European American lesbian and bisexual women. Lesbian and bisexual women were found to be comparable on most relationship variables. In bivariate analyses, minority stress variables (internalized homophobia and discrimination) were associated with lower relationship quality and both domestic violence perpetration and victimization. Outness and butch/femme identity were largely unrelated to relationship variables. Path analysis revealed that relationship quality fully mediated the relationship between internalized homophobia and recent domestic violence. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
+}
 \newpage
 
 \centerline{\LARGE{\textsc{Bibliography}}}

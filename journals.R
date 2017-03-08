@@ -80,7 +80,7 @@ with(dat, {lm1 <- lm(H ~ SJR); plot(SJR, H, col = cl, bg = bg, pch = 21, xlab = 
 	# fitdist(dat2[, 2], distr = distrs[i]) %>% plot
 # }
 dat2 <- read.csv("data/ipvJournalsSearch.csv")[c(-1, -6, -7), ] ## Exclude Theses and Dissertations ##
-fitdist(dat2[, 2], "lnorm") %>% plot
+fitdistrplus::fitdist(dat2[, 2], "lnorm") %>% plot
 m.cnt <- mean(dat2[, 2])
 s.cnt <- sd(dat2[, 2])
 dat2.m <- dat2[dat2[,2] >= m.cnt, ]
