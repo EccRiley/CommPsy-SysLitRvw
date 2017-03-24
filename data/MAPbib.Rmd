@@ -22,7 +22,7 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{abstract:}}} The current study reports the results of two randomized controlled trials investigating effects of an online program (Change A Life) designed to educate individuals about children's exposure to domestic violence (DV), and to increase individuals' self-efficacy for providing support to children exposed to DV. In both a community sample ( n = 110) and a college student sample ( n = 146), participants who completed Change A Life, compared to those who completed a control program, reported increased knowledge about children's exposure to DV. In the community sample, but not the college student sample, those who completed Change A Life also reported increased self-efficacy for helping children exposed to DV. Neither participant sex nor history of exposure to domestic violence moderated intervention effects. (PsycINFO Database Record (c) 2016 APA, all rights reserved) (Source: journal abstract)
 
 
-# \textsc{\textcolor[HTML]{5b0057}{hackett2016therapeutic}} [@hackett2016therapeutic]
+# \textsc{\textcolor[HTML]{5b0057}{hackett2015therapeutic}} [@hackett2015therapeutic]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Hackett,Shannon and McWhirter,Paula T. and Lesher,Susan
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} The therapeutic efficacy of domestic violence victim interventions
@@ -270,7 +270,7 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 
 \newpage
 
-# \textsc{\textcolor[HTML]{5b0057}{bennett2002standards}} [@bennett2002standards]
+# \textsc{\textcolor[HTML]{5b0057}{bennett2001standards}} [@bennett2001standards]
 
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{author:}}} Bennett,Larry W. and Vincent,Neil
 - \textcolor[HTML]{165ba8}{\textbf{\texttt{title:}}} Standards for batterer programs: A formative evaluation of the Illinois Protocol

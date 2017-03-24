@@ -15,21 +15,21 @@ knitr::opts_chunk$set(
 ```
 
 Below is a list of academic journals specific or related to Community Psychology research and practice compiled by the [_Society for Community Research \& Action (SCRA)_](http://www.scra27.org).
-`r tufte::margin_note("Read more at http://www.scra27.org/publications/other-journals-relevant-community-psychology/#m5Vu8JuA8fjHXfBE.99")`
+`r tufte::margin_note("Read more at http://www.scra27.org/publications/other-journals-relevant-community-psychology/")`
 
 1. _Action Research_
 2. _American Journal of Community Psychology_
 3. _American Journal of Health Promotion_
 4. _American Journal of Orthopsychiatry_
-5. _American Journal of Preventive Medicine^\textborn^_
+5. _American Journal of Preventive Medicine^\textdagger^_
 6. _American Journal of Public Health_
-7. _Australian Community Psychologist^\textborn^_
-8. _Community Development^\textborn^_
+7. _Australian Community Psychologist^\textdagger^_
+8. _Community Development^\textdagger^_
 9. _Community Development Journal_
 10. _Community Mental Health Journal_
-11. _Community Psychology in Global Perspective^\textborn^_
-12. _Cultural Diversity & Ethnic Minority Psychology^\textborn^_
-13. _Global Journal of Community Psychology Practice^\textborn^_
+11. _Community Psychology in Global Perspective^\textdagger^_
+12. _Cultural Diversity & Ethnic Minority Psychology^\textdagger^_
+13. _Global Journal of Community Psychology Practice^\textdagger^_
 14. _Health Education & Behavior_
 15. _Health Promotion Practice_
 16. _Journal of Applied Social Psychology_
@@ -38,18 +38,18 @@ Below is a list of academic journals specific or related to Community Psychology
 19. _Journal of Health & Social Behavior_
 20. _Journal of Prevention & Intervention_
 21. _Journal of Primary Prevention_
-22. _Journal of Rural Community Psychology^\textborn^_
+22. _Journal of Rural Community Psychology^\textdagger^_
 23. _Journal of Social Issues_
 24. _Journal of Community Psychology_
 25. _Psychiatric Rehabilitation Journal_
 26. _Psychology of Women Quarterly_
-27. _Psychosocial Intervention/Intervenci\acute{o}n Psicosocial_
+27. _Psychosocial Intervention_
 28. _Social Science & Medicine_
-29. _The Community Psychologist^\textdagger^_
+29. _The Community Psychologist^\textdaggerdbl^_
 30. _Transcultural Psychiatry_
 31. _Progress in Community Health Partnerships: Research, Education, & Action_
 
-`r tufte::margin_note("\\textsc{Note:} \\textborn Indicates journals for which no \\textit{\\rhref{http://www.scimagojr.com}{Scimago Journal Rank (SJR)}} impact is available. \\textdagger Indicates informal publications. ")`
+`r tufte::margin_note("\\textsc{Note:} \\textdagger Indicates journals for which no \\textit{\\href{http://www.scimagojr.com}{Scimago Journal Rank (SJR)}} impact is available. \\textdaggerdbl Indicates informal publications. ")`
 
 -----
 
@@ -156,7 +156,7 @@ Below is a list of academic journals specific or related to Community Psychology
 :    The _Psychology of Women Quarterly (PWQ)_ is the official journal of Division 35.  PWQ is a feminist, scientific, peer-reviewed journal that publishes empirical research, critical reviews and theoretical articles that advance a field of inquiry, brief reports on timely topics, teaching briefs, and invited book reviews related to the psychology of women and gender. Topics include (but are not limited to) feminist approaches, methodologies, and critiques; violence against women; body image and objectification; sexism, stereotyping, and discrimination; intersectionality of gender with other social locations (such as age, ability status, class, ethnicity, race, and sexual orientation); international concerns; lifespan development and change; physical and mental well being; therapeutic interventions; sexuality; social activism; and career development.
 
 
-[\textsc{Psychosocial Intervention/Intervenci\acute{o}n Psicosocial}](http://psychosocial-intervention.elsevier.es/en/vol-23-num-01/sumario/13018163/#.U1p7nOZdXTM).
+[\textsc{Psychosocial Intervention](http://psychosocial-intervention.elsevier.es/en/vol-23-num-01/sumario/13018163/#.U1p7nOZdXTM).
 :    The Psychosocial Intervention is a peer-reviewed journal that publishes papers in all areas relevant to psychosocial intervention at the individual, family, social networks, organization, community, and population levels. The Journal emphasizes an evidence-based perspective and welcomes papers reporting original basic and applied research, program evaluation, and intervention results. The journal will also feature integrative reviews, and specialized papers on theoretical advances and methodological issues.
 
 
@@ -176,9 +176,3 @@ Below is a list of academic journals specific or related to Community Psychology
 
 
 \newpage
-
-# Journal Statistics
-
-```{r }
-source("journals.R")
-```

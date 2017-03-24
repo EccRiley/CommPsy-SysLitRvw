@@ -88,3 +88,6 @@ INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color
 INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color`) VALUES ("EXP",?,"Riley","Wed Feb 22 12:36:57 2017",?,86,1,?);
 INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color`) VALUES ("XS",?,"Riley","Wed Feb 22 12:36:57 2017",?,87,1,?);
 INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color`) VALUES ("SVY-QL",?,"Riley","Wed Feb 22 12:36:57 2017",?,88,1,?);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color`) VALUES ("NON-US",?,"Riley","Wed Feb 22 12:36:57 2017",?,91,1,?);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color`) VALUES ("NOT_AVAILABLE",?,"Riley","Wed Feb 22 12:36:57 2017",?,92,1,?);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color`) VALUES ("NON-EMPIRICAL",?,"Riley","Wed Feb 22 12:36:57 2017",?,93,1,?);

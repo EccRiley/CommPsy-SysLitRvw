@@ -43,3 +43,4 @@ _output.yml
 comps-r alias
 
 *.pdf
+.Rproj.user

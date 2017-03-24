@@ -28,7 +28,7 @@
 
 @article{hackett2015therapeutic,
     author={Hackett,Shannon and McWhirter,Paula T. and Lesher,Susan},
-    year={2015},
+    year={2016},
     title={The therapeutic efficacy of domestic violence victim interventions},
     journal={Trauma, Violence, & Abuse},
     volume={17},
@@ -448,7 +448,7 @@
 
 @article{bennett2001standards,
     author={Bennett,Larry W. and Vincent,Neil},
-    year={2001},
+    year={2002},
     title={Standards for batterer programs: A formative evaluation of the Illinois Protocol},
     journal={Journal of Aggression, Maltreatment & Trauma},
     volume={5},
@@ -1126,7 +1126,7 @@ abstract={Empirical literature about same-gender domestic violence was relativel
 
 @article{carlson2005most,
 author={Carlson, BE},
-title={The most important things learned about violence and trauma in the past 20 years},
+title={He most important things learned about violence and trauma in the past 20 years},
 Journal={Journal Of Interpersonal Violence},
 year={2005},
 volume={20},

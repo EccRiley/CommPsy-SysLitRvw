@@ -6,3 +6,4 @@ INSERT INTO `codecat`(`name`,`cid`,`catid`,`owner`,`date`,`dateM`,`memo`,`status
 INSERT INTO `codecat`(`name`,`cid`,`catid`,`owner`,`date`,`dateM`,`memo`,`status`) VALUES ("M-QL",?,4,"Riley","Wed Feb 22 13:01:00",?,?,1);
 INSERT INTO `codecat`(`name`,`cid`,`catid`,`owner`,`date`,`dateM`,`memo`,`status`) VALUES ("M-QT",?,5,"Riley","Wed Feb 22 13:01:00",?,?,1);
 INSERT INTO `codecat`(`name`,`cid`,`catid`,`owner`,`date`,`dateM`,`memo`,`status`) VALUES ("M-MM",?,6,"Riley","Wed Feb 22 13:01:00",?,?,1);
+INSERT INTO `codecat`(`name`,`cid`,`catid`,`owner`,`date`,`dateM`,`memo`,`status`) VALUES ("z",?,7,"Riley","Wed Feb 22 13:01:00",?,?,1);

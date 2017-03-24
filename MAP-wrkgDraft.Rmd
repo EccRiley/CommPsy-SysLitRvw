@@ -1,0 +1,76 @@
+---
+title: "MAP Working Draft"
+author: "Riley M. Smith"
+date: ""
+---
+
+-----
+
+# Rationale
+
+There are two core components of my action-oriented research framework: (1) a focus on developing and implementing innovative and inclusive research methodologies, data analytic approaches, and dissemination strategies; and (2) a diligent focus on the importance of critical reflexivity throughout the research process. The action-oriented and values-transparent community psychological research approach was born out of a resistance to research methodologies, social policies, and implementation practices that ultimately served to reinforce and/or strengthen social and economic inequalities. This foundation necessitates vigilance in critical reflexivity throughout and beyond the research process. The critical literature review I am proposing here is intended to serve this key characteristic of community psychology.
+
+# I. Background & Significance
+
+I propose conducting a systematic critical review of research conducted with marginalized populations, with a specific focus on violence-related research with sexual minority women (SMW).^[[see relevance to dissertation topic]] The critical review will attempt to map core components of community psychological theory and methodologies to the body of research available under the above-defined content and research discipline scopes. In particular, I am interested in evaluating the extent to which community psychological theory and methodologies are implemented, or not, in community psychology-based research related to the phenomenon of interest (i.e., intimate partner violence). I am further interested in examining how the implementation of community psychological research has evolved over time since the origination of the field, as well as potential trajectories based on the current state of discourse within Community Psychology and closely related research and practice disciplines.
+
+Community psychological theory values the notion that the communities in which research is taking place and/or affecting (whether directly or indirectly) should be as involved as possible in all phases of the research process, rather than solely as anonymous data points in the analysis. Community psychology thus favors inclusion over exclusion, participant voices equally with researchers' voices, and participatory and/or purposive sampling methods over convenience sampling methods. The reviewed literature will be evaluated and critiqued according to these types of community psychological standards regarding (1) _research methodologies_, (2) _data analytic approaches_, (3) _interpretations of findings_, and (4) _research dissemination._
+
+
+## Theoretical Grounding
+
+In a sense, the proposed review's theoretical grounding is best summarized in terms of the of the Community Psychology Practice Council's [_"Theory into Action Bulletin"_](http://www.scra27.org/what-we-do/practice/practice-council-initatives/theory-action-bulletin/)^[[Society for Community Research and Action (SCRA)](http://www.scra27.org/)]. The review will be grounded in theories related to action-oriented research and their applications [@chandler2003transforming; @brydon-miller2003why; @friedman-nimz2006blending; @kelly2004community; @noffke1997professional; @prilleltensky2001value-based; @prilleltensky1997values; @seidman2012emerging], as well as social and community psychological theories related to female same-sex intimate partner violence. In particular, I am interested in the intersections that exist across these theoretical, methodological, and problem-specific domains in terms of their actual applications and manifestations in various settings. Below is a list of theoretical and conceptual frameworks specifically guiding the proposed review.
+
+`r tufte::newthought("Theory Specific to Community Psychology (CP):")`
+
+- _The Action Research Cycle & Community-Based Participatory Action Research_ [CBPR; @fine2004participatory; @chandler2003transforming; @brydon-miller2003why; @friedman-nimz2006blending; @kelly2004community; @noffke1997professional; @prilleltensky2001value-based; @prilleltensky1997values; @seidman2012emerging; @anders1966action]
+- _Ecological systems theory and the Social Ecological Model_ [@stokols1996translating; @visser2007social; @walker2006handful; @centers2015social; @kloos2009social; @anderies2004framework; @baral2013modified; @stokols1996translating]
+- _Community Empowerment & Individual Empowerment_ [@speer1995community; @riger1993what; @beeker1998community; @cobb1993empowerment; @collins2002black]
+- _[Community] Health Promotion_ [@stokols1996translating]
+
+`r tufte::newthought("Theory Related to both Community Psychology and IPV Intervention and Prevention:")`
+
+- _Coordinated Community Response_ [CCR; @gondolf2007theoretical; @barner2011interventions; @dutton2007duluth]
+- _Minority Stress Theory & Resilience_ [MS; @meyer2003prejudice; @meyer2010right; @meyer1995minority; @meyer2015resilience]
+- _Risk Factors vs. Protective Factors_ [@baral2013modified; @whitaker2014linking; @tharp2013systematic; @walton-moss2005risk; @heckert2004battered]
+
+`r tufte::newthought("Intersecting Community Psychology Theory \\& Research Methodology")`
+
+- _Grounded Theory Methods_ [@charmaz2006constructing; @corbin1990basics; @strauss1994grounded]
+- _Mixed-Methods Research_ [@morgan2014mmr; @creswell2013research; @greene1989toward; @johnson2007toward]
+- _Program Evaluation_ [@greene1989toward; @kidder1987qualitative; @mertens2012program; @owen1999program; @royse2009program]
+
+# III. Paper Parameters / Systematic Literature Review Methodology
+
+_A. Key literature search strategy_
+
+_B. Focal data bases_
+
+_C. Key search terms_
+
+_D. Inclusion/exclusion criteria_
+
+# IV. Methodological Considerations
+
+# V. Integrative Literature Review
+
+Research conducted within the subset of community psychology focused around intimate partner violence will be initially evaluated according to the level of inclusion and exclusion of the historically marginalized population of interest (i.e., sexual minority women). The implementation of community psychology methodologies and analytic approaches will then be reviewed within each of these categories (i.e., inclusion or exclusion of sexual minority women) in terms of (1) the appropriateness of the methods to the research question, (2) how the methods facilitated the inclusion or exclusion of sexual minority women, and (3) whether and how (where applicable) exclusion of sexual minority women is justified.
+
+# VI. Critique of Literature
+
+`r tufte::newthought("1. Methodological Considerations.")` Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
+
+`r tufte::newthought("3. Interpretations of Findings.")` Is feedback from key stakeholders and informants to the research accepted and genuinely considered by the core research team? Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
+
+`r tufte::newthought("4. Research Dissemination.")` Are key stakeholders and informants to the research given access to reports of a given project's progress and/or findings? Is such access in fact accessible (i.e., free and easy to locate)?
+
+
+## _A. Strengths_
+
+## _B. Limitations_
+
+# VII. Summary of Findings
+
+# VIII. Applied Implications
+
+# IX. Conclusions
