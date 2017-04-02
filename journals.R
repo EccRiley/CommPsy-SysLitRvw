@@ -6,13 +6,13 @@
 #'
 #+ setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE
 source("../SETUP.R")
-knitr::opts_chunk$set(
-    tidy = TRUE,
-    echo = TRUE,
-    fig.keep = 'high',
-    fig.show = 'hold',
-    results = 'asis'
-)
+# knitr::opts_chunk$set(
+    # tidy = TRUE,
+    # echo = TRUE,
+    # fig.keep = 'high',
+    # fig.show = 'hold',
+    # results = 'asis'
+# )
 rpm()
 #'
 #' \Frule

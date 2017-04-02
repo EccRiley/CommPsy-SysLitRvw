@@ -8,84 +8,65 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 source("../SETUP.R")
 knitr::opts_chunk$set(
     tidy = FALSE,
-    echo = FALSE,
+    echo = TRUE,
     fig.keep = 'high',
     fig.show = 'hold',
-    results = 'asis'
+    results = 'asis',
+    echoRule = TRUE
 )
-```
-
-# $\mathpzc{II.A.}$ Key literature search strategy
-
-```{r echo=FALSE}
-source("journals.R")
-j.v <- c("Journal of Interpersonal Violence", "Violence Against Women", "Journal of Family Violence", "Violence and Victims", "Aggression and Violent Behavior", "Partner Abuse", "Trauma, Violence, \\& Abuse", "Psychology of Violence", "Journal of Emotional Abuse", "Response to the Victimization of Women \\& Children")
+rpm()
+j.v <- c("Journal of Interpersonal Violence", "Violence Against Women", "Violence and Victims")
 
 j.cp <- c("Action Research", "American Journal of Community Psychology", "American Journal of Health Promotion", "American Journal of Orthopsychiatry", "American Journal of Preventive Medicine", "American Journal of Public Health", "Australian Community Psychologist", "Community Development", "Community Development Journal", "Community Mental Health Journal", "Community Psychology in Global Perspective", "Cultural Diversity \\& Ethnic Minority Psychology", "Global Journal of Community Psychology Practice", "Health Education \\& Behavior", "Health Promotion Practice", "Journal of Applied Social Psychology", "Journal of Community \\& Applied Social Psychology", "Journal of Community Practice", "Journal of Community Psychology", "Journal of Health \\& Social Behavior", "Journal of Prevention \\& Intervention", "Journal of Primary Prevention", "Journal of Rural Community Psychology", "Journal of Social Issues", "Psychiatric Rehabilitation Journal", "Psychology of Women Quarterly", "Social Science \\& Medicine", "The Community Psychologist", "Transcultural Psychiatry", "Progress in Community Health Partnerships: Research, Education, \\& Action")
 ```
 
-Five individual literature searches were conducted using the [_PsycINFO_ online database](http://www.apa.org/pubs/databases/psycinfo/) via the [Portland State University library website](library.pdx.edu):
+# II.A. Key literature search strategy
 
-`r tufte::newthought("S1: Intimate Partner Violence (including Domestic Violence \\& Partner Abuse) - General:")`
+Six separate literature searches were conducted using the [_PsycINFO_](http://www.apa.org/pubs/databases/psycinfo/) and [_Web of Science_](http://wokinfo.com) online citation indexing databases via the [Portland State University library website](library.pdx.edu):
 
-> `SU("intimate partner violence" OR "domestic violence" OR "partner abuse")`
+- S1: Intimate Partner Violence (including Domestic Violence & Partner Abuse) - General^[\texttt{SU("intimate partner violence" OR "domestic violence" OR "partner abuse")}]
+- S2: Intimate Partner Violence (including Domestic Violence & Partner Abuse) Interventions^[\texttt{SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("intervention")")}]
+- S3 - Intimate Partner Violence (including Domestic Violence & Partner Abuse) Intervention Evaluations^[\texttt{SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("intervention")}]
+- S4 - Female Same-Sex/Same-Gender Intimate Partner Violence^[\texttt{SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("Lesbian")}]
+- S5 - Female Same-Sex/Same-Gender Intimate Partner Violence Interventions^[\texttt{SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("Lesbian") AND SU("intervention")}]
+- S6 - Female Same-Sex/Same-Gender Intimate Partner Violence Intervention Evaluations^[\texttt{SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("Same-Sex" OR "Same-Gender" OR "Lesbian") AND SU("intervention" OR "evaluation")}]
 
-`r tufte::newthought("S2: Intimate Partner Violence (including Domestic Violence \\& Partner Abuse) Interventions:")`
-
-> `SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("intervention")")`
-
-`r tufte::newthought("S3 - Intimate Partner Violence (including Domestic Violence \\& Partner Abuse) Intervention Evaluations:")`
-
-> `SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("intervention")`
-
-`r tufte::newthought("S4 - Female Same-Sex/Same-Gender Intimate Partner Violence:")`
-
-> `SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("Lesbian")`
-
-`r tufte::newthought("S5 - Female Same-Sex/Same-Gender Intimate Partner Violence Interventions:")`
-
-> `SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("Lesbian") AND SU("intervention")`
-
-`r tufte::newthought("S6 - Female Same-Sex/Same-Gender Intimate Partner Violence Intervention Evaluations:")`
-
-> `SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("Same-Sex" OR "Same-Gender" OR "Lesbian") AND SU("Women") AND SU("intervention" OR "evaluation")`
-
-To focus the review around research related or specific to Community Psychology and intimate partner violence, results were confined to articles scholarly peer-reviewed journals specific to intimate partner violence and Community Psychology. The list of IPV-specific journals was determined based on the frequent publication titles for results from a broader literature database search of IPV-related terms previously conducted with no constraints imposed on the publishing journal<!--<<< REVISIT WORDING-->.^[ i.e., an initial database search was conducted to determine the most frequent journals publishing articles specific to IPV using the following command-line search: "`SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND YR(>1965)`"] A list of journals publishing articles resulting from this initial search along with the count of how many articles in the search results were published in each journal was obtained from the database. The resulting journal list and corresponding per journal article counts did not fall under a normal distribution
-
-Journals with article counts in the results of this initial search greater than or equal to the mean number of articles published each of the resultant journals (`r m.cnt`, excluding dissertations and masters theses) were included in the list of journals to include in each of the subsequent database searches conducted for this review: _Journal of Interpersonal Violence‎_, _Journal of Family Violence‎_, _Violence Against Women‎_, _Violence and Victims‎_, _Child Abuse & Neglect‎_, _Journal of Aggression Maltreatment & Trauma‎_, _Aggression and Violent Behavior‎_, _Partner Abuse‎_, _Trauma Violence & Abuse‎_, _Journal of Family Psychology‎_, _Psychology of Violence‎_, and _Contemporary Psychology‎_
-
-
-
+Each search was restricted to the following articles published within the following scholarly journals:
 
 \tdef{1. Violence-related journals:}{`r j.v`}
 
 \tdef{2. Community Psychology-specific journals:}{`r j.cp`}
 
-`r tufte::margin_note("The argument for the command-line search conducted within the PsycINFO database was: \\texttt{PUBALL(\"Journal of Interpersonal Violence\" OR \"Violence Against Women\" OR \"Journal of Family Violence\" OR \"Violence and Victims\" OR \"Aggression and Violent Behavior\" OR \"Partner Abuse\" OR \"Trauma, Violence, & Abuse\" OR \"Psychology of Violence\" OR \"Journal of Emotional Abuse\" OR \"Response to the Victimization of Women & Children\" OR \"Action Research\" OR \"American Journal of Community Psychology\" OR \"American Journal of Health Promotion\" OR \"American Journal of Orthopsychiatry\" OR \"American Journal of Preventive Medicine\" OR \"American Journal of Public Health\" OR \"Australian Community Psychologist\" OR \"Community Development\" OR \"Community Development Journal\" OR \"Community Mental Health Journal\" OR \"Community Psychology in Global Perspective\" OR \"Cultural Diversity & Ethnic Minority Psychology\" OR \"Global Journal of Community Psychology Practice\" OR \"Health Education & Behavior\" OR \"Health Promotion Practice\" OR \"Journal of Applied Social Psychology\" OR \"Journal of Community & Applied Social Psychology\" OR \"Journal of Community Practice\" OR \"Journal of Community Psychology\" OR \"Journal of Health & Social Behavior\" OR \"Journal of Prevention & Intervention\" OR \"Journal of Primary Prevention\" OR \"Journal of Rural Community Psychology\" OR \"Journal of Social Issues\" OR \"Psychiatric Rehabilitation Journal\" OR \"Psychology of Women Quarterly\" OR \"Social Science & Medicine\" OR \"The Community Psychologist\" OR \"Transcultural Psychiatry\" OR \"Progress in Community Health Partnerships: Research, Education, & Action\")}")`
-
-
-Each search was further constrained to articles published between 1965 and 2017 (i.e., the year of the [Swampscott](http://www.scra27.org/publications/tcp/tcp-past-issues/tcpsummer2014/remembering-swampscott/) conference and the present year).
-
-- Excluding 'Systematic Review' \& 'Literature Review' Methodologies
-
+Each database search was further restricted to empirical studies published between 1965 and 2017 [i.e., the year of the [Swampscott conference](http://www.scra27.org/publications/tcp/tcp-past-issues/tcpsummer2014/remembering-swampscott/) and the present year; @fryer2008some]. All searches restricted to 1. scholarly journals ('source type') \& 2. journal articles ('record type'), excluding 'Systematic Review' and 'Literature Review' methodologies.
 
 \newpage
 
 # Search Notes
 
-
-\newpage
+\Frule
 
 # S1 - Intimate Partner Violence (including "Domestic Violence" \& "Partner Abuse") - General
 
-`r tufte::margin_note("Restricted to 1. scholarly journals ('source type') \\& 2. journal articles ('record type'). Excluding 'Systematic Review' and 'Literature Review' (in 'Methodology')")`
+## PsycINFO
 
-<!-- rmv <- c("Journal of Emotional Abuse", "Response to the Victimization of Women & Children") -->
-<!-- incl <- c("Child Abuse & Neglect", "Journal of Aggression Maltreatment & Trauma", "Journal of Family Psychology") -->
+> SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND YR(>1965) AND PUBALL("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Journal of Family Violence" OR "Violence and Victims" OR "Aggression and Violent Behavior" OR "Partner Abuse" OR "Trauma, Violence, & Abuse" OR "Psychology of Violence" OR "Journal of Emotional Abuse" OR "Response to the Victimization of Women & Children" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT ME("Systematic Review" OR "Literature Review")
 
-> `SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND YR(>1965) AND PUBALL("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Journal of Family Violence" OR "Violence and Victims" OR "Aggression and Violent Behavior" OR "Partner Abuse" OR "Trauma, Violence, & Abuse" OR "Psychology of Violence" OR "Journal of Emotional Abuse" OR "Response to the Victimization of Women & Children" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action")`
+```{r }
+s1.n <- 4386
+```
 
-`r tufte::newthought("3,908 results.")`
+## Web of Science ("`S1w`")
+
+> TS=("intimate partner violence" OR "domestic violence" OR "partner abuse") AND PY=(1965-2017) AND SO=("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Journal of Family Violence" OR "Violence and Victims" OR "Aggression and Violent Behavior" OR "Partner Abuse" OR "Trauma, Violence, & Abuse" OR "Psychology of Violence" OR "Journal of Emotional Abuse" OR "Response to the Victimization of Women & Children" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT DT=("Review" OR "Proceedings Paper")
+
+```{r }
+s1w.n <- 3376
+s1 <- range(c(s1.n, s1w.n))
+```
+
+------
+
+\[ S1~~Results = `r paste0(comma(s1[1]), "-", comma(s1[2]))` \]
 
 \newpage
 
@@ -93,77 +74,127 @@ Each search was further constrained to articles published between 1965 and 2017 
 
 ## PsycINFO
 
-> `SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("intervention") AND YR(>1965) AND PUBALL("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Journal of Family Violence" OR "Violence and Victims" OR "Aggression and Violent Behavior" OR "Partner Abuse" OR "Trauma, Violence, & Abuse" OR "Psychology of Violence" OR "Journal of Emotional Abuse" OR "Response to the Victimization of Women & Children" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action")`
+> SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("intervention") AND YR(>1965) AND PUBALL("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Journal of Family Violence" OR "Violence and Victims" OR "Aggression and Violent Behavior" OR "Partner Abuse" OR "Trauma, Violence, & Abuse" OR "Psychology of Violence" OR "Journal of Emotional Abuse" OR "Response to the Victimization of Women & Children" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT ME("Systematic Review" OR "Literature Review")
 
-<!-- `r tufte::newthought("167 Results")` [@song2017experience; @simmons2016enhancing; @barocas2016changing; @eisikovits2016social; @bates2016current; @morrison2016elements; @broidy2016deterring; @boots2016comparison; @mccabe2016mechanisms; @cannon2016survey; @mccloskey2016determinants; @odoherty2016receiving; @storer2016efficacy; @mcginn2016survivor; @cavanaugh2016adapting; @sargent2016evaluating; @wagman2016ethical; @larance2016facilitating; @theobald2016male; @maharaj2016perspectives; @weldon2016implicit; @waller2016broken; @mccarrick2016men; @boivin2016domestic; @choo2016i; @undie2016is; @coker2015evaluation; @galvez2015work-related; @deitch-stackhouse2015influence; @fleming2015role; @malhotra2015review; @yuan2015research; @lim2015making; @walker2015desistance; @love2015strength; @eckhardt2015mechanisms; @kleinsasser2015online; @hamby2015intervention; @virkki2015social; @hockenhull2015heterogeneity; @shepherd-mcmullen2015negative; @baldry2015she; @eden2015use; @kan2015impacts; @williston2015military; @yoshihama2015using; @li2015women; @pulerwitz2015changing; @day2015offending; @howell2015strengthening; @valpied2014sometimes; @odoherty2014selecting; @elmquist2014motivations; @mccall-hosenfeld2014; @pajak2014survivor; @day2014intimate; @petering2014social; @hamberger2014effects; @miller2014effect; @alfredsson2014motivational; @ermentrout2014this; @cantos2014one; @abbey2014responsible; @renzetti2014editor; @dewall2014new; @stuart2014further; @stuart2014genetic; @bennett2014comments; @hahn2014economic; @stover2014training; @martins2014victims; @miller2014evaluation; @boal2014impact; @edwards2014community; @bair-merritt2014primary; @boal2014barriers; @sutton2014intergenerational; @crane2014occurrence; @taft2014strength; @branch2013exploratory; @ford2013intimate; @iverson2013vha; @love2013exploratory; @adams2013effects; @ambuel2013healthcare; @mankowski2013patterns; @siegel2013expanded; @letourneau2013social; @todahl2013client; @gonzalez-guarda2013needs; @wong2013intimate; @francisco2013violence; @taft2013strength; @grip2013children; @eckhardt2013effectiveness; @wubs2013associations; @pereira2013feasibility; @langenderfer2013alcohol; @carbajosa2013difficulties; @wagman2012public; @weldon2012implicit; @murphy2012moderators; @febres2012adulthood; @kennedy2012model; @connors2012evaluation; @sheehan2012turning; @ross2012self-reported; @klostermann2012intimate; @douglas2012men; @dichter2012women; @coker2012effect; @cismaru2011campaigns; @tetterton2011older; @cavanaugh2011dialectical; @mcwhirter2011differential; @eisikovits2011from; @graham-bermann2011mediators; @potter2011bringing; @moynihan2011sisterhood; @barner2011interventions; @gold2011cost-effectiveness; @feder2011need; @rizo2011review; @messing2011collaborating; @renzetti2010editor; @moracco2010who; @moore2010domains; @enriquez2010development; @renzetti2010editor; @campbell2010engaging; @klostermann2010partner; @rolling2010multi; @witte2010sexual; @simmons2010argument; @welland2010culturally; @hamel2010we; @murphy2010interventions; @diviney2009outcomes; @soglin2009detection; @stein2009intimate; @spangaro2009elusive; @chan2009correlates; @stover2008factors; @gillum2008benefits; @weir2008violence; @stickley2008risk; @lindhorst2008long; @musser2008motivational; @saunders2008group; @contrino2007compliance; @kernic2007female; @coker2007partner; @taft2007working; @carney2007women; @gilbert2006integrated; @edwardsen2006intimate; @stuart2006reasons; @nicolaidis2006addressing; @babcock2005applying; @zink2005intimate; @wahab2004intimate; @scott2004predictors; @kanuha2004use; @mouton2003intimate; @west2002intimate; @arscott-mills2001intimate; @carlson2000children] -->
+
+```{r }
+s2.n <- 337
+```
+
+## Web of Science ("`S2w`")
+
+> TS=("intimate partner violence" OR "domestic violence" OR "partner abuse") AND TS=("intervention") AND PY=(1965-2017) AND SO=("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Journal of Family Violence" OR "Violence and Victims" OR "Aggression and Violent Behavior" OR "Partner Abuse" OR "Trauma, Violence, & Abuse" OR "Psychology of Violence" OR "Journal of Emotional Abuse" OR "Response to the Victimization of Women & Children" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT DT=("Review" OR "Proceedings Paper")
+
+```{r }
+s2w.n <- 686
+s2 <- range(c(s2.n, s2w.n))
+```
+
+------
+
+\[ S2~~Results = `r paste0(comma(s2[1]), "-", comma(s2[2]))` \]
 
 \newpage
 
 # S3 - Intimate Partner Violence Intervention Evaluations
 
-`r tufte::margin_note("Restricted to 1. scholarly journals ('source type') \\& 2. journal articles ('record type'). Excluding 'Systematic Review' \\& 'Literature Review' (in 'Methodology')")`
+## PsycINFO
 
-> `SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("intervention" AND "evaluation") AND YR(>1965) AND PUBALL("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Journal of Family Violence" OR "Aggression and Violent Behavior" OR "Partner Abuse" OR "Trauma, Violence, & Abuse" OR "Psychology of Violence" OR "Violence and Victims" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT ME("Systematic Review" OR "Literature Review")`
+> SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("intervention" AND "evaluation") AND YR(>1965) AND PUBALL("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Violence and Victims" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT ME("Systematic Review" OR "Literature Review")
 
-\tufteskip
 
-$N_{s3} = 41$ [@odoherty2016receiving; @sargent2016evaluating; @hackett2015therapeutic; @radatz2016integrating; @fox2015development; @trebow2015outcomes; @howell2015strengthening; @ermentrout2014this; @boal2014impact; @boal2014barriers; @kan2014can; @levesque2012evaluation; @portwood2011evaluation; @potter2011bringing; @feder2011need; @enriquez2010development; @welland2010culturally; @price2009batterer; @spangaro2009elusive; @gillum2008benefits; @roffman2008mens; @saunders2008group; @contrino2007compliance; @muftic2007evaluation; @hendricks2006recidivism; @hovell2006evaluation; @silvergleid2006how; @foshee2004assessing; @sullivan2002findings; @gregory2002effects; @oneill2001pragmatic; @morgan2001pragmatic; @thompson2000identification; @loughlin2000emergency; @gondolf1999comparison; @chalk1998assessing; @rumptz1991ecological; @bennett2001standards; @rosenbaum2002group; @holtzworth-munroe2002standards; @murphy2002toward]
+```{r }
+s3.n <- 32
+```
+
+## Web of Science ("`S3w`")
+
+> TS=("intimate partner violence" OR "domestic violence" OR "partner abuse") AND TS=("intervention" AND "evaluation") AND PY=(1965-2017) AND SO=("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Violence and Victims" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT DT=("Review" OR "Proceedings Paper")
+
 
 ```{r echo=FALSE}
-N.S3 <- 41
+s3w.n <- 46
+s3 <- range(c(s3.n, s3w.n))
 ```
+
+------
+
+\[ S3~~Results = `r paste0(comma(s3[1]), "-", comma(s3[2]))` \]
 
 \newpage
 
 # S4 - Female Same-Sex/Same-Gender Intimate Partner Violence
 
-`r tufte::margin_note("Restricted to 1. scholarly journals ('source type') \\& 2. journal articles ('record type'). Excluding 'Systematic Review' \\& 'Literature Review' (in 'Methodology')")`
+## PsycINFO
 
-> `SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("Same-Sex" OR "Same-Gender") AND SU("women" OR "female" OR "lesbian") AND YR(>1965) AND PUBALL("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Journal of Family Violence" OR "Aggression and Violent Behavior" OR "Partner Abuse" OR "Trauma, Violence, & Abuse" OR "Psychology of Violence" OR "Violence and Victims" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT ME("Systematic Review" OR "Literature Review")`
+> SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("Same-Sex" OR "Same-Gender") AND SU("women" OR "female" OR "lesbian") AND YR(>1965) AND PUBALL("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Violence and Victims" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT ME("Systematic Review" OR "Literature Review")
 
-\tufteskip
-
-$N_{s4} = 23$ [@lewis2017empirical; @kelley2015discrepant; @lewis2015emotional; @reuter2015exploratory; @kanuha2013relationships; @porter2011intimate; @klostermann2011alcoholism; @hardesty2011lesbian/bisexual; @oswald2010lesbian; @pierre2010external; @brown2009perceptions; @eaton2008examining; @mckenry2006perpetration; @heintz2006intimate; @seelau2005gender-role; @fortunata2003demographic; @worcester2002womens; @giorgio2002speaking; @bernhard2000physical; @wise1997comparison; @lockhart1994letting; @hamberger1994domestic; @coleman1994lesbian]
-
------
+```{r }
+s4.n <- 18
+```
 
 ## Web of Science ("`S4w`")
 
-> `TS=("intimate partner violence" OR "domestic violence" OR "partner abuse") AND TS=("Same-Sex" OR "Same-Gender") AND TS=("women" OR "female" OR "lesbian") AND PY=(1965-2017) AND SO=("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Journal of Family Violence" OR "Aggression and Violent Behavior" OR "Partner Abuse" OR "Trauma, Violence, & Abuse" OR "Psychology of Violence" OR "Violence and Victims" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT DT=("Review" OR "Proceedings Paper")`
+> TS=("intimate partner violence" OR "domestic violence" OR "partner abuse") AND TS=("Same-Sex" OR "Same-Gender") AND TS=("women" OR "female" OR "lesbian") AND PY=(1965-2017) AND SO=("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Violence and Victims" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT DT=("Review" OR "Proceedings Paper")
 
-\tufteskip
+```{r echo=FALSE}
+s4w.n <- 34
+s4 <- range(c(s4.n, s4w.n))
+```
 
-$N_{s4w}^{unique} = 35$ [@babcock2016domestic; @dixon2016association; @edwards2016college; @langenderfer-magruder2016experiences; @sylaska2015disclosure; @wu2015association; @edwards2015physical; @witte2015perceived; @kubicek2015same-sex; @lewis2014sexual; @milletich2014predictors; @tran2014prevalence; @mustanski2014syndemic; @finneran2014antecedents; @frankland2014coercive; @chong2013risk; @goldberg2013sexual; @witte2013social; @gillum2012there; @nowinski2012partner; @carvalho2011internalized; @davidovic2011impelling; @messinger2011invisible; @iverson2011contribution; @ackerman2011gender; @edelen2009measurement; @glass2008risk; @bossarte2008clustering; @hassouneh2008influence; @sorenson2005restraining; @mcclennen2005domestic; @carlson2005most; @glass2004female-perpetrated; @mccloskey2003contribution; @younglove2002law]
+-----
 
-\tufteskip
-
-$\mathit{N_{s4w}^{S4.Duplicate} = 10}$ _[@brown2009perceptions; @eaton2008examining; @hardesty2011lesbian/bisexual; @kanuha2013relationships; @kelley2015discrepant; @klostermann2011alcoholism; @lewis2015emotional; @mckenry2006perpetration; @oswald2010lesbian; @seelau2005gender-role]_
-
-
+\[ S4~~Results = `r paste0(comma(s4[1]), "-", comma(s4[2]))` \]
 
 \newpage
 
 # S5 - Female Same-Sex/Same-Gender Intimate Partner Violence Interventions
 
-`r tufte::margin_note("Restricted to 1. scholarly journals ('source type') \\& 2. journal articles ('record type'). Excluding 'Systematic Review' \\& 'Literature Review' (in 'Methodology')")`
+## PsycINFO
 
-> `SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("Same-Sex" OR "Same-Gender") AND SU("women" OR "female" OR "lesbian") AND SU("intervention" OR "evaluation"),YR(>1965),PUBALL("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Journal of Family Violence" OR "Aggression and Violent Behavior" OR "Partner Abuse" OR "Trauma, Violence, & Abuse" OR "Psychology of Violence" OR "Violence and Victims" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action")`
+> SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("Same-Sex" OR "Same-Gender") AND SU("women" OR "female" OR "lesbian") AND SU("intervention"),YR(>1965),PUBALL("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Violence and Victims" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT ME("Systematic Review" OR "Literature Review")
 
-`r tufte::newthought("1 Result (duplicate from S4 and S4w)")` [@brown2009perceptions]
-
-
------
+```{r echo=FALSE}
+s5.n <- 0
+```
 
 ## Web of Science (`S5w`)
 
-> `TS=("intimate partner violence" OR "domestic violence" OR "partner abuse") AND TS=("Same-Sex" OR "Same-Gender") AND TS=("women" OR "female" OR "lesbian") AND TS=("intervention" OR "evaluation") AND PY=(1965-2017) AND SO=("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Journal of Family Violence" OR "Aggression and Violent Behavior" OR "Partner Abuse" OR "Trauma, Violence, & Abuse" OR "Psychology of Violence" OR "Violence and Victims" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT DT=("Review" OR "Proceedings Paper")`
+> TS=("intimate partner violence" OR "domestic violence" OR "partner abuse") AND TS=("Same-Sex" OR "Same-Gender") AND TS=("women" OR "female" OR "lesbian") AND TS=("intervention") AND PY=(1965-2017) AND SO=("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Violence and Victims" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT DT=("Review" OR "Proceedings Paper")
 
-`r tufte::newthought("6 Results (all duplicates from S4w, one duplicate from S4 & S4w)")` [@babcock2016domestic; @witte2015perceived; @edelen2009measurement; @seelau2005gender-role; @mcclennen2005domestic; @carlson2005most]
+```{r echo=FALSE}
+s5w.n <- 4
+s5 <- range(c(s5.n, s5w.n))
+```
 
+-----
 
-# Final Inclusion Decisions
+\[ S5~~Results = `r paste0(comma(s5[1]), "-", comma(s5[2]))` \]
 
-Articles obtained from the third through fifth previously-described literature searches were included in the final list of reviewed items ($N_{total} = `r N.S3+N.S4+N.S5`$)
+\newpage
+
+# S6 - Female Same-Sex/Same-Gender Intimate Partner Violence Interventions
+
+## PsycINFO
+
+> SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND SU("Same-Sex" OR "Same-Gender") AND SU("women" OR "female" OR "lesbian") AND SU("intervention" AND "evaluation"),YR(>1965),PUBALL("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Violence and Victims" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT ME("Systematic Review" OR "Literature Review")
+
+```{r echo=FALSE}
+s6.n <- 0
+```
+
+## Web of Science (`S6w`)
+
+> TS=("intimate partner violence" OR "domestic violence" OR "partner abuse") AND TS=("Same-Sex" OR "Same-Gender") AND TS=("women" OR "female" OR "lesbian") AND TS=("intervention" AND "evaluation") AND PY=(1965-2017) AND SO=("Journal of Interpersonal Violence" OR "Violence Against Women" OR "Violence and Victims" OR "Action Research" OR "American Journal of Community Psychology" OR "American Journal of Health Promotion" OR "American Journal of Orthopsychiatry" OR "American Journal of Preventive Medicine" OR "American Journal of Public Health" OR "Australian Community Psychologist" OR "Community Development" OR "Community Development Journal" OR "Community Mental Health Journal" OR "Community Psychology in Global Perspective" OR "Cultural Diversity & Ethnic Minority Psychology" OR "Global Journal of Community Psychology Practice" OR "Health Education & Behavior" OR "Health Promotion Practice" OR "Journal of Applied Social Psychology" OR "Journal of Community & Applied Social Psychology" OR "Journal of Community Practice" OR "Journal of Community Psychology" OR "Journal of Health & Social Behavior" OR "Journal of Prevention & Intervention" OR "Journal of Primary Prevention" OR "Journal of Rural Community Psychology" OR "Journal of Social Issues" OR "Psychiatric Rehabilitation Journal" OR "Psychology of Women Quarterly" OR "Social Science & Medicine" OR "The Community Psychologist" OR "Transcultural Psychiatry" OR "Progress in Community Health Partnerships: Research, Education, & Action") NOT DT=("Review" OR "Proceedings Paper")
+
+```{r echo=FALSE}
+s6w.n <- 2
+s6 <- range(c(s6.n, s6w.n))
+```
+
+-----
+
+\[ S6~~Results = `r paste0(comma(s6[1]), "-", comma(s6[2]))` \]
 
 \newpage
 

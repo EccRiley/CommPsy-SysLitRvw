@@ -42,6 +42,40 @@ In a sense, the proposed review's theoretical grounding is best summarized in te
 
 # III. Paper Parameters / Systematic Literature Review Methodology
 
+```{r journals, echo=FALSE, results='hide', fig.show='none', fig.keep='none'}
+j.v <- c("Journal of Interpersonal Violence", "Violence Against Women", "Journal of Family Violence", "Violence and Victims", "Aggression and Violent Behavior", "Partner Abuse", "Trauma, Violence, \\& Abuse", "Psychology of Violence", "Journal of Emotional Abuse", "Response to the Victimization of Women \\& Children")
+
+j.cp <- c("Action Research", "American Journal of Community Psychology", "American Journal of Health Promotion", "American Journal of Orthopsychiatry", "American Journal of Preventive Medicine", "American Journal of Public Health", "Australian Community Psychologist", "Community Development", "Community Development Journal", "Community Mental Health Journal", "Community Psychology in Global Perspective", "Cultural Diversity \\& Ethnic Minority Psychology", "Global Journal of Community Psychology Practice", "Health Education \\& Behavior", "Health Promotion Practice", "Journal of Applied Social Psychology", "Journal of Community \\& Applied Social Psychology", "Journal of Community Practice", "Journal of Community Psychology", "Journal of Health \\& Social Behavior", "Journal of Prevention \\& Intervention", "Journal of Primary Prevention", "Journal of Rural Community Psychology", "Journal of Social Issues", "Psychiatric Rehabilitation Journal", "Psychology of Women Quarterly", "Social Science \\& Medicine", "The Community Psychologist", "Transcultural Psychiatry", "Progress in Community Health Partnerships: Research, Education, \\& Action")
+```
+
+## Overview of Reviewed Literature
+
+
+<!-- The empirical literature included in this review is divided into two categories: (1) intimate partner violence intervention evaluations \edit{(general)} and (2) empirical research specific to female same-sex/gender intimate partner violence. -->
+
+Six separate literature searches were conducted using the [_PsycINFO_](http://www.apa.org/pubs/databases/psycinfo/) and [_Web of Science (WOS)_]() online citation indexing databases via the [Portland State University library website](library.pdx.edu):
+
+\singlespacing
+
+1. Intimate Partner Violence (including Domestic Violence \& Partner Abuse) - General ()
+2. Intimate Partner Violence Interventions
+3. Intimate Partner Violence Intervention Evaluations
+4. Female Same-Sex/Same-Gender Intimate Partner Violence
+5. Female Same-Sex/Same-Gender Intimate Partner Violence Interventions
+6. Female Same-Sex/Same-Gender Intimate Partner Violence Intervention Evaluations
+
+\doublespacing
+
+To focus the review around research related or specific to Community Psychology and intimate partner violence, results were confined to articles scholarly peer-reviewed journals specific to <!--intimate partner violence and -->Community Psychology. The list Community Psychology journals included _The American Journal of Community Psychology_ and additional publications listed as related to Community Psychology on the Society for Community Research and Action (SCRA)'s website [@scra2017other]: `r pander(j.cp)`.
+
+Each search was further constrained to articles published between 1965 and 2017 [i.e., the year of the [Swampscott conference](http://www.scra27.org/publications/tcp/tcp-past-issues/tcpsummer2014/remembering-swampscott/) and the present year; @fryer2008some].
+
+
+The purpose of this review is to provide a critical methodological overview of the available research related to intimate partner violence interventions specifically through community psychological lens. This overarching purpose stems primarily from the goal of informing IPV intervention and prevention approaches specific to same-gender IPV perpetration among female-identified individuals. However, while there is currently a burgeoning body of research related to the causes, correlates, and consequences of IPV within the context of women's same-gender relationships, there is currently no empirical evaluation research available examining interventions implemented to address IPV perpetration within such contexts.
+
+<!-- The list of IPV-specific journals was determined based on the frequent publication titles for results from a broader literature database search of IPV-related terms previously conducted with no constraints imposed on the publishing journal (i.e., an initial search was conducted in the PsycINFO database to determine the most frequent journals publishing articles specific to IPV using the following command-line search: "`SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND YR(>1965)`"). A list of journals publishing articles resulting from this initial search along with the count of how many articles in the search results were published in each journal was obtained from the database.  -->
+<!-- Journals with article counts in the results of this initial search greater than or equal to the mean number of articles published each of the resultant journals (`r round(m.cnt, digits = 0)`, excluding dissertations and masters theses) were included in the list of journals to include in each of the subsequent database searches conducted for this review: _Journal of Interpersonal Violence_, _Journal of Family Violence_, _Violence Against Women_, _Violence and Victims_, _Child Abuse & Neglect_, _Journal of Aggression Maltreatment & Trauma_, _Aggression and Violent Behavior_, _Partner Abuse_, _Trauma Violence & Abuse_, _Journal of Family Psychology_, _Psychology of Violence_, and _Contemporary Psychology_. -->
+
 _A. Key literature search strategy_
 
 _B. Focal data bases_
@@ -58,7 +92,7 @@ Research conducted within the subset of community psychology focused around inti
 
 # VI. Critique of Literature
 
-`r tufte::newthought("1. Methodological Considerations.")` Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
+`r tufte::newthought("1. Stakeholder Input.")` Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
 
 `r tufte::newthought("3. Interpretations of Findings.")` Is feedback from key stakeholders and informants to the research accepted and genuinely considered by the core research team? Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
 

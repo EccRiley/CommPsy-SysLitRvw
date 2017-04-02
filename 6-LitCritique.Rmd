@@ -1,0 +1,29 @@
+# VI. Critique of Literature
+
+## Overarching Critique Criterion
+
+1. Rigor in Action-Research Methods
+    - Research question(s) and/or hypothesis(es)
+        - Appropriateness of the methods to the research question(s) and/or hypothesis(es)
+    - Appropriateness of the methods to the population
+        - Sampling frame definition
+    - Data collection modality/modalities
+    - Analytic approach \& procedures
+    - Presentation \& Interpretation(s) of results
+    - Limitations description, interpretation, and justification
+    - Application \& dissemination of research and findings
+2. How the methods facilitate the inclusion or exclusion of specific populations
+    - Whether and how (where applicable) exclusion of specific populations is justified.
+3. How the methods facilitate the inclusion or exclusion of _sexual minority women_
+    - Whether and how (where applicable) exclusion of _sexual minority women_ is justified.
+
+`r tufte::newthought("1. Stakeholder Input.")` Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
+
+`r tufte::newthought("3. Interpretations of Findings.")` Is feedback from key stakeholders and informants to the research accepted and genuinely considered by the core research team? Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
+
+`r tufte::newthought("4. Research Dissemination.")` Are key stakeholders and informants to the research given access to reports of a given project's progress and/or findings? Is such access in fact accessible (i.e., free and easy to locate)?
+
+
+## _A. Strengths_
+
+## _B. Limitations_
