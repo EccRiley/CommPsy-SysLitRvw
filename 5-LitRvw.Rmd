@@ -1,9 +1,21 @@
-# V. Integrative Literature Review
+# V. Literature Review
 
-Research conducted within the subset of community psychology focused around intimate partner violence will be initially evaluated according to the level of inclusion and exclusion of the historically marginalized population of interest (i.e., sexual minority women). The implementation of community psychology methodologies and analytic approaches will then be reviewed within each of these categories (i.e., inclusion or exclusion of sexual minority women) in terms of (1) the appropriateness of the methods to the research question, (2) how the methods facilitated the inclusion or exclusion of sexual minority women, and (3) whether and how (where applicable) exclusion of sexual minority women is justified.
+## Primary Research Topics
 
-`r tufte::newthought("1. Stakeholder Input.")`
+Among samples in both categories of the reviewed research (i.e., IPV Interventions & LGBTQ-Specific IPV Research), females, women, and girls are the most represented population (_n_ = 21 of the 65 reviewed studies); with LGBTQ-specific IPV research studies comprising the majority of studies including females, women, and/or girls in their samples.
 
-`r tufte::newthought("3. Interpretations of Findings.")`
 
-`r tufte::newthought("4. Research Dissemination.")`
+`r tufte::newthought("IPV Interventions Research.")`
+
+
+## Methodologies & Methods Utilized
+
+## Populations Included/Sampling Frames
+
+### Excluded Populations
+
+## Key Findings
+
+### IPV Interventions Research
+
+### LGBTQ-Specific IPV Research

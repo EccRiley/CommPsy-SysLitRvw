@@ -83,10 +83,10 @@ dat <- cbind(dat, dat.subj) %>% as.data.frame()
 dat.narm <- na.omit(dat) %>% as.data.frame()
 names(dat.narm) <- c("Journal", "Location", "Year", "ScimagoJourn.Rating", "H-Index", "Medical", "Psychology", "SocialSciences", "Business", "Arts&Humanities", "Nursing", "HealthProfessions", "N_CoveredTopics")
 
-cor(dat.narm[, -1:-2]) %>% corrplot::corrplot.mixed(lower = "number", upper = "shade", tl.pos = "lt", diag = "u", bg = NA, col = blgrmg(length(cor(dat.narm[, -1:-2]))), tl.col = mypal[19])
+cor(dat.narm[, -1:-2]) %>% corrplot::corrplot.mixed(lower = "number", upper = "shade", tl.pos = "lt", diag = "u", bg = NA, col = blgrmg(length(cor(dat.narm[, -1:-2]))), tl.col = pal_my[19])
 
 cl <- mpal(H, p = cols3); bg <- adjustcolor(cl, alpha.f = 0.6)
-with(dat, {lm1 <- lm(H ~ SJR); plot(SJR, H, col = cl, bg = bg, pch = 21, xlab = "Scimago Journal Rating", ylab = "H Index"); abline(lm1, lwd = 2.5, col = mypal[18])})
+with(dat, {lm1 <- lm(H ~ SJR); plot(SJR, H, col = cl, bg = bg, pch = 21, xlab = "Scimago Journal Rating", ylab = "H Index"); abline(lm1, lwd = 2.5, col = pal_my[18])})
 #'
 #'
 #' # IPV-Related Journals

@@ -52,9 +52,9 @@ s6 <- range(c(s6.n, s6w.n))
 
 Because this review is not intended to provide a cross-national examination of IPV interventions research, each of the above literature searches was restricted to empirical studies conducted within the United States. In addition, to focus the review around a community psychological framework and intimate partner violence, results were initially confined to articles published in scholarly peer-reviewed journals specific to Community Psychology. The list Community Psychology journals included _The American Journal of Community Psychology_ and additional publications listed as related to Community Psychology on the Society for Community Research and Action (SCRA)'s website [@scra2017other]. However, because this journal restriction yielded a limited number of reviewable articles (see \edit{Table []}\todot), the literature searches were revised to also include articles published in the _Journal of Interpersonal Violence_^[_"Journal of Interpersonal Violence (JIV), published 20 times a year, is devoted to the study and treatment of victims and perpetrators of interpersonal violence, addressing the causes, effects, treatment, and prevention of all types of violence"_ [@jiv].]. This publication was chosen for inclusion based on (1) the synchrony among the majority of articles published within this journal and (2) results from a database search of IPV-related terms conducted with no constraints imposed on the publishing journal, which indicated that this journal publishes the vast majority (`r jiv.n`) of intervention-focused intimate partner violence research. Finally, each database search was restricted to empirical studies published between 1965 and 2017 [i.e., the year of the [Swampscott conference](http://www.scra27.org/publications/tcp/tcp-past-issues/tcpsummer2014/remembering-swampscott/) and the present year; @fryer2008some].
 
-Collectively, the above-described literature searches yielded `r nrow(MAP.cpv)` reviewable journal articles, of which `r nrow(MAP.cpv[MAP.cpv$scat == "S3", ])` focus on intimate partner violence interventions, while the remaining `r nrow(MAP.cpv[MAP.cpv$scat == "S4", ])` consist of the available IPV-related research specific to LGBTQ populations within the set of above-described journals.
+Collectively, the above-described literature searches yielded `r nrow(MAP)` reviewable journal articles, of which `r nrow(MAP[MAP$scat == "S3", ])` focus on intimate partner violence interventions, while the remaining `r nrow(MAP[MAP$scat == "S4", ])` consist of the available IPV-related research specific to LGBTQ populations within the set of above-described journals. Although the previously-described database searches allowed for any research published between 1965 and the current year (2017), the earliest publication date in the literature reviewed here is `r min(MAP$year)`. This timespan aligns with the political and legislative history of U.S. domestic violence movement(s), given that the original Violence Against Women Act, which imposed provisions to actually enforce the illegality of family violence perpetration, was passed in 1996 `[CITE]`.
 
-
+<!-- This review of the empirical literature described above is structured ... TODO ... -->
 \newpage
 
 # \edit{Appendix 3}\todot
@@ -70,7 +70,7 @@ Rtdf(map.cp$journal, names = c("Publication Title", "$N_{Articles}$")) %>%
 Rtdf(map.v$journal, names = c("Publication Title", "$N_{Articles}$")) %>%
     pander(caption = "\\edit{Violence-Related Journals Included in Literature Search, with Corresponding Number of Reviewed Articles per Journal}")
 
-with(MAP.cpv, {ftable(journal, scat)}) %>% pander(caption="")
+with(MAP, {ftable(journal, scat)}) %>% pander(caption="")
 
 
 ```
@@ -78,7 +78,7 @@ with(MAP.cpv, {ftable(journal, scat)}) %>% pander(caption="")
 \newpage
 
 ```{r }
-Rtdf(MAP.cpv$journal, names = c("Publication Title", "$N_{Articles}$")) %>%
+Rtdf(MAP$journal, names = c("Publication Title", "$N_{Articles}$")) %>%
     pander(caption = "\\edit{Publication Titles of Reviewed Articles}")
 ```
 
