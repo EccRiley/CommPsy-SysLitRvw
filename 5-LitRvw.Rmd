@@ -1,14 +1,14 @@
 # V. Literature Review
 
-## Primary Research Topics
+# V.1. IPV Interventions Research
 
-Among samples in both categories of the reviewed research (i.e., IPV Interventions & LGBTQ-Specific IPV Research), females, women, and girls are the most represented population (_n_ = 21 of the 65 reviewed studies); with LGBTQ-specific IPV research studies comprising the majority of studies including females, women, and/or girls in their samples.
+## Specific Research Topics
 
-
-`r tufte::newthought("IPV Interventions Research.")`
-
+The primary research topic across the empirical literature reviewed here is evaluation of IPV interventions. However, the level, scope, and specific foci of evaluations is somewhat varied across this literature. 
 
 ## Methodologies & Methods Utilized
+
+The majority of the reviewed studies follow quantitatively-based methodologies (n = 14; 61%), with just over a quarter (n = 6) employing qualitatively-based methodologies, and only four studies utilizing mixed-methodological approaches. Of the reviewed quantitatively-based studies, 86% (n = 12) employed experimental and/or longitudinal, rather than cross-sectional, designs. All but one of the quantitative studies (93%) used self-report survey measures as the primary datasource. Four of the six qualitatively-based studies used group interviews as the primary data collection method, one administered and analyzed responses to a qualitative self-report survey, and one employed a multi-method qualitative approach. The methods represented among studies following mixed-methodological designs include experimental and longitudinal mixed-methods, focus groups, and qualitative and quantitative self-report measures.
 
 ## Populations Included/Sampling Frames
 
@@ -16,6 +16,25 @@ Among samples in both categories of the reviewed research (i.e., IPV Interventio
 
 ## Key Findings
 
-### IPV Interventions Research
 
-### LGBTQ-Specific IPV Research
+# V.2. LGBTQ-Specific IPV Research
+
+## Primary Research Topics
+
+## Methodologies & Methods Utilized
+
+`r tufte::newthought("Quantitative Methods.")`
+
+`r tufte::newthought("Qualitative Methods.")`
+
+`r tufte::newthought("Mixed-Methods.")`
+
+
+## Populations Included/Sampling Frames
+
+<!-- Among samples in both categories of the research (i.e., IPV Interventions & LGBTQ-Specific IPV Research), females, women, and girls are the most represented population (_n_ = 21 of the 65 reviewed studies); with LGBTQ-specific IPV research studies comprising the majority of studies including females, women, and/or girls in their samples. -->
+
+`r tufte::newthought("Excluded Populations")`
+
+
+## Key Findings

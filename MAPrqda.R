@@ -23,7 +23,9 @@
 library(RQDA)
 # RQDA()
 # openProject("data/RQDA/comps.RQDA", updateGUI = TRUE)
+# openProject("data/RQDA/MAP-new.RQDA", updateGUI = TRUE)
 openProject("data/RQDA/comps.RQDA")
+# openProject("data/RQDA/MAP-new.RQDA")
 #'
 #' # Codings Retreival
 #'
@@ -104,7 +106,7 @@ ctbl <-
     ctbl[, c("caseid", "case", "RM", "scat", "cid", "code", "catid", "cat")]
     ## reordering columns for data-organizational purposes ...
     ## also removed the "selfirst" column since it's no longer needed ##
-ct.scat <- ctbl[ctbl$cat == "SEARCH", ] ## for later ##
+# ct.scat <- ctbl[ctbl$cat == "SEARCH", ] ## for later ##
 ctbl$cat <- ifelse(ctbl$cat == "SEARCH", NA_character_, ctbl$cat)
 ctbl <- na.omit(ctbl)
     ## Removing any codings for codes in the "SEARCH" category since the

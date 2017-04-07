@@ -1,5 +1,5 @@
 #' ---
-#' title: "MAP - Literature Description"
+#' title: "MAP - Bibliography"
 #' author: "Riley M. Smith"
 #' date: "`r format(Sys.Date(), '%d %B %Y')`"
 #' ---
@@ -20,6 +20,7 @@ knitr::opts_chunk$set(
 )
 rpm()
 # options(warn = -1)
+# FUN - 'RtCap()' -------------------------------------------------------
 RtCap <- function(x) {
     s0 <- strsplit(x, " ")[[1]]
     nocap <- c("a", "the", "to", "at", "in", "with", "and", "but", "or", "of")
@@ -29,6 +30,7 @@ RtCap <- function(x) {
     s <- paste(s1, s2, sep="", collapse=" ")
     return(s)
 }
+# FUN - 'Rabbr()' -------------------------------------------------------
 Rabbr <- function(x) {
     s0 <- strsplit(x, " ")[[1]]
     ex <- c("a", "the", "to", "at", "in", "with", "and", "but", "or", "of", "\\&")
@@ -115,9 +117,7 @@ pander(jdat.s[, 1:2],
 #' -----
 #'
 #+ bibdf
-# BIB --------------------------------------------------------------
-
-# bibkeys ============================================================
+# FUN - 'Rbibkeys()' -------------------------------------------------------
 Rbibkeys <- function(bib) {
     keys <- bib[grep("\\@.*?\\{.*?,", bib, perl = TRUE)]
     keys <- gsub("\\@\\w+\\{(.*?)", "\\1", keys, perl = TRUE)
@@ -127,10 +127,11 @@ Rbibkeys <- function(bib) {
     return(keys)
 }
 
+# BIB --------------------------------------------------------------
+
 bib <- readLines("MAP.bib")
 BIBKEY <- Rbibkeys(bib)
 
-# bibdf ============================================================
 library(bib2df)
 bibdf <- bib2df("MAP.bib")
 ID <- seq(1:nrow(bibdf))
@@ -155,6 +156,7 @@ csid$case <- factor(csid$case)
 MAP <- merge(MAP, csid, by.x = "bibkey", by.y = "case")
 #'
 #+ MAP_CPV
+
 # MAP-CPV ----------------------------------------------------------------
 
 # (map.cp & map.v) ============================================================
@@ -195,6 +197,7 @@ MAP$jrnl <- sapply(as.character(MAP$journal), Rabbr)
 #' \newpage
 #'
 #+ ctbl_m
+
 # CTBL ---------------------------------------------------------------
 
 ctbl.m <- merge(MAP, ctbl, by = c("caseid", "scat"))
@@ -226,20 +229,25 @@ ctbl.m <- within(ctbl.m, {
 #'
 #' # General Research Categories
 #'
+#+ desc
+### catpal ####
+catpal <- c(adjustcolor(pal_my[16], alpha.f = 0.8), adjustcolor(pal_my[18], alpha.f = 0.9))
+
 # DESCRIPTIVES ---------------------------------------------------------------
 
-catpal <- c(adjustcolor(pal_my[16], alpha.f = 0.8), adjustcolor(pal_my[18], alpha.f = 0.9))
 # search categories ============================================================
 
-### [MAP-interventions.csv] ####
+### [MAP-abstracts-S3.csv] ####
 cpv.s3 <- MAP[MAP$scat == "S3", ]
-# write.csv(cpv.s3, "data/MAP-interventions.csv", row.names = FALSE)
+write.csv(cpv.s3[order(cpv.s3$year), c("bibkey", "year", "title", "journal", "abstract")], "data/MAP-abstracts-S3.csv", row.names = FALSE)
 
-### [MAP-lgbtq.csv] ####
+### [MAP-abstracts-S4.csv] ####
 cpv.s4 <- MAP[MAP$scat == "S4", ]
-# write.csv(cpv.s3, "data/MAP-lgbtq.csv", row.names = FALSE)
+write.csv(cpv.s4[order(cpv.s4$year), c("bibkey", "year", "title", "journal", "abstract")], "data/MAP-abstracts-S4.csv", row.names = FALSE)
 
-ct.scat$scat <- ifelse(ct.scat$scat == "S3", "IPV Interventions", "LGBTQ-IPV Research")
+ct.scat <- within(MAP, {
+    scat <- ifelse(scat == "S3", "IPV Interventions", "LGBTQ-IPV Research")
+})
 
 t.scat <- Rtdf(ct.scat$scat, names = c("Category", "N"))
 ## "ct.scat" created in "MAPrqda.R" ##
@@ -287,6 +295,8 @@ ft.jrnl <- with(MAP, {
 dimnames(ft.jrnl) <- list("Publication Title" = levels(MAP$journal), Category = c("IPV Interventions", "LGBTQ-IPV Research"))
 ft.jrnl
 #'
+#' \newpage
+#'
 #' # Publication Years
 #'
 #+ yr_hist1, echo=FALSE, fig.fullwidth=TRUE, fig.width=7, fig.height=5
@@ -333,29 +343,20 @@ yrt$M <- paste0(yrt$M, " (\\textit{", yrt$SD, "})")
 yrt <- yrt[c(1, 3:4)]
 names(yrt) <- c("Mean (\\textit{SD})", "Minimum", "Maximum")
 #'
-#' \end{centering}\end{fullwidth}\newpage
+#' \end{centering}\end{fullwidth}
 #'
 #+ yrt, echo=FALSE
-library(kableExtra)
-kable(yrt, align = rep('c', ncol(yrt)), caption = "Summary of Number of Articles Published Per Year")
-
 yrt.s3 <- Rtdf(cpv.s3$year)[, 2] %>% Rmsmm() %>% t() %>% as.data.frame()
 yrt.s3[, c(1, 3:4)] <- apply(yrt.s3[, c(1, 3:4)], 2, round, digits = 0)
 yrt.s3$M <- paste0(yrt.s3$M, " (\\textit{", yrt.s3$SD, "})")
 yrt.s3 <- yrt.s3[c(1, 3:4)]
 names(yrt.s3) <- c("Mean (\\textit{SD})", "Minimum", "Maximum")
 
-kable(yrt.s3, align = rep('c', ncol(yrt)), caption = "Summary Statistics for Amount of IPV Interventions Research Articles Published Each Year", format = 'latex', booktabs = TRUE) %>%
-    kable_styling(position = "float_left")
-
 yrt.s4 <- Rtdf(cpv.s4$year)[, 2] %>% Rmsmm() %>% t() %>% as.data.frame()
 yrt.s4[, c(1, 3:4)] <- apply(yrt.s4[, c(1, 3:4)], 2, round, digits = 0)
 yrt.s4$M <- paste0(yrt.s4$M, " (\\textit{", yrt.s4$SD, "})")
 yrt.s4 <- yrt.s4[c(1, 3:4)]
 names(yrt.s4) <- c("Mean (\\textit{SD})", "Minimum", "Maximum")
-
-kable(yrt.s4, align = rep('c', ncol(yrt)), caption = "Summary Statistics for Amount of LGBTQ-Specific IPV Research Articles Published Each Year", format = 'latex', booktabs = TRUE) %>%
-    kable_styling(position = "float_right")
 #'
 #' \tufteskip
 #'
@@ -369,62 +370,107 @@ knitr::opts_chunk$set(echo = FALSE)
 #'
 #' # Research Topics, Sampling Frames, and Methodologies
 #'
+#+ FUN_Rftm
+# FUN - 'Rftm()' -------------------------------------------------------
+Rftm <- function(x1, x2, dnn = NULL, zero.action = NA, zero.qt = FALSE) {
+    if (!is.null(dnn)) {
+        tx <- Rtdf(x1, names = dnn[[1]])
+        ftm <- ftable(x1, x2, row.vars = 1) %>% matrix(nrow = nrow(tx), byrow = FALSE)
+        dimnames(ftm) <- list(levels(x1), dnn[[2]])
+    } else {
+        tx <- Rtdf(x1)
+        ftm <- ftable(x1, x2, row.vars = 1) %>% matrix(nrow = nrow(tx), byrow = FALSE)
+        dimnames(ftm) <- list(levels(x1))
+    }
+    if (!is.null(zero.action)) {
+        if (zero.qt == 0 | zero.qt == 1) {
+            zero.qt <- as.logical(zero.qt)
+        } else {
+            if (!is.logical(zero.qt)) {
+                stop("'zero.qt' must be either logical ('TRUE'/'FALSE') or interpretable as logical ('0'/'1'")
+            }
+        }
+        if (zero.qt == TRUE) {
+            ftm <- ifelse(ftm == 0, quote(zero.action), ftm)
+        } else {
+            ftm <- ifelse(ftm == 0, noquote(zero.action), ftm)
+        }
+    }
+    y <- list(tx, ftm)
+    names(y) <- c(paste0("Tabulation of ", deparse(substitute(x1))), paste0("Cross-Tabulation of ",
+                                                                            deparse(substitute(x1)), " & ", deparse(substitute(x2))))
+    return(y)
+}
 #' ## Primary Topics
 #'
+#+ topics, fig.fullwidth=TRUE
 # topics ============================================================
 
-ct.top <- ctbl.m[ctbl.m$cat == "TOPIC", ] %>% droplevels()
-t.top <- Rtdf(ct.top$code, names = c("Topic", "$N_{Articles}$"))
-t.top
-ft.top <- ftable(ct.top[, c("code", "scat")], row.vars = 1)
-ftm.top <- matrix(ft.top, nrow = nrow(t.top), byrow = FALSE)
-dimnames(ftm.top) <- list(Topic = levels(ct.top$code), c("IPV Interventions", "LGBTQ-IPV Research"))
-ftm.top
+codes.tp <- ctbl.m[ctbl.m$cat == "TOPIC", "code"] %>% droplevels()
+ctp.dnn <- c("Topic", "$N_{Articles}$")
+
+scats.tp <- ctbl.m[ctbl.m$cat == "TOPIC", "scat"] %>% droplevels()
+stp.dnn <- c("IPV Interventions", "LGBTQ-IPV Research")
+
+topics <- Rftm(codes.tp, scats.tp, dnn = list(ctp.dnn, stp.dnn))
+t.tp <- topics[[1]]
+ftm.tp <- topics[[2]]
+
+ftm.tp %>% kable(format.args = list(zero.print = "."))
 
 ### PLOT - topic - 1 ####
-Rdotchart(ftm.top, pch = 19, gcolor = pal_my[20], xlab = expression(N[Articles]), cex = 0.7, gcex = 0.75, gfont = 2, pt.cex = 1.125, color = c(rep(catpal[1], nrow(ftm.top)), rep(catpal[2], nrow(ftm.top))))
+Rdotchart(
+    ftm.tp,
+    pch = 19,
+    gcolor = pal_my[20],
+    xlab = expression(N[Articles]),
+    cex = 0.7,
+    gcex = 0.75,
+    gfont = 2,
+    pt.cex = 1.125,
+    color = c(rep(catpal[1], nrow(ftm.tp)), rep(catpal[2], nrow(ftm.tp)))
+)
+
+dfm.tp2 <- data.frame(ftm.tp)
+names(dfm.tp2) <- c("s3", "s4")
+top.s3 <- data.frame(dfm.tp2$s3, row.names = rownames(dfm.tp2))
+top.s3 <- na.omit(top.s3)
+top.s3
+top.s4 <- data.frame(dfm.tp2$s4, row.names = rownames(dfm.tp2))
+top.s4 <- na.omit(top.s4)
+top.s4
 
 ### PLOT - topic - 2 ####
-
 library(ggparallel)
-ct.top$code <- as.numeric(ct.top$code) %>% factor()
-cutoff <- group_by(ct.top, code) %>% dplyr::count()
+ct.tp <- ctbl.m[ctbl.m$cat == "TOPIC", ] %>% droplevels()
+cutoff <- group_by(ct.tp, code) %>% dplyr::count()
 names(cutoff) <- c("code", "cutoff.score")
-ct.top <- merge(ct.top, cutoff, by = "code")
-ct.top <- ct.top[ct.top$cutoff.score > 1, ]
-nlabs <- length(unique(ct.top$code))
-ptop <- mpal(1:(length(unique(ct.top$code))), p = sci)
+ct.tp <- merge(ct.tp, cutoff, by = "code")
+ct.tp <- ct.tp[ct.tp$cutoff > 2, ]
+nlabs <- length(unique(ct.tp$code))
+ptop <- mpal(1:(length(unique(ct.tp$code))), p = sci)
 pscat <- pal_my[c(2, 17)]
 
 library(reshape)
-ct.top <- rename(ct.top, c(code = "Primary Topic", scat = "Research Category"))
+ct.tp <- rename(ct.tp, c(scat = "Category"))
 
 source("ggparset2.R")
-top.ps <- ggparset2(list("Primary Topic", "Research Category"),
-          data = ct.top, #weight = "wt",
-          method = "parset", label = FALSE,
-          text.angle = 0, order = c(1,-1)) +
-    scale_fill_manual(values = c(ptop, pscat),
-                      breaks = c(rep("", nlabs),
-                                 "Research Category:IPV Interventions",
-                                 "Research Category:LGBTQ-IPV Research"),
-                      labels = c(rep("", nlabs),
-                                 "IPV Interventions", "LGBTQ-IPV\nResearch")) +
-    scale_colour_manual(values = c(ptop, pscat), guide = FALSE) +
+top.ps <- ggparset2(list("code", "Category"),
+                    data = ct.tp, #weight = "wt",
+                    method = "parset", label = FALSE,
+                    text.angle = 0, order = c(1,-1)) +
+    scale_fill_manual(values = c(pscat, ptop)) +
+    scale_colour_manual(values = c(pscat, ptop)) +
     guides(fill = guide_legend(override.aes = list(alpha = 0))) +
-    thm_Rtft(lpos = "right", ldir = "vertical") +
-    theme(legend.text = element_text(size = rel(1)),
-          legend.key = element_rect(colour = "transparent", fill = "transparent"),
-          legend.key.width = unit(0, "cm"),
-          legend.key.height = unit(1, "cm"),
-          legend.position = c(0.91, 0.58),
-          legend.justification = c(0.95, 0.45),
-          legend.background = element_rect(fill="transparent"))
+    thm_Rtft() +
+    theme(legend.text = element_text(size = rel(.8)),
+          legend.key.height = unit(0.5, "cm"))
 top.ps
 #'
 #'
 #' ## Methodologies
 #'
+#+ methodologies, fig.fullwidth=TRUE
 # methodologies ============================================================
 
 library(vcd);
@@ -484,6 +530,7 @@ mo.ps
 #' \newpage
 #' `r tufte::newthought("\\large{Qualitative Methods}")`
 #'
+#+ qual, fig.fullwidth=TRUE
 # qualitative ============================================================
 
 ct.ql <- ctbl.m[ctbl.m$cat == "M-QL", ] %>% droplevels()
@@ -537,6 +584,7 @@ ql.ps
 #' \newpage
 #' `r tufte::newthought("\\large{Quantitative Methods}")`
 #'
+#+ quant, fig.fullwidth=TRUE
 # quantitative ============================================================
 
 ct.qt <- ctbl.m[ctbl.m$cat == "M-QT", ] %>% droplevels()
@@ -591,6 +639,7 @@ qt.ps
 #' \newpage
 #' `r tufte::newthought("\\large{Mixed-Methods}")`
 #'
+#+ mixed, fig.fullwidth=TRUE
 # mixed-methods ============================================================
 
 ct.mm <- ctbl.m[ctbl.m$cat == "M-MM", ] %>% droplevels()
@@ -646,6 +695,7 @@ mm.ps
 #' \newpage
 #' `r tufte::newthought("\\large{Populations}")`
 #'
+#+ populations, fig.fullwidth=TRUE
 # populations ============================================================
 
 ct.pop <- ctbl.m[ctbl.m$cat == "POPULATION", ] %>% droplevels()
@@ -713,7 +763,7 @@ cutoff2 <- with(ct.pop, {ftable(code, scat)}) %>% data.frame()
 names(cutoff2)[3] <- "co2.freq"
 ct.pop <- merge(ct.pop, cutoff2, by = c("code", "scat"))
 ct.pop <- ct.pop[ct.pop$cutoff.score > 1, ]
-ct.pop <- ct.pop[ct.pop$co2.freq > 0, ]
+ct.pop <- ct.pop[ct.pop$co2.freq > 2, ]
 ct.pop$code <- droplevels(ct.pop$code)
 nlabs <- length(unique(ct.pop$code))
 ppop <- mpal(1:(length(unique(ct.pop$code))), p = sci)
@@ -723,23 +773,11 @@ ct.pop <- rename(ct.pop, c(code = "Included Populations", scat = "Research Categ
 pop.ps2 <- ggparset2(list("Included Populations", "Research Category"),
                     data = ct.pop, #weight = "wt",
                     method = "parset", label = TRUE,
-                    text.angle = 0, order = c(1,-1)) +
-    scale_fill_manual(values = c(ppop, pscat),
-                      breaks = c(rep("", nlabs),
-                                 "Research Category:IPV Interventions",
-                                 "Research Category:LGBTQ-IPV Research"),
-                      labels = c(rep("", nlabs),
-                                 "IPV Interventions", "LGBTQ-IPV\nResearch")) +
+                    label.size = 3, text.angle = 0, order = c(1,-1)) +
+    scale_fill_manual(values = c(ppop, pscat), guide = FALSE) +
     scale_colour_manual(values = c(ppop, pscat), guide = FALSE) +
-    guides(fill = guide_legend(override.aes = list(alpha = 0))) +
-    thm_Rtft(lpos = "right", ldir = "vertical") +
-    theme(legend.text = element_text(size = rel(1)),
-          legend.key = element_rect(colour = "transparent", fill = "transparent"),
-          legend.key.width = unit(0, "cm"),
-          legend.key.height = unit(1, "cm"),
-          legend.position = c(0.91, 0.65),
-          legend.justification = c(0.95, 0.45),
-          legend.background = element_rect(fill="transparent"))
+    # guides(fill = guide_legend(override.aes = list(alpha = 0))) +
+    thm_Rtft(lpos = "bottom", ldir = "horizontal")
 pop.ps2
 
 
@@ -827,3 +865,29 @@ Rtdf(s4.mm$code, names = c(" ", "$N_{Articles}$")) %>% kable(caption = "Mixed-Me
 # names(wt2) <- c("scat", "wt2")
 # ct.top <- merge(ct.top, wt, by = "case")
 # ct.top <- merge(ct.top, wt2, by = "scat")
+# library(kableExtra)
+# kable(yrt, align = rep('c', ncol(yrt)),
+#       caption = "Summary of Number of Articles Published Per Year",
+#       format = 'latex', booktabs = TRUE, escape = FALSE) %>%
+#     kable_styling(full_width = TRUE)
+#
+#
+# kable(yrt.s3, align = rep('c', ncol(yrt)), caption = "Summary Statistics for Amount of IPV Interventions Research Articles Published Each Year", format = 'latex', booktabs = TRUE) %>%
+#     kable_styling(position = "float_left")
+# kable(yrt.s4, align = rep('c', ncol(yrt)), caption = "Summary Statistics for Amount of LGBTQ-Specific IPV Research Articles Published Each Year", format = 'latex', booktabs = TRUE) %>%
+#     kable_styling(position = "float_right")
+# t.top <- Rtdf(ctbl.m[ctbl.m$cat == "TOPIC", "code"] %>%
+#                   droplevels(),
+#               names = c("Topic", "$N_{Articles}$"))
+# ftm.top <- ftable(ctbl.m[ctbl.m$cat == "TOPIC",
+#                          c("code", "scat")] %>%
+#                       droplevels(),
+#                   row.vars = 1) %>%
+#     matrix(nrow = nrow(t.top),
+#            byrow = FALSE)
+# dimnames(ftm.top) <-
+#     list(Topic = levels(ctbl.m[ctbl.m$cat == "TOPIC", "code"] %>% droplevels()),
+#          c("IPV Interventions", "LGBTQ-IPV Research"))
+# ftm.top <- ifelse(ftm.top == 0, NA, ftm.top)
+#
+# t.top
