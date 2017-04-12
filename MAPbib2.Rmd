@@ -1,10 +1,12 @@
 ---
-title: "MAP Annotated Bibliography - NEW"
+title: "MAP - Bibliography (with Abstracts)"
 author: ''
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 ---
 
-# \centerline{\Large{\textsc{S3 - IPV Interventions \& Evaluations}}}
+\newpage
+
+# \textsc{IPV Interventions \& Evaluations}
 
 
 ## \textcolor[HTML]{5b0057}{rumptz1991ecological}
@@ -145,7 +147,7 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 
 "This study examined the effectiveness of an evidence-based intervention in changing the positive and negative parenting practices of 120 mothers who experienced intimate partner violence (IPV) in the last 2 years. Mothers assigned to the treatment group participated in a 10-session evidence-based intervention, known as the Moms' Empowerment Program, which targets the mental health problems of women and works to increase access to resources and improve parenting abilities of women exposed to IPV. Participants were interviewed at baseline and immediately following the intervention or waitlist period, representing an elapsed time of approximately 5 weeks. After controlling for relevant demographic variables, violence severity, and mental health, women showed significantly more change in their positive parenting scores if they were in the treatment condition. No significant differences were found between the treatment and comparison groups in their negative parenting practices change scores. These findings suggest that even short-term intervention can improve positive parenting skills and parenting knowledge for women who have experienced partner abuse."
 
-# \centerline{\Large{\textsc{S4 - Female Same-Sex/Same-Gender Intimate Partner Violence}}}
+# \textsc{LGBTQ-IPV Research}
 
 ## \textcolor[HTML]{5b0057}{lockhart1994letting}
 

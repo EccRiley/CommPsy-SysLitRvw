@@ -144,7 +144,7 @@ MAP <- cbind(ID,
              bibdf[, c("YEAR", "TITLE", "JOURNAL", "ABSTRACT")]) %>%
     as.data.frame()## bibdf[c(3:5, 8)] ##
 names(MAP)[-1] <- tolower(names(MAP)[-1])
-names(MAP)[2]
+# names(MAP)[2]
 #'
 #+ MAP_RQDA, results='hide', fig.keep='none', fig.show='none'
 # MAP-RQDA ----------------------------------------------------------------
@@ -239,11 +239,11 @@ catpal <- c(adjustcolor(pal_my[16], alpha.f = 0.8), adjustcolor(pal_my[18], alph
 
 ### [MAP-abstracts-S3.csv] ####
 cpv.s3 <- MAP[MAP$scat == "S3", ]
-write.csv(cpv.s3[order(cpv.s3$year), c("bibkey", "year", "title", "journal", "abstract")], "data/MAP-abstracts-S3.csv", row.names = FALSE)
+# write.csv(cpv.s3[order(cpv.s3$year), c("bibkey", "year", "title", "journal", "abstract")], "data/MAP-abstracts-S3.csv", row.names = FALSE)
 
 ### [MAP-abstracts-S4.csv] ####
 cpv.s4 <- MAP[MAP$scat == "S4", ]
-write.csv(cpv.s4[order(cpv.s4$year), c("bibkey", "year", "title", "journal", "abstract")], "data/MAP-abstracts-S4.csv", row.names = FALSE)
+# write.csv(cpv.s4[order(cpv.s4$year), c("bibkey", "year", "title", "journal", "abstract")], "data/MAP-abstracts-S4.csv", row.names = FALSE)
 
 ct.scat <- within(MAP, {
     scat <- ifelse(scat == "S3", "IPV Interventions", "LGBTQ-IPV Research")
@@ -401,22 +401,23 @@ Rftm <- function(x1, x2, dnn = NULL, zero.action = NA, zero.qt = FALSE) {
                                                                             deparse(substitute(x1)), " & ", deparse(substitute(x2))))
     return(y)
 }
+
+
 #' ## Primary Topics
 #'
 #+ topics, fig.fullwidth=TRUE
+
 # topics ============================================================
 
 codes.tp <- ctbl.m[ctbl.m$cat == "TOPIC", "code"] %>% droplevels()
 ctp.dnn <- c("Topic", "$N_{Articles}$")
-
 scats.tp <- ctbl.m[ctbl.m$cat == "TOPIC", "scat"] %>% droplevels()
 stp.dnn <- c("IPV Interventions", "LGBTQ-IPV Research")
-
 topics <- Rftm(codes.tp, scats.tp, dnn = list(ctp.dnn, stp.dnn))
 t.tp <- topics[[1]]
 ftm.tp <- topics[[2]]
 
-ftm.tp %>% kable(format.args = list(zero.print = "."))
+ftm.tp %>% pander
 
 ### PLOT - topic - 1 ####
 Rdotchart(
@@ -428,8 +429,9 @@ Rdotchart(
     gcex = 0.75,
     gfont = 2,
     pt.cex = 1.125,
-    color = c(rep(catpal[1], nrow(ftm.tp)), rep(catpal[2], nrow(ftm.tp)))
-)
+    color = c(rep(catpal[1], nrow(ftm.tp)), rep(catpal[2], nrow(ftm.tp))),
+    xaxt = 'n'
+); axis(1, at = seq(range(ftm.tp, na.rm = TRUE)[1], range(ftm.tp, na.rm = TRUE)[2], by = 3))
 
 dfm.tp2 <- data.frame(ftm.tp)
 names(dfm.tp2) <- c("s3", "s4")
@@ -707,7 +709,7 @@ t.pop
 
 ### PLOT - populations - 1 ####
 
-Rdotchart(ftm.pop, pch = 19, gcolor = pal_my[20], xlab = expression(N[Articles]), cex = 0.7, gcex = 0.75, gfont = 2, pt.cex = 1.125, color = c(rep(catpal[1], nrow(ftm.pop)), rep(catpal[2], nrow(ftm.top))))
+Rdotchart(ftm.pop, pch = 19, gcolor = pal_my[20], xlab = expression(N[Articles]), cex = 0.7, gcex = 0.75, gfont = 2, pt.cex = 1.125, color = c(rep(catpal[1], nrow(ftm.pop)), rep(catpal[2], nrow(ftm.pop))))
 
 ### PLOT - populations - 2 ####
 

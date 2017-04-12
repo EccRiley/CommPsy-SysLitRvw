@@ -1,38 +1,45 @@
 # VI. Critique of Literature
 
+Research conducted within the subset of community psychology focused around intimate partner violence was initially evaluated according to the level of inclusion and exclusion of the historically marginalized population of interest: sexual minority women (SMW). The implementation of action-oriented Community Psychology methodologies and analytic approaches will then be reviewed within each of these categories (i.e., inclusion or exclusion of SMW) in terms of (1) the appropriateness of the methods to the research question, (2) how the methods facilitated the inclusion or exclusion of sexual minority women, and (3) whether and how (where applicable) exclusion of sexual minority women is justified.
+
 ## Overarching Critique Criterion
 
-1. Rigor in Action-Research Methods
-    - Research question(s) and/or hypothesis(es)
-        - Appropriateness of the methods to the research question(s) and/or hypothesis(es)
-    - Appropriateness of the methods to the population
-        - Sampling frame definition
-    - Data collection modality/modalities
-    - Analytic approach \& procedures
-    - Presentation \& Interpretation(s) of results
-    - Limitations description, interpretation, and justification
-    - Application \& dissemination of research and findings
-2. How the methods facilitate the inclusion or exclusion of specific populations
-    - Whether and how (where applicable) exclusion of specific populations is justified.
-3. How the methods facilitate the inclusion or exclusion of _sexual minority women_
-    - Whether and how (where applicable) exclusion of _sexual minority women_ is justified.
+`r tufte::newthought("Rigor in Action-Research Methods")`:
 
-`r tufte::newthought("1. Stakeholder Input.")` Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
+- Choice, description, justification, appropriateness, and execution of overarching methodology (i.e., quantitative, qualitative, or Mixed-Methods), sampling frame definition, sampling and data collection methods, and analytic approaches.
+- Interpretations of results, limitations, results interpretations.
+- Presentation, dissemination, application, and accessibility of the research.
+- Transparency and reproducibility of the research methods, findings, and limitations
 
-`r tufte::newthought("3. Interpretations of Findings.")` Is feedback from key stakeholders and informants to the research accepted and genuinely considered by the core research team? Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
+`r tufte::newthought("Stakeholder Input.")`:
 
-`r tufte::newthought("4. Research Dissemination.")` Are key stakeholders and informants to the research given access to reports of a given project's progress and/or findings? Is such access in fact accessible (i.e., free and easy to locate)?
+- Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
+- Are primary and distal stakeholders and informants to the research given access to reports of a given project's progress and/or findings? Is such access in fact accessible (i.e., free and easy to locate)?
 
+`r tufte::newthought("Interpretations of Findings.")`
 
-Research conducted within the subset of community psychology focused around intimate partner violence will be initially evaluated according to the level of inclusion and exclusion of the historically marginalized population of interest (i.e., sexual minority women). The implementation of community psychology methodologies and analytic approaches will then be reviewed within each of these categories (i.e., inclusion or exclusion of sexual minority women) in terms of (1) the appropriateness of the methods to the research question, (2) how the methods facilitated the inclusion or exclusion of sexual minority women, and (3) whether and how (where applicable) exclusion of sexual minority women is justified.
+- Is feedback from key stakeholders and informants to the research accepted and genuinely considered by the core research team?
+- Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
 
-`r tufte::newthought("1. Stakeholder Input.")`
+`r tufte::newthought("How the methods facilitate the inclusion or exclusion of specific populations")`
 
-`r tufte::newthought("3. Interpretations of Findings.")`
+- Whether and how exclusion of specific populations is justified (if applicable)
 
-`r tufte::newthought("4. Research Dissemination.")`
+`r tufte::newthought("How the methods facilitate the inclusion or exclusion of \\textit{sexual minority women}")`
+
+- Whether and how exclusion of _sexual minority women_ is justified (if applicable).
 
 
-## _A. Strengths_
 
-## _B. Limitations_
+## Methodologies & Methods Utilized
+
+The majority of the reviewed studies follow quantitatively-based methodologies (n = 14; 61%), with just over a quarter (n = 6) employing qualitatively-based methodologies, and only four studies utilizing mixed-methodological approaches. Of the reviewed quantitatively-based studies, 86% (n = 12) employed experimental and/or longitudinal, rather than cross-sectional, designs. All but one of the quantitative studies (93%) used self-report survey measures as the primary datasource. Four of the six qualitatively-based studies used group interviews as the primary data collection method, one administered and analyzed responses to a qualitative self-report survey, and one employed a multi-method qualitative approach. The methods represented among studies following mixed-methodological designs include experimental and longitudinal mixed-methods, focus groups, and qualitative and quantitative self-report measures.
+
+## Populations Included/Sampling Frames
+
+## `Explicitly` Excluded Populations
+
+## _A. Strengths_ \todot
+
+
+## _B. Limitations_ \todot
