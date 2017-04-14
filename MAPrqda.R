@@ -22,7 +22,7 @@
 #+ openProj, echo=-2, results='hide'
 library(RQDA)
 # RQDA()
-# openProject("data/RQDA/comps.RQDA", updateGUI = TRUE)
+openProject("data/RQDA/comps.RQDA", updateGUI = TRUE)
 # openProject("data/RQDA/MAP-new.RQDA", updateGUI = TRUE)
 openProject("data/RQDA/comps.RQDA")
 # openProject("data/RQDA/MAP-new.RQDA")

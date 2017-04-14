@@ -65,9 +65,10 @@ jdat.s <- jdat[jdat[,2] >= s.cnt, ]
 
 j.v <- c("Journal of Interpersonal Violence",
          "Violence Against Women",
-         "Violence and Victims") %>%
+         "Violence and Victims",
+         "Journal of Family Violence") %>%
     tolower()
-#, "Journal of Family Violence", "Aggression and Violent Behavior", "Partner Abuse", "Trauma, Violence, \\& Abuse", "Psychology of Violence", "Journal of Emotional Abuse", "Response to the Victimization of Women \\& Children")
+#, "Aggression and Violent Behavior", "Partner Abuse", "Trauma, Violence, \\& Abuse", "Psychology of Violence", "Journal of Emotional Abuse", "Response to the Victimization of Women \\& Children")
 
 j.cp <- c("Action Research",
           "American Journal of Community Psychology",
@@ -202,7 +203,7 @@ MAP$jrnl <- sapply(as.character(MAP$journal), Rabbr)
 
 ctbl.m <- merge(MAP, ctbl, by = c("caseid", "scat"))
 
-clabs <- c("African Americans", "Approach Evaluation", "'At Risk' Populations", "Secondary/Archival Data", "Asian Americans", "Community Capacity", "Coordinated Community Response", "Cis-Gender", "College Students", "IPV Consequences", "Couples", "Non-IPV Crime Victims", "Case Study", "Disabled Persons", "IPV Dynamics", "Experimental Design", "Females/Women/Girls", "Focus Groups", "General Population", "Graduate Students", "Heterosexuals", "Help-Seeking", "IPV Interventions (Int.) - General", "Int. - Description", "Int. - Proposal", "IPV-Perpetrators", "IPV-Victims/Survivors", "Group Interviews", "1-on-1 Interviews", "Latinos/Latinas or Hispanic-Americans", "Longitudinal", "Males/Men/Boys", "Measures", "Multiple Qualitative Methods", "Multiple Quantitative Methods", "Mixed-Methods", "Program Evaluation Methods", "Perpetrator Characteristics", "Program/Policy Development", "Outsiders' Perspectives", "Key Stakeholders' Persepctives", "Victims'/Survivors' Perspectives", "Program/Policy Evaluation - General", "Protective Factors", "Public Policy", "Community-Based Practitioners", "IPV-Specific Community-Based Practitioners", "IPV Prevalence", "IPV Intervention Programs", "Parents", "Qualitative", "Quantitative", "Client Records", "Police Records", "Risk Factors", "Racial Minorities", "Sexual Minorities (SM)", "SM - Bisexuals", "SM - Gay", "SM - Lesbian", "SM - Queer", "SM - Transgender", "Qualitative Survey", "Quantitative Survey", "System Entities", "System Response", "Urban-Specific", "Cross-Sectional", "Children/Youth")
+clabs <- c("African Americans", "Approach Evaluation", "'At Risk' Populations", "Secondary/Archival Data", "Asian Americans", "Community Capacity", "Coordinated Community Response", "Cis-Gender", "College Students", "IPV Consequences", "Couples", "Non-IPV Crime Victims", "Case Study", "Disabled Persons", "IPV Dynamics", "Experimental Design", "Females/Women/Girls", "Focus Groups", "General Population", "Graduate Students", "Heterosexuals", "Help-Seeking", "IPV Interventions (Int.) - General", "Int. - Description", "Int. - Proposal", "IPV-Perpetrators", "IPV-Victims/Survivors", "Group Interviews", "1-on-1 Interviews", "Latinos/Latinas or Hispanic-Americans", "Longitudinal", "Males/Men/Boys", "Measures", "Multiple Qualitative Methods", "Multiple Quantitative Methods", "Mixed-Methods", "Program Evaluation Methods", "Perpetrator Characteristics", "Program/Policy Development", "Outsiders' Perspectives", "Intervention Providers' Perspectives", "Key Stakeholders' Persepctives", "Victims'/Survivors' Perspectives", "Program/Policy Evaluation - General", "Protective Factors", "Public Policy", "Community-Based Practitioners", "IPV-Specific Community-Based Practitioners", "IPV Prevalence", "IPV Intervention Programs", "Parents", "Qualitative", "Quantitative", "Client Records", "Police Records", "Risk Factors", "Racial Minorities", "Sexual Minorities (SM)", "SM - Bisexuals", "SM - Gay", "SM - Lesbian", "SM - Queer", "SM - Transgender", "Qualitative Survey", "Quantitative Survey", "System Entities", "System Response", "Urban-Specific", "Cross-Sectional", "Children/Youth")
 
 ctbl.m <- within(ctbl.m, {
     journal <- droplevels(journal)
@@ -294,6 +295,28 @@ ft.jrnl <- with(MAP, {
 })
 dimnames(ft.jrnl) <- list("Publication Title" = levels(MAP$journal), Category = c("IPV Interventions", "LGBTQ-IPV Research"))
 ft.jrnl
+
+t.s3bibkey <- Rtdf(cpv.s3$bibkey)
+cpv.s3$jrnl <- sapply(as.character(cpv.s3$journal), Rabbr) %>% factor()
+ft.s3jrnl <- with(cpv.s3, {
+    ftable(bibkey, jrnl) %>%
+        matrix(nrow = nrow(t.s3bibkey),
+               byrow = FALSE)
+})
+dimnames(ft.s3jrnl) <- list("Case" = levels(cpv.s3$bibkey), "Publication Title" = levels(cpv.s3$jrnl))
+ft.s3jrnl
+
+t.s4bibkey <- Rtdf(cpv.s4$bibkey)
+cpv.s4$jrnl <- sapply(as.character(cpv.s4$journal), Rabbr) %>% factor()
+ft.s4jrnl <- with(cpv.s4, {
+    ftable(bibkey, jrnl) %>%
+        matrix(nrow = nrow(t.s4bibkey),
+               byrow = FALSE)
+})
+dimnames(ft.s4jrnl) <- list("Case" = levels(cpv.s4$bibkey), "Publication Title" = levels(cpv.s4$jrnl))
+ft.s4jrnl
+
+
 #'
 #' \newpage
 #'
