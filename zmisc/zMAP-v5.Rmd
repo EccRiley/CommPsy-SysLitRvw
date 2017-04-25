@@ -253,14 +253,14 @@ dbsrch <- data.frame(n = c("1.", "2.", "3.", "4.", "5.", "6."),
                      )
 
 ## BELOW IS FOR .TEX/.PDF OUTPUT ##
-# dbsrch$srch <- paste0("\\footnotesize{\\textit{", dbsrch$srch, "}}")
-# dbsrch$n <- paste0("\\footnotesize{\\textit{", dbsrch$n, "}}")
-# dbsrch$nres <- paste0("\\footnotesize{\\textit{", dbsrch$nres, "}}")
+dbsrch$srch <- paste0("\\footnotesize{\\textit{", dbsrch$srch, "}}")
+dbsrch$n <- paste0("\\footnotesize{\\textit{", dbsrch$n, "}}")
+dbsrch$nres <- paste0("\\footnotesize{\\textit{", dbsrch$nres, "}}")
 
 ## BELOW IS FOR .DOCX OUTPUT ##
-dbsrch$srch <- paste0("_", dbsrch$srch, "_")
-dbsrch$n <- paste0("_", dbsrch$n, "_")
-dbsrch$nres <- paste0("_", dbsrch$nres, "_")
+# dbsrch$srch <- paste0("_", dbsrch$srch, "_")
+# dbsrch$n <- paste0("_", dbsrch$n, "_")
+# dbsrch$nres <- paste0("_", dbsrch$nres, "_")
 
 names(dbsrch) <- c("", "Database Search", "$Range_{N_{Results}}$")
 kable(dbsrch, caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned", align = c("r", "l", "c"))
