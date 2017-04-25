@@ -1,0 +1,92 @@
+# Appendices
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE, fig.show='none', fig.keep='none'}
+source("bibs.R")
+knitr::opts_chunk$set(echo=FALSE)
+```
+
+```{r dbsrch}
+dbsrch <- data.frame(n = c("1.", "2.", "3.", "4.", "5.", "6."),
+                     srch = c("Intimate Partner Violence, Domestic Violence, or Partner Abuse - General",
+                              "Intimate Partner Violence, Domestic Violence, or Partner Abuse Interventions",
+                              "Intimate Partner Violence, Domestic Violence, or Partner Abuse Intervention Evaluations",
+                              "Female Same-Sex/Same-Gender Domestic Violence, or Partner Abuse - General",
+                              "Female Same-Sex/Same-Gender Domestic Violence, or Partner Abuse Interventions",
+                              "Female Same-Sex/Same-Gender Domestic Violence, or Partner Abuse Intervention Evaluations"),
+                     nres = c(paste0("$", comma(s1[1]), " - ", comma(s1[2]), "$"),
+                              paste0("$", comma(s2[1]), " - ", comma(s2[2]), "$"),
+                              paste0("$", comma(s3[1]), " - ", comma(s3[2]), "$"),
+                              paste0("$", comma(s4[1]), " - ", comma(s4[2]), "$"),
+                              paste0("$", comma(s5[1]), " - ", comma(s5[2]), "$"),
+                              paste0("$", comma(s6[1]), " - ", comma(s6[2]), "$"))
+                     )
+
+## BELOW IS FOR .TEX/.PDF OUTPUT ##
+# dbsrch$srch <- paste0("\\footnotesize{\\textit{", dbsrch$srch, "}}")
+# dbsrch$n <- paste0("\\footnotesize{\\textit{", dbsrch$n, "}}")
+# dbsrch$nres <- paste0("\\footnotesize{\\textit{", dbsrch$nres, "}}")
+
+## BELOW IS FOR .DOCX OUTPUT ##
+dbsrch$srch <- paste0("_", dbsrch$srch, "_")
+dbsrch$n <- paste0("_", dbsrch$n, "_")
+dbsrch$nres <- paste0("_", dbsrch$nres, "_")
+
+names(dbsrch) <- c("", "Database Search", "$Range_{N_{Results}}$")
+kable(dbsrch, caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned", align = c("r", "l", "c"))
+
+```
+
+\newpage
+
+```{r mapcpv}
+map.cpp <- dplyr::rename(map.cp, "Journal" = journal, "Research Category" = scat)
+
+# Rtdf(map.cp$journal, names = c("Publication Title", "$N_{Articles}$")) %>%
+with(map.cpp, {ftable(journal, scat)}) %>%
+    pander(caption = "\\edit{Community Psychology Journals Included in Literature Search, with Corresponding Number of Reviewed Articles per Journal}")
+
+# Rtdf(map.v$journal, names = c("Publication Title", "$N_{Articles}$")) %>%
+    # pander(caption = "\\edit{Violence-Related Journals Included in Literature Search, with Corresponding Number of Reviewed Articles per Journal}")
+
+MAPpr <- dplyr::rename(MAP, "Journal" = journal, "Research Category" = scat)
+with(MAPpr, {ftable(journal, scat)}) %>% pander(caption="Number of formally reviewed articles per journal title ")
+
+
+```
+
+\newpage
+
+```{r mapJrnl}
+Rtdf(MAP$journal, names = c("Publication Title", "$N_{Articles}$")) %>%
+    pander(caption = "\\edit{Publication Titles of Reviewed Articles}")
+
+with(MAP, {ftable(journal, scat)}) %>% pander(caption="")
+
+```
+
+\newpage
+
+
+# Appendix C Clinician Rating Form [@gondolf2009clinician]
+
+Date:
+
+Subject Name:
+
+Group Leader (initials): Site:
+
+INSTRUCTIONS: Please rate the man named above on each of the listed criteria. Rate him using the 0 to 5 scale below based on your impressions and observations. Return the form immediately to the evaluation contact person. 5 = extremely present; 4 = very present; 3 = somewhat present; 2 = a little present; 1 = very little present; 0 = no opinion, uncertain, not applicable.
+
+_____ attendance: arrives at group session on time; socializes or lingers afterward; contacts program in advance about absence; has legitimate excuse for absences.
+_____ nonviolence: has not recently physically abused partner, children, or others; no apparent threats, intimidation, or manipulation.
+_____ sobriety: attends meeting sober; not high or drunk; no apparent abuse of alcohol or drugs during week; complying to ordered or referred drug and alcohol treatment.
+_____ acceptance: admits that violence and abuse exists; not minimizing, blaming, or excusing the problem; realizes responsibility for abuse; identifies contribution to problems
+_____ using techniques: takes conscious steps to avoid violence; refers to time-outs, self-talk, conflict resolution skills, etc.; does homework assignments or recommendations.
+_____ help seeking: seeks information about alternatives; discusses options with others in the group; calls other participants for help; open to referrals and future support.
+_____ process conscious: lets others speak one at time; acknowledges others’ contributions; asks questions of others without interrogating; heeds direction of counselors.
+_____ actively engaged: attentive body language and nonverbal response; maintains eye contact; speaks with feeling; follows topic of discussion in comments.
+_____ self-disclosure: reveals struggles, feelings, fears, and self-doubts; not withholding or evading issues; not sarcastic or defensive.
+_____ sensitive language: respectful of partner and women in general; nonsexist language and no pejorative slang; checks others who use sexist language.
+
+
+# References

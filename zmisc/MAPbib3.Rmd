@@ -1,0 +1,214 @@
+---
+title: "MAP - Bibliography (v3)"
+author: "`r format(Sys.Date(), '%d %B %Y')`"
+---
+
+# \textsc{IPV Interventions \& Evaluations}
+
+\newpage
+
+## \textcolor[HTML]{5b0057}{rumptz1991ecological}
+
+\textsc{\large{An ecological approach to tracking battered women over time}} (_Violence and Victims_)
+
+"Examined the feasibility of using an experimental, longitudinal design to determine the effects of an advocacy program designed to increase battered women's access to community resources. The current research employed a multitude of techniques to follow 139 battered women over the 1st yr following their stay at a shelter for women with abusive partners. The tracking rate was very successful; 96% were found and interviewed at the 10-wk project termination point, 96% at the 6-mo follow-up, and 94% at the 12-mo follow-up. The intricate system of procedures used for successfully tracking this mobile population over time are presented as an effective methodology for doing necessary longitudinal research with battered women as well as other transient or difficult to follow populations."
+
+## \textcolor[HTML]{5b0057}{gondolf1999comparison}
+
+\textsc{\large{A comparison of four batterer intervention systems: Do court referral, program length, and services matter?}} (_Journal of Interpersonal Violence_)
+
+"Acomparative multisite evaluation was conducted in four geographically distributed cities to examine the relative effectiveness of different approaches to batterer intervention. The intervention systems represent a range of court-referral procedures (pretrial or postconviction), program duration (3 mo to 9 mo), and additional services (occasional referral or in-house alcohol treatment). At each site, 210 men (mean age 32 yrs) were recruited and assessed using the Millon Clinical Multiaxial Inventory and Michigan Alcoholism Screening Test. The batterers' partners were interviewed by phone every 3 mo over a 15-mo follow-up after intake, with a response rate of 77% overall. There was no significant difference in the reassault rate, portion of men making threats, and victim quality of life across the four sites. The longest, most comprehensive program did, however have a significantly lower rate of severe reassault substantiated in a logistic regression controlling background variables. The findings suggest that differing intervention systems that conform to fundamental standards can achieve similar outcomes."
+
+\newpage
+
+## \textcolor[HTML]{5b0057}{thompson2000identification}
+
+\textsc{\large{Identification and management of domestic violence: A randomized trial}} (_American Journal of Preventive Medicine_)
+
+"Examined the effectiveness of an intensive intervention program to increase asking about domestic violence (DV) and improve the identification of and assistance for DV victims. Adult care team members of 2 primary care clinics received intervention training, with opinion leaders receiving extra training sessions. Ss completed questionnaires concerning provider knowledge, attitudes, and beliefs at baseline and at 9–10 mo and 21–23 mo follow-ups. Level of care was measured by reviewing medical records at baseline and 9 mo. Results show that at 9 mo, scores for self-efficacy, fear of offense, safety concerns, and perceived asking about DV improved in intervention Ss. Scores for self-efficacy, fear of offense, and safety concerns remained high at 21–23 mo follow-up. Overall, asking about DV increased but the recorded quality of DV patient assistance did not change. Findings suggest that DV identification can be improved by including screening questions on physical examination questionnaires, placing posters in patient care areas, and displaying DV brochures in restrooms."
+
+## \textcolor[HTML]{5b0057}{gregory2002effects}
+
+\textsc{\large{The effects of batterer intervention programs: The battered women's perspectives}} (_Violence Against Women_)
+
+"Examined the perspectives of battered women, whose spouses or partners have been court-ordered to participate in a batterer intervention program, on the program's effects on their partners, themselves, and their families. Through in-depth interviews, 33 women (average age 36.5 yrs) described their experiences, expectations, and feelings before, during, and after their partner participated in the program. The interviewees also discussed the impact of the program on the batterers' behavior and their own lives. The results are seen to shed light on the effects of program participation on batterers' behavior and the way in which referral and program participation affect their female partners. It is concluded that the results underscore the value of incorporating battered women's perspectives and experiences in evaluating the effects of batterer intervention programs and designing their service delivery."
+
+## \textcolor[HTML]{5b0057}{sullivan2002findings}
+
+\textsc{\large{Findings from a community-based program for battered women and their children}} (_Journal of Interpersonal Violence_)
+
+"The effectiveness of a strengths- and community-based support and advocacy intervention for battered women and their children was examined. The study included a longitudinal, experimental design and employed multimethod strategies to measure children's (aged 6.5-11 yrs old) exposure to abuse and their self-competence over a period of 8 mo. Maternal experience of abuse and maternal well-being were also assessed. The experimental intervention involved advocacy for mothers and their children and a 10-wk support and education group for the children. Families in the experimental condition received the free services of a trained paraprofessional for 6-8 hrs per wk over 16 wks. 80 (mean age 31 yrs old) mothers and their 80 children participated in the study. Findings were modest but promising. Children in the experimental condition reported significantly higher self-competence in several domains compared to children in the control group. The intervention caused improvement in women's depression and self-esteem over time. Policy, practice and research implications are discussed."
+
+## \textcolor[HTML]{5b0057}{foshee2004assessing}
+
+\textsc{\large{Assessing the Long-Term Effects of the Safe Dates Program and a Booster in Preventing and Reducing Adolescent Dating Violence Victimization and Perpetration}} (_American Journal of Public Health_)
+
+"Objectives: This study determined 4-year postintervention effects of Safe Dates on dating violence, booster effects, and moderators of the program effects. Methods: We gathered baseline data in 10 schools that were randomly allocated to a treatment condition. We collected follow-up data 1 month after the program and then yearly thereafter for 4 years. Between the 2- and 3-year follow-ups, a randomly selected half of treatment adolescents received a booster. Results: Compared with controls, adolescents receiving Safe Dates reported significantly less physical, serious physical, and sexual dating violence perpetration and victimization 4 years after the program. The booster did not improve the effectiveness of Safe Dates. Conclusions: Safe Dates shows promise for preventing dating violence but the booster should not be used."
+
+## \textcolor[HTML]{5b0057}{hendricks2006recidivism}
+
+\textsc{\large{Recidivism Among Spousal Abusers: Predictions and Program Evaluation}} (_Journal of Interpersonal Violence_)
+
+"The relative effectiveness of two interventions for dealing with 200 court-referred spousal abusers is examined. The overall failure rate is 17.5%, with most recidivism occurring during the first 6 months after treatment. Offenders who completed a 14-week group treatment program called SAFE manifest significantly lower rates of recidivism (10.6%) than do offenders who did not complete the mandated treatment (38.8%). Some high-risk clients are referred to a cognitive restructuring treatment program called R\&R, and those completing both programs (despite their high-risk status) have a recidivism rate of only 23.5%. Prediction of recidivism is difficult, with the LSI-R scores correctly predicting only 66% of the outcomes, using a cut score of 11.5. The exploration of other predictors is encouraged."
+
+## \textcolor[HTML]{5b0057}{hovell2006evaluation}
+
+\textsc{\large{Evaluation of a Police and Social Services Domestic Violence Program: Empirical Evidence Needed to Inform Public Health Policies}} (_Violence Against Women_)
+
+"The Family Violence Response Team (FVRT) responded to police calls for domestic violence and provided services to victims. Police records were followed for (a) 327 FVRT clients with an index police visit in 1998 and (b) 498 nonconcurrent controls with an index visit in 1997. Except for marriage, no demographic characteristics were associated with batterer recidivism, as measured by police calls. The between-group odds ratio (OR) suggested that FVRT clients experienced a 1.7 (95% Confidence Interval CI]: 1.2 to 2.5) times greater recidivism rate than controls. Although increased reporting cannot be ruled out, results raise concerns about the effects of domestic violence interventions."
+
+\newpage
+
+## \textcolor[HTML]{5b0057}{silvergleid2006how}
+
+\textsc{\large{How Batterer Intervention Programs Work: Participant and Facilitator Accounts of Processes of Change}} (_Journal of Interpersonal Violence_)
+
+"Understanding what facilitates change in men who perpetrate domestic violence can aid the development of more effective batterer intervention programs (BIPs). To identify and describe key change processes, in-depth interviews were conducted with nine successful BIP completers and with 10 intervention group facilitators. The accounts described a range of individual-level processes of change consistent with prior research but also included several processes spanning the community, organizational, and group levels of analysis. Program completers and facilitators gave mostly similar accounts, though differed in their emphasis of criminal justice system sanctions, group resocialization of masculinity, and the participants' own decision to change. All accounts especially emphasized group-level processes and the importance of balancing support and confrontation from facilitators and group members. The findings demonstrate the importance of obtaining multiple perspectives on change processes, and support ecological and systems models of batterer intervention."
+
+## \textcolor[HTML]{5b0057}{contrino2007compliance}
+
+\textsc{\large{Compliance and learning in an intervention program for partner-violent men}} (_Journal of Interpersonal Violence_)
+
+"Although research has yielded mixed findings regarding the effectiveness of intervention programs for partner-violent men, it appears that greater participant compliance with such programs is associated with better outcomes. However, no research to date has jointly examined compliance with intervention programs and the extent to which partner-violent men learn specific information presented during the programs. The current study makes use of existing data to evaluate general and specific elements of partner-violent men's compliance with (i.e., active, appropriate participation in) an intervention program and recall of key points from the program. Results from a subsample of 22 men indicate that at program termination, those rated as having been "process conscious" during intervention group sessions, having self-disclosed during sessions, having evidenced awareness and use of techniques to avoid violence, and having used respectful language show greater recall of material taught in the program. This finding points to the potential benefit of taking steps to increase men's active participation in programs and of studying active engagement as a mediator of program effects on men's violence toward partners."
+
+## \textcolor[HTML]{5b0057}{muftic2007evaluation}
+
+\textsc{\large{An Evaluation of Gender Differences in the Implementation and Impact of a Comprehensive Approach to Domestic Violence}} (_Violence Against Women_)
+
+"The primary goal of society's response to domestic violence is the protection of the victim from further abuse. Recently, the coordinated community response (CCR) has been developed as one example of an approach aimed at reaching this goal. Prior research has generally found support for the model, with male offenders recidivating at lower rates. The current study examines whether a comprehensive, community-based approach is capable of reducing recidivism rates among male and female offenders. Comparisons are made between 70 female and 131 male offenders. Specific attention is given to the intervention process, including differences in service or treatment component completion and recidivism by gender."
+
+## \textcolor[HTML]{5b0057}{gillum2008benefits}
+
+\textsc{\large{The benefits of a culturally specific intimate partner violence intervention for African American survivors}} (_Violence Against Women_)
+
+"In light of evidence and theorization of culturally specific factors contributing to intimate partner violence (IPV) within African American relationships and the Eurocentric approach many mainstream agencies take to service delivery, researchers have indicated a need for culturally appropriate IPV interventions for African American survivors to adequately address the issue of IPV within this community. The purpose of the current study was to qualitatively investigate how helpful a culturally specific IPV program, which targets the African American community, has been to African American female survivors. Results suggest that this culturally specific agency is successfully meeting the needs of these survivors."
+
+\newpage
+
+## \textcolor[HTML]{5b0057}{roffman2008mens}
+
+\textsc{\large{The men's domestic abuse check-up: A protocol for reaching the nonadjudicated and untreated man who batters and who abuses substances}} (_Violence Against Women_)
+
+"Batterer intervention programs primarily work with individuals mandated to participate. Commonly, attrition is high and outcomes are modest. Motivational enhancement therapy (MET), most widely studied in the substance abuse field, offers a potentially effective approach to improving self-referral to treatment, program retention, treatment compliance, and posttreatment outcomes among men who batter and who abuse substances. A strategy for using a catalyst variant of MET (a "check-up") to reach untreated, nonadjudicated perpetrators is described in detail. Unique challenges in evaluating the success of this approach are discussed, including attending to victim safety and determining indicators of increased motivation for change."
+
+## \textcolor[HTML]{5b0057}{price2009batterer}
+
+\textsc{\large{Batterer intervention programs: A report from the field}} (_Violence and Victims_)
+
+"Over the past 25 years, batterer intervention has become the most probable disposition following a plea or conviction on domestic battery charges and, consequently, batterer intervention programs (BIPs) have proliferated. Despite their popularity, and recent attempts by states to regulate practice, little is known about the actual programs operating in the field. The aim of this study was to examine the philosophy, structure, leadership, curricula, and support systems of BIPs. Respondents from 276 batterer intervention programs in 45 states described their programs via an anonymous, Web-based survey. The results provide some insight regarding the workings of actual BIPs and also point out problems such as the dearth of programs in languages other than English and the failure to translate recommendations for prescriptive approaches into practice."
+
+\newpage
+
+## \textcolor[HTML]{5b0057}{enriquez2010development}
+
+\textsc{\large{Development and feasibility of an HIV and IPV prevention intervention among low-income mothers receiving services in a Missouri day care center}} (_Violence Against Women_)
+
+"This article outlines the development and feasibility of an HIV and IPV prevention intervention. Researchers formed a partnership with a group of women representative of the population that the intervention was intended to reach using methods derived from participatory action research. The use of health protective behaviors changed from pre- to postintervention in the clinically desirable direction. Results indicated that intervention delivery was feasible in the novel setting of a large urban day care center. This intervention has promise as a strategy to reduce HIV among low-income women; however, a controlled study is indicated to further examine intervention efficacy."
+
+## \textcolor[HTML]{5b0057}{welland2010culturally}
+
+\textsc{\large{Culturally specific treatment for partner-abusive Latino men: A qualitative study to identify and implement program components}} (_Violence and Victims_)
+
+"Research based on a demographic survey and qualitative interviews of Latino intimate partner violence perpetrators in Southern California forms the basis of a Spanish-language treatment program designed to be culturally appropriate for Latino immigrant men, and piloted for 4 years with their input. Culturally-specific topics emphasized by participants and integrated into the program are: effective parenting skills for men; gender roles; discussion of discrimination towards immigrants and women; immigration and changing gender roles; marital sexual abuse; and spirituality as related to violence prevention. Attention is given to alcohol abuse and childhood trauma. Results suggest the desirability of an empathic and culturally-sensitive approach, without diminishing responsibility. This program was designed to help clinicians refine their skills and effectiveness in working with this rapidly expanding population."
+
+
+\newpage
+
+## \textcolor[HTML]{5b0057}{feder2011need}
+
+\textsc{\large{The need for experimental methodology in intimate partner violence: Finding programs that effectively prevent IPV}} (_Violence Against Women_)
+
+"The lack of rigorous evaluations of intimate partner violence (IPV) programs has severely limited our knowledge about what works. However, IPV programs can be rigorously evaluated through randomized controlled trials (RCTs) conducted ethically and safely. This article provides an example of how a RCT to test an IPV preventive intervention—the Enhanced Nurse Family Partnership Study (ENFPS)—was successfully implemented by a partnership of researchers and practitioners. The article concludes with some recommendations, arrived at by the researchers and practitioners on the ENFPS team, for achieving a successful collaboration thought to be essential in executing a field experiment."
+
+## \textcolor[HTML]{5b0057}{potter2011bringing}
+
+\textsc{\large{Bringing in the target audience in bystander social marketing materials for communities: Suggestions for practitioners}} (_Violence Against Women_)
+
+"The Know Your Power TM social marketing campaign images model active bystander behaviors that target audience members can use in situations where sexual and relationship violence and stalking are occurring, have occurred, or have the potential to occur. In this practitioner note, we describe strategies that we have used to engage target audience members in the development of the social marketing campaign that we hope can be used by practitioners. We give examples from the development and evaluation of the Know Your Power TM social marketing campaign that used focus group and other types of feedback from the target audience to inform the direction of the campaign."
+
+## \textcolor[HTML]{5b0057}{boal2014barriers}
+
+\textsc{\large{Barriers to compliance with Oregon Batterer Intervention Program standards}} (_Violence and Victims_)
+
+"Although standards for batterer intervention programs (BIPs) have been adopted in nearly all U.S. states, there is no evidence that standards are implemented and no information about challenges programs may encounter in efforts to comply with standards. This study uses qualitative survey data from BIPs in the state of Oregon ( N = 42) to identify barriers to implementation during a 2-year period following the introduction of state standards. Nine challenges were identified including difficulty finding qualified facilitators, inadequate funding, difficulty meeting training requirements, high workloads, trouble creating and maintaining collaborations, inability to accommodate diverse participant needs, conflict between state standards and county requirements, and perceived gaps between standards and evidence-based practices. These findings inform controversy surrounding BIP standards and efforts to increase BIP effectiveness."
+
+## \textcolor[HTML]{5b0057}{boal2014impact}
+
+\textsc{\large{The impact of legislative standards on batterer intervention program practices and characteristics}} (_American Journal of Community Psychology_)
+
+"Changes in social policy are often pursued with the goal of reducing a social problem by improving prevention efforts, intervention program practices, or participant outcomes. State legislative standards for intimate partner violence intervention programs have been adopted nearly universally across the US, however, we do not know whether such standards actually achieve the intended goal of affecting programs' policies and practices. To assess the effect that batterer intervention program (BIP) standards have on policies and practices of programs, this study used longitudinal surveys collected as part of an ongoing evaluation conducted from 2001 to the present to compare intervention program ( N = 74) characteristics and practices at three time points before and after the adoption of standards in Oregon. Analyses were conducted to examine all BIPs in Oregon at each time point, as well as change among a subset of programs in existence at all survey assessments. Results indicate that across all programs, the use of mixed gender group co-facilitation increased by 14 % between 2004 and 2008, while program length increased by approximately 12 weeks. However, other practices such as programs' coordination with community partners were unchanged. Analyses of within-program change revealed fewer differences, with only program length increasing significantly over the three assessments. These and other findings indicate that while standards affected program length as intended, other practices commonly addressed by legislative standards remained unchanged. The findings provide needed information regarding programs' compliance with components of the standards, the potential need for compliance monitoring, and the potential impact of state standards on program effectiveness and on the prevalence of intimate partner violence."
+
+## \textcolor[HTML]{5b0057}{ermentrout2014this}
+
+\textsc{\large{'This is about me': Feasibility findings from the children's component of an IPV intervention for justice-involved families}} (_Violence Against Women_)
+
+"Two community-based agencies collaborated to create a program for justice-involved female intimate partner violence (IPV) survivors and their children. Our research team conducted a feasibility study of the children's program using an exploratory, multimethod qualitative design with child participants ( n = 8), adult participants ( n = 18), and providers ( n = 7). Analyses determined four key findings: (a) importance of attendance; (b) the need for a flexible, child-driven curriculum; (c) improvement through expression and peer bonding; and (d) the value of specific program content. The findings point to indispensable program elements and enhancement recommendations. Implications for other communities and providers serving IPV-exposed children are described."
+
+## \textcolor[HTML]{5b0057}{fox2015development}
+
+\textsc{\large{Development of the Attitudes to Domestic Violence questionnaire for children and adolescents}} (_Journal of Interpersonal Violence_)
+
+"To provide a more robust assessment of the effectiveness of a domestic abuse prevention education program, a questionnaire was developed to measure children's attitudes to domestic violence. The aim was to develop a short questionnaire that would be easy to use for practitioners but, at the same time, sensitive enough to pick up on subtle changes in young people's attitudes. We therefore chose to ask children about different situations in which they might be willing to condone domestic violence. In Study 1, we tested a set of 20 items, which we reduced by half to a set of 10 items. The factor structure of the scale was explored and its internal consistency was calculated. In Study 2, we tested the factor structure of the 10-item Attitudes to Domestic Violence (ADV) Scale in a separate calibration sample. Finally, in Study 3, we then assessed the test–retest reliability of the 10-item scale. The ADV Questionnaire is a promising tool to evaluate the effectiveness of domestic abuse education prevention programs. However, further development work is necessary."
+
+
+\newpage
+
+## \textcolor[HTML]{5b0057}{howell2015strengthening}
+
+\textsc{\large{Strengthening positive parenting through intervention: Evaluating the moms' empowerment program for women experiencing intimate partner violence}} (_Journal of Interpersonal Violence_)
+
+"This study examined the effectiveness of an evidence-based intervention in changing the positive and negative parenting practices of 120 mothers who experienced intimate partner violence (IPV) in the last 2 years. Mothers assigned to the treatment group participated in a 10-session evidence-based intervention, known as the Moms' Empowerment Program, which targets the mental health problems of women and works to increase access to resources and improve parenting abilities of women exposed to IPV. Participants were interviewed at baseline and immediately following the intervention or waitlist period, representing an elapsed time of approximately 5 weeks. After controlling for relevant demographic variables, violence severity, and mental health, women showed significantly more change in their positive parenting scores if they were in the treatment condition. No significant differences were found between the treatment and comparison groups in their negative parenting practices change scores. These findings suggest that even short-term intervention can improve positive parenting skills and parenting knowledge for women who have experienced partner abuse."
+
+# \textsc{LGBTQ-IPV Research}
+
+\newpage
+
+## \textcolor[HTML]{5b0057}{balsam2005relationship}
+
+\textsc{\large{Relationship Quality and Domestic Violence in Women's Same-Sex Relationships: The Role of Minority Stress}} (_Psychology of Women Quarterly_)
+
+"Despite a large body of literature addressing relationship quality and domestic violence in women's same-sex relationships, few studies have empirically examined how stress specific to living as a lesbian or bisexual woman might correlate with these relationship variables. Degree of outness, internalized homophobia, lifetime and recent experiences of discrimination, butch/femme identity, relationship quality, and lifetime and recent experiences of domestic violence were assessed in a sample of 272 predominantly European American lesbian and bisexual women. Lesbian and bisexual women were found to be comparable on most relationship variables. In bivariate analyses, minority stress variables (internalized homophobia and discrimination) were associated with lower relationship quality and both domestic violence perpetration and victimization. Outness and butch/femme identity were largely unrelated to relationship variables. Path analysis revealed that relationship quality fully mediated the relationship between internalized homophobia and recent domestic violence."
+
+## \textcolor[HTML]{5b0057}{glass2008risk}
+
+\textsc{\large{Risk for reassault in abusive female same-sex relationships}} (_American Journal of Public Health_)
+
+"Objectives. We revised the Danger Assessment to predict reassault in abusive female same-sex relationships. Methods. We used focus groups and interviews to evaluate the assessment tool and identify new risk factors and telephone interviews at baseline and at 1-month follow-up to evaluate the revised assessment. Results. The new assessment tool comprised 8 original and 10 new items. Predictors included increase in physical violence (relative risk ratio {[}RRR] = 1.95; 95\% confidence interval {[}CI]=0.84, 4.54), constant jealousy or possessiveness of abuser (RRR = 4.07; 95\% CI = 0.61, 27.00), cohabitation (RRR = 1.96; 95\% CI = 0.54, 7.12), threats or use of gun by abuser (RRR=1.93; 95\% 0=039, 4.75), alcoholism or problem drinking of abuser (RRR = 1.47; 95\% CI =0.79, 2.71), illegal drug use or abuse of prescription medications by abuser (RRR = 1.33; 95\% CI = 0.72, 2.46), stalking by abuser (RRR = 1.39; 95\% CI = 0.70, 2.76), failure of individuals to take victim seriously when she sought help (RRR 1.66; 95\% CI 0.90, 3.05), victim's fear of reinforcing negative stereotypes (RRR 1.42; 95\% CI 0.73, 2.77), and secrecy of abuse (RRR=1.72; 95\% CI=0.74, 3.99). Both unweighted (P <.005) and weighted (P <.004) versions of the revised assessment were significant predictors of reassault. Conclusions. The revised Danger Assessment accurately assesses risk of reassault in abusive female relationships."
+
+## \textcolor[HTML]{5b0057}{blosnich2009comparisons}
+
+\textsc{\large{Comparisons of intimate partner violence among partners in same-sex and opposite-sex relationships in the United States}} (_American Journal of Public Health_)
+
+"Using 2005–2007 Behavioral Risk Factor Surveillance System data, we examined intimate partner violence (IPV) by same-sex and opposite-sex relationships and by Metropolitan Statistical Area status. Same-sex victims differed from opposite-sex victims in some forms of IPV prevalence, and urban same-sex victims had increased odds of poor self-perceived health status (adjusted odds ratio = 2.41; 95% confidence interval= 1.17, 4.94). Same-sex and opposite-sex victims experienced similar poor health outcomes, underscoring the need both of inclusive service provision and consideration of sexual orientation in population-based research."
+
+## \textcolor[HTML]{5b0057}{oswald2010lesbian}
+
+\textsc{\large{Lesbian mothers' counseling experiences in the context of intimate partner violence}} (_Psychology of Women Quarterly_)
+
+"Intimate partner violence (IPV) is a significant concern for some lesbian households with children. Yet we know of only one study that has examined lesbian mothers' experiences with IPV. In the current study we analyzed the counseling experiences of participants in our prior study. Interviews with 24 lesbian mothers (12 Black, 9 White, and 3 Latina) 23 to 54 years of age ( M = 39.5) were coded using thematic analysis. Overall, lesbian mothers experiencing IPV did seek help from counselors ( n = 15, 63%), typically after reaching a breaking point. Counselors were most helpful when addressing the abuse and promoting self-empowerment, and least helpful when victim-blaming or ignoring the abuse and/or the same-sex relationship. Lesbian mothers' perceptions that mental health professionals were sometimes ineffective have implications for provider training. In order to work effectively with this population, providers should attempt to eliminate or correct personal biases or prejudices with self-exploration and education. By becoming more aware and knowledgeable of the nuances, struggles, and strengths of the lesbian community, providers can gain competency in providing therapeutic services to such clients. Mental health professionals can also adopt an advocacy stance to assist in spreading cultural awareness to others and support policy or institutional changes to include same-sex IPV. Competencies can be assessed through future studies that identify the knowledge and skills gap among mental health professionals who frequently work with the lesbian population."
+
+## \textcolor[HTML]{5b0057}{lewis2014sexual}
+
+\textsc{\large{Sexual Minority Stressors and Psychological Aggression in Lesbian Women's Intimate Relationships: The Mediating Roles of Rumination and Relationship Satisfaction}} (_Psychology of Women Quarterly_)
+
+"Our study examined how two sexual minority stressors (internalized homophobia and social constraints in talking with others about one's minority sexual identity) are related to psychological aggression (PA) in lesbian women's relationships. PA includes a range of methods to hurt, coerce, control, and intimidate intimate partners. Rumination (i.e., brooding about one's self and life situation) and relationship satisfaction were examined as potential mediating variables. Self-identified lesbian women in a same-sex relationship (N = 220) were recruited from a market research firm's online panel. Participants completed measures of internalized homophobia, social constraints, rumination, relationship satisfaction, and frequency of past year PA victimization and perpetration. Internalized homophobia and social constraints in talking to friends about sexual identity yielded a positive indirect link with PA via a sequential path through rumination and relationship satisfaction. There was an additional indirect positive association of minority stressors with PA via a unique path through rumination. These results demonstrate the importance of continued efforts toward reducing minority stress, where possible, as well as enhancing coping. Given the importance of rumination and relationship satisfaction in the link between minority stressors and PA, it is imperative to improve adaptive coping responses to sexual minority stressors. Development and validation of individual- and couples-based interventions that address coping with sexual minority stressors using methods that decrease rumination and brooding and increase relationship satisfaction are certainly warranted."
+
+\newpage
+
+## \textcolor[HTML]{5b0057}{mustanski2014syndemic}
+
+\textsc{\large{A Syndemic of Psychosocial Health Disparities and Associations With Risk for Attempting Suicide Among Young Sexual Minority Men}} (_American Journal of Public Health_)
+
+"Objectives. We examined a syndemic of psychosocial health issues among young men who have sex with men (MSM), with men and women (MSMW), and with women (MSW). We examined hypothesized drivers of syndemic production and effects on suicide attempts. Methods. Using a pooled data set of 2005 and 2007 Youth Risk Behavior Surveys from 11 jurisdictions, we used structural equation modeling to model a latent syndemic factor of depression symptoms, substance use, risky sex, and intimate partner violence. Multigroup models examined relations between victimization and bullying experiences, syndemic health issues, and serious suicide attempts. Results. We found experiences of victimization to increase syndemic burden among all male youths, especially MSMW and MSM compared with MSW (variance explained = 44\%, 38\%, and 10\%, respectively). The syndemic factor was shown to increase the odds of reporting a serious suicide attempt, particularly for MSM (odds ratio {[}OR] = 5.75; 95\% confidence interval {[}CI] = 1.36, 24.39; P < .001) and MSMW (OR = 5.08; 95\% CI = 2.14, 12.28; P < .001) compared with MSW (OR = 3.47; 95\% CI = 2.50, 4.83; P < .001). Conclusions. Interventions addressing multiple psychosocial health outcomes should be developed and tested to better meet the needs of young MSM and MSMW."
+
+## \textcolor[HTML]{5b0057}{sylaska2015disclosure}
+
+\textsc{\large{Disclosure Experiences of Sexual Minority College Student Victims of Intimate Partner Violence}} (_American Journal of Community Psychology_)
+
+"Although research on disclosure following intimate partner violence (IPV) victimization is burgeoning, sexual minority young adults' (lesbian, gay, bisexual, queer, questioning, etc.; LGBQ+) experiences have not received equal attention. The current study employed the minority stress framework to examine disclosure experiences of LGBQ+ college students across the United States reporting physical IPV victimization within their current relationship (n = 77). Participants completed measures assessing minority stress and IPV disclosure, and answered open-ended questions regarding the most and least helpful persons/responses to disclosure or reasons for non-disclosure. Results indicated that approximately one-third (35 \%) of victims disclosed to at least one person, with friends being the most common recipients. Thematic analyses indicated that talking or listening to the victim was considered the most helpful response and not understanding the situation least helpful. Reasons for non-disclosure centered on themes of the victims' perception that the IPV was not a big deal. Quantitative findings regarding physical IPV disclosure indicated that non-disclosers experienced greater minority stress than disclosers. The current study suggests the presence of differences between sexual minority (i.e., LGBQ +persons) and non-sexual minority persons, as well as between LGBQ+ young adults/college students and older adults and presents a theoretical structure (i.e., minority stress framework) through which these differences may be understood."
+
+## \textcolor[HTML]{5b0057}{edwards2016college}
+
+\textsc{\large{College Campus Community Readiness to Address Intimate Partner Violence Among LGBTQ plus Young Adults: A Conceptual and Empirical Examination}} (_American Journal of Community Psychology_)
+
+"This paper provides an overview of a conceptual model that integrates theories of social ecology, minority stress, and community readiness to better understand risk for and outcomes of intimate partner violence (IPV) among LGBTQ+ college students. Additionally, online survey data was collected from a sample of 202 LGBTQ+ students enrolled in 119 colleges across the United States to provide preliminary data on some aspects of the proposed model. Results suggested that students generally thought their campuses were low in readiness to address IPV; that is, students felt that their campuses could do more to address IPV and provide IPV services specific to LGBTQ+ college students. Perceptions of greater campus readiness to address IPV among LGBTQ+ college students was significantly and positively related to a more favorable LGBTQ+ campus climate and a greater sense of campus community. Additionally, IPV victims were more likely to perceive higher levels of campus community readiness than non-IPV victims. There was no association between IPV perpetration and perceptions of campus community readiness. Greater sense of community was marginally and inversely related to IPV victimization and perpetration. Sense of community and LGBTQ+ campus climate also varied to some extent as a function of region of the country and type of institution. Implications for further development and refinement of the conceptual model, as well as future research applying this model to better understand IPV among sexual minority students are discussed."

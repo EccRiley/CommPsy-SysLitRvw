@@ -1,25 +1,28 @@
-# II. Theoretical Grounding
+# II. Theoretical Grounding \ipt
 
-In a sense, the proposed review's theoretical grounding is best summarized in terms of the of the Community Psychology Practice Council's [_"Theory into Action Bulletin"_](http://www.scra27.org/what-we-do/practice/practice-council-initatives/theory-action-bulletin/)^[[Society for Community Research and Action (SCRA)](http://www.scra27.org/)]. The review will be grounded in theories related to action-oriented research and their applications [@chandler2003transforming; @brydon-miller2003why; @friedman-nimz2006blending; @kelly2004community; @noffke1997professional; @prilleltensky2001value-based; @prilleltensky1997values; @seidman2012emerging], as well as social and community psychological theories related to female same-sex intimate partner violence. In particular, I am interested in the intersections that exist across these theoretical, methodological, and problem-specific domains in terms of their actual applications and manifestations in various settings. Below is a list of theoretical and conceptual frameworks specifically guiding the proposed review.
+The present systematic review is situated within an ecological framework and posits that individuals are both affecting and affected by their environmental settings (Espino & Trickett, 2008; Kelly, Ryan, Altman, & Munoz, 1977). This review is further grounded in an action-oriented theoretical and methodological framework [@chandler2003transforming; @brydon-miller2003why; @friedman-nimz2006blending; @kelly2004community; @noffke1997professional; @prilleltensky2001value-based; @prilleltensky1997values; @seidman2012emerging], as well as social scientific theories related to IPV and sexual minority women [@meyer1995minority; @meyer2003prejudice; @meyer2015resilience]. These frameworks collectively incorporate the following key community-psychological concepts:
 
-`r tufte::newthought("Theory Specific to Community Psychology (CP):")`
+- Theory Specific to Community Psychology (CP):
+    - _The Action Research Cycle & Community-Based Participatory Action Research_ [CBPR; @fine2004participatory; @chandler2003transforming; @brydon-miller2003why; @friedman-nimz2006blending; @kelly2004community; @noffke1997professional; @prilleltensky2001value-based; @prilleltensky1997values; @seidman2012emerging; @anders1966action]
+    - _Ecological systems theory and the Social Ecological Model_ [@stokols1996translating; @visser2007social; @walker2006handful; @centers2015social; @kloos2009social; @anderies2004framework; @baral2013modified; @stokols1996translating]
+    - _Community Empowerment & Individual Empowerment_ [@speer1995community; @riger1993what; @beeker1998community; @cobb1993empowerment; @collins2002black]
+    - _Community Health Promotion_ [@stokols1996translating]
 
-- _The Action Research Cycle & Community-Based Participatory Action Research_ [CBPR; @fine2004participatory; @chandler2003transforming; @brydon-miller2003why; @friedman-nimz2006blending; @kelly2004community; @noffke1997professional; @prilleltensky2001value-based; @prilleltensky1997values; @seidman2012emerging; @anders1966action]
-- _Ecological systems theory and the Social Ecological Model_ [@stokols1996translating; @visser2007social; @walker2006handful; @centers2015social; @kloos2009social; @anderies2004framework; @baral2013modified; @stokols1996translating]
-- _Community Empowerment & Individual Empowerment_ [@speer1995community; @riger1993what; @beeker1998community; @cobb1993empowerment; @collins2002black]
-- _[Community] Health Promotion_ [@stokols1996translating]
+- Theory Related to both Community Psychology and IPV Intervention and Prevention:
+    - _Coordinated Community Response_ [CCR; @gondolf2007theoretical; @barner2011interventions; @dutton2007duluth]
+    - _Minority Stress Theory & Resilience_ [MS; @meyer2003prejudice; @meyer2010right; @meyer1995minority; @meyer2015resilience]
+    - _Risk Factors vs. Protective Factors_ [@baral2013modified; @whitaker2014linking; @tharp2013systematic; @walton-moss2005risk; @heckert2004battered]
 
-`r tufte::newthought("Theory Related to both Community Psychology and IPV Intervention and Prevention:")`
+- Intersecting Community Psychology Theory \\& Research Methodology
+    - _Grounded Theory Methods_ [@charmaz2006constructing; @corbin1990basics; @strauss1994grounded]
+    - _Mixed-Methods Research_ [@morgan2014mmr; @creswell2013research; @greene1989toward; @johnson2007toward]
+    - _Program Evaluation_ [@greene1989toward; @kidder1987qualitative; @mertens2012program; @owen1999program; @royse2009program]
 
-- _Coordinated Community Response_ [CCR; @gondolf2007theoretical; @barner2011interventions; @dutton2007duluth]
-- _Minority Stress Theory & Resilience_ [MS; @meyer2003prejudice; @meyer2010right; @meyer1995minority; @meyer2015resilience]
-- _Risk Factors vs. Protective Factors_ [@baral2013modified; @whitaker2014linking; @tharp2013systematic; @walton-moss2005risk; @heckert2004battered]
 
-`r tufte::newthought("Intersecting Community Psychology Theory \\& Research Methodology")`
+The underlying purpose of this systematic review is to \edit{examine} the intersections that exist across these theoretical, methodological, and problem-specific domains in terms of their actual applications and manifestations in various settings.\ipel
 
-- _Grounded Theory Methods_ [@charmaz2006constructing; @corbin1990basics; @strauss1994grounded]
-- _Mixed-Methods Research_ [@morgan2014mmr; @creswell2013research; @greene1989toward; @johnson2007toward]
-- _Program Evaluation_ [@greene1989toward; @kidder1987qualitative; @mertens2012program; @owen1999program; @royse2009program]
+The action-oriented research framework within which this review is based is specifically defined according to two core components: (1) a focus on developing and implementing innovative and inclusive research methodologies, data analytic approaches, and dissemination strategies; and (2) a diligent focus on the importance of critical reflexivity throughout the research process. The action-oriented and values-transparent community psychological research approach was born out of a resistance to research methodologies, social policies, and implementation practices that ultimately served to reinforce and/or strengthen social and economic inequalities. This foundation necessitates vigilance in critical reflexivity throughout and beyond the research process. The critical literature review provided here is intended to serve this key characteristic of community psychology.
+
 
 \newpage
 

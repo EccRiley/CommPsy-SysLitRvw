@@ -1,0 +1,25 @@
+[]   boal2014barriers
+[]   boal2014impact
+[x] contrino2007compliance
+[]   enriquez2010development
+[]   ermentrout2014this
+[]   feder2011need
+[]   foshee2004assessing
+[]   gillum2008benefits
+[x] gondolf1999comparison
+[x] gregory2002effects
+[x] hendricks2006recidivism
+[]   hovell2006evaluation
+[x] howell2015strengthening
+[]   kan2014can
+[x] muftic2007evaluation
+[]   potter2011bringing
+[]   price2009batterer
+[]   roffman2008mens
+[]   rumptz1991ecological
+[]   sargent2016evaluating
+[x] silvergleid2006how
+[]   sullivan2002findings
+[]   thompson2000identification
+[]   welland2010culturally
+----------------------------

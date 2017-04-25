@@ -1,0 +1,115 @@
+---
+title: "MAP Working Draft"
+author: "Riley M. Smith"
+date: ""
+---
+
+-----
+
+The purpose of this review is to provide a critical methodological overview of the available empirical research related to intimate partner violence (IPV) intervention and prevention efforts through a community psychological lens. As such, this review is specifically focused on the _applied_ methodologies employed within community-based and action-oriented research frameworks. This overarching purpose stems primarily from the goal of informing IPV intervention and prevention approaches specific to same-gender IPV perpetration among female-identified individuals. However, while there is currently a burgeoning body of research related to the causes, correlates, and consequences of IPV within the context of women's same-gender relationships, the below-described literature searches indicated that there is no currently available empirical evaluation research examining interventions implemented to address IPV within such contexts. \ipe
+
+
+# I. Background & Significance
+
+Community psychological theory values the notion that the communities in which research is taking place and/or affecting (whether directly or indirectly) should be as involved as possible in all phases of the research process, rather than solely as anonymous data points in the analysis. Community psychology thus favors inclusion over exclusion, participant voices equally with researchers' voices, and participatory and/or purposive sampling methods over convenience sampling methods. The reviewed literature will be evaluated and critiqued according to these types of community psychological standards regarding (1) _research methodologies_, (2) _data analytic approaches_, (3) _interpretations of findings_, and (4) _research dissemination._
+
+## Rationale
+
+This review is based in an action-oriented research framework characterized by the following core components: (1) a focus on developing and implementing innovative and inclusive research methodologies, data analytic approaches, and dissemination strategies; and (2) a diligent focus on the importance of critical reflexivity throughout the research process. The action-oriented and values-transparent community psychological research approach was born out of a resistance to research methodologies, social policies, and implementation practices that ultimately served to reinforce and/or strengthen social and economic inequalities. This foundation necessitates vigilance in critical reflexivity throughout and beyond the research process. The critical literature review I am proposing here is intended to serve this key characteristic of community psychology.
+
+## Research Questions (RQs)
+
+**RQ-1:** To what extent are community psychological theories and methodologies implemented, or not, in community psychology-based research related to intimate partner violence (IPV)?
+**RQ-2:** How has the implementation of community psychological research has evolved over time since the origination of the field, as well as potential trajectories based on the current state of discourse within Community Psychology and closely related research and practice disciplines?
+
+## Theoretical Grounding
+
+In a sense, the proposed review's theoretical grounding is best summarized in terms of the of the Community Psychology Practice Council's [_"Theory into Action Bulletin"_](http://www.scra27.org/what-we-do/practice/practice-council-initatives/theory-action-bulletin/)^[[Society for Community Research and Action (SCRA)](http://www.scra27.org/)]. The review will be grounded in theories related to action-oriented research and their applications [@chandler2003transforming; @brydon-miller2003why; @friedman-nimz2006blending; @kelly2004community; @noffke1997professional; @prilleltensky2001value-based; @prilleltensky1997values; @seidman2012emerging], as well as social and community psychological theories related to female same-sex intimate partner violence. In particular, I am interested in the intersections that exist across these theoretical, methodological, and problem-specific domains in terms of their actual applications and manifestations in various settings. Below is a list of theoretical and conceptual frameworks specifically guiding the proposed review.
+
+`r tufte::newthought("Theory Specific to Community Psychology (CP):")`
+
+- _The Action Research Cycle & Community-Based Participatory Action Research_ [CBPR; @fine2004participatory; @chandler2003transforming; @brydon-miller2003why; @friedman-nimz2006blending; @kelly2004community; @noffke1997professional; @prilleltensky2001value-based; @prilleltensky1997values; @seidman2012emerging; @anders1966action]
+- _Ecological systems theory and the Social Ecological Model_ [@stokols1996translating; @visser2007social; @walker2006handful; @centers2015social; @kloos2009social; @anderies2004framework; @baral2013modified; @stokols1996translating]
+- _Community Empowerment & Individual Empowerment_ [@speer1995community; @riger1993what; @beeker1998community; @cobb1993empowerment; @collins2002black]
+- _[Community] Health Promotion_ [@stokols1996translating]
+
+`r tufte::newthought("Theory Related to both Community Psychology and IPV Intervention and Prevention:")`
+
+- _Coordinated Community Response_ [CCR; @gondolf2007theoretical; @barner2011interventions; @dutton2007duluth]
+- _Minority Stress Theory & Resilience_ [MS; @meyer2003prejudice; @meyer2010right; @meyer1995minority; @meyer2015resilience]
+- _Risk Factors vs. Protective Factors_ [@baral2013modified; @whitaker2014linking; @tharp2013systematic; @walton-moss2005risk; @heckert2004battered]
+
+`r tufte::newthought("Intersecting Community Psychology Theory \\& Research Methodology")`
+
+- _Grounded Theory Methods_ [@charmaz2006constructing; @corbin1990basics; @strauss1994grounded]
+- _Mixed-Methods Research_ [@morgan2014mmr; @creswell2013research; @greene1989toward; @johnson2007toward]
+- _Program Evaluation_ [@greene1989toward; @kidder1987qualitative; @mertens2012program; @owen1999program; @royse2009program]
+
+# III. Paper Parameters / Systematic Literature Review Methodology
+
+```{r journals, echo=FALSE, results='hide', fig.show='none', fig.keep='none'}
+j.v <- c("Journal of Interpersonal Violence", "Violence Against Women", "Journal of Family Violence", "Violence and Victims", "Aggression and Violent Behavior", "Partner Abuse", "Trauma, Violence, \\& Abuse", "Psychology of Violence", "Journal of Emotional Abuse", "Response to the Victimization of Women \\& Children")
+
+j.cp <- c("Action Research", "American Journal of Community Psychology", "American Journal of Health Promotion", "American Journal of Orthopsychiatry", "American Journal of Preventive Medicine", "American Journal of Public Health", "Australian Community Psychologist", "Community Development", "Community Development Journal", "Community Mental Health Journal", "Community Psychology in Global Perspective", "Cultural Diversity \\& Ethnic Minority Psychology", "Global Journal of Community Psychology Practice", "Health Education \\& Behavior", "Health Promotion Practice", "Journal of Applied Social Psychology", "Journal of Community \\& Applied Social Psychology", "Journal of Community Practice", "Journal of Community Psychology", "Journal of Health \\& Social Behavior", "Journal of Prevention \\& Intervention", "Journal of Primary Prevention", "Journal of Rural Community Psychology", "Journal of Social Issues", "Psychiatric Rehabilitation Journal", "Psychology of Women Quarterly", "Social Science \\& Medicine", "The Community Psychologist", "Transcultural Psychiatry", "Progress in Community Health Partnerships: Research, Education, \\& Action")
+```
+
+## Overview of Reviewed Literature
+
+
+<!-- The empirical literature included in this review is divided into two categories: (1) intimate partner violence intervention evaluations \edit{(general)} and (2) empirical research specific to female same-sex/gender intimate partner violence. -->
+
+Six separate literature searches were conducted using the [_PsycINFO_](http://www.apa.org/pubs/databases/psycinfo/) and [_Web of Science (WOS)_]() online citation indexing databases via the [Portland State University library website](library.pdx.edu):
+
+\singlespacing
+
+1. Intimate Partner Violence (including Domestic Violence \& Partner Abuse) - General ()
+2. Intimate Partner Violence Interventions
+3. Intimate Partner Violence Intervention Evaluations
+4. Female Same-Sex/Same-Gender Intimate Partner Violence
+5. Female Same-Sex/Same-Gender Intimate Partner Violence Interventions
+6. Female Same-Sex/Same-Gender Intimate Partner Violence Intervention Evaluations
+
+\doublespacing
+
+To focus the review around research related or specific to Community Psychology and intimate partner violence, results were confined to articles scholarly peer-reviewed journals specific to <!--intimate partner violence and -->Community Psychology. The list Community Psychology journals included _The American Journal of Community Psychology_ and additional publications listed as related to Community Psychology on the Society for Community Research and Action (SCRA)'s website [@scra2017other]: `r pander(j.cp)`.
+
+Each search was further constrained to articles published between 1965 and 2017 [i.e., the year of the [Swampscott conference](http://www.scra27.org/publications/tcp/tcp-past-issues/tcpsummer2014/remembering-swampscott/) and the present year; @fryer2008some].
+
+
+The purpose of this review is to provide a critical methodological overview of the available research related to intimate partner violence interventions specifically through community psychological lens. This overarching purpose stems primarily from the goal of informing IPV intervention and prevention approaches specific to same-gender IPV perpetration among female-identified individuals. However, while there is currently a burgeoning body of research related to the causes, correlates, and consequences of IPV within the context of women's same-gender relationships, there is currently no empirical evaluation research available examining interventions implemented to address IPV perpetration within such contexts.
+
+<!-- The list of IPV-specific journals was determined based on the frequent publication titles for results from a broader literature database search of IPV-related terms previously conducted with no constraints imposed on the publishing journal (i.e., an initial search was conducted in the PsycINFO database to determine the most frequent journals publishing articles specific to IPV using the following command-line search: "`SU("intimate partner violence" OR "domestic violence" OR "partner abuse") AND YR(>1965)`"). A list of journals publishing articles resulting from this initial search along with the count of how many articles in the search results were published in each journal was obtained from the database.  -->
+<!-- Journals with article counts in the results of this initial search greater than or equal to the mean number of articles published each of the resultant journals (`r round(m.cnt, digits = 0)`, excluding dissertations and masters theses) were included in the list of journals to include in each of the subsequent database searches conducted for this review: _Journal of Interpersonal Violence_, _Journal of Family Violence_, _Violence Against Women_, _Violence and Victims_, _Child Abuse & Neglect_, _Journal of Aggression Maltreatment & Trauma_, _Aggression and Violent Behavior_, _Partner Abuse_, _Trauma Violence & Abuse_, _Journal of Family Psychology_, _Psychology of Violence_, and _Contemporary Psychology_. -->
+
+_A. Key literature search strategy_
+
+_B. Focal data bases_
+
+_C. Key search terms_
+
+_D. Inclusion/exclusion criteria_
+
+# IV. Methodological Considerations
+
+# V. Integrative Literature Review
+
+Research conducted within the subset of community psychology focused around intimate partner violence will be initially evaluated according to the level of inclusion and exclusion of the historically marginalized population of interest (i.e., sexual minority women). The implementation of community psychology methodologies and analytic approaches will then be reviewed within each of these categories (i.e., inclusion or exclusion of sexual minority women) in terms of (1) the appropriateness of the methods to the research question, (2) how the methods facilitated the inclusion or exclusion of sexual minority women, and (3) whether and how (where applicable) exclusion of sexual minority women is justified.
+
+# VI. Critique of Literature
+
+`r tufte::newthought("1. Stakeholder Input.")` Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
+
+`r tufte::newthought("3. Interpretations of Findings.")` Is feedback from key stakeholders and informants to the research accepted and genuinely considered by the core research team? Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
+
+`r tufte::newthought("4. Research Dissemination.")` Are key stakeholders and informants to the research given access to reports of a given project's progress and/or findings? Is such access in fact accessible (i.e., free and easy to locate)?
+
+
+## _A. Strengths_
+
+## _B. Limitations_
+
+# VII. Summary of Findings
+
+# VIII. Applied Implications
+
+# IX. Conclusions

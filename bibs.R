@@ -10,38 +10,81 @@
 source("../SETUP.R")
 knitr::opts_chunk$set(
     tidy = TRUE,
-    echo = TRUE,
+    echo = FALSE,
     fig.keep = 'high',
-    fig.show = 'hold',
+    fig.show = 'asis',
     results = 'asis',
     tidy.opts = list(comment = FALSE),
     echoRule = NULL,
-    echoRuleb = TRUE
-)
-rpm()
-# options(warn = -1)
-# FUN - 'RtCap()' -------------------------------------------------------
-RtCap <- function(x) {
-    s0 <- strsplit(x, " ")[[1]]
-    nocap <- c("a", "the", "to", "at", "in", "with", "and", "but", "or", "of")
-    s1 <- ifelse(!s0 %in% nocap, toupper(substring(s0, 1,1)), s0)
-    # s2 <- toupper(substring(s[!s %in% nocap], 1,1))
-    s2 <- ifelse(!s0 %in% nocap, substring(s0, 2), "")
-    s <- paste(s1, s2, sep="", collapse=" ")
-    return(s)
-}
-# FUN - 'Rabbr()' -------------------------------------------------------
-Rabbr <- function(x) {
-    s0 <- strsplit(x, " ")[[1]]
-    ex <- c("a", "the", "to", "at", "in", "with", "and", "but", "or", "of", "\\&")
-    s1 <- s0[!s0 %in% ex]
-    s2 <- substring(s1, 1,1)
-    s <- paste(s2, sep = "", collapse = "")
-    s <- toupper(s)
-    return(s)
-}
+    echoRuleb = NULL,
+    fig.height = 5,
+    fig.path = "graphics/bibs/rplot-")#, dev = 'png',
+    # fig.retina = 4
+# rpm()
 #'
 #' \Frule
+#'
+#' \newpage
+#'
+#' # \LARGE{\textsc{Systematic Database Search}}
+#'
+#' \Frule
+#'
+#' Six separate literature searches were conducted using the [_PsycINFO_](http://www.apa.org/pubs/databases/psycinfo/) and [_Web of Science_](http://wokinfo.com) online citation indexing databases via the [Portland State University library website](library.pdx.edu)^[Note that (1) "intimate partner violence" included "domestic violence" and "partner abuse", (2) "same-sex" included "same-gender", and (3) the results ranges provided after each search description listed reflect the minimum and maximum number of results returned across the two databases searched.]:
+#'
+#' <!-- _C. Key search terms_ -->
+#'
+#+ srchs, echo=FALSE
+s1.n <- 4386
+s1w.n <- 3376
+s1 <- range(c(s1.n, s1w.n))
+s2.n <- 337
+s2w.n <- 686
+s2 <- range(c(s2.n, s2w.n))
+s3.n <- 32
+s3w.n <- 46
+s3 <- range(c(s3.n, s3w.n))
+s4.n <- 18
+s4w.n <- 34
+s4 <- range(c(s4.n, s4w.n))
+s5.n <- 0
+s5w.n <- 4
+s5 <- range(c(s5.n, s5w.n))
+s6.n <- 0
+s6w.n <- 2
+s6 <- range(c(s6.n, s6w.n))
+#'
+#'
+#' 1. _Intimate Partner Violence - General_
+#' 2. _Intimate Partner Violence Interventions_ results)
+#' 3. _Intimate Partner Violence Intervention Evaluations_
+#' 4. _Female Same-Sex Intimate Partner Violence - General_
+#' 5. _Female Same-Sex Intimate Partner Violence Interventions_
+#' 6. _Female Same-Sex Intimate Partner Violence Intervention Evaluations_
+#'
+#' \Frule
+#'
+#+ dbsrch
+dbsrch <- data.frame(n = c("1.", "2.", "3.", "4.", "5.", "6."),
+                     srch = c("\\textbf{IPV, Domestic Violence, or Partner Abuse} - \\textit{General}", "--- \\textit{Interventions}", "--- \\textit{Intervention Evaluations}", "\\textbf{Female Same-Sex/Same-Gender IPV, Domestic Violence, or Partner Abuse} - \\textit{General}", "--- \\textit{Interventions}", "--- \\textit{Intervention Evaluations}"),
+                     nres = c(paste0("$", comma(s1[1]), " - ", comma(s1[2]), "$"),
+                              paste0("$", comma(s2[1]), " - ", comma(s2[2]), "$"),
+                              paste0("$", comma(s3[1]), " - ", comma(s3[2]), "$"),
+                              paste0("$", comma(s4[1]), " - ", comma(s4[2]), "$"),
+                              paste0("$", comma(s5[1]), " - ", comma(s5[2]), "$"),
+                              paste0("$", comma(s6[1]), " - ", comma(s6[2]), "$")))
+
+dbsrch$srch <- paste0("\\small{", dbsrch$srch, "}")
+dbsrch$n <- paste0("\\small{", dbsrch$n, "}")
+dbsrch$nres <- paste0("\\small{", dbsrch$nres, "}")
+names(dbsrch) <- c(" ",
+                   "Database Search",
+                   "\\footnotesize{$N_{Results}$ (Range)}")
+pander(dbsrch, justify = c("right", "left", "centre"), caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned")
+#'
+#' \newpage
+#'
+#' # Community Psychology Publications & Closely-Related Violence-Specific Publications
 #'
 #+ journals
 # JOURNALS -----------------------------------------------------------
@@ -63,62 +106,89 @@ jv.n <- rbind(jiv.n, jfv.n, vaw.n, jvv.n)
 jdat.m <- jdat[jdat[,2] >= m.cnt, ]
 jdat.s <- jdat[jdat[,2] >= s.cnt, ]
 
-j.v <- c("Journal of Interpersonal Violence",
+j.vpr <-c("Journal of Interpersonal Violence",
          "Violence Against Women",
          "Violence and Victims",
-         "Journal of Family Violence") %>%
-    tolower()
-#, "Aggression and Violent Behavior", "Partner Abuse", "Trauma, Violence, \\& Abuse", "Psychology of Violence", "Journal of Emotional Abuse", "Response to the Victimization of Women \\& Children")
+         "Journal of Family Violence")
 
-j.cp <- c("Action Research",
-          "American Journal of Community Psychology",
-          "American Journal of Health Promotion",
-          "American Journal of Orthopsychiatry",
-          "American Journal of Preventive Medicine",
-          "American Journal of Public Health",
-          "Australian Community Psychologist",
-          "Community Development",
-          "Community Development Journal",
-          "Community Mental Health Journal",
-          "Community Psychology in Global Perspective",
-          "Cultural Diversity \\& Ethnic Minority Psychology",
-          "Global Journal of Community Psychology Practice",
-          "Health Education \\& Behavior",
-          "Health Promotion Practice",
-          "Journal of Applied Social Psychology",
-          "Journal of Community \\& Applied Social Psychology",
-          "Journal of Community Practice",
-          "Journal of Community Psychology",
-          "Journal of Health \\& Social Behavior",
-          "Journal of Prevention \\& Intervention",
-          "Journal of Primary Prevention",
-          "Journal of Rural Community Psychology",
-          "Journal of Social Issues",
-          "Psychiatric Rehabilitation Journal",
-          "Psychology of Women Quarterly",
-          "Social Science \\& Medicine",
-          "The Community Psychologist",
-          "Transcultural Psychiatry",
-          "Progress in Community Health Partnerships") %>%
-    tolower()
+j.v <- sapply(j.vpr, tolower, USE.NAMES = FALSE)
+
+j.cppr <- c("Action Research",
+            "American Journal of Community Psychology",
+            "American Journal of Health Promotion",
+            "American Journal of Orthopsychiatry",
+            "American Journal of Preventive Medicine",
+            "American Journal of Public Health",
+            "Australian Community Psychologist",
+            "Community Development",
+            "Community Development Journal",
+            "Community Mental Health Journal",
+            "Community Psychology in Global Perspective",
+            "Cultural Diversity and Ethnic Minority Psychology",
+            "Global Journal of Community Psychology Practice",
+            "Health Education and Behavior",
+            "Health Promotion Practice",
+            "Journal of Applied Social Psychology",
+            "Journal of Community and Applied Social Psychology",
+            "Journal of Community Practice",
+            "Journal of Community Psychology",
+            "Journal of Health and Social Behavior",
+            "Journal of Prevention and Intervention",
+            "Journal of Primary Prevention",
+            "Journal of Rural Community Psychology",
+            "Journal of Social Issues",
+            "Journal of Community Psychology",
+            "Psychiatric Rehabilitation Journal",
+            "Psychology of Women Quarterly",
+            "Social Science and Medicine",
+            "The Community Psychologist",
+            "Transcultural Psychiatry",
+            "Progress in Community Health Partnerships")
+
+j.cp <- sapply(j.cppr, tolower, USE.NAMES = FALSE)
+#'
 #'
 #+ pander_journals, echo=FALSE
-names(jdat.m[, 1:2]) <- c("Journal", "Count")
-rownames(jdat.m) <- NULL
-pander(jdat.m[, 1:2],
-       justify = c("left", "right"),
-       caption = "Journals with article counts greater than or equal to the mean of all journal article counts in the 'broad-strokes' database search results set")
 
-names(jdat.s[, 1:2]) <- c("Journal", "Count")
-rownames(jdat.s) <- NULL
-pander(jdat.s[, 1:2],
-       justify = c("left", "right"),
-       caption = "Journals with article counts greater than or equal one standard deviation of the distribution for all journal article counts in the 'broad-strokes' database search results set")
+### FUN - 'RtCap()' ####
+RtCap <- function(x) {
+    s0 <- strsplit(x, " ")[[1]]
+    nocap <- c("a", "the", "to", "at", "in", "with", "and", "but", "or", "of")
+    s1 <- ifelse(!s0 %in% nocap, toupper(substring(s0, 1,1)), s0)
+    # s2 <- toupper(substring(s[!s %in% nocap], 1,1))
+    s2 <- ifelse(!s0 %in% nocap, substring(s0, 2), "")
+    s <- paste(s1, s2, sep="", collapse=" ")
+    return(s)
+}
+
+j.cpp <- sapply(j.cp, RtCap, USE.NAMES = FALSE)
+cat(tufte::newthought("Community-psychology journals"), "included in database searches:\n\n")
+j.cpp %>% as.list() %>% pander()
 #'
-#' -----
+#' \newpage
+#'
+jdat.m <- dplyr::rename(jdat.m, "Journal" = journal, "Count" = count)
+rownames(jdat.m) <- NULL
+kable(jdat.m[, 1:2], align = c("l", "r"), caption = "Violence-specific journals with article counts greater than or equal to the mean of all journal article counts in the 'broad-strokes' database search results set.")
+
+# jdat.s <- dplyr::rename(jdat.s, "Journal" = journal, "Count" = count)
+# rownames(jdat.s) <- NULL
+# kable(jdat.s[, 1:2],
+#        align = c("l", "l"),
+#        caption = "Violence-specific journals with article counts greater than or equal one standard deviation of the distribution for all journal article counts in the 'broad-strokes' database search results set.")
+
+j.vp <- sapply(j.v, RtCap)
+names(j.vp) <- NULL
+cat(tufte::newthought("Violence-specific journals"), " selected for inclusion in database searches.")
+j.vp %>% as.list() %>% pander()
+
+#'
+#' \newpage
+#'
+#' # Results of Systematic Database Searches:
 #'
 #+ bibdf
-# FUN - 'Rbibkeys()' -------------------------------------------------------
+### FUN - 'Rbibkeys()' ####
 Rbibkeys <- function(bib) {
     keys <- bib[grep("\\@.*?\\{.*?,", bib, perl = TRUE)]
     keys <- gsub("\\@\\w+\\{(.*?)", "\\1", keys, perl = TRUE)
@@ -135,36 +205,63 @@ BIBKEY <- Rbibkeys(bib)
 
 library(bib2df)
 bibdf <- bib2df("MAP.bib")
+
+### n.init ####
+n.init <- nrow(bibdf)
+
 ID <- seq(1:nrow(bibdf))
-MAP.au <- cbind(BIBKEY, bibdf[, "AUTHOR"]) ## bibdf[,2] ##
+MAP.au <- cbind(BIBKEY, bibdf[, "AUTHOR"])
+    ## bibdf[,2] ##
 #'
 #+ MAP
 # MAP ----------------------------------------------------------------
 MAP <- cbind(ID,
              BIBKEY,
              bibdf[, c("YEAR", "TITLE", "JOURNAL", "ABSTRACT")]) %>%
-    as.data.frame()## bibdf[c(3:5, 8)] ##
+    as.data.frame()
+    ## bibdf[c(3:5, 8)] ##
 names(MAP)[-1] <- tolower(names(MAP)[-1])
-# names(MAP)[2]
 #'
 #+ MAP_RQDA, results='hide', fig.keep='none', fig.show='none'
 # MAP-RQDA ----------------------------------------------------------------
 source("MAPrqda.R", echo = FALSE)
-
-csid <- caseids[, c("caseid", "case", "RM", "scat")] ## caseids[, -3] ##
+#'
+csid <- caseids[, c("caseid", "case", "RM", "scat")]
+    ## caseids[, -3] ##
 csid$case <- factor(csid$case)
 
 MAP <- merge(MAP, csid, by.x = "bibkey", by.y = "case")
+
+Rtdf(MAP$journal, names = c("Journal", "$N_{Articles}$")) %>%
+    kable(caption = "Number of articles published in each included journal after restricting search results to only those published in community-psychology specific journals and the _four selected_ violence-related journals")
+
+### n.inits3 & n.inits4 ####
+n.inits3 <- MAP[MAP$scat == "S3", ] %>% nrow()
+n.inits4 <- MAP[MAP$scat == "S4", ] %>% nrow()
+MAPv1 <- as.character(MAP$bibkey)
+
+MAPv2 <- c("rumptz1991ecological", "gondolf1999comparison", "thompson2000identification", "gregory2002effects", "sullivan2002findings", "foshee2004assessing", "hendricks2006recidivism", "hovell2006evaluation", "silvergleid2006how", "contrino2007compliance", "muftic2007evaluation", "gillum2008benefits", "roffman2008mens", "price2009batterer", "enriquez2010development", "welland2010culturally", "feder2011need", "potter2011bringing", "boal2014barriers", "boal2014impact", "ermentrout2014this", "fox2015development", "howell2015strengthening", "lockhart1994letting", "wise1997comparison", "bernhard2000physical", "giorgio2002speaking", "younglove2002law", "fortunata2003demographic", "mccloskey2003contribution", "glass2004female-perpetrated", "balsam2005relationship", "sorenson2005restraining", "heintz2006intimate", "pattavina2007comparison", "bossarte2008clustering", "glass2008risk", "hassouneh2008influence", "swahn2008measuring", "blosnich2009comparisons", "edelen2009measurement", "oswald2010lesbian", "ackerman2011gender", "davidovic2011impelling", "hardesty2011lesbian/bisexual", "iverson2011contribution", "messinger2011invisible", "porter2011intimate", "gillum2012there", "goldberg2013sexual", "kanuha2013relationships", "witte2013social", "finneran2014antecedents", "lewis2014sexual", "mustanski2014syndemic", "tran2014prevalence", "edwards2015physical", "kubicek2015same-sex", "lewis2015emotional", "sylaska2015disclosure", "witte2015perceived", "wu2015association", "dixon2016association", "edwards2016college", "langenderfer-magruder2016experiences")
+
+v1v2 <- MAPv1[!MAPv1 %in% MAPv2]
+v1v2 <- paste0("@", v1v2)
+
+j.vcap <- sapply(j.v, RtCap)
+#'
+#' \newpage
+#'
+cat(tufte::newthought("Items excluded after restricting search results"), " to only those published in community-psychology specific journals and the _four selected_ violence-related journals (i.e., ", paste0("_", j.vcap[1:(length(j.vcap)-1)], "_, "), "and ", paste0("_", j.vcap[length(j.vcap)], "_):\n\n"))
+v1v2 %>% as.list() %>% pander()
+#'
 #'
 #+ MAP_CPV
 
 # MAP-CPV ----------------------------------------------------------------
 
-# (map.cp & map.v) ============================================================
+## (map.cp & map.v) ============================================================
+
 MAP$journal <- sapply(MAP$journal, tolower)
+MAP$journal <- gsub(" & ", " and ", MAP$journal)
 MAP$journal <- factor(MAP$journal)
-Rtdf(MAP$journal)
-ftable(MAP$journal, MAP$scat)
 
 cp <- MAP$journal %in% j.cp
 map.cp <- MAP[cp, , drop = FALSE]
@@ -174,87 +271,142 @@ levels(map.cp$journal) <- sapply(levels(map.cp$journal), RtCap)
 
 vlc <- MAP$journal %in% j.v
 map.v <- MAP[vlc, , drop = FALSE]
-levels(map.v$journal) <- c(levels(map.v$journal),
-                           j.v[!j.v %in% levels(map.v$journal)])
+map.v <- map.v[map.v$scat == "S3", , drop = FALSE]
 levels(map.v$journal) <- sapply(levels(map.v$journal), RtCap)
 
-MAP <- MAP[cp | vlc, , drop = FALSE]
+j.cpv <- c(j.v, j.cp)
+cpv <- MAP$journal %in% j.cpv
 
-# map-na.omit ============================================================
+map.cpv <- MAP[cpv, , drop = FALSE]
+map.cpv$rms4 <- ifelse(map.cpv$journal %in% j.v & map.cpv$scat == "S4", NA, map.cpv$scat)
+map.cpv <- na.omit(map.cpv)
+# levels(map.v$journal) <- sapply(levels(map.v$journal), RtCap)
+
+MAP <- merge(map.cp, map.v, all = TRUE)
+
+# MAP(v3) - FINAL --------------------------------------------------------
+
+MAPv3 <- as.character(MAP$bibkey)
+
+v2v3 <- MAPv2[!MAPv2 %in% MAPv3]
+v2v3 <- paste0("@", v2v3)
+#'
+#' \newpage
+#'
+cat(tufte::newthought("Items excluded after restricting SMW-Inclusive search results category"), "to only include items published in community-psychology specific journals:\n\n")
+v2v3 %>% as.list() %>% pander()
+
 MAP$RM <- ifelse(MAP$RM == 1, NA_character_, 0)
-apply(MAP, 2, Risna)
+MAPrm <- MAP[is.na(MAP$RM), "bibkey"] %>% droplevels() %>% as.character()
 MAP <- na.omit(MAP)
 MAP <- droplevels(MAP)
+
+EXCL <- ctbl.z1[ctbl.z1$case %in% MAPrm, c("case", "scat", "code")]
 #'
-#+ echo=FALSE
-paste0("\\[ N_{Articles} = ", nrow(MAP), " \\]")
+#' ## Final Inclusion \\& Exclusion Decisions
 #'
-# map-jrnl ============================================================
+#' Any articles retained from the above-described database searches and filtering processes that either did not meet the basic inclusion criteria (i.e., U.S.-based empirical research) or were determined to be unrelated to the topics of interest for the current review were excluded from the set of formally reviewed articles ($N_{excluded} = `r length(MAPrm)`$). The final set of `r paste0("$N_{included} = ", nrow(MAP), "$")` is divided into two categories: (C1) IPV intervention evaluations research (`r paste0("$n_{c_{1}} = ", nrow(MAP[MAP$scat == "S3", ]), "$")`), and (C2) community-psychology-specific research specific to SMW-Inclusive and inclusive of sexual minority women (`r paste0("$n_{c_{2}} = ", nrow(MAP[MAP$scat == "S4", ]), "$")`).
+#'
+ctbl.z1 <- ctbl.z1[ctbl.z1$case %in% MAPrm, ]
+ctbl.z1 <- merge(ctbl.z1, cbk, all.x = TRUE, all.y = FALSE)
+ctbl.z1$clab <- factor(ctbl.z1$clab) %>% droplevels()
+t.excl <- Rtdf(ctbl.z1$clab, names = c("Reason for Exclusion", "$N_{excluded~articles}$"))
+
+library(kableExtra)
+t.excl %>% kable(caption = "Number of Articles Removed per Exclusion Criteria", align = c('l', 'r')) %>% #, format = 'latex', booktabs = TRUE) #%>%
+    add_footnote("The inclusion of SMW criterion was only applied to articles returned from the database searches specific to SMW-Inclusive research")
+
+MAPv31 <- as.character(MAP$bibkey)
+v3v31 <- MAPv3[!MAPv3 %in% MAPv31]
+v3v31 <- paste0("@", v3v31)
+cat(tufte::newthought("Items excluded from the final list of formally evaluated studies"), "after restricting results to only _U.S.-based empirical_ studies:\n\n")
+v3v31 %>% as.list() %>% pander()
+#'
+#'
+## map-jrnl ============================================================
 MAP$journal <- factor(MAP$journal)
 levels(MAP$journal) <- sapply(levels(MAP$journal), RtCap)
 MAP$journal <- droplevels(MAP$journal)
+
+### FUN - 'Rabbr()' ####
+Rabbr <- function(x) {
+    s0 <- strsplit(x, " ")[[1]]
+    ex <- c("a", "the", "to", "at", "in", "with", "and", "but", "or", "of", "\\&")
+    s1 <- s0[!s0 %in% ex]
+    s2 <- substring(s1, 1,1)
+    s <- paste(s2, sep = "", collapse = "")
+    s <- toupper(s)
+    return(s)
+}
+
 MAP$jrnl <- sapply(as.character(MAP$journal), Rabbr)
 #'
 #' \newpage
 #'
-#+ ctbl_m
-
-# CTBL ---------------------------------------------------------------
-
-ctbl.m <- merge(MAP, ctbl, by = c("caseid", "scat"))
-
-clabs <- c("African Americans", "Approach Evaluation", "'At Risk' Populations", "Secondary/Archival Data", "Asian Americans", "Community Capacity", "Coordinated Community Response", "Cis-Gender", "College Students", "IPV Consequences", "Couples", "Non-IPV Crime Victims", "Case Study", "Disabled Persons", "IPV Dynamics", "Experimental Design", "Females/Women/Girls", "Focus Groups", "General Population", "Graduate Students", "Heterosexuals", "Help-Seeking", "IPV Interventions (Int.) - General", "Int. - Description", "Int. - Proposal", "IPV-Perpetrators", "IPV-Victims/Survivors", "Group Interviews", "1-on-1 Interviews", "Latinos/Latinas or Hispanic-Americans", "Longitudinal", "Males/Men/Boys", "Measures", "Multiple Qualitative Methods", "Multiple Quantitative Methods", "Mixed-Methods", "Program Evaluation Methods", "Perpetrator Characteristics", "Program/Policy Development", "Outsiders' Perspectives", "Intervention Providers' Perspectives", "Key Stakeholders' Persepctives", "Victims'/Survivors' Perspectives", "Program/Policy Evaluation - General", "Protective Factors", "Public Policy", "Community-Based Practitioners", "IPV-Specific Community-Based Practitioners", "IPV Prevalence", "IPV Intervention Programs", "Parents", "Qualitative", "Quantitative", "Client Records", "Police Records", "Risk Factors", "Racial Minorities", "Sexual Minorities (SM)", "SM - Bisexuals", "SM - Gay", "SM - Lesbian", "SM - Queer", "SM - Transgender", "Qualitative Survey", "Quantitative Survey", "System Entities", "System Response", "Urban-Specific", "Cross-Sectional", "Children/Youth")
-
-ctbl.m <- within(ctbl.m, {
-    journal <- droplevels(journal)
-    jrnl <- sapply(as.character(journal), Rabbr)
-    code <- gsub("FG-\\w+", "FG", code)
-    code <- gsub("EXP-\\w+", "EXP", code)
-    code <- gsub("LT-\\w+", "LT", code)
-    code <- gsub("SVY-QL-MM", "SVY-QL", code)
-    code <- gsub("SVY-QT-MM", "SVY-QT", code)
-    code <- gsub("XS-\\w+", "XS", code)
-    code <- gsub("IVW-QL", "IVW", code)
-    code <- gsub("IVW-MM", "IVW", code)
-    code <- factor(code, labels = clabs)
-    scat <- factor(scat, labels = c("IPV Interventions", "LGBTQ-IPV Research"))
-    # jrnl <- paste0("\\footnotesize{", jrnl, "}")
-    # code <- paste0("\\footnotesize{", code, "}")
-    # jrnl <- sapply(jrnl, noquote)
-    # code <- sapply(code, noquote)
-})
-#'
-#' # \LARGE{\textsc{Reviewed Literature Descriptives}}
+#' # \LARGE{\textsc{Systematically-Reviewed Literature}}
 #'
 #' \Frule
 #'
+#' `r tufte::newthought("The resulting selection of empirical literature")`, representing a community-psychology-focused subset of the U.S.-based IPV-related literature, was reviewed using a `primarily deductive` _qualitative comparative analytic approach_ [_QCA_; @leech2007array; @onwuegbuzie2017framework]. This approach was conducted as part of an initial data reduction and organization process in which the reviewed literature was categorized according to the commonalities in overarching research topics, target populations, sampling frames, sampling and data collection methodologies, and data analytic approaches. In addition, the QCA approach served as a systematic method for examining the similarities, differences, and anomalies within the groups identified in the initial data reduction and organization process [@onwuegbuzie2017framework; @onwuegbuzie2009qualitative]. The qualitative comparative analysis of the reviewed literature was aided by the _`RQDA`_ package created for use with the _`R` Statistical Programming Language and Environment_ [@R-RQDA; @R-base].
+#'
+#+ cb
+
+# CTBL ---------------------------------------------------------------
+
+cb <- merge(MAP, ctbl, by = c("caseid", "scat"))
+cb <- within(cb, {
+    journal <- droplevels(journal)
+    jrnl <- sapply(as.character(journal), Rabbr)
+    code <- gsub("FG-\\w+", "FG", code)
+    # code <- gsub("EXP-\\w+", "EXP", code)
+    # code <- gsub("LT-\\w+", "LT", code)
+    code <- gsub("SVY-QL-MM", "SVY-QL", code)
+    code <- gsub("SVY-QT-MM", "SVY-QT", code)
+    # code <- gsub("XS-\\w+", "XS", code)
+    code <- gsub("IVW-\\w+", "IVW", code)
+    code <- gsub("SMIN-\\w+", NA, code)
+    code <- gsub("HET", NA, code)
+    scat <- factor(scat, labels = c("IPV Interventions", "SMW-Inclusive Research"))
+})
+cb <- na.omit(cb) %>% droplevels()
+
+# cbk$clab <- ifelse(cbk$code %in% cb$code, cbk$clab, NA)
+# cbk <- na.omit(cbk) %>% droplevels()
+
+cb <- merge(cb, cbk, by = "code")
+cb$code <- factor(cb$code)
+cb$clab <- factor(cb$clab)
+#'
+#' \newpage
+#'
 #' # General Research Categories
+#' \Frule
 #'
 #+ desc
 ### catpal ####
-catpal <- c(adjustcolor(pal_my[16], alpha.f = 0.8), adjustcolor(pal_my[18], alpha.f = 0.9))
+
+catpal <- c(adjustcolor(pal_my[16], alpha.f = 0.9), adjustcolor(pal_my[5], alpha.f = 0.9))
 
 # DESCRIPTIVES ---------------------------------------------------------------
 
-# search categories ============================================================
+## search categories ============================================================
 
 ### [MAP-abstracts-S3.csv] ####
-cpv.s3 <- MAP[MAP$scat == "S3", ]
-# write.csv(cpv.s3[order(cpv.s3$year), c("bibkey", "year", "title", "journal", "abstract")], "data/MAP-abstracts-S3.csv", row.names = FALSE)
+cpv.s3 <- MAP[MAP$scat == "S3", ]; ## write.csv(cpv.s3[order(cpv.s3$year), c("bibkey", "year", "title", "journal", "abstract")], "data/MAP-abstracts-S3.csv", row.names = FALSE)
 
 ### [MAP-abstracts-S4.csv] ####
-cpv.s4 <- MAP[MAP$scat == "S4", ]
-# write.csv(cpv.s4[order(cpv.s4$year), c("bibkey", "year", "title", "journal", "abstract")], "data/MAP-abstracts-S4.csv", row.names = FALSE)
+cpv.s4 <- MAP[MAP$scat == "S4", ]; ## write.csv(cpv.s4[order(cpv.s4$year), c("bibkey", "year", "title", "journal", "abstract")], "data/MAP-abstracts-S4.csv", row.names = FALSE)
 
 ct.scat <- within(MAP, {
-    scat <- ifelse(scat == "S3", "IPV Interventions", "LGBTQ-IPV Research")
+    scat <- ifelse(scat == "S3", "IPV Interventions", "SMW-Inclusive Research")
 })
 
 t.scat <- Rtdf(ct.scat$scat, names = c("Category", "N"))
-## "ct.scat" created in "MAPrqda.R" ##
-t.scat
+    ## "ct.scat" created in "MAPrqda.R" ##
+t.scat %>% kable()
 scat.t <- table(ct.scat$scat)
-prop.test(scat.t)
+scat.bn <- Rbinom(scat.t)
+scat.bn %>% pander(caption = "Binomial Test of the Difference in Search Category Proportions")
 
 t.scat$prop = t.scat$N / sum(t.scat$N)
 t.scat <- t.scat[order(t.scat$prop), ]
@@ -281,137 +433,167 @@ scat.p <- ggplot(t.scat, aes(fill = Category,
           legend.key.width = unit(0.5, "cm"),
           legend.key.height = unit(0.5, "cm"))
 scat.p
-
+#'
+#'
+#' \newpage
 #'
 #' # Publication Titles
+#' \Frule
 #'
 #+ pub_titles
-# publication titles ============================================================
+## publication titles ============================================================
 t.jrnl <- Rtdf(MAP$journal)
 ft.jrnl <- with(MAP, {
     ftable(journal, scat) %>%
         matrix(nrow = nrow(t.jrnl),
                byrow = FALSE)
 })
-dimnames(ft.jrnl) <- list("Publication Title" = levels(MAP$journal), Category = c("IPV Interventions", "LGBTQ-IPV Research"))
-ft.jrnl
+dimnames(ft.jrnl) <- list("Publication Title" = levels(MAP$journal),
+                          Category = c("IPV Interventions", "SMW-Inclusive Research"))
+ft.jrnl <- ifelse(ft.jrnl == 0, NA, ft.jrnl)
+ft.jrnl %>% pander(caption = "Number of Publications in Each Research Category per Journal",
+                   justify = c("left", "right", "right"))
 
-t.s3bibkey <- Rtdf(cpv.s3$bibkey)
 cpv.s3$jrnl <- sapply(as.character(cpv.s3$journal), Rabbr) %>% factor()
-ft.s3jrnl <- with(cpv.s3, {
-    ftable(bibkey, jrnl) %>%
-        matrix(nrow = nrow(t.s3bibkey),
-               byrow = FALSE)
-})
-dimnames(ft.s3jrnl) <- list("Case" = levels(cpv.s3$bibkey), "Publication Title" = levels(cpv.s3$jrnl))
-ft.s3jrnl
-
-t.s4bibkey <- Rtdf(cpv.s4$bibkey)
 cpv.s4$jrnl <- sapply(as.character(cpv.s4$journal), Rabbr) %>% factor()
-ft.s4jrnl <- with(cpv.s4, {
-    ftable(bibkey, jrnl) %>%
-        matrix(nrow = nrow(t.s4bibkey),
-               byrow = FALSE)
-})
-dimnames(ft.s4jrnl) <- list("Case" = levels(cpv.s4$bibkey), "Publication Title" = levels(cpv.s4$jrnl))
-ft.s4jrnl
+j.cp <- sapply(j.cp, Rabbr, USE.NAMES = FALSE)
+cb$cpv <- ifelse(cb$jrnl %in% j.cp, "CP", "V")
 
+j.v <- sapply(j.v, Rabbr, USE.NAMES = FALSE)
+pr.jv <- length(j.v)/length(j.cp)
+pr.jcp <- 1 - pr.jv
+pr.j <- c(pr.jv, pr.jcp)
+MAP$cpv <- ifelse(MAP$jrnl %in% j.cp, "CP", "V")
 
+cpv.bn1 <- table(MAP$cpv) %>% Rbinom()
+    ### H1: unequal proportions (H0: pi_0 = 0.5) ##
+cpv.bn2 <- table(MAP$cpv) %>% rev() %>% Rbinom(pi0 = pr.jv)
+    ## H1: V is less than CP (based on N_{journals}
+        ## per V & CP included in db searches;
+    ### H0: pi_0 = 0.129) ##
+
+cpv.bn1 %>% pander(caption = "Binomial Test of $N_{articles}$ per Journal Category (Violence vs. Community Psychology ($\\pi_{0} = 0.5$).")
+cpv.bn2 %>% pander(caption = paste0("Binomial Test of $N_{articles}$ per Journal Category (Violence vs. Community Psychology [$\\pi_{0} = ", round(pr.jv, 3), "$ (based on proportion of $N_{journals}$ per journal category included in database searches; $n_{journals_{V}} = ", length(j.v), "$; $n_{journals_{CP}} = ", length(j.cp), "$)]."))
+
+#' ## Research Category by Journal & Journal Category
 #'
-#' \newpage
+#+ scat_x_journal
+ftm.j <- Rna(ft.jrnl)
+sum.j <- apply(ftm.j, 1, sum)
+ftm.jp <- cbind(ft.jrnl, "**Total**" = sum.j)
+ftm.jp %>% pander(justify = c("left", "right", "right", "right"),
+                  caption = "$N_{articles}$ in Each Research Category per Journal")
+
+Rdotchart(
+    ftm.j,
+    pch = 19,
+    gcolor = pal_my[20],
+    xlab = expression(N[Articles]),
+    cex = 0.7,
+    gcex = 0.75,
+    gfont = 2,
+    pt.cex = 1.125,
+    color = c(rep(catpal[1], nrow(ftm.j)), rep(catpal[2], nrow(ftm.j))),
+    xaxt = 'n'
+); axis(1, at = seq(range(ftm.j, na.rm = TRUE)[1],
+                    range(ftm.j, na.rm = TRUE)[2], by = 3))
+
+MAP.j <- MAP[, c("scat", "journal")]
+names(MAP.j) <- c("Category", "Journal")
+MAP.j$Category <- ifelse(MAP.j$Category == "S3",
+                         "IPV Interventions",
+                         "SMW-Inclusive Research")
+pj <- mpal(1:length(unique(MAP$jrnl)), p = sci)
+library(ggparallel)
+pscat <- c("#a6afbb", pal_my[17])
+
+j.ps <- ggparset2(list("Category", "Journal"),
+                  data = MAP.j,
+                  method = "parset", label = TRUE,
+                  label.size = 2.75, text.angle = 0, order = c(1, 1)) +
+    scale_fill_manual(values = c(pscat, adjustcolor(pj, alpha.f = 0.55)),
+                      guide = FALSE) +
+    scale_colour_manual(values = c(pscat, pj), guide = FALSE) +
+    thm_Rtft(ticks = FALSE, ytext = FALSE)
+j.ps
+
+
+MAP.j <- MAP[, c("scat", "journal", "cpv", "jrnl")]
+pcpv <- mpal(1:2)
+
+# clr.cp <- MAP.j[MAP.j$jrnl %in% j.cp, "jrnl"] %>% unique() %>% length()
+# clr.v <- MAP.j[MAP.j$jrnl %in% j.v, "jrnl"] %>% unique() %>% length()
+# clr.cpv <- c(rep(pcpv[1], 3), ,  rep(pcpv[2], 2), rep(pcpv[1], 2), rep(pcpv[2], 2))
+# clr.cpv1 <- levels(factor(MAP.j$Journal))
+# clr.cpv <- ifelse(clr.cpv %in% j.cpp, pcpv[1], pcpv[2])
+
+clr.cpv1 <- levels(factor(MAP.j$journal))
+clr.cpv <- ifelse(clr.cpv1 %in% j.cpp, pcpv[1], pcpv[2])
+
+MAP.j$cpv <- ifelse(MAP.j$cpv == "CP", "Community Psychology", "Violence-Specific")
+MAP.j$scat <- ifelse(MAP.j$scat == "S3", "IPV Interventions", "SMW-Inclusive Research")
+
+names(MAP.j) <- c("Category", "Journal", "Discipline", "jrnl")
+
+j.ps2 <- ggparset2(list("Category", "Journal", "Discipline"),
+                   data = MAP.j,
+                   method = "parset", label = TRUE,
+                   label.size = 2.75, text.angle = 0, order = c(1, 0, 0)) +
+    scale_fill_manual(values = c(pscat, adjustcolor(pcpv, alpha.f = 0.85),
+                                 adjustcolor(clr.cpv, alpha.f = 0.55)),
+                      guide = FALSE) +
+    scale_colour_manual(values = c(pscat, adjustcolor(pcpv, alpha.f = 0.85),
+                                   adjustcolor(clr.cpv, alpha.f = 0.85)),
+                        guide = FALSE) +
+    thm_Rtft(ticks = FALSE, ytext = FALSE); j.ps2
+#'
+#' \tufteskip
 #'
 #' # Publication Years
+#' \Frule
 #'
-#+ yr_hist1, echo=FALSE, fig.fullwidth=TRUE, fig.width=7, fig.height=5
-# publication years ============================================================
+#+ yr_hist, echo=FALSE, fig.fullwidth=TRUE, fig.cap="Publication Years Grouped by Research Category", fig.height = 4
 
-par(cex = 0.9)
-frq <- seq(0, max(hist(MAP$year, plot = FALSE)$counts), by = 5)[1:4]
-hist(MAP$year, freq = FALSE, col = pal_my.a75[17], border = pal_my[18],
-     main = " ", xlab = "Year Published", ylab = expression(N[Articles]),
-     lwd = .5, yaxt = 'n', right = T, breaks = seq(1990, 2018, by = 4));
-lines(density(MAP$year), lwd = 2, col = pal_my[18], lty = 3);
-axis(side = 2, at = axTicks(side = 2), labels = frq)
-#'
-#' \tufteskip
-#' \begin{fullwidth}\begin{centering}
-#'
-#+ yr_hist2, echo=FALSE, fig.width=7, fig.height=4, out.width="0.85\\linewidth"
-### PLOT - year ####
+### PLOT - year/scat ####
+s3hist <- hist(MAP$year[MAP$scat == "S3"], plot = FALSE, right = F, breaks = 25)
+s4hist <- hist(MAP$year[MAP$scat == "S4"], plot = FALSE, right = F, breaks = s3hist$breaks)
+## col = pal_my.a75[12], border = pal_my[19], lwd = .5
 
-par(mfrow = c(1, 2), cex = 0.8)
-
-frq.s3 <- seq(0, max(hist(cpv.s3$year, plot = FALSE)$counts), by = 2)
-frq.s3 <- frq.s3[-length(frq.s3)]
-hist(cpv.s3$year, freq = FALSE, col = pal_my.a75[16], border = pal_my[19],
-     main = "IPV Interventions Research", xlab = " ", ylab = expression(N[Articles]),
-     lwd = .5, yaxt = 'n', right = F, breaks = seq(1990, 2018, by = 4));
-lines(density(cpv.s3$year), lwd = 2, col = pal_my[19], lty = 3);
-axis(side = 2, at = axTicks(side = 2), labels = frq.s3);
-
-frq.s4 <- seq(0,max(hist(cpv.s4$year, plot = FALSE)$counts),by = 5)
-hist(cpv.s4$year, freq = FALSE, col = pal_my.a75[12], border = pal_my[19],
-     main = "LGBTQ-Specific IPV Research", xlab = " ", ylab = " ",
-     lwd = .5, yaxt = 'n', right = F, breaks = seq(1990, 2018, by = 4));
-lines(density(cpv.s4$year), lwd = 2, col = pal_my[19], lty = 3);
-axis(side = 2, at = axTicks(side = 2), labels = frq.s4)
-
-par(mfrow = c(1, 1))
-
-yr <- Rmsmm(MAP$year) %>% t() %>% as.data.frame()
-
-yrt <- Rtdf(MAP$year)[, 2] %>% Rmsmm() %>% t() %>% as.data.frame()
-yrt[, c(1, 3:4)] <- apply(yrt[, c(1, 3:4)], 2, round, digits = 0)
-yrt$M <- paste0(yrt$M, " (\\textit{", yrt$SD, "})")
-yrt <- yrt[c(1, 3:4)]
-names(yrt) <- c("Mean (\\textit{SD})", "Minimum", "Maximum")
-#'
-#' \end{centering}\end{fullwidth}
-#'
-#+ yrt, echo=FALSE
-yrt.s3 <- Rtdf(cpv.s3$year)[, 2] %>% Rmsmm() %>% t() %>% as.data.frame()
-yrt.s3[, c(1, 3:4)] <- apply(yrt.s3[, c(1, 3:4)], 2, round, digits = 0)
-yrt.s3$M <- paste0(yrt.s3$M, " (\\textit{", yrt.s3$SD, "})")
-yrt.s3 <- yrt.s3[c(1, 3:4)]
-names(yrt.s3) <- c("Mean (\\textit{SD})", "Minimum", "Maximum")
-
-yrt.s4 <- Rtdf(cpv.s4$year)[, 2] %>% Rmsmm() %>% t() %>% as.data.frame()
-yrt.s4[, c(1, 3:4)] <- apply(yrt.s4[, c(1, 3:4)], 2, round, digits = 0)
-yrt.s4$M <- paste0(yrt.s4$M, " (\\textit{", yrt.s4$SD, "})")
-yrt.s4 <- yrt.s4[c(1, 3:4)]
-names(yrt.s4) <- c("Mean (\\textit{SD})", "Minimum", "Maximum")
-#'
-#' \tufteskip
+plot(s4hist, col = pal_sci[8], border = pal_my[19], density = 50, lwd = .25,
+     main = " ", xlab = "Year", ylab = expression(N[Articles]),
+     ylim = c(0, max(s3hist$counts))); plot(s3hist, col = pal_my[16], border = pal_my[19], density = 50, angle = -45, lwd = .25, add = TRUE); legend(x = 1990, y = 3.75, legend = c("IPV Research Specifically Inclusive of Sexual Minority Women", "IPV Interventions Research (general)"),
+       fill = c(pal_sci[8], pal_my[16]), density = 50, angle = c(45, -45),
+       border = NA, bty = 'n', cex = 0.8, text.font = 3,
+       trace = F)
 #'
 #+ echo=FALSE
-# NO MORE ECHO -------------------------------------------------------
-
-knitr::opts_chunk$set(echo = FALSE)
-#'
+#### NO MORE ECHO ####
+## knitr::opts_chunk$set(echo = FALSE)
 #'
 #' \newpage
 #'
 #' # Research Topics, Sampling Frames, and Methodologies
 #'
+#'
 #+ FUN_Rftm
-# FUN - 'Rftm()' -------------------------------------------------------
+
+### FUN - 'Rftm()' ####
+
 Rftm <- function(x1, x2, dnn = NULL, zero.action = NA, zero.qt = FALSE) {
     if (!is.null(dnn)) {
         tx <- Rtdf(x1, names = dnn[[1]])
-        ftm <- ftable(x1, x2, row.vars = 1) %>% matrix(nrow = nrow(tx), byrow = FALSE)
+        ftm <- ftable(x1, x2, row.vars = 1) %>%
+            matrix(nrow = nrow(tx), byrow = FALSE)
         dimnames(ftm) <- list(levels(x1), dnn[[2]])
     } else {
         tx <- Rtdf(x1)
-        ftm <- ftable(x1, x2, row.vars = 1) %>% matrix(nrow = nrow(tx), byrow = FALSE)
+        ftm <- ftable(x1, x2, row.vars = 1) %>%
+            matrix(nrow = nrow(tx), byrow = FALSE)
         dimnames(ftm) <- list(levels(x1))
     }
     if (!is.null(zero.action)) {
         if (zero.qt == 0 | zero.qt == 1) {
             zero.qt <- as.logical(zero.qt)
-        } else {
-            if (!is.logical(zero.qt)) {
-                stop("'zero.qt' must be either logical ('TRUE'/'FALSE') or interpretable as logical ('0'/'1'")
-            }
         }
         if (zero.qt == TRUE) {
             ftm <- ifelse(ftm == 0, quote(zero.action), ftm)
@@ -420,27 +602,34 @@ Rftm <- function(x1, x2, dnn = NULL, zero.action = NA, zero.qt = FALSE) {
         }
     }
     y <- list(tx, ftm)
-    names(y) <- c(paste0("Tabulation of ", deparse(substitute(x1))), paste0("Cross-Tabulation of ",
-                                                                            deparse(substitute(x1)), " & ", deparse(substitute(x2))))
+    names(y) <- c(paste0("Tabulation of ", deparse(substitute(x1))),
+                  paste0("Cross-Tabulation of ",
+                         deparse(substitute(x1)),
+                         " & ",
+                         deparse(substitute(x2))))
     return(y)
 }
-
-
+#'
+#' \Frule
+#'
 #' ## Primary Topics
 #'
-#+ topics, fig.fullwidth=TRUE
+#+ topics, fig.fullwidth=TRUE, fig.height = 7.5
 
-# topics ============================================================
-
-codes.tp <- ctbl.m[ctbl.m$cat == "TOPIC", "code"] %>% droplevels()
+## topics ============================================================
+# cb$clab <- factor(cb$clab)
+codes.tp <- cb[cb$cat == "TOPIC", "clab"] %>% droplevels()
 ctp.dnn <- c("Topic", "$N_{Articles}$")
-scats.tp <- ctbl.m[ctbl.m$cat == "TOPIC", "scat"] %>% droplevels()
-stp.dnn <- c("IPV Interventions", "LGBTQ-IPV Research")
+scats.tp <- cb[cb$cat == "TOPIC", "scat"] %>% droplevels()
+stp.dnn <- c("IPV Interventions", "SMW-Inclusive Research")
 topics <- Rftm(codes.tp, scats.tp, dnn = list(ctp.dnn, stp.dnn))
 t.tp <- topics[[1]]
 ftm.tp <- topics[[2]]
-
-ftm.tp %>% pander
+ftm.tp2 <- Rna(ftm.tp)
+sum.tp <- apply(ftm.tp2, 1, sum)
+ftm.tpp <- cbind(ftm.tp, "**Total**" = sum.tp)
+ftm.tpp %>% pander(justify = c("left", "right", "right", "right"),
+                   caption = "Research Topics")
 
 ### PLOT - topic - 1 ####
 Rdotchart(
@@ -452,467 +641,408 @@ Rdotchart(
     gcex = 0.75,
     gfont = 2,
     pt.cex = 1.125,
-    color = c(rep(catpal[1], nrow(ftm.tp)), rep(catpal[2], nrow(ftm.tp))),
-    xaxt = 'n'
-); axis(1, at = seq(range(ftm.tp, na.rm = TRUE)[1], range(ftm.tp, na.rm = TRUE)[2], by = 3))
-
+    color = c(rep(catpal[1], nrow(ftm.tp)), rep(catpal[2], nrow(ftm.tp))))
+    ## xaxt = 'n'
+#; axis(1, at = seq(range(ftm.tp, na.rm = TRUE)[1],
+                    ## range(ftm.tp, na.rm = TRUE)[2], by = 3))
+#'
+#' \newpage
+#'
+#+ topics2, fig.fullwidth=TRUE
 dfm.tp2 <- data.frame(ftm.tp)
 names(dfm.tp2) <- c("s3", "s4")
 top.s3 <- data.frame(dfm.tp2$s3, row.names = rownames(dfm.tp2))
 top.s3 <- na.omit(top.s3)
-top.s3
+# top.s3
 top.s4 <- data.frame(dfm.tp2$s4, row.names = rownames(dfm.tp2))
 top.s4 <- na.omit(top.s4)
-top.s4
+# top.s4
 
-### PLOT - topic - 2 ####
+tp.s3 <- cb[cb$scat == levels(cb$scat)[1] &
+                    cb$cat == "TOPIC", ] %>%
+    droplevels()
+tp.s4 <- cb[cb$scat == levels(cb$scat)[2] &
+                    cb$cat == "TOPIC", ] %>%
+    droplevels()
+#'
+#' \newpage
+#' ## Research Designs
+#'
+#+ designs, fig.fullwidth=TRUE
+## designs ============================================================
+
+ct.d <- cb[cb$cat == "DESIGN", ] %>% droplevels()
+t.d <- Rtdf(ct.d$clab)
+ct.d$clab <- gsub(" Design", "", ct.d$clab) %>% factor()
+ft.d <- ftable(ct.d[, c("clab", "scat")], row.vars = 1)
+ftm.d <- matrix(ft.d, nrow = nrow(t.d), byrow = FALSE)
+dimnames(ftm.d) <- list(Design = levels(ct.d$clab),
+                        Category = c("IPV Interventions",
+                                     "SMW-Inclusive Research"))
+sum.d <- apply(ftm.d, 1, sum)
+ftm.d <- ifelse(ftm.d == 0, NA, ftm.d)
+ftm.d <- cbind(ftm.d, "**Total**" = sum.d)
+ftm.d %>% pander(justify = c("left", "right", "right", "right"),
+                 caption = "Overarching Research Designs")
+
+nlabs <- length(unique(ct.d$clab))
+pmo <- mpal(1:length(unique(ct.d$clab)), p = sci)
+
+ct.d <- dplyr::rename(ct.d, "Category" = scat, "Design" = clab)
+
+### PLOT - designs ####
+
 library(ggparallel)
-ct.tp <- ctbl.m[ctbl.m$cat == "TOPIC", ] %>% droplevels()
-cutoff <- group_by(ct.tp, code) %>% dplyr::count()
-names(cutoff) <- c("code", "cutoff.score")
-ct.tp <- merge(ct.tp, cutoff, by = "code")
-ct.tp <- ct.tp[ct.tp$cutoff > 2, ]
-nlabs <- length(unique(ct.tp$code))
-ptop <- mpal(1:(length(unique(ct.tp$code))), p = sci)
-pscat <- pal_my[c(2, 17)]
-
-library(reshape)
-ct.tp <- rename(ct.tp, c(scat = "Category"))
-
-source("ggparset2.R")
-top.ps <- ggparset2(list("code", "Category"),
-                    data = ct.tp, #weight = "wt",
-                    method = "parset", label = FALSE,
-                    text.angle = 0, order = c(1,-1)) +
-    scale_fill_manual(values = c(pscat, ptop)) +
-    scale_colour_manual(values = c(pscat, ptop)) +
-    guides(fill = guide_legend(override.aes = list(alpha = 0))) +
-    thm_Rtft() +
-    theme(legend.text = element_text(size = rel(.8)),
-          legend.key.height = unit(0.5, "cm"))
-top.ps
+pscat <- c("#a6afbb", pal_my[17])
+d.ps <- ggparset2(list("Category", "Design"),
+                  data = ct.d,
+                  method = "parset", label = TRUE,
+                  label.size = 3.5, text.angle = 0, order = c(1, 1)) +
+    scale_fill_manual(values = c(pscat, adjustcolor(pmo, alpha.f = 0.55)),
+                      guide = FALSE) +
+    scale_colour_manual(values = c(pscat, pmo), guide = FALSE) +
+    thm_Rtft(ticks = FALSE, ytext = FALSE)
+d.ps
 #'
+#' \newpage
+#' `r tufte::newthought("\\Large{Experimental Research Designs}")`
 #'
-#' ## Methodologies
+#+ exp, fig.fullwidth=TRUE
+## experimental designs ============================================================
+
+ct.exp <- cb[cb$cat == "DESIGN-EXP", ] %>% droplevels()
+t.exp <- Rtdf(ct.exp$clab)
+ct.exp$clab <- gsub(" Design", "", ct.exp$clab) %>% factor()
+ct.exp$clab <- gsub(" \\(", " \n\\(", ct.exp$clab) %>% factor()
+ft.exp <- ftable(ct.exp[, c("clab", "scat")], row.vars = 1)
+ftm.exp <- matrix(ft.exp, nrow = nrow(t.exp), byrow = FALSE)
+dimnames(ftm.exp) <- list("Experimental Design" = levels(ct.exp$clab),
+                          Category = c("IPV Interventions",
+                                       "SMW-Inclusive Research"))
+sum.exp <- apply(ftm.exp, 1, sum)
+ftm.exp <- ifelse(ftm.exp == 0, NA, ftm.exp)
+ftm.exp <- cbind(ftm.exp, "**Total**" = sum.exp)
+ftm.exp %>% pander(justify = c("left", "right", "right", "right"),
+                   caption = "Experimental Research Designs")
+
+nlabs <- length(unique(ct.exp$clab))
+pmo <- mpal(1:length(unique(ct.exp$clab)), p = sci)
+
+ct.exp <- dplyr::rename(ct.exp, "Category" = scat, "Experimental Design" = clab)
+
+### PLOT - experimental designs ####
+
+library(ggparallel)
+pscat <- c("#a6afbb", pal_my[17])
+exp.ps <- ggparset2(list("Category", "Experimental Design"),
+                    data = ct.exp,
+                    method = "parset", label = TRUE,
+                    label.size = 3, text.angle = 0, order = c(1, 1)) +
+    scale_fill_manual(values = c(pscat, adjustcolor(pmo, alpha.f = 0.55)),
+                      guide = FALSE) +
+    scale_colour_manual(values = c(pscat, pmo), guide = FALSE) +
+    thm_Rtft(ticks = FALSE, ytext = FALSE)
+exp.ps
+#'
+#' \newpage
+#' ## Data Collection Methodologies
 #'
 #+ methodologies, fig.fullwidth=TRUE
-# methodologies ============================================================
-
-library(vcd);
+## methodologies ============================================================
 
 ### PLOT - methodologies - 1 ####
 
-ct.mo <- ctbl.m[ctbl.m$cat == "M-OVERALL", ] %>% droplevels()
-t.mo <- Rtdf(ct.mo$code, names = c("Method(s)", "$N_{Articles}$"))
+ct.mo <- cb[cb$cat == "METHODS", ] %>% droplevels()
+t.mo <- Rtdf(ct.mo$clab)
 
-ft.mo <- ftable(ct.mo[, c("code", "scat")], row.vars = 1)
+ft.mo <- ftable(ct.mo[, c("clab", "scat")], row.vars = 1)
 ftm.mo <- matrix(ft.mo, nrow = nrow(t.mo), byrow = FALSE)
-dimnames(ftm.mo) <- list(Methodology = levels(ct.mo$code), Category = c("IPV Interventions", "LGBTQ-IPV Research"))
-t.mo
-ftm.mo
+dimnames(ftm.mo) <- list(Methodology = levels(ct.mo$clab),
+                         Category = c("IPV Interventions",
+                                      "SMW-Inclusive Research"))
+sum.mo <- apply(ftm.mo, 1, sum)
+ftm.mo <- ifelse(ftm.mo == 0, NA, ftm.mo)
+ftm.mo <- cbind(ftm.mo, "**Total**" = sum.mo)
+ftm.mo %>% pander(justify = c("left", "right", "right", "right"),
+                  caption = "Methodologies")
 
-mosaic(ftm.mo, labeling_args = list(gp_labels = gpar(fontsize = 9), gp_varnames = gpar(fontsize = 11, fontface = 2), pos_labels = c("center", "center"), just_labels = c("center", "right"), rot_varnames = c(0, -90, 0, -90), rot_labels = rep(0, 4), alternate_labels = c(F, F), tl_labels = c(T, F), tl_varnames = c(F, T)), highlighting = 2, highlighting_fill = catpal)
+### PLOT - methodologies ####
 
-### PLOT - methodologies - 2 ####
+nlabs <- length(unique(ct.mo$clab))
+pmo <- mpal(1:length(unique(ct.mo$clab)), p = sci)
 
-ct.mo$code <- as.numeric(ct.mo$code) %>% factor()
-cutoff <- group_by(ct.mo, code) %>% dplyr::count()
-names(cutoff) <- c("code", "cutoff.score")
-ct.mo <- merge(ct.mo, cutoff, by = "code")
-ct.mo <- ct.mo[ct.mo$cutoff.score > 1, ]
-nlabs <- length(unique(ct.mo$code))
-pmo <- mpal(1:(length(unique(ct.mo$code))), p = sci)
-pscat <- pal_my[c(2, 17)]
+ct.mo <- dplyr::rename(ct.mo, "Category" = scat, "Methodology" = clab)
 
-library(reshape)
-ct.mo <- rename(ct.mo, c(code = "Methodology", scat = "Research Category"))
-
-source("ggparset2.R")
-mo.ps <- ggparset2(list("Methodology", "Research Category"),
-                   data = ct.mo, #weight = "wt",
-                   method = "parset", label = FALSE,
-                   text.angle = 0, order = c(1,-1)) +
-    scale_fill_manual(values = c(pmo, pscat),
-                      breaks = c(rep("", nlabs),
-                                 "Research Category:IPV Interventions",
-                                 "Research Category:LGBTQ-IPV Research"),
-                      labels = c(rep("", nlabs),
-                                 "IPV Interventions", "LGBTQ-IPV\nResearch")) +
-    scale_colour_manual(values = c(pmo, pscat), guide = FALSE) +
-    guides(fill = guide_legend(override.aes = list(alpha = 0))) +
-    thm_Rtft(lpos = "right", ldir = "vertical") +
-    theme(legend.text = element_text(size = rel(1)),
-          legend.key = element_rect(colour = "transparent", fill = "transparent"),
-          legend.key.width = unit(0, "cm"),
-          legend.key.height = unit(1, "cm"),
-          legend.position = c(0.91, 0.625),
-          legend.justification = c(0.95, 0.45),
-          legend.background = element_rect(fill="transparent"))
+library(ggparallel)
+pscat <- c("#a6afbb", pal_my[17])
+mo.ps <- ggparset2(list("Category", "Methodology"),
+                   data = ct.mo,
+                   method = "parset", label = TRUE,
+                   label.size = 3.5, text.angle = 0, order = c(1, 1)) +
+    scale_fill_manual(values = c(pscat, adjustcolor(pmo, alpha.f = 0.55)),
+                      guide = FALSE) +
+    scale_colour_manual(values = c(pscat, pmo), guide = FALSE) +
+    thm_Rtft(ticks = FALSE, ytext = FALSE)
 mo.ps
-
-
 #'
 #' \newpage
-#' `r tufte::newthought("\\large{Qualitative Methods}")`
+#' `r tufte::newthought("\\large{QuaLitative \\textit{Methods}}")`
 #'
 #+ qual, fig.fullwidth=TRUE
-# qualitative ============================================================
+## qualitative ============================================================
 
-ct.ql <- ctbl.m[ctbl.m$cat == "M-QL", ] %>% droplevels()
-t.ql <- Rtdf(ct.ql$code, names = c("Qualitative Method(s)", "$N_{Articles}$"))
-ft.ql <- ftable(ct.ql[, c("code", "scat")], row.vars = 1)
+ct.ql <- cb[cb$cat == "M-QL", ] %>% droplevels()
+t.ql <- Rtdf(ct.ql$clab)
+ft.ql <- ftable(ct.ql[, c("clab", "scat")], row.vars = 1)
 ftm.ql <- matrix(ft.ql, nrow = nrow(t.ql), byrow = FALSE)
-dimnames(ftm.ql) <- list("Qualitative Method(s)" = levels(ct.ql$code), Category = c("IPV Interventions", "LGBTQ-IPV Research"))
-t.ql
+dimnames(ftm.ql) <- list("Qua**L**itative Method(s)" = levels(ct.ql$clab),
+                         Category = c("IPV Interventions", "SMW-Inclusive Research"))
+sum.ql <- apply(ftm.ql, 1, sum)
+ftm.ql <- ifelse(ftm.ql == 0, NA, ftm.ql)
+ftm.ql <- cbind(ftm.ql, "**Total**" = sum.ql)
+ftm.ql %>% pander(justify = c("left", "right", "right", "right"),
+                  caption = "Qua**L**itative Method(s)")
 
-### PLOT - qualitative - 1 ####
+### PLOT - qualitative ####
+pql <- mpal(1:length(unique(ct.ql$clab)), p = sci)
 
-mosaic(ftm.ql, labeling_args = list(gp_labels = gpar(fontsize = 7), gp_varnames = gpar(fontsize = 10, fontface = 2), pos_labels = c("center", "center"), just_labels = c("center", "right")), rot_varnames = c(0, -90, 0, -90), rot_labels = rep(0, 4), alternate_labels = c(F, F), tl_labels = c(T, F), tl_varnames = c(F, T), highlighting = 2, highlighting_fill = catpal, margins = unit(5, "lines"))
+ct.ql <- dplyr::rename(ct.ql, "QuaLitative Methods" = clab, "Category" = scat)
 
-### PLOT - qualitative - 2 ####
-ct.ql$code <- as.numeric(ct.ql$code) %>% factor()
-cutoff <- group_by(ct.ql, code) %>% dplyr::count()
-names(cutoff) <- c("code", "cutoff.score")
-ct.ql <- merge(ct.ql, cutoff, by = "code")
-ct.ql <- ct.ql[ct.ql$cutoff.score > 1, ]
-nlabs <- length(unique(ct.ql$code))
-pql <- mpal(1:(length(unique(ct.ql$code))), p = sci)
-pscat <- pal_my[c(2, 17)]
 
-library(reshape)
-ct.ql <- rename(ct.ql, c(code = "Qualitative Methods", scat = "Research Category"))
-
-source("ggparset2.R")
-ql.ps <- ggparset2(list("Qualitative Methods", "Research Category"),
-                   data = ct.ql, #weight = "wt",
-                   method = "parset", label = FALSE,
-                   text.angle = 0, order = c(1,-1)) +
-    scale_fill_manual(values = c(pql, pscat),
-                      breaks = c(rep("", nlabs),
-                                 "Research Category:IPV Interventions",
-                                 "Research Category:LGBTQ-IPV Research"),
-                      labels = c(rep("", nlabs),
-                                 "IPV Interventions", "LGBTQ-IPV\nResearch")) +
-    scale_colour_manual(values = c(pql, pscat), guide = FALSE) +
-    guides(fill = guide_legend(override.aes = list(alpha = 0))) +
-    thm_Rtft(lpos = "right", ldir = "vertical") +
-    theme(legend.text = element_text(size = rel(1)),
-          legend.key = element_rect(colour = "transparent", fill = "transparent"),
-          legend.key.width = unit(0, "cm"),
-          legend.key.height = unit(1, "cm"),
-          legend.position = c(0.91, 0.61),
-          legend.justification = c(0.95, 0.45),
-          legend.background = element_rect(fill="transparent"))
+ql.ps <- ggparset2(list("Category", "QuaLitative Methods"),
+                   data = ct.ql,
+                   method = "parset", label = TRUE,
+                   label.size = 3.5, text.angle = 0, order = c(1, 1)) +
+    scale_fill_manual(values = c(pscat, adjustcolor(pql, alpha.f = 0.55)),
+                      guide = FALSE) +
+    scale_colour_manual(values = c(pscat, pql), guide = FALSE) +
+    thm_Rtft(ticks = FALSE, ytext = FALSE)
 ql.ps
-
 #'
 #' \newpage
-#' `r tufte::newthought("\\large{Quantitative Methods}")`
 #'
-#+ quant, fig.fullwidth=TRUE
-# quantitative ============================================================
+#' `r tufte::newthought("\\Large{QuaNTitative Research \\textit{Designs}}")`
+#'
+#+ quaNT_designs, fig.fullwidth=TRUE
+ct.dqt <- cb[cb$cat == "D-QT", ] %>% droplevels()
+t.dqt <- Rtdf(ct.dqt$clab)
+ft.dqt <- ftable(ct.dqt[, c("clab", "scat")], row.vars = 1)
+ftm.dqt <- matrix(ft.dqt, nrow = nrow(t.dqt), byrow = FALSE)
+dimnames(ftm.dqt) <- list("Qua**NT**itative Design" = levels(ct.dqt$clab),
+                          Category = c("IPV Interventions",
+                                       "SMW-Inclusive Research"))
+# t.dqt
+sum.dqt <- apply(ftm.dqt, 1, sum)
+ftm.dqt <- ifelse(ftm.dqt == 0, NA, ftm.dqt)
+ftm.dqt <- cbind(ftm.dqt, "**Total**" = sum.dqt)
+ftm.dqt %>% pander(justify = c("left", "right", "right", "right"),
+                   caption = "Qua**NT**itative Designs")
 
-ct.qt <- ctbl.m[ctbl.m$cat == "M-QT", ] %>% droplevels()
-t.qt <- Rtdf(ct.qt$code, names = c("Quantitative Method", "$N_{Articles}$"))
-ft.qt <- ftable(ct.qt[, c("code", "scat")], row.vars = 1)
+### PLOT - quantitative ####
+
+nlabs <- length(unique(ct.dqt$clab))
+pqt <- mpal(1:length(unique(ct.dqt$clab)), p = sci)
+
+ct.dqt <- dplyr::rename(ct.dqt, "QuaNTitative Design" = clab, "Category" = scat)
+
+
+dqt.ps <- ggparset2(list("Category", "QuaNTitative Design"),
+                    data = ct.dqt,
+                    method = "parset", label = TRUE,
+                    label.size = 3.5, text.angle = 0, order = c(1, 1)) +
+    scale_fill_manual(values = c(pscat, adjustcolor(pqt, alpha.f = 0.55)),
+                      guide = FALSE) +
+    scale_colour_manual(values = c(pscat, pqt), guide = FALSE) +
+    thm_Rtft(ticks = FALSE, ytext = FALSE)
+dqt.ps
+#'
+#'
+#' \newpage
+#' `r tufte::newthought("\\large{QuaNTitative \\textit{Methods}}")`
+#'
+#+ quant, fig.fullwidth=TRUE, fig.height=6
+### quantitative ============================================================
+
+ct.qt <- cb[cb$cat == "M-QT", ] %>% droplevels()
+t.qt <- Rtdf(ct.qt$clab)
+ft.qt <- ftable(ct.qt[, c("clab", "scat")], row.vars = 1)
 ftm.qt <- matrix(ft.qt, nrow = nrow(t.qt), byrow = FALSE)
-dimnames(ftm.qt) <- list("Quantitative Method(s)" = levels(ct.qt$code), Category = c("IPV Interventions", "LGBTQ-IPV Research"))
-t.qt
+dimnames(ftm.qt) <- list("Qua**NT**itative Method" = levels(ct.qt$clab),
+                         Category = c("IPV Interventions",
+                                      "SMW-Inclusive Research"))
+# t.qt
+sum.qt <- apply(ftm.qt, 1, sum)
+ftm.qt <- ifelse(ftm.qt == 0, NA, ftm.qt)
+ftm.qt <- cbind(ftm.qt, "**Total**" = sum.qt)
+ftm.qt %>% pander(justify = c("left", "right", "right", "right"),
+                  caption = "Qua**NT**itative Methods")
 
-### PLOT - quantitative - 1 ####
+### PLOT - quantitative ####
 
-mosaic(ftm.qt, labeling_args = list(gp_labels = gpar(fontsize = 7), gp_varnames = gpar(fontsize = 10, fontface = 2), pos_labels = c("center", "center"), just_labels = c("center", "right")), rot_varnames = c(0, -90, 0, -90), rot_labels = rep(0, 4), alternate_labels = c(F, F), tl_labels = c(T, F), tl_varnames = c(F, T), highlighting = 2, highlighting_fill = catpal, margins = unit(5, "lines"))
+nlabs <- length(unique(ct.qt$clab))
+pqt <- mpal(1:length(unique(ct.qt$clab)), p = sci)
 
-### PLOT - quantitative - 2 ####
+ct.qt <- dplyr::rename(ct.qt, "QuaNTitative Methods" = clab, "Category" = scat)
 
-ct.qt$code <- as.numeric(ct.qt$code) %>% factor()
-cutoff <- group_by(ct.qt, code) %>% dplyr::count()
-names(cutoff) <- c("code", "cutoff.score")
-ct.qt <- merge(ct.qt, cutoff, by = "code")
-ct.qt <- ct.qt[ct.qt$cutoff.score > 1, ]
-nlabs <- length(unique(ct.qt$code))
-pqt <- mpal(1:(length(unique(ct.qt$code))), p = sci)
-pscat <- pal_my[c(2, 17)]
 
-library(reshape)
-ct.qt <- rename(ct.qt, c(code = "Quantitative Methods", scat = "Research Category"))
-
-source("ggparset2.R")
-qt.ps <- ggparset2(list("Quantitative Methods", "Research Category"),
-                   data = ct.qt, #weight = "wt",
-                   method = "parset", label = FALSE,
-                   text.angle = 0, order = c(1,-1)) +
-    scale_fill_manual(values = c(pqt, pscat),
-                      breaks = c(rep("", nlabs),
-                                 "Research Category:IPV Interventions",
-                                 "Research Category:LGBTQ-IPV Research"),
-                      labels = c(rep("", nlabs),
-                                 "IPV Interventions", "LGBTQ-IPV\nResearch")) +
-    scale_colour_manual(values = c(pqt, pscat), guide = FALSE) +
-    guides(fill = guide_legend(override.aes = list(alpha = 0))) +
-    thm_Rtft(lpos = "right", ldir = "vertical") +
-    theme(legend.text = element_text(size = rel(1)),
-          legend.key = element_rect(colour = "transparent", fill = "transparent"),
-          legend.key.width = unit(0, "cm"),
-          legend.key.height = unit(1, "cm"),
-          legend.position = c(0.91, 0.55),
-          legend.justification = c(0.95, 0.45),
-          legend.background = element_rect(fill="transparent"))
+qt.ps <- ggparset2(list("Category", "QuaNTitative Methods"),
+                   data = ct.qt,
+                   method = "parset", label = TRUE,
+                   label.size = 3.5, text.angle = 0, order = c(1, 1)) +
+    scale_fill_manual(values = c(pscat, adjustcolor(pqt, alpha.f = 0.55)),
+                      guide = FALSE) +
+    scale_colour_manual(values = c(pscat, pqt), guide = FALSE) +
+    thm_Rtft(ticks = FALSE, ytext = FALSE)
 qt.ps
-
 #'
 #' \newpage
-#' `r tufte::newthought("\\large{Mixed-Methods}")`
+#' `r tufte::newthought("\\large{Archival/Secondary Data Sources}")`
 #'
-#+ mixed, fig.fullwidth=TRUE
-# mixed-methods ============================================================
+#+ m_rcrd, fig.fullwidth=TRUE
+### archival/secondary data sources ####
+ct.rcrd <- cb[cb$cat == "M-RCRD", ] %>% droplevels()
+t.rcrd <- Rtdf(ct.rcrd$clab)
+ft.rcrd <- ftable(ct.rcrd[, c("clab", "scat")], row.vars = 1)
+ftm.rcrd <- matrix(ft.rcrd, nrow = nrow(t.rcrd), byrow = FALSE)
+dimnames(ftm.rcrd) <- list("Archival Data Source" = levels(ct.rcrd$clab),
+                           Category = c("IPV Interventions",
+                                        "SMW-Inclusive Research"))
+# t.rcrd
+sum.rcrd <- apply(ftm.rcrd, 1, sum)
+ftm.rcrd <- ifelse(ftm.rcrd == 0, NA, ftm.rcrd)
+ftm.rcrd <- cbind(ftm.rcrd, "**Total**" = sum.rcrd)
+ftm.rcrd %>% pander(justify = c("left", "right", "right", "right"),
+                    caption = "Archival Data Sources")
 
-ct.mm <- ctbl.m[ctbl.m$cat == "M-MM", ] %>% droplevels()
-t.mm <- Rtdf(ct.mm$code, names = c("Methods", "$N_{Articles}$"))
-ft.mm <- ftable(ct.mm[, c("code", "scat")], row.vars = 1)
+### PLOT - archival/secondary data sources ####
+
+nlabs <- length(unique(ct.rcrd$clab))
+prcrd <- mpal(1:length(unique(ct.rcrd$clab)), p = sci)
+
+ct.rcrd <- dplyr::rename(ct.rcrd, "Archival Data Source" = clab, "Category" = scat)
+
+
+rcrd.ps <- ggparset2(list("Category", "Archival Data Source"),
+                     data = ct.rcrd,
+                     method = "parset", label = TRUE,
+                     label.size = 3.5, text.angle = 0, order = c(1, 1)) +
+    scale_fill_manual(values = rev(c(rev(pscat), adjustcolor(prcrd, alpha.f = 0.55))),
+                      guide = FALSE) +
+    scale_colour_manual(values = rev(c(rev(pscat), prcrd)), guide = FALSE) +
+    thm_Rtft(ticks = FALSE, ytext = FALSE)
+rcrd.ps
+#'
+#' \newpage
+#'
+#' `r tufte::newthought("\\Large{Mixed-Methodological \\textit{Designs}}")`
+#'
+#+ mm_designs, fig.fullwidth=TRUE
+## mixed-methods designs ========================================================
+
+ct.dmm <- cb[cb$cat == "D-MM", ] %>% droplevels()
+t.dmm <- Rtdf(ct.dmm$clab)
+ft.dmm <- ftable(ct.dmm[, c("clab", "scat")], row.vars = 1)
+ftm.dmm <- matrix(ft.dmm, nrow = nrow(t.dmm), byrow = FALSE)
+dimnames(ftm.dmm) <- list("Mixed-Methodological Design" = levels(ct.dmm$clab),
+                          scat = c("IPV Interventions",
+                                   "SMW-Inclusive Research"))
+# t.dmm
+sum.dmm <- apply(ftm.dmm, 1, sum)
+ftm.dmm <- ifelse(ftm.dmm == 0, NA, ftm.dmm)
+ftm.dmm <- cbind(ftm.dmm, "**Total**" = sum.dmm)
+ftm.dmm %>% pander(justify = c("left", "right", "right", "right"),
+                   caption = "Mixed-Methodological Designs")
+
+### PLOT - mixed-methods ####
+
+nlabs <- length(unique(ct.dmm$clab))
+pmm <- mpal(1:length(unique(ct.dmm$clab)), p = sci)
+
+ct.dmm <- dplyr::rename(ct.dmm, "Mixed-Methodological Design" = clab, "Category" = scat)
+
+
+dmm.ps <- ggparset2(list("Category", "Mixed-Methodological Design"),
+                    data = ct.dmm,
+                    method = "parset", label = TRUE,
+                    label.size = 3.5, text.angle = 0, order = c(-1,-1)) +
+    scale_fill_manual(values = c(pscat, adjustcolor(pmm, alpha.f = 0.55)),
+                      guide = FALSE) +
+    scale_colour_manual(values = c(pscat, pmm), guide = FALSE) +
+    thm_Rtft(ticks = FALSE, ytext = FALSE)
+dmm.ps
+#' \newpage
+#' `r tufte::newthought("\\large{Mixed (QuaLitative \\& QuaNTitative) \\textit{Methods}}")`
+#'
+#+ mm_methods, fig.fullwidth=TRUE
+## mixed-methods ============================================================
+
+ct.mm <- cb[cb$cat == "M-MM", ] %>% droplevels()
+t.mm <- Rtdf(ct.mm$clab)
+ft.mm <- ftable(ct.mm[, c("clab", "scat")], row.vars = 1)
 ftm.mm <- matrix(ft.mm, nrow = nrow(t.mm), byrow = FALSE)
-dimnames(ftm.mm) <- list("Mixed-Methods" = levels(ct.mm$code), scat = c("IPV Interventions", "LGBTQ-IPV Research"))
-t.mm
+dimnames(ftm.mm) <- list("Mixed-Methods" = levels(ct.mm$clab),
+                         scat = c("IPV Interventions",
+                                  "SMW-Inclusive Research"))
+# t.mm
+sum.mm <- apply(ftm.mm, 1, sum)
+ftm.mm <- ifelse(ftm.mm == 0, NA, ftm.mm)
+ftm.mm <- cbind(ftm.mm, "**Total**" = sum.mm)
+ftm.mm %>% pander(justify = c("left", "right", "right", "right"),
+                  caption = "Research Topics")
 
-### PLOT - mixed-methods - 1 ####
+### PLOT - mixed-methods ####
 
-mosaic(ftm.mm, labeling_args = list(gp_labels = gpar(fontsize = 7), gp_varnames = gpar(fontsize = 10, fontface = 2), pos_labels = c("center", "center"), just_labels = c("center", "right")), rot_varnames = c(0, -90, 0, -90), rot_labels = rep(0, 4), alternate_labels = c(F, F), tl_labels = c(T, F), tl_varnames = c(F, T), highlighting = 2, highlighting_fill = catpal, margins = unit(5, "lines"))
+nlabs <- length(unique(ct.mm$clab))
+pmm <- mpal(1:length(unique(ct.mm$clab)), p = sci)
 
-### PLOT - mixed-methods - 2 ####
+ct.mm <- dplyr::rename(ct.mm, "Mixed-Methods" = clab, "Category" = scat)
 
-ct.mm$code <- as.numeric(ct.mm$code) %>% factor()
-cutoff <- group_by(ct.mm, code) %>% dplyr::count()
-names(cutoff) <- c("code", "cutoff.score")
-ct.mm <- merge(ct.mm, cutoff, by = "code")
-ct.mm <- ct.mm[ct.mm$cutoff.score > 1, ]
-nlabs <- length(unique(ct.mm$code))
-pmm <- mpal(1:(length(unique(ct.mm$code))), p = sci)
-pscat <- pal_my[c(2, 17)]
 
-library(reshape)
-ct.mm <- rename(ct.mm, c(code = "Mixed-Methods", scat = "Research Category"))
-
-source("ggparset2.R")
-mm.ps <- ggparset2(list("Mixed-Methods", "Research Category"),
-                   data = ct.mm, #weight = "wt",
-                   method = "parset", label = FALSE,
-                   text.angle = 0, order = c(1,-1)) +
-    scale_fill_manual(values = c(pmm, pscat),
-                      breaks = c(rep("", nlabs),
-                                 "Research Category:IPV Interventions",
-                                 "Research Category:LGBTQ-IPV Research"),
-                      labels = c(rep("", nlabs),
-                                 "IPV Interventions", "LGBTQ-IPV\nResearch")) +
-    scale_colour_manual(values = c(pmm, pscat), guide = FALSE) +
-    guides(fill = guide_legend(override.aes = list(alpha = 0))) +
-    thm_Rtft(lpos = "right", ldir = "vertical") +
-    theme(legend.text = element_text(size = rel(1)),
-          legend.key = element_rect(colour = "transparent", fill = "transparent"),
-          legend.key.width = unit(0, "cm"),
-          legend.key.height = unit(1, "cm"),
-          legend.position = c(0.91, 0.755),
-          legend.justification = c(0.95, 0.45),
-          legend.background = element_rect(fill="transparent"))
+mm.ps <- ggparset2(list("Category", "Mixed-Methods"),
+                   data = ct.mm,
+                   method = "parset", label = TRUE,
+                   label.size = 3.5, text.angle = 0, order = c(-1,-1)) +
+    scale_fill_manual(values = c(pscat, adjustcolor(pmm, alpha.f = 0.55)),
+                      guide = FALSE) +
+    scale_colour_manual(values = c(pscat, pmm), guide = FALSE) +
+    thm_Rtft(ticks = FALSE, ytext = FALSE)
 mm.ps
-
-
 #'
 #' \newpage
-#' `r tufte::newthought("\\large{Populations}")`
+#' ## Target Populations & Sampling Frames
 #'
-#+ populations, fig.fullwidth=TRUE
-# populations ============================================================
+#+ populations, fig.fullwidth=TRUE, fig.height = 7.5
+## populations ============================================================
 
-ct.pop <- ctbl.m[ctbl.m$cat == "POPULATION", ] %>% droplevels()
-t.pop <- Rtdf(ct.pop$code, names = c("Population", "$N_{Articles}$"))
-ft.pop <- ftable(ct.pop[, c("code", "scat")], row.vars = 1)
+ct.pop <- cb[cb$cat == "POPULATION", ] %>% droplevels()
+t.pop <- Rtdf(ct.pop$clab)
+ft.pop <- ftable(ct.pop[, c("clab", "scat")], row.vars = 1)
 ftm.pop <- matrix(ft.pop, nrow = nrow(t.pop), byrow = FALSE)
-dimnames(ftm.pop) <- list("Populations" = levels(ct.pop$code), scat = c("IPV Interventions", "LGBTQ-IPV Research"))
-t.pop
+dimnames(ftm.pop) <-
+    list(
+        "Populations" = levels(ct.pop$clab),
+        scat = c("IPV Interventions", "SMW-Inclusive Research")
+    )
+
+sum.pop <- apply(ftm.pop, 1, sum)
+ftm.pop <- ifelse(ftm.pop == 0, NA, ftm.pop)
+ftm.popp <- cbind(ftm.pop, "**Total**" = sum.pop)
+ftm.popp %>% pander(justify = c("left", "right", "right", "right"),
+                    caption = "Research Topics")
 
 ### PLOT - populations - 1 ####
 
-Rdotchart(ftm.pop, pch = 19, gcolor = pal_my[20], xlab = expression(N[Articles]), cex = 0.7, gcex = 0.75, gfont = 2, pt.cex = 1.125, color = c(rep(catpal[1], nrow(ftm.pop)), rep(catpal[2], nrow(ftm.pop))))
-
-### PLOT - populations - 2 ####
-
-ct.pop$code <- as.numeric(ct.pop$code) %>% factor()
-cutoff <- group_by(ct.pop, code) %>% dplyr::count()
-names(cutoff) <- c("code", "cutoff.score")
-ct.pop <- merge(ct.pop, cutoff, by = "code")
-ct.pop <- ct.pop[ct.pop$cutoff.score > 3, ]
-nlabs <- length(unique(ct.pop$code))
-ppop <- mpal(1:(length(unique(ct.pop$code))), p = sci)
-pscat <- pal_my[c(2, 17)]
-
-library(reshape)
-ct.pop <- rename(ct.pop, c(code = "Included Populations", scat = "Research Category"))
-
-source("ggparset2.R")
-pop.ps <- ggparset2(list("Included Populations", "Research Category"),
-                    data = ct.pop, #weight = "wt",
-                    method = "parset", label = FALSE,
-                    text.angle = 0, order = c(1,-1)) +
-    scale_fill_manual(values = c(ppop, pscat),
-                      breaks = c(rep("", nlabs),
-                                 "Research Category:IPV Interventions",
-                                 "Research Category:LGBTQ-IPV Research"),
-                      labels = c(rep("", nlabs),
-                                 "IPV Interventions", "LGBTQ-IPV\nResearch")) +
-    scale_colour_manual(values = c(ppop, pscat), guide = FALSE) +
-    guides(fill = guide_legend(override.aes = list(alpha = 0))) +
-    thm_Rtft(lpos = "right", ldir = "vertical") +
-    theme(legend.text = element_text(size = rel(1)),
-          legend.key = element_rect(colour = "transparent", fill = "transparent"),
-          legend.key.width = unit(0, "cm"),
-          legend.key.height = unit(1, "cm"),
-          legend.position = c(0.91, 0.65),
-          legend.justification = c(0.95, 0.45),
-          legend.background = element_rect(fill="transparent"))
-pop.ps
-
-ct.pop <- ctbl.m[ctbl.m$cat == "POPULATION", ] %>% droplevels()
-t.pop <- Rtdf(ct.pop$code, names = c("Population", "$N_{Articles}$"))
-ft.pop <- ftable(ct.pop[, c("code", "scat")], row.vars = 1)
-ftm.pop <- matrix(ft.pop, nrow = nrow(t.pop), byrow = FALSE)
-dimnames(ftm.pop) <- list("Populations" = levels(ct.pop$code), scat = c("IPV Interventions", "LGBTQ-IPV Research"))
-
-### PLOT - populations - 3 ####
-
-# ct.pop$code <- as.numeric(ct.pop$code) %>% factor()
-cutoff <- group_by(ct.pop, code) %>% dplyr::count()
-names(cutoff) <- c("code", "cutoff.score")
-ct.pop <- merge(ct.pop, cutoff, by = "code")
-ct.pop <- ct.pop[ct.pop$cutoff.score > 1, ]
-cutoff2 <- with(ct.pop, {ftable(code, scat)}) %>% data.frame()
-names(cutoff2)[3] <- "co2.freq"
-ct.pop <- merge(ct.pop, cutoff2, by = c("code", "scat"))
-ct.pop <- ct.pop[ct.pop$cutoff.score > 1, ]
-ct.pop <- ct.pop[ct.pop$co2.freq > 2, ]
-ct.pop$code <- droplevels(ct.pop$code)
-nlabs <- length(unique(ct.pop$code))
-ppop <- mpal(1:(length(unique(ct.pop$code))), p = sci)
-pscat <- pal_my[c(2, 17)]
-ct.pop <- rename(ct.pop, c(code = "Included Populations", scat = "Research Category"))
-
-pop.ps2 <- ggparset2(list("Included Populations", "Research Category"),
-                    data = ct.pop, #weight = "wt",
-                    method = "parset", label = TRUE,
-                    label.size = 3, text.angle = 0, order = c(1,-1)) +
-    scale_fill_manual(values = c(ppop, pscat), guide = FALSE) +
-    scale_colour_manual(values = c(ppop, pscat), guide = FALSE) +
-    # guides(fill = guide_legend(override.aes = list(alpha = 0))) +
-    thm_Rtft(lpos = "bottom", ldir = "horizontal")
-pop.ps2
-
-
+Rdotchart(
+    ftm.pop,
+    pch = 19,
+    gcolor = pal_my[20],
+    xlab = expression(N[Articles]),
+    cex = 0.7,
+    gcex = 0.75,
+    gfont = 2,
+    pt.cex = 1.125,
+    color = c(rep(catpal[1], nrow(ftm.pop)), rep(catpal[2], nrow(ftm.pop))))
 #'
 #' \newpage
 #'
-#' ## IPV Interventions Research
-#'
-s3 <- ctbl.m[ctbl.m$scat == "IPV Interventions", ]
-#'
-s3.top <- s3[s3$cat == "TOPIC", ] %>% droplevels()
-# ftable(s3.top$code, s3.top$jrnl)
-Rtdf(s3.top$code, names = c(" ", "$N_{Articles}$")) %>% kable(caption = "Primary Topics", align = c("l", "r"))
-#'
-s3.pop <- s3[s3$cat == "POPULATION", ] %>% droplevels()
-# ftable(s3.pop$code, s3.pop$jrnl)
-Rtdf(s3.pop$code, names = c(" ", "$N_{Articles}$")) %>% kable(caption = "Sampling Frames", align = c("l", "r"))
-#'
-s3.mo <- s3[s3$cat == "M-OVERALL", ] %>% droplevels()
-# ftable(s3.mo$code, s3.mo$jrnl)
-Rtdf(s3.mo$code, names = c(" ", "$N_{Articles}$")) %>% kable(caption = "Overarching Methodology", align = c("l", "r"))
-#'
-s3.ql <- s3[s3$cat == "M-QL", ] %>% droplevels()
-# ftable(s3.ql$code, s3.ql$jrnl)
-Rtdf(s3.ql$code, names = c(" ", "$N_{Articles}$")) %>% kable(caption = "Qualitative Methods", align = c("l", "r"))
-#'
-s3.qt <- s3[s3$cat == "M-QT", ] %>% droplevels()
-# ftable(s3.qt$code, s3.qt$jrnl)
-Rtdf(s3.qt$code, names = c(" ", "$N_{Articles}$")) %>% kable(caption = "Quantitative Methods", align = c("l", "r"))
-#'
-s3.mm <- s3[s3$cat == "M-MM", ] %>% droplevels()
-# ftable(s3.mm$code, s3.mm$jrnl)
-Rtdf(s3.mm$code, names = c(" ", "$N_{Articles}$")) %>% kable(caption = "Mixed-Methods", align = c("l", "r"))
-#'
-#' \newpage
-#'
-#' ## LGBTQ-IPV Research
-#'
-s4 <- ctbl.m[ctbl.m$scat == "LGBTQ-IPV Research", ]
-#'
-s4.top <- s4[s4$cat == "TOPIC", ] %>% droplevels()
-# ftable(s4.top$code, s4.top$jrnl)
-Rtdf(s4.top$code, names = c(" ", "$N_{Articles}$")) %>% kable(caption = "Primary Topics", align = c("l", "r"))
-#'
-s4.pop <- s4[s4$cat == "POPULATION", ] %>% droplevels()
-# ftable(s4.pop$code, s4.pop$jrnl)
-Rtdf(s4.pop$code, names = c(" ", "$N_{Articles}$")) %>% kable(caption = "Populations Included", align = c("l", "r"))
-#'
-s4.mo <- s4[s4$cat == "M-OVERALL", ] %>% droplevels()
-# ftable(s4.mo$code, s4.mo$jrnl)
-Rtdf(s4.mo$code, names = c(" ", "$N_{Articles}$")) %>% kable(caption = "Overarching Methodology", align = c("l", "r"))
-#'
-s4.ql <- s4[s4$cat == "M-QL", ] %>% droplevels()
-# ftable(s4.ql$code, s4.ql$jrnl)
-Rtdf(s4.ql$code, names = c(" ", "$N_{Articles}$")) %>% kable(caption = "Qualitative Methods", align = c("l", "r"))
-#'
-s4.qt <- s4[s4$cat == "M-QT", ] %>% droplevels()
-# ftable(s4.qt$code, s4.qt$jrnl)
-Rtdf(s4.qt$code, names = c(" ", "$N_{Articles}$")) %>% kable(caption = "Quantitative Methods", align = c("l", "r"))
-#'
-s4.mm <- s4[s4$cat == "M-MM", ] %>% droplevels()
-# ftable(s4.mm$code, s4.mm$jrnl)
-Rtdf(s4.mm$code, names = c(" ", "$N_{Articles}$")) %>% kable(caption = "Mixed-Methods", align = c("l", "r"))
-#'
-
-# DEPRECATED ---------------------------------------------------------
-
-
-# yr <- cbind(density(MAP$year)$x, density(MAP$year)$y*350)
-# hist(MAP$year, col = pal_my.a50[17], border = pal_my[18], main = " ", xlab = "Year Published", lwd = .5); lines(yr, lwd = 2, col = pal_my[18], lty = 3)
-
-# hist(cpv.s3$year, col = pal_my.a50[16], border = pal_my[18], lwd = .5, main = "IPV Interventions Research", xlab = "Year Published"); lines(yr.s3, lwd = 2, col = pal_my[18], lty = 3)
-
-# hist(cpv.s4$year, col = pal_my.a50[16], border = pal_my[18], main = "LGBTQ-Specific IPV Research", xlab = "Year Published", lwd = .5); lines(yr.s4, lwd = 2, col = pal_my[18], lty = 3)
-
-# wt$n <- Rdich(wt$n, min = 1)
-
-# table(ct.mo$code[21 | 20 | 17 | 14 | 5])
-# scale_x_discrete(breaks = c("code", "scat"),
-# labels = c("Primary Topics", "Category")) +
-
-# wt <- group_by(ct.top, case) %>% dplyr::count()
-# names(wt) <- c("scat", "wt")
-# wt2 <- group_by(ct.top, scat) %>% dplyr::count()
-# names(wt2) <- c("scat", "wt2")
-# ct.top <- merge(ct.top, wt, by = "case")
-# ct.top <- merge(ct.top, wt2, by = "scat")
-# library(kableExtra)
-# kable(yrt, align = rep('c', ncol(yrt)),
-#       caption = "Summary of Number of Articles Published Per Year",
-#       format = 'latex', booktabs = TRUE, escape = FALSE) %>%
-#     kable_styling(full_width = TRUE)
-#
-#
-# kable(yrt.s3, align = rep('c', ncol(yrt)), caption = "Summary Statistics for Amount of IPV Interventions Research Articles Published Each Year", format = 'latex', booktabs = TRUE) %>%
-#     kable_styling(position = "float_left")
-# kable(yrt.s4, align = rep('c', ncol(yrt)), caption = "Summary Statistics for Amount of LGBTQ-Specific IPV Research Articles Published Each Year", format = 'latex', booktabs = TRUE) %>%
-#     kable_styling(position = "float_right")
-# t.top <- Rtdf(ctbl.m[ctbl.m$cat == "TOPIC", "code"] %>%
-#                   droplevels(),
-#               names = c("Topic", "$N_{Articles}$"))
-# ftm.top <- ftable(ctbl.m[ctbl.m$cat == "TOPIC",
-#                          c("code", "scat")] %>%
-#                       droplevels(),
-#                   row.vars = 1) %>%
-#     matrix(nrow = nrow(t.top),
-#            byrow = FALSE)
-# dimnames(ftm.top) <-
-#     list(Topic = levels(ctbl.m[ctbl.m$cat == "TOPIC", "code"] %>% droplevels()),
-#          c("IPV Interventions", "LGBTQ-IPV Research"))
-# ftm.top <- ifelse(ftm.top == 0, NA, ftm.top)
-#
-# t.top
+#' # References`r Rcite_r(file = "../auxDocs/REFs.bib", footnote = TRUE)`

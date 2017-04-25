@@ -1,45 +1,11 @@
-# VI. Critique of Literature
+# VI. Integrative Literature Critique
 
-Research conducted within the subset of community psychology focused around intimate partner violence was initially evaluated according to the level of inclusion and exclusion of the historically marginalized population of interest: sexual minority women (SMW). The implementation of action-oriented Community Psychology methodologies and analytic approaches will then be reviewed within each of these categories (i.e., inclusion or exclusion of SMW) in terms of (1) the appropriateness of the methods to the research question, (2) how the methods facilitated the inclusion or exclusion of sexual minority women, and (3) whether and how (where applicable) exclusion of sexual minority women is justified.
+Research conducted within the subset of community psychology focused around intimate partner violence was initially evaluated according to the level of inclusion and exclusion of the historically marginalized population of particular interest for the purposes of this review: sexual minority women (SMW). The implementation of action-oriented community-psychology methodologies and analytic approaches was then reviewed within each of these categories (i.e., inclusion or exclusion of SMW) in terms of (1) the appropriateness of the methods to the research question(s), (2) how the methods facilitated the inclusion or exclusion of sexual minority women, and (3) whether and how (where applicable) exclusion of sexual minority women is justified.
 
-## Overarching Critique Criterion
+## Definition of Methodological Rigor
 
-`r tufte::newthought("Rigor in Action-Research Methods")`:
+The notion of "scientific rigor" is particularly important in evaluating a set of applied social science research studies employing varying methodologies. This is because "rigor" is not necessarily clearly defined across methodologies, and some research philosophies do not consider certain methodologies as capable of achieving scientific rigor at all. For the purposes of this review, methodological rigor is broadly defined as the extent to which a given study employs research methods that best address the overarching research question(s) and/or hypothesis/hypotheses, and the quality of the implementation of those methods. This definition of methodological rigor therefore does not prioritize a particular method nor category of methods (e.g., quantitative over qualitative, mixed-methods over single-methods, etc.), but rather prioritizes the choice and implementation of methods employed to address a given study's purposes. In addition, this definition of methodological rigor allows for more specific and in-depth consideration of the limitations presented, and not presented, in each study's report.
 
-- Choice, description, justification, appropriateness, and execution of overarching methodology (i.e., quantitative, qualitative, or Mixed-Methods), sampling frame definition, sampling and data collection methods, and analytic approaches.
-- Interpretations of results, limitations, results interpretations.
-- Presentation, dissemination, application, and accessibility of the research.
-- Transparency and reproducibility of the research methods, findings, and limitations
+Rigor in action-oriented community-based research methods was evaluated according to the choice, description, justification, appropriateness, and execution of each reviewed study's design (i.e., experimental or cross-sectional) and overarching methodology (i.e., quantitative, qualitative, or mixed-methods). Each of these aspects of the reviewed literature was identified in terms of each evaluated study's purpose, hypotheses, and/or research questions description, sampling frame definition, sampling and data collection methods, analytic approach(es), and description of findings and limitations. Because the underlying goals of this systematic review are motivated by the continued relative absence of sexual minority women in the larger body of IPV-related empirical research literature, especially in terms of IPV perpetrator interventions research, particular attention was given to the sampling frame definitions and sampling methods employed among the empirical studies reviewed here. That is, the evaluated research included in the present review was specifically evaluated in terms of how the methods facilitate the inclusion or exclusion of specific populations, particularly sexual minority women, and whether and how the exclusion of specific populations is justified in each empirical study's report.
 
-`r tufte::newthought("Stakeholder Input.")`:
-
-- Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
-- Are primary and distal stakeholders and informants to the research given access to reports of a given project's progress and/or findings? Is such access in fact accessible (i.e., free and easy to locate)?
-
-`r tufte::newthought("Interpretations of Findings.")`
-
-- Is feedback from key stakeholders and informants to the research accepted and genuinely considered by the core research team?
-- Are efforts made to ensure that _all available_ stakeholders' and informants' voices and accessibility considered equally, and that certain voices are not unjustifiably privileged over others?
-
-`r tufte::newthought("How the methods facilitate the inclusion or exclusion of specific populations")`
-
-- Whether and how exclusion of specific populations is justified (if applicable)
-
-`r tufte::newthought("How the methods facilitate the inclusion or exclusion of \\textit{sexual minority women}")`
-
-- Whether and how exclusion of _sexual minority women_ is justified (if applicable).
-
-
-
-## Methodologies & Methods Utilized
-
-The majority of the reviewed studies follow quantitatively-based methodologies (n = 14; 61%), with just over a quarter (n = 6) employing qualitatively-based methodologies, and only four studies utilizing mixed-methodological approaches. Of the reviewed quantitatively-based studies, 86% (n = 12) employed experimental and/or longitudinal, rather than cross-sectional, designs. All but one of the quantitative studies (93%) used self-report survey measures as the primary datasource. Four of the six qualitatively-based studies used group interviews as the primary data collection method, one administered and analyzed responses to a qualitative self-report survey, and one employed a multi-method qualitative approach. The methods represented among studies following mixed-methodological designs include experimental and longitudinal mixed-methods, focus groups, and qualitative and quantitative self-report measures.
-
-## Populations Included/Sampling Frames
-
-## `Explicitly` Excluded Populations
-
-## _A. Strengths_ \todot
-
-
-## _B. Limitations_ \todot
+In addition, to assess transparency and reproducibility of the research methods and findings, the overall presentation, dissemination mechanism(s), application, and accessibility of the research was noted where available or applicable. These latter assessments of research transparency and reproducibility also incorporated considerations regarding the incorporation of key and/or distal stakeholders' input. The accessibility of the research to primary and distal stakeholders would be reflected according to whether and how stakeholders are provided information about and access to reports of a given project's progress and findings. The role of stakeholder input in the evaluated community-psychology literature was noted in terms of the extent to which efforts made to ensure that _all available_ stakeholders' and informants' voices are considered throughout the research process, and that certain voices are not unjustifiably privileged over others. These considerations include evaluation of whether feedback is explicitly solicited, or at least accepted when offered, from key stakeholders and informants to the research, and whether such feedback is genuinely considered by the primary researchers of a given investigation.
