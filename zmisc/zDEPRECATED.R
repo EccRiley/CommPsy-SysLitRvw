@@ -612,3 +612,23 @@
 #'
 #'
 
+# gg.tlinv <- ggplot(inv, aes(x = year, y = 0, colour = journal)) +
+#     thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE) +
+#     theme(legend.text = element_text(size = rel(0.65)),
+#           legend.title = element_text(size = rel(0.75), face = "bold")) +
+#     labs(colour = "Journal") +
+#     scale_colour_manual(values = mpal(1:length(unique(inv$jrnl))))) + #, guide = FALSE) +
+#     geom_hline(yintercept = 0, size = 0.5, color = pal_my[19]) +
+#     geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
+#                  colour = pal_my[19], alpha = 0.5,
+#                  na.rm = TRUE, size = 0.25) +
+#                  # position = position_dodge(width = 1)) +
+#     geom_text(aes(y = pos, x = year, label = bibkey),
+#               vjust = "center", angle = 0, size = 2.65, fontface = "bold"); gg.tlinv
+
+# gg.tlinv <- ggplot(tl.inv, aes(x = year, y = 0)) + thm_Rtft() +
+#     geom_hline(yintercept = 0, size = 1, color = pal_my[19]) +
+#     geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
+#                  colour = pal_my[19], na.rm = TRUE, size = 0.5) + #,
+#     # position = position_dodge(width = 1)) +
+#     geom_text(aes(y = pos, x = year, label = bibkey), angle = 45, size = 1.75)#, position = position_jitter(height = 1.5))

@@ -18,7 +18,8 @@ knitr::opts_chunk$set(
     echoRule = NULL,
     echoRuleb = NULL,
     fig.height = 5,
-    fig.path = "graphics/bibs_cp/rplot-", dev = 'png')
+    fig.path = "graphics/bibs_cp/rplot-")#, dev = 'png')
+panderOptions("table.emphasize.rownames", FALSE)
 # fig.retina = 4
 # rpm()
 #'
@@ -26,7 +27,6 @@ knitr::opts_chunk$set(
 #'
 #' \newpage
 #'
-#' # Community Psychology Publications
 #'
 #+ journals
 # JOURNALS -----------------------------------------------------------
@@ -109,7 +109,9 @@ j.cpp %>% as.list() %>% pander()
 #'
 #' \newpage
 #'
-#' # Results of Systematic Database Searches:
+#' # \LARGE{\textsc{Results of Systematic Database Searches:}}
+#'
+#' \Frule
 #'
 #+ bibdf
 ### FUN - 'Rbibkeys()' ####
@@ -175,7 +177,6 @@ levels(map.cp$journal) <- sapply(levels(map.cp$journal), RtCap)
 
 MAP <- map.cp
 #'
-#' \newpage
 #'
 MAP$RM <- ifelse(MAP$RM == 1, NA_character_, 0)
 MAPrm <- MAP[is.na(MAP$RM), "bibkey"] %>% droplevels() %>% as.character()
@@ -201,13 +202,6 @@ Rabbr <- function(x) {
 
 MAP$jrnl <- sapply(as.character(MAP$journal), Rabbr)
 #'
-#' \newpage
-#'
-#' # \LARGE{\textsc{Systematically-Reviewed Literature}}
-#'
-#' \Frule
-#'
-#' `r tufte::newthought("The resulting selection of empirical literature")`, representing a community-psychology-focused subset of the U.S.-based IPV-related literature, was reviewed using a `primarily deductive` _qualitative comparative analytic approach_ [_QCA_; @leech2007array; @onwuegbuzie2017framework]. This approach was conducted as part of an initial data reduction and organization process in which the reviewed literature was categorized according to the commonalities in overarching research topics, target populations, sampling frames, sampling and data collection methodologies, and data analytic approaches. In addition, the QCA approach served as a systematic method for examining the similarities, differences, and anomalies within the groups identified in the initial data reduction and organization process [@onwuegbuzie2017framework; @onwuegbuzie2009qualitative]. The qualitative comparative analysis of the reviewed literature was aided by the _`RQDA`_ package created for use with the _`R` Statistical Programming Language and Environment_ [@R-RQDA; @R-base].
 #'
 #+ cb
 
@@ -224,22 +218,65 @@ cb <- within(cb, {
     code <- gsub("SVY-QT-MM", "SVY-QT", code)
     # code <- gsub("XS-\\w+", "XS", code)
     code <- gsub("IVW-\\w+", "IVW", code)
-    code <- gsub("SMIN-\\w+", NA, code)
-    code <- gsub("HET", NA, code)
+    code <- ifelse(code == "HET", NA, code) ## have not coded all cases for this ##
+    code <- ifelse(code == "F", NA, code) ## have not coded all cases for this ##
+    code <- ifelse(code == "M", NA, code) ## have not coded all cases for this ##
+    # code <- gsub("SMIN-\\w+", NA, code) ## previously done to save space
     scat <- factor(scat, labels = c("IPV Interventions", "SMW-Inclusive Research"))
 })
 cb <- na.omit(cb) %>% droplevels()
 
 # cbk$clab <- ifelse(cbk$code %in% cb$code, cbk$clab, NA)
 # cbk <- na.omit(cbk) %>% droplevels()
-
+cbk <- within(cbk, {
+    clab <- ifelse(code == "SMIN-L", "Sexual Minorities - Lesbian", clab)
+    clab <- ifelse(code == "SMIN-G", "Sexual Minorities - Gay", clab)
+    clab <- ifelse(code == "SMIN-B", "Sexual Minorities - Bisexual", clab)
+    clab <- ifelse(code == "SMIN-T", "Sexual Minorities - Transgender", clab)
+    clab <- ifelse(code == "SMIN-Q", "Sexual Minorities - Queer", clab)
+})
 cb <- merge(cb, cbk, by = "code")
 cb$code <- factor(cb$code)
 cb$clab <- factor(cb$clab)
 #'
-#' \newpage
+#'
+#+ FUN_Rftm
+
+### FUN - 'Rftm()' ####
+
+Rftm <- function(x1, x2, dnn = NULL, zero.action = NA, zero.qt = FALSE) {
+    if (!is.null(dnn)) {
+        tx <- Rtdf(x1, names = dnn[[1]])
+        ftm <- ftable(x1, x2, row.vars = 1) %>%
+            matrix(nrow = nrow(tx), byrow = FALSE)
+        dimnames(ftm) <- list(levels(x1), dnn[[2]])
+    } else {
+        tx <- Rtdf(x1)
+        ftm <- ftable(x1, x2, row.vars = 1) %>%
+            matrix(nrow = nrow(tx), byrow = FALSE)
+        dimnames(ftm) <- list(levels(x1))
+    }
+    if (!is.null(zero.action)) {
+        if (zero.qt == 0 | zero.qt == 1) {
+            zero.qt <- as.logical(zero.qt)
+        }
+        if (zero.qt == TRUE) {
+            ftm <- ifelse(ftm == 0, quote(zero.action), ftm)
+        } else {
+            ftm <- ifelse(ftm == 0, noquote(zero.action), ftm)
+        }
+    }
+    y <- list(tx, ftm)
+    names(y) <- c(paste0("Tabulation of ", deparse(substitute(x1))),
+                  paste0("Cross-Tabulation of ",
+                         deparse(substitute(x1)),
+                         " & ",
+                         deparse(substitute(x2))))
+    return(y)
+}
 #'
 #' # General Research Categories
+#'
 #' \Frule
 #'
 #+ desc
@@ -311,22 +348,27 @@ ft.jrnl <- with(MAP, {
 dimnames(ft.jrnl) <- list("Publication Title" = levels(MAP$journal),
                           Category = c("IPV Interventions", "SMW-Inclusive Research"))
 ft.jrnl <- ifelse(ft.jrnl == 0, NA, ft.jrnl)
-ft.jrnl %>% pander(caption = "Number of Publications in Each Research Category per Journal",
-                   justify = c("left", "right", "right"))
+# ft.jrnl %>% pander(caption = "Number of Publications in Each Research Category per Journal",
+#                    justify = c("left", "right", "right"))
 
 cpv.s3$jrnl <- sapply(as.character(cpv.s3$journal), Rabbr) %>% factor()
 cpv.s4$jrnl <- sapply(as.character(cpv.s4$journal), Rabbr) %>% factor()
 j.cp <- sapply(j.cp, Rabbr, USE.NAMES = FALSE)
-
-#' ## Research Category by Journal & Journal Category
 #'
-#+ scat_x_journal
-ftm.j <- Rna(ft.jrnl)
-sum.j <- apply(ftm.j, 1, sum)
+#' <!--## Research Category by Journal & Journal Category-->
+#'
+#+ scat_x_journal, fig.height=4, fig.fullwidth=TRUE
+cj.dnn <- c("Journal", "$N_{Articles}$")
+sj.dnn <- c("IPV Interventions", "SMW-Inclusive Research")
+journals <- Rftm(MAP$journal, MAP$scat, dnn = list(cj.dnn, sj.dnn))
+t.j <- journals[[1]]
+ftm.j <- journals[[2]]
+
+ftm.j2 <- Rna(ft.jrnl)
+sum.j <- apply(ftm.j2, 1, sum)
 ftm.jp <- cbind(ft.jrnl, "**Total**" = sum.j)
 ftm.jp %>% pander(justify = c("left", "right", "right", "right"),
                   caption = "$N_{articles}$ in Each Research Category per Journal")
-
 Rdotchart(
     ftm.j,
     pch = 19,
@@ -336,10 +378,11 @@ Rdotchart(
     gcex = 0.75,
     gfont = 2,
     pt.cex = 1.125,
-    color = c(rep(catpal[1], nrow(ftm.j)), rep(catpal[2], nrow(ftm.j))),
+    color = c(rep(catpal[1], nrow(ftm.j)),
+              rep(catpal[2], nrow(ftm.j))),
     xaxt = 'n'
 ); axis(1, at = seq(range(ftm.j, na.rm = TRUE)[1],
-                    range(ftm.j, na.rm = TRUE)[2], by = 3))
+                    range(ftm.j, na.rm = TRUE)[2], by = 1))
 
 MAP.j <- MAP[, c("scat", "journal")]
 names(MAP.j) <- c("Category", "Journal")
@@ -358,7 +401,7 @@ j.ps <- ggparset2(list("Category", "Journal"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pj), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-j.ps
+# j.ps
 
 #'
 #' \tufteskip
@@ -371,42 +414,6 @@ j.ps
 #' \newpage
 #'
 #' # Research Topics, Sampling Frames, and Methodologies
-#'
-#'
-#+ FUN_Rftm
-
-### FUN - 'Rftm()' ####
-
-Rftm <- function(x1, x2, dnn = NULL, zero.action = NA, zero.qt = FALSE) {
-    if (!is.null(dnn)) {
-        tx <- Rtdf(x1, names = dnn[[1]])
-        ftm <- ftable(x1, x2, row.vars = 1) %>%
-            matrix(nrow = nrow(tx), byrow = FALSE)
-        dimnames(ftm) <- list(levels(x1), dnn[[2]])
-    } else {
-        tx <- Rtdf(x1)
-        ftm <- ftable(x1, x2, row.vars = 1) %>%
-            matrix(nrow = nrow(tx), byrow = FALSE)
-        dimnames(ftm) <- list(levels(x1))
-    }
-    if (!is.null(zero.action)) {
-        if (zero.qt == 0 | zero.qt == 1) {
-            zero.qt <- as.logical(zero.qt)
-        }
-        if (zero.qt == TRUE) {
-            ftm <- ifelse(ftm == 0, quote(zero.action), ftm)
-        } else {
-            ftm <- ifelse(ftm == 0, noquote(zero.action), ftm)
-        }
-    }
-    y <- list(tx, ftm)
-    names(y) <- c(paste0("Tabulation of ", deparse(substitute(x1))),
-                  paste0("Cross-Tabulation of ",
-                         deparse(substitute(x1)),
-                         " & ",
-                         deparse(substitute(x2))))
-    return(y)
-}
 #'
 #' \Frule
 #'
@@ -845,3 +852,9 @@ Rdotchart(
 #' \newpage
 #'
 #' # References`r Rcite_r(file = "../auxDocs/REFs.bib", footnote = TRUE)`
+#'
+#'
+#' \parindent=-1.75em
+#'
+#' \setlength{\parskip}{0.25\baselineskip}
+#'
