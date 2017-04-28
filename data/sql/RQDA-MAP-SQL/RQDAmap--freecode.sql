@@ -1,4 +1,4 @@
-CREATE TABLE "freecode" ( `name` TEXT, `memo` TEXT, `owner` TEXT, `date` TEXT, `dateM` TEXT, `id` INTEGER, `status` INTEGER, `color` TEXT );
+-- CREATE TABLE "freecode" ( `name` TEXT, `memo` TEXT, `owner` TEXT, `date` TEXT, `dateM` TEXT, `id` INTEGER, `status` INTEGER, `color` TEXT );
 
 INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color`) VALUES ("RF",?,"Riley","Wed Feb 22 12:36:57 2017",?,1,1,?);
 INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color`) VALUES ("PREVL",?,"Riley","Wed Feb 22 12:36:57 2017",?,2,1,?);

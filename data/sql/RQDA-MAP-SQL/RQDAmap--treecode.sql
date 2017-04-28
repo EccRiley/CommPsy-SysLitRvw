@@ -1,4 +1,4 @@
-CREATE TABLE "treecode" ( `cid` TEXT,`catid` TEXT,`date` TEXT,`dateM` TEXT,`memo` TEXT,`status` INTEGER,`owner` TEXT);
+-- CREATE TABLE "treecode" ( `cid` TEXT,`catid` TEXT,`date` TEXT,`dateM` TEXT,`memo` TEXT,`status` INTEGER,`owner` TEXT);
 
 INSERT INTO `treecode`(`cid`,`catid`,`date`,`dateM`,`memo`,`status`,`owner`) VALUES ("1","1","Wed Feb 22 15:00:00 2017",?,?,"1","Riley");
 INSERT INTO `treecode`(`cid`,`catid`,`date`,`dateM`,`memo`,`status`,`owner`) VALUES ("2","1","Wed Feb 22 15:00:00 2017",?,?,"1","Riley");

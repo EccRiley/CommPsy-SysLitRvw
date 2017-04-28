@@ -1,4 +1,4 @@
-CREATE TABLE "codecat" (`name` TEXT,`cid` INTEGER,`catid` INTEGER,`owner` TEXT,`date` TEXT,`dateM` TEXT,`memo` TEXT,`status` INTEGER);
+-- CREATE TABLE "codecat" (`name` TEXT,`cid` INTEGER,`catid` INTEGER,`owner` TEXT,`date` TEXT,`dateM` TEXT,`memo` TEXT,`status` INTEGER);
 
 INSERT INTO `codecat`(`name`,`cid`,`catid`,`owner`,`date`,`dateM`,`memo`,`status`) VALUES ("TOPIC",?,1,"Riley","Wed Feb 22 13:01:00",?,?,1);
 INSERT INTO `codecat`(`name`,`cid`,`catid`,`owner`,`date`,`dateM`,`memo`,`status`) VALUES ("POPULATION",?,2,"Riley","Wed Feb 22 13:01:00",?,?,1);
