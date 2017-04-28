@@ -1,0 +1,16 @@
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","CBPR-PAR",1,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","CBPR-PAR",2,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","CBPR-PAR",3,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","GIS-PBM",4,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","GIS-PBM",5,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","GIS-PBM",6,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","PEVAL",7,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","PEVAL",8,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","PEVAL",9,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","PEVAL",10,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","MMR",11,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","QLM",12,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","QLM",13,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","QLM",14,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","QTM",15,"Thu Apr 27 12:36:57 2017","Riley",1);
+INSERT INTO `caseAttr`(`variable`,`value`,`caseID`,`date`,`owner`,`status`) VALUES ("SECTION","QTM",16,"Thu Apr 27 12:36:57 2017","Riley",1);
