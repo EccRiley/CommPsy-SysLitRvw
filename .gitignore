@@ -48,3 +48,5 @@ comps-r alias
 data/RQDA/zcomps-rqda-map-backup alias
 
 data/RQDA/zcomps-rqda-cpm-backup alias
+
+*.DS_Store
