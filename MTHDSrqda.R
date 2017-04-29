@@ -25,5 +25,5 @@
 
 library(RQDA)
 openProject("data/RQDA/cpmethods.RQDA")
-RQDA()
-openProject("data/RQDA/cpmethods.RQDA", updateGUI = TRUE)
+# RQDA()
+# openProject("data/RQDA/cpmethods.RQDA", updateGUI = TRUE)
