@@ -1,0 +1,801 @@
+\documentclass[11pt,]{tufte-handout}
+
+% ams
+\usepackage{amssymb,amsmath}
+
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \makeatletter
+  \@ifpackageloaded{fontspec}{}{\usepackage{fontspec}}
+  \makeatother
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \makeatletter
+  \@ifpackageloaded{soul}{
+     \renewcommand\allcapsspacing[1]{{\addfontfeature{LetterSpace=15}#1}}
+     \renewcommand\smallcapsspacing[1]{{\addfontfeature{LetterSpace=10}#1}}
+   }{}
+  \makeatother
+\fi
+
+% graphix
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+
+% booktabs
+\usepackage{booktabs}
+
+% url
+\usepackage{url}
+
+% hyperref
+\usepackage{hyperref}
+
+% units.
+\usepackage{units}
+
+
+\setcounter{secnumdepth}{-1}
+
+% citations
+
+% pandoc syntax highlighting
+
+% longtable
+
+% multiplecol
+\usepackage{multicol}
+
+% strikeout
+\usepackage[normalem]{ulem}
+
+% morefloats
+\usepackage{morefloats}
+
+
+% tightlist macro required by pandoc >= 1.14
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% title / author / date
+\title{Place-Based Methods - Reading Notes}
+\author{Rachel M. Smith}
+\date{Winter, 2016}
+
+% \usepackage{caption}
+% \usepackage{cleveref}
+% \usepackage{biblatex}
+% \renewbibmacro*{date}{%
+%    \printdate
+%    \iffieldundef{origyear}{%
+%    }{%
+%      \setunit*{\addspace}%
+%      \printtext[parens]{\printorigdate}%
+%    }%
+% }
+
+%
+% --------------------- %
+% Latex Logo Commands
+% --------------------- %
+%
+\usepackage{xspace}
+\newcommand{\latex}{\LaTeX\xspace}
+\newcommand{\tex}{\TeX\xspace}
+\newcommand{\bibtex}{\textsc{Bib}\tex}
+%
+% --------------------- %
+% Colors
+% --------------------- %
+%
+\usepackage{color}
+\definecolor{magenta}{rgb}{0.79, 0.08, 0.48} %% ~c9147a %%
+\definecolor{dkmagenta}{rgb}{0.55, 0.0, 0.55} %% ~8c008c %%
+\definecolor{dpmagenta}{rgb}{0.8, 0.0, 0.8} %% ~140014 %%
+\definecolor{patriarch}{rgb}{0.5, 0.0, 0.5} %% ~0d000d %%
+\definecolor{dkpatriarch}{rgb}{0.4, 0.0, 0.4} %% ~0a000a %%
+\definecolor{blue}{rgb}{0.07, 0.04, 0.56} %% ~120a8f %%
+\definecolor{royalblue}{rgb}{0.0, 0.22, 0.66} %% ~0038a8 %%
+\definecolor{dkblue}{rgb}{0.0, 0.0, 0.55} %% ~00008c %%
+\definecolor{mnblue}{rgb}{0.1, 0.1, 0.44} %% ~030370 %%
+\definecolor{smblue}{rgb}{0.0, 0.2, 0.6} %% ~00050f %%
+\definecolor{Rblue}{rgb}{0.39, 0.35, 0.639} %% ~0a09a3 %%
+\definecolor{dkmnblue}{rgb}{0.0, 0.2, 0.4} %% ~00050a %%
+\definecolor{navy}{rgb}{0.0, 0.0, 0.5} %% ~00000d %%
+\definecolor{dknavy}{rgb}{0, 0, .208} %% ~000035 %%
+\definecolor{blublk}{rgb}{0, 0, .106} %% ~00001b %%
+\definecolor{blugray}{rgb}{0.33, 0.41, 0.47} %% ~546978 %%
+\definecolor{grayblue}{rgb}{0.33, 0.41, 0.58} %% ~~546994 %%
+\definecolor{slgray}{rgb}{0.44, 0.5, 0.56} %% ~70808d %%
+\definecolor{red}{rgb}{.545, 0.0, 0.0} %% ~8b0000 %%
+\definecolor{dkred}{rgb}{.247, 0.0, 0.0} %% ~3f0000 %%
+\definecolor{mplblu}{HTML}{363283}
+%
+\definecolor{pdxgray}{HTML}{373737} %% ~373737 %%
+\definecolor{pdxgreen}{HTML}{8B9535} %% ~8B9535 %%
+\definecolor{myblack}{HTML}{181C20} %% ~181C20 %%
+%
+% ---------------------------------------- %
+% Indent first line of text in tabular env %
+% ---------------------------------------- %
+%
+\newcommand{\rowgroup}[2][-1em]{\hspace{#1}#2}
+\newcommand{\mrowgroup}[3]{\hspace*{#1}#2\hspace*{#1}#3}
+%
+% --------------------- %
+% Format Block Quotes
+% --------------------- %
+%   Size: Scriptsize
+%   Reduce vertical space above
+%   Color: Gray
+%
+\usepackage{setspace}
+% \expandafter\def\expandafter\quote\expandafter{\quote\small\singlespacing\color{myblack!65}\vspace{-0.5\baselineskip}}
+
+% \expandafter\def\expandafter\quote\expandafter{\quote\small\singlespacing\vspace{-1em}}
+
+% \setlength\listindent{1em}
+
+\usepackage{enumitem}
+% \setlist[itemize, 1]{leftmargin=!, labelindent=0.5em, itemindent=-3em, label=\scriptsize{$\cdot$}, partopsep=0em, topsep=0.15em}
+% \setlist[itemize, 2]{leftmargin=4em, label=$\centerdot$, topsep=0em}
+% \setlength{\itemindent}{5in}
+
+%
+% ------------------- %
+% Make Links Standout
+% ------------------- %
+%   (E.Tufte does not believe in using colors in links. I disagree.) %
+%
+% \newcommand{\rurl}[1]{\underline{\color{dkblue}{\url{~1}}}}
+% \newcommand{\rhref}[2]{\underline{\color{dkblue}{\href{~1}{~2}}}}
+\hypersetup{breaklinks=true,colorlinks=true,linkcolor=navy,urlcolor=navy}
+%
+% ------------------- %
+% Format "texttt"
+% ------------------- %
+%
+\newcommand{\rtt}[1]{\color{patriarch}{\texttt{#1}}}
+%
+\usepackage{amsmath}
+
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\newcommand{\todoitem}[1]{\textit{\color{red}{#1}}}
+
+\newcommand{\textbft}[1]{\underline{\textbf{\texttt{#1}}}}
+
+
+% ---------------------------%
+% Code Formatting %
+% ---------------------------%
+% \usepackage{highlight}
+
+% \definecolor{fgcolor}{rgb}{0.196, 0.196, 0.196}
+% \newcommand{\hlnum}[1]{\textcolor[rgb]{0.063,0.58,0.627}{#1}}%
+% \newcommand{\hlstr}[1]{\textcolor[rgb]{0.063,0.58,0.627}{#1}}%
+% \newcommand{\hlcom}[1]{\textcolor[rgb]{0.588,0.588,0.588}{#1}}%
+% \newcommand{\hlopt}[1]{\textcolor[rgb]{0.196,0.196,0.196}{#1}}%
+% \newcommand{\hlstd}[1]{\textcolor[rgb]{0.196,0.196,0.196}{#1}}%
+% \newcommand{\hlkwa}[1]{\textcolor[rgb]{0.231,0.416,0.784}{#1}}%
+% \newcommand{\hlkwb}[1]{\textcolor[rgb]{0.627,0,0.314}{#1}}%
+% \newcommand{\hlkwc}[1]{\textcolor[rgb]{0,0.631,0.314}{#1}}%
+% \newcommand{\hlkwd}[1]{\textcolor[rgb]{0.78,0.227,0.412}{#1}}%
+
+\let\hlipl\hlkwb
+% \newcommand{\Rrule}{\textcolor{Rblue}{\rule{\linewidth}{0.05mm}}\newline\includegraphics[width=0.5cm]{auxDocs/Rlogo.png}}
+\usepackage{dashrule}
+
+\newcommand{\Rrule}{
+    % \setlength{\parindent}{-10pt}
+    \vspace*{1em}
+    \noindent
+    \hspace{-1em}
+    \includegraphics[width=0.5cm]{auxDocs/Rlogo.png}
+    \textcolor{Rblue}{
+        \rule[0.1in]{0.90\linewidth}{0.02mm}
+    }
+    \vspace{-1.35em}
+}
+
+\newcommand{\Rerule}{
+    % \setlength{\parindent}{-0.5in}
+    \noindent
+    \hspace{-1em}
+    \textcolor{Rblue}{
+        $\llcorner$\rule[-0.4mm]{\linewidth}{0.02mm}
+                % \hfill
+                % $\lrcorner$
+    }
+}
+
+\newcommand{\Rruleb}{
+    % \setlength{\parindent}{-10pt}
+    \vspace*{1em}
+    \noindent
+    \hspace{-1em}
+    \includegraphics[width=0.5cm]{auxDocs/Rlogo-bw.png}
+    \textcolor{slgray}{
+        \rule[0.1in]{0.90\textwidth}{0.02mm}
+    }
+    \vspace{-1.35em}
+}
+
+\newcommand{\Reruleb}{
+    % \setlength{\parindent}{-0.5in}
+    \noindent
+    \hspace{-1em}
+    \textcolor{slgray}{
+        $\llcorner$\rule[-0.4mm]{\textwidth}{0.02mm}
+                % \hfill
+                % $\lrcorner$
+    }
+}
+
+\newcommand{\MPrule}{
+    % \setlength{\parindent}{-10pt}
+    \vspace*{1em}
+    \noindent
+    \hspace{-1em}
+    \includegraphics[width=0.5cm]{../auxDocs/mplus.png}
+    \textcolor{mplblu}{
+        \rule[0.1in]{0.90\textwidth}{0.02mm}
+    }
+    \vspace{-1.5em}
+}
+
+\newcommand{\MPerule}{
+    % \setlength{\parindent}{-0.5in}
+    \noindent
+    \hspace{-1em}
+    \textcolor{mplblu}{
+        $\llcorner$\rule[-0.4mm]{\textwidth}{0.02mm}
+                % \hfill
+                % $\lrcorner$
+    }
+}
+
+\newcommand{\Frule}{
+    \vspace*{-1em}
+    \begin{fullwidth}\textcolor{blublk}{\rule{\linewidth}{0.2mm}}\end{fullwidth}
+}
+
+\newcommand{\Frnp}{
+    \vspace*{-1em}
+    \begin{fullwidth}\textcolor{blublk}{\rule{\linewidth}{0.2mm}}\end{fullwidth}
+    \newpage
+}
+
+\newcommand{\Fbrule}{ %% for tufte book format %%
+    \vspace*{-4em}
+    \begin{fullwidth}\textcolor{blublk}{\rule{\linewidth}{0.2mm}}\end{fullwidth}
+}
+
+% \newcommand{\Rrule}{
+%     \noindent
+%     \textcolor{Rblue}{
+%         $\ulcorner\textregistered$\hdashrule[0.015in]{
+%             0.9\linewidth
+%             }
+%             {1pt}{1pt}
+%         $\textregistered\urcorner$
+%         }}
+% \newcommand{\Rerule}{
+%     \noindent
+%     \textcolor{Rblue}{
+%         $\llcorner\textregistered$\hdashrule[0.025in]{
+%             0.9\linewidth
+%             }
+%             {1pt}{1pt}
+%         $\textregistered\lrcorner$
+%         }}
+% \newcommand{\Rerule}{\noindent\textcolor{Rblue}{\vdash\hdashrule[-0.015in]{\linewidth}{1pt}{1pt}\dashv}
+
+% \vdash - \dashv
+% \perp
+% \ll - \gg
+% +
+% \pm
+% \mp
+% \ \newcommand{\Rrule}{\noindent\includegraphics[width=0.5cm]{auxDocs/Rlogo.png}\textcolor{Rblue}{\hdashrule[0.25in]{\linewidth}{1pt}{1pt}}}
+% \newcommand{\Rrule}{\noindent\includegraphics[width=0.5cm]{auxDocs/Rlogo.png}\textcolor{Rblue}{\rule[0.25in]{\linewidth}{0.05mm}}}
+
+% \newcommand{\Rerule}{\textcolor{Rblue}{\rule{\linewidth}{0.05mm}}}
+% \hdashrule [⟨raise⟩] [⟨leader⟩] {⟨width⟩} {⟨height⟩} {⟨dash⟩}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wrapper for Chi-Square %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\tdef}[3][-0.5em]{\tufteskip\noindent\rowgroup[#1]{\textsc{#2}} \newline {#3}}
+\newcommand{\hf}{\hfill}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it} %% to make \mathpzc typeset its argument in Zapf Chancery (see page 16 of "The Great, Big List of LATEX Symbols" by David Carlisle, Scott Pakin, & Alexander Holt (2001)) %%
+
+\newcommand{\chisq}{\mathpzc{\chi^{2}}}
+
+\newcommand{\sq}{^{2}}
+
+\newcommand{\df}{\mathpzc{df}} %% degrees of freedom (df) %%
+
+%
+% ----------------------------- %
+% Command to insert "ToDo" tags
+% ----------------------------- %
+
+\newcommand{\todo}{
+    \textsuperscript{
+        \tiny{
+            \fcolorbox{dkred}{black!10}{
+                \color{red}{
+                    \textbf{\texttt{[ToDo]}}
+                }
+            }
+        }
+    }
+}
+
+\newcommand{\inprogress}{
+    \textcolor{blue}{
+        \textbf{\textit{\texttt{[In Progress]}}}
+    }
+}
+
+\newcommand{\complete}{
+    \sout{
+        \textcolor{slgray}{
+            \textit{\texttt{[Complete]}}
+        }
+    }
+}
+
+\newcommand{\edit}[1]{
+    \textcolor{red}{
+        \texttt{#1}
+    }
+}
+
+\newcommand{\todot}{
+    \textcolor{red}{\Large{$\mathbf{^{\otimes}}$}}
+}
+
+% \usepackage{wrapfig}
+
+\newcommand{\refs}{
+    \parindent=-1.7em\
+    \
+    \setlength{\parskip}{0.5\baselineskip}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the lines below are based on this SO answer: https://tex.stackexchange.com/a/48212
+\makeatletter
+\newcommand\semiHuge{\@setfontsize\semiHuge{20.82}{24.98}}
+\makeatother
+
+\makeatletter
+\newcommand\LArge{\@setfontsize\LArge{17.35185}{20.82}}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+
+
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+
+\section{Proshansky, Fabian, \& Kaminoff
+(1983)}\label{proshansky1983place}
+
+In their discussion of the \emph{Anxiety and Defense Functions} of
+place-identity, Proshansky et al. (1983) assert that ``\ldots{}
+persistent cognitive discrepancies between physical setting properties
+and place-identity expectancies may foster feelings of threat and pain
+in association with those cognitions which in turn motivate the person
+to avoid this setting. Reactions of this kind will often occur in the
+formative years but are clearly not limited to childhood.'' (p.~73) I am
+curious about the effect of such discrepancies occurring at a slightly
+more distinct level with two particular components: (1) prolonged (i.e.,
+far beyond the formative developmental years) experiences of cognitive
+discrepancies related to one's place-identity, and (2) discrepancies
+that occur in places or spaces, or in close association with either, to
+which an individual feels she is either supposed to belong based on one
+or multiple facets of her identity. In less abstract terms, I am
+thinking specifically about my research on lesbian, bisexual,
+transgender, and queer (LBTQ) women and girls, and experiences of
+marginalization \emph{within} LBTQ-specific spaces and places. While my
+focus until about six months ago has been intersectionally-based, I've
+recently realized through conducting interviews with other LBTQ women
+that my intersectional focus has been limited to the individual
+personality and demographic (for lack of a better word at the moment)
+facets of identity without taking into account the intersections that
+exist among places, spaces, and individual identities.
+
+\section{Lewicka (2011)}\label{lewicka2011place}
+
+Interestingly, the Lewicka (2011) discusses findings indicating that
+research has found the presence of diversity to be negatively related to
+place attachment, community cohesion, interpersonal trust, etc. However,
+I wonder if the same is true for a lack of diversity. Thinking of my own
+experiences and Portland's overwhelming lack of racial diversity, and
+the continued issues of gentrification across the city, I have often
+found myself lacking in a sense of community tied to Portland and part
+of that has been because I am a bit hyperaware of the fact that I am
+more often than not interacting with people that look a lot like me (in
+terms of race, socio-economic status, and age). My hyperawareness of
+this dynamic is, in my own analysis, in large part due to the fact that
+people that look like me tend to carry with them a lot of privilege,
+especially in Portland, OR. I wonder, then, if there is another factor
+involved in the relationship(s) between diversity and place attachment.
+In particular, I wonder what historical socio-political factors might be
+useful in this particular realm of analysis in place research.
+
+\section{McMillan \& Chavis (1986)}\label{mcmillan1986sense}
+
+In the thirty years since this article was published, we have witnessed
+several manifestations, both here in the U.S. and globally, of the
+``potential for great social conflict'' (McMillan \& Chavis, 1986, p.
+20) resulting in part from increased senses of community among
+relatively small, but loud, organized communities. We have also seen a
+great deal of technological advancements, particularly in terms of the
+people's ability to create, foster, and join communities online as well
+as in person. What implications do these historical dynamics have for
+community psychologists in terms of understanding sense of community as
+it manifests in our world today, as well as the application of that
+understanding?
+
+\section{Pretty, Chipuer, \& Bramston (2003)}\label{pretty2003sense}
+
+In their examination of discriminate factors associated with dimensions
+of sense of community Pretty et al. (2003) found age as a potential key
+factor. The authors assert that ``This implies that there are other
+aspects of community sentiment not included here which are important to
+an adolescent's feeling that `this town is the place for me'.
+Alternatively this finding may indicate that other objective dimensions
+of a community, such as its economic opportunities, may be more
+instrumental to identity during the adolescent life stage'' (p.~283). Is
+there also a possibility that the social and physical environments in
+either or both of the study's settings could have underwent or were
+currently undergoing changes in terms of the people joining or leaving
+the communities? How might the introduction or loss of community members
+in these relatively small and rural places also impact adolescents',
+versus adults', senses of community?
+
+\section{Stokols (1992)}\label{stokols1992establishing}
+
+I appreciated Stokols (1992) discussion of public policy implementation
+and I am curious how can we write and effectively implement legislation
+that is more primary prevention focused in its emphasis on the actual
+root causes of whatever is being prevented?
+
+\section{Kloos \& Shah (2009)}\label{kloos2009social}
+
+I appreciated Kloos \& Shah (2009) emphasis on the importance of the
+interaction between individuals and their immediate home/housing
+environment. In thinking about housing for individuals with serious
+mental illness that is integrated within the surrounding neighborhood or
+community, I was reminded of a soon-to-be opened school specifically for
+lesbian, gay, bisexual, transgender, and queer (LGBTQ) youth in Atlanta,
+GA. I've struggled a bit in deciding on my opinion about this particular
+school because it seems that the intended benefits of such a school
+(i.e.~Safety for LGBTQ youth) is being sought at the expense of
+community integration. What are the potential negative consequences of
+disintegrating marginalized populations from their surrounding social
+environments?
+
+\section{Wright \& Kloos (2007)}\label{wright2007housing}
+
+Wright \& Kloos (2007) argue, and in my opinion provide sufficient
+evidence through their findings, that individuals' perceptions of their
+immediate physical environment impacts individuals their experiences
+within those environments. I am curious, however, about the intensity,
+rather than immediacy, of individuals perceptions of their environments.
+What is the potential effect of differentially intense perceptions of
+more distal aspects of an individual's setting?
+
+\section{Shinn \& Toohey (2003)}\label{shinn2003community}
+
+Shinn \& Toohey (2003) assert that ``Diverse groups may feel
+differentially accepted and supported in the same setting'' (p.~443). In
+the examples that follow this assertion, the authors cite research
+findings regarding LGBTQ individuals' experiences of marginalization in
+certain settings despite heterosexual individuals' perceiving the same
+settings as open to and accepting of LGBTQ individuals. I am once again
+reminded of within group marginalization among marginalized populations.
+Is it possible that settings that being in setting that is experienced
+as marginalizing by a whole group overshadows the potential experiences
+of marginalization within that group?
+
+\section{Nicotera (2007)}\label{nicotera2007measuring}
+
+Nicotera (2007) provides a sort of spectrum of conceptualizations of the
+neighborhood construct ranging from more rigid definitions toward more
+flexible conceptualizations. The fourth definition listed in Table 1
+(p.~30), in my view, represents the latter end of this spectrum. As I
+continued through the paper, I was left with these questions: (1) What
+are the potential benefits and drawbacks of having a more flexible
+definition of neighborhood? (2) How does a flexible versus more rigid
+definition (and vice-versa) of neighborhood benefit applied
+psychological research?
+
+\section{Sullivan (2006)}\label{sullivan2006assessing}
+
+In discussing his study's findings Sullivan (2006) argues that the study
+contributes to the current body of relevant research literature by
+``accurately measuring the level of neighborhood support for
+gentrification using survey data, probability sampling, and a large
+sample'' (p.~617). I was genuinely surprised to see this the first of
+two contributions the study's findings makes to research on
+neighborhoods and gentrification given that the measurement of
+residents' attitudes toward ongoing gentrification processes in the
+Alberta Street neighborhood was precisely where I felt the author did
+not provide sufficient detail in explaining the study's methods. Based
+on the author's descriptions of the measures used for this study, which
+provides very little in the way of how the interview questions were
+derived and the reliability and validity of the items used to measure
+each of the study's variables, I would argue that resident's attitudes
+were somewhat, but not entirely, adequately measured based on the set
+standards of reliability and representativeness in terms of
+quantitatively measuring a thing, but that this is not necessarily an
+accurate measure of residents' attitudes given that the author does not
+sufficiently defend the validity of measures' content.
+
+\section{Sullivan \& Shaw (2011)}\label{sullivan2011retail}
+
+One of the longtime critiques of gentrification is that it is a process
+that tends to displace already marginalized groups within a given
+setting. That ongoing marginalization process works primarily by
+silencing the voices of the longtime residents of the area being
+gentrified in favor of elevating the voices of the gentrifiers, who, as
+discussed by both Sullivan (2006) and Sullivan \& Shaw (2011), tend to
+be representative of more affluent/dominant social and economic classes.
+I find it interesting, then, that both Sullivan (2006) and Sullivan \&
+Shaw (2011) focus primarily, if not exclusively, on black and white
+residents in the Alberta Street neighborhood. Who's voices are silenced
+and what identities are ignored in their analyses as a consequence of
+their relatively limited sampling frame?
+
+\section{Thomas, Pate, \& Ranson (2015)}\label{thomas2015crosstown}
+
+I appreciated Thomas et al. (2015)`s discussion of their findings around
+creative tensions: ``creative tensions emerged around different notions
+of community and different ways of understanding art. \ldots{} These two
+visions of community illustrate the tensions in place-making as a
+project that occurs across multiple levels and is framed in contested
+ways'' (p.~80). This case study, and the authors' analysis of the
+effects on the immediately surrounding community of creating an arts
+community center, reminds me of a ``grass roots'' community arts and
+restoration movement that began a few years ago in the Edgewood, Old
+Fourth Ward, and Reynoldstown neighborhoods of Atlanta, GA.
+Collectively, these three particular neighborhoods happen represent one
+of the epicenters of the U.S. Civil Rights Movement during the mid-1900s
+(Dr.~Martin Luther Kind Jr.'s childhood home and Ebenezer Baptist Church
+are both located near where the Edgewood and Old Fourth Ward
+neighborhoods converge). When this community arts and restoration
+movement, called ``Living Walls'', began I was a young college student
+with a hunger for social justice activism attending Georgia State
+University (which is located adjacent to the Edgewood Neighborhood), had
+lived in various spots within the Edgewood and Old Fourth Ward
+neighborhoods, and spending more than a fair amount of time at my
+favorite coffee shop located in Reynoldstown. I was also a
+stereotypically white social activist with a still relatively limited
+understanding of intersectionality. So, I thought the movement was
+``super cool!''. It was not until my partner at the time called the
+movement ``exceedingly pretentious'' that I realized what was actually
+going on with this movement: a bunch of people with both social and
+economic influence were promoting their view of what was positive
+artistic expression at the expense of damning the use of ``typical''
+graffiti in these neighborhoods. As time went on, I chose not to
+participate directly in the movement, and instead watched and listened
+to my friends who ended up standing on either side of it (i.e., those
+friends who actively participated in the movement and those who actively
+resisted it). What I ended up realizing was that the ``typical''
+graffiti that the movement's leaders had deemed to be a negative aspect
+of the community was in fact the exact opposite to the community's
+longterm inhabitants.
+
+Thomas et al. (2015)`s observations around creative tensions, and the
+effects of those tensions on place-making as well as on community
+members' differential senses of community, resonated quite saliently
+with my own, non-research-based experiences of observing similar
+community building and restoration efforts in Atlanta, GA. For me, my
+own experiences coupled with my experience reading Thomas et al.
+(2015)'s case study highlight the importance of anticipating,
+understanding, and appropriately reacting to the potential negative
+consequences of social activism and action research endeavors.
+
+\section{Wang \& Burris (1997)}\label{wang1997photovoice}
+
+Wang \& Burris (1997) quite appropriately, in my opinion, argue that
+``The participatory process attempts to address material and status
+inequalities, yet the extent to which it may perpetuate those
+inequalities deserves scrutiny'' (p.~374). I agree. However, the authors
+later discuss the capacity building element of photovoice (see p.~375).
+First, I was intrigued by this particular element, because I had never
+really considered photovoice as a method involving any sort of capacity
+building. Based on Wang \& Burris (1997) description, photovoice as part
+of needs assessment efforts makes sense as a potentially capacity
+building tool for community action; however, I could not help but remain
+skeptical, given that the participants in the authors' example were
+given tools that facilitated the formation of the Provincial and County
+Guidance Group in Yunnan, and those tools were provided by researchers.
+That's really great and all, but I worry about what happens when the
+researchers, and the various power and privileges they represent and
+bring with themselves, leave or move on to other interests. To what
+extent does providing a set of tools to the members of a community
+remove or address issues of power and privilege, particularly power and
+privilege among those who provided the tools (i.e., the researchers)?
+
+\section{Smith, Padgett, Choy-Brown, \& Henwood
+(2015)}\label{smith2015rebuilding}
+
+In their overview description of the themes found among participants'
+photographs Smith et al. (2015) note that female participants, who
+represent less than 20\% of the study's sample, took the majority of
+photos of people, and that all of the people in those photos were those
+with whom the participants had close interpersonal relationships. I
+found this particularly interesting given that the sub-sample size of
+female participants was rather small (which I understand is likely a
+function, at least in part, of the distribution of males and females in
+the study's target population), and yet these participants' photographs
+represented a majority theme distinguishable from themes represented in
+the men's photographs. I wonder if there is something here (for future
+directions perhaps) in terms of the potentially differential importance
+of social/interpersonal relationships among men and women. Social
+psychological research, as well research from clinical and counseling
+psychology, has found significant evidence that men are socialized to
+adhere to specific masculine gender roles, one of which is extreme
+self-reliance (Levant \& Richmond, 2007; e.g., Levant, Rankin, Williams,
+Hasan, \& Smalley, 2010).
+
+In light of Smith et al. (2015) other findings related to the emphasis
+on economic well-being among participants (e.g., having one's own
+apartment, future job possibilities/hopes, etc.), I think there might be
+room for future research to examine how the construct of place
+intersects with individuals' gender role socialization and gender role
+adherence.
+
+\section{Case, Todd, \& Kral (2014)}\label{case2014ethnography}
+
+There is this saying among academics that ``research is me-search'',
+usually referring to the idea that the phenomena researchers choose to
+examine most closely are those with which they have some close personal
+experience or investment. I was reminded of this saying when reading
+Case et al. (2014) description of the tension in ethnographic research
+within community psychology around ``Optimal Levels of Engagement''
+(p.~65). I was not, however, thinking of researchers' personal
+experiences with or investments in their chosen phenomena of interest,
+but really the fact that there is very difficult to actually remove the
+researcher from the research. In thinking further on this, I was also
+reminded of Grounded Theory research and analytic methods, and the
+emphasis within this method on the investigator's interpretation of the
+data as one of the main building blocks in theory development. I wonder,
+then, the issue of optimal levels of engagement away might be in part
+resolved/addressed by researcher's intentionally explaining their
+experience engaging a given context in their research and the potential
+meaning of that engagement in terms of their findings.
+
+\section{Jason \& Glenwick (2016)}\label{dutta2016ethnographic}
+
+Jason \& Glenwick (2016) provides a really nice explanation and
+illustration of how research cannot be removed or realistically
+considered objectively separate from the researchers of any given
+phenomenon. While the purpose of Jason \& Glenwick (2016) chapter seems
+primarily illustrative, thus the emphasis on the researcher's impact on
+his research and vise-versa, I wonder how researchers conducting
+non-ethnographic inquiries could incorporate information or reflections
+in the write-up of a given study about their role and impact on their
+researched phenomena, research participants, and the context(s)
+surrounding their research.
+
+\newpage
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\hypertarget{ref-case2014ethnography}{}
+Case, A. D., Todd, N. R., \& Kral, M. J. (2014). Ethnography in
+community psychology: Promises and tensions. \emph{American Journal of
+Community Psychology}, \emph{54}, 60--71.
+
+\hypertarget{ref-dutta2016ethnographic}{}
+Jason, L. A., \& Glenwick, D. S. (Eds.). (2016). Ethnographic
+approaches. In \emph{Handbook of methodological approaches to
+community-based research: Qualitative, quantitative, and mixed methods}.
+New York, NY: Oxford University Press.
+
+\hypertarget{ref-kloos2009social}{}
+Kloos, B., \& Shah, S. (2009). A social ecological approach to
+investigating relationships between housing and adaptive functioning for
+persons with serious mental illness. \emph{American Journal of Community
+Psychology}, \emph{44}, 316--326.
+
+\hypertarget{ref-levant2007review}{}
+Levant, R. F., \& Richmond, K. (2007). A review of research on
+masculinity ideologies using the Male Role Norms Inventory. \emph{The
+Journal of Men's Studies}, \emph{15}, 130--146.
+
+\hypertarget{ref-levant2010evaluation}{}
+Levant, R. F., Rankin, T., Williams, C., Hasan, N., \& Smalley, B.
+(2010). Evaluation of the factor structure and construct validity of
+scores on the Male Role Norms Inventory-Revised (MRNI-r).
+\emph{Psychology of Men and Masculinity}, \emph{11}, 25--37.
+
+\hypertarget{ref-lewicka2011place}{}
+Lewicka, M. (2011). Location attachment: How far have we come in the
+last 40 years? \emph{Journal of Environmental Psychology}, \emph{31},
+207--230.
+
+\hypertarget{ref-mcmillan1986sense}{}
+McMillan, D. W., \& Chavis, D. M. (1986). Sense of community: A
+definition and theory. \emph{Journal of Community Psychology},
+\emph{14}, 6--23.
+
+\hypertarget{ref-nicotera2007measuring}{}
+Nicotera, N. (2007). Measuring neighborhood: A conundrum for human
+services researchers and practitioners. \emph{American Journal of
+Community Psychology}, \emph{40}, 26--51.
+
+\hypertarget{ref-pretty2003sense}{}
+Pretty, G. H., Chipuer, H. M., \& Bramston, P. (2003). Sense of place
+amongst adolescents and adults in two rural australian towns: The
+discriminating features of place attachment, sense of community and
+place dependence in relation to place identity. \emph{Journal of
+Environmental Psychology}, \emph{23}, 273--287.
+
+\hypertarget{ref-proshansky1983place}{}
+Proshansky, H. M., Fabian, A. K., \& Kaminoff, R. (1983).
+Location-identity: Physical world socialization of the self.
+\emph{Journal of Environmental Psychology}, \emph{3}, 57--83.
+
+\hypertarget{ref-shinn2003community}{}
+Shinn, M., \& Toohey, S. M. (2003). Community contexts of human welfare.
+\emph{Annual Review of Psychology}, \emph{54}, 427--459.
+
+\hypertarget{ref-smith2015rebuilding}{}
+Smith, B. T., Padgett, D. K., Choy-Brown, M., \& Henwood, B. F. (2015).
+Rebuilding lives and identities: The role of place in recovery among
+persons with complex needs. \emph{Health \& Place}, \emph{33}, 109--117.
+
+\hypertarget{ref-stokols1992establishing}{}
+Stokols, D. (1992). Establishing and maintaining healthy environments:
+Toward a social ecology of health promotion. \emph{American
+Psychologist}, \emph{47}, 6.
+
+\hypertarget{ref-sullivan2006assessing}{}
+Sullivan, D. M. (2006). Assessing residents opinions on changes in a
+gentrifying neighborhood: A case study of the alberta neighborhood in
+portland, oregon. \emph{Housing Policy Debate}, \emph{17}, 595--624.
+
+\hypertarget{ref-sullivan2011retail}{}
+Sullivan, D. M., \& Shaw, S. C. (2011). Retail gentrification and race:
+The case of alberta street in portland, oregon. \emph{Urban Affairs
+Review}, \emph{47}, 413--432.
+
+\hypertarget{ref-thomas2015crosstown}{}
+Thomas, E., Pate, S., \& Ranson, A. (2015). The crosstown initiative:
+Art, community, and locationmaking in memphis. \emph{American Journal of
+Community Psychology}, \emph{55}, 74--88.
+
+\hypertarget{ref-wang1997photovoice}{}
+Wang, C., \& Burris, M. A. (1997). Photovoice: Concept, methodology, and
+use for participatory needs assessment. \emph{Health Education \&
+Behavior}, \emph{24}, 369--387.
+
+\hypertarget{ref-wright2007housing}{}
+Wright, P. A., \& Kloos, B. (2007). Housing environment and mental
+health outcomes: A levels of analysis perspective. \emph{Journal of
+Environmental Psychology}, \emph{27}, 79--89.
+
+
+
+\end{document}
