@@ -4,6 +4,8 @@ author: "Rachel M. Smith"
 date: "Winter, 2016"
 ---
 
+\newpage
+
 # @proshansky1983place
 
 In their discussion of the _Anxiety and Defense Functions_ of place-identity, @proshansky1983place assert that "... persistent cognitive discrepancies between physical setting properties and place-identity expectancies may foster feelings of threat and pain in association with those cognitions which in turn motivate the person to avoid this setting. Reactions of this kind will often occur in the formative years but are clearly not limited to childhood." (p. 73) I am curious about the effect of such discrepancies occurring at a slightly more distinct level with two particular components: (1) prolonged (i.e., far beyond the formative developmental years) experiences of cognitive discrepancies related to one's place-identity, and (2) discrepancies that occur in places or spaces, or in close association with either, to which an individual feels she is either supposed to belong based on one or multiple facets of her identity. In less abstract terms, I am thinking specifically about my research on lesbian, bisexual, transgender, and queer (LBTQ) women and girls, and experiences of marginalization _within_ LBTQ-specific spaces and places. While my focus until about six months ago has been intersectionally-based, I've recently realized through conducting interviews with other LBTQ women that my intersectional focus has been limited to the individual personality and demographic (for lack of a better word at the moment) facets of identity without taking into account the intersections that exist among places, spaces, and individual identities.
@@ -23,6 +25,8 @@ In their examination of discriminate factors associated with dimensions of sense
 # @stokols1992establishing
 
 I appreciated @stokols1992establishing discussion of public policy implementation and I am curious how can we write and effectively implement legislation that is more primary prevention focused in its emphasis on the actual root causes of whatever is being prevented?
+
+\newpage
 
 # @kloos2009social
 
@@ -75,3 +79,6 @@ There is this saying among academics that "research is me-search", usually refer
 \newpage
 
 # References
+
+
+\refs
