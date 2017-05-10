@@ -2,6 +2,7 @@
 #' title: "MAP - Bibliography"
 #' author: "Riley M. Smith"
 #' date: "`r format(Sys.Date(), '%d %B %Y')`"
+#' fignos-plus-name: "Figure "
 #' ---
 #'
 #+ setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE
@@ -19,7 +20,17 @@ knitr::opts_chunk$set(
     echoRuleb = NULL,
     fig.height = 5,
     fig.path = "graphics/bibs/rplot-")#, dev = 'png',
-    # fig.retina = 4
+    # fig.retina = 4)
+
+knitr::opts_template$set(invisible = list(echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE, fig.keep='none', fig.show='none'))
+# knit_hooks$set(plot = function(x, options) {
+#     if (!is.null(options$fig.lab) & !knitr:::is_latex_output()) {
+#     paste('![', options$fig.cap, '](',
+#           opts_knit$get('base.url'), paste(x, collapse = '.'),
+#           '){#fig:', options$fig.lab, "}",
+#           sep = '')
+#         }
+# })
 # rpm()
 #'
 #' \Frule
@@ -33,30 +44,10 @@ knitr::opts_chunk$set(
 #' Six separate literature searches were conducted using the [_PsycINFO_](http://www.apa.org/pubs/databases/psycinfo/) and [_Web of Science_](http://wokinfo.com) online citation indexing databases via the [Portland State University library website](library.pdx.edu)^[Note that (1) "intimate partner violence" included "domestic violence" and "partner abuse", (2) "same-sex" included "same-gender", and (3) the results ranges provided after each search description listed reflect the minimum and maximum number of results returned across the two databases searched.]:
 #'
 #' <!-- _C. Key search terms_ -->
-#'
-#+ srchs, echo=FALSE
-s1.n <- 4386
-s1w.n <- 3376
-s1 <- range(c(s1.n, s1w.n))
-s2.n <- 337
-s2w.n <- 686
-s2 <- range(c(s2.n, s2w.n))
-s3.n <- 32
-s3w.n <- 46
-s3 <- range(c(s3.n, s3w.n))
-s4.n <- 18
-s4w.n <- 34
-s4 <- range(c(s4.n, s4w.n))
-s5.n <- 0
-s5w.n <- 4
-s5 <- range(c(s5.n, s5w.n))
-s6.n <- 0
-s6w.n <- 2
-s6 <- range(c(s6.n, s6w.n))
-#'
+
 #'
 #' 1. _Intimate Partner Violence - General_
-#' 2. _Intimate Partner Violence Interventions_ results)
+#' 2. _Intimate Partner Violence Interventions_
 #' 3. _Intimate Partner Violence Intervention Evaluations_
 #' 4. _Female Same-Sex Intimate Partner Violence - General_
 #' 5. _Female Same-Sex Intimate Partner Violence Interventions_
@@ -65,21 +56,7 @@ s6 <- range(c(s6.n, s6w.n))
 #' \Frule
 #'
 #+ dbsrch
-dbsrch <- data.frame(n = c("1.", "2.", "3.", "4.", "5.", "6."),
-                     srch = c("\\textbf{IPV, Domestic Violence, or Partner Abuse} - \\textit{General}", "--- \\textit{Interventions}", "--- \\textit{Intervention Evaluations}", "\\textbf{Female Same-Sex/Same-Gender IPV, Domestic Violence, or Partner Abuse} - \\textit{General}", "--- \\textit{Interventions}", "--- \\textit{Intervention Evaluations}"),
-                     nres = c(paste0("$", comma(s1[1]), " - ", comma(s1[2]), "$"),
-                              paste0("$", comma(s2[1]), " - ", comma(s2[2]), "$"),
-                              paste0("$", comma(s3[1]), " - ", comma(s3[2]), "$"),
-                              paste0("$", comma(s4[1]), " - ", comma(s4[2]), "$"),
-                              paste0("$", comma(s5[1]), " - ", comma(s5[2]), "$"),
-                              paste0("$", comma(s6[1]), " - ", comma(s6[2]), "$")))
-
-dbsrch$srch <- paste0("\\small{", dbsrch$srch, "}")
-dbsrch$n <- paste0("\\small{", dbsrch$n, "}")
-dbsrch$nres <- paste0("\\small{", dbsrch$nres, "}")
-names(dbsrch) <- c(" ",
-                   "Database Search",
-                   "\\footnotesize{$N_{Results}$ (Range)}")
+source("dbsrch.R")
 pander(dbsrch, justify = c("right", "left", "centre"), caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned")
 #'
 #' \newpage
@@ -88,97 +65,11 @@ pander(dbsrch, justify = c("right", "left", "centre"), caption = "Descriptions o
 #'
 #+ journals
 # JOURNALS -----------------------------------------------------------
-jdat <- read.csv("data/ipvJournalsSearch.csv")[c(-1, -6, -7), ]
-    ## Exclude Theses and Dissertations ##
-
-m.cnt <- mean(jdat[, 2])
-s.cnt <- sd(jdat[, 2])
-jdat$j <- as.integer(jdat$journal)
-
-jv.sum <- sum(jdat$count)
-jdat$prop <- jdat$count/jv.sum
-jfv.n <- jdat[jdat$j == 59, 2]
-jiv.n <- jdat[jdat$j == 61, 2]
-vaw.n <- jdat[jdat$j == 94, 2]
-jvv.n <- jdat[jdat$j == 96, 2]
-jv.n <- rbind(jiv.n, jfv.n, vaw.n, jvv.n)
-
-jdat.m <- jdat[jdat[,2] >= m.cnt, ]
-jdat.s <- jdat[jdat[,2] >= s.cnt, ]
-
-j.vpr <-c("Journal of Interpersonal Violence",
-         "Violence Against Women",
-         "Violence and Victims",
-         "Journal of Family Violence")
-
-j.v <- sapply(j.vpr, tolower, USE.NAMES = FALSE)
-
-j.cppr <- c("Action Research",
-            "American Journal of Community Psychology",
-            "American Journal of Health Promotion",
-            "American Journal of Orthopsychiatry",
-            "American Journal of Preventive Medicine",
-            "American Journal of Public Health",
-            "Australian Community Psychologist",
-            "Community Development",
-            "Community Development Journal",
-            "Community Mental Health Journal",
-            "Community Psychology in Global Perspective",
-            "Cultural Diversity and Ethnic Minority Psychology",
-            "Global Journal of Community Psychology Practice",
-            "Health Education and Behavior",
-            "Health Promotion Practice",
-            "Journal of Applied Social Psychology",
-            "Journal of Community and Applied Social Psychology",
-            "Journal of Community Practice",
-            "Journal of Community Psychology",
-            "Journal of Health and Social Behavior",
-            "Journal of Prevention and Intervention",
-            "Journal of Primary Prevention",
-            "Journal of Rural Community Psychology",
-            "Journal of Social Issues",
-            "Journal of Community Psychology",
-            "Psychiatric Rehabilitation Journal",
-            "Psychology of Women Quarterly",
-            "Social Science and Medicine",
-            "The Community Psychologist",
-            "Transcultural Psychiatry",
-            "Progress in Community Health Partnerships")
-
-j.cp <- sapply(j.cppr, tolower, USE.NAMES = FALSE)
-#'
-#'
-#+ pander_journals, echo=FALSE
-
-### FUN - 'RtCap()' ####
-RtCap <- function(x) {
-    s0 <- strsplit(x, " ")[[1]]
-    nocap <- c("a", "the", "to", "at", "in", "with", "and", "but", "or", "of")
-    s1 <- ifelse(!s0 %in% nocap, toupper(substring(s0, 1,1)), s0)
-    # s2 <- toupper(substring(s[!s %in% nocap], 1,1))
-    s2 <- ifelse(!s0 %in% nocap, substring(s0, 2), "")
-    s <- paste(s1, s2, sep="", collapse=" ")
-    return(s)
-}
-
-j.cpp <- sapply(j.cp, RtCap, USE.NAMES = FALSE)
+source("journals.R")
 cat(tufte::newthought("Community-psychology journals"), "included in database searches:\n\n")
 j.cpp %>% as.list() %>% pander()
-#'
-#' \newpage
-#'
-jdat.m <- dplyr::rename(jdat.m, "Journal" = journal, "Count" = count)
-rownames(jdat.m) <- NULL
-kable(jdat.m[, 1:2], align = c("l", "r"), caption = "Violence-specific journals with article counts greater than or equal to the mean of all journal article counts in the 'broad-strokes' database search results set.")
 
-# jdat.s <- dplyr::rename(jdat.s, "Journal" = journal, "Count" = count)
-# rownames(jdat.s) <- NULL
-# kable(jdat.s[, 1:2],
-#        align = c("l", "l"),
-#        caption = "Violence-specific journals with article counts greater than or equal one standard deviation of the distribution for all journal article counts in the 'broad-strokes' database search results set.")
 
-j.vp <- sapply(j.v, RtCap)
-names(j.vp) <- NULL
 cat(tufte::newthought("Violence-specific journals"), " selected for inclusion in database searches.")
 j.vp %>% as.list() %>% pander()
 
@@ -210,136 +101,139 @@ bibdf <- bib2df("MAP.bib")
 n.init <- nrow(bibdf)
 
 ID <- seq(1:nrow(bibdf))
-MAP.au <- cbind(BIBKEY, bibdf[, "AUTHOR"])
-    ## bibdf[,2] ##
+MAP.au <- cbind(BIBKEY, bibdf[, "AUTHOR"]) ## bibdf[,2] ##
 #'
-#+ MAP
-# MAP ----------------------------------------------------------------
-MAP <- cbind(ID,
+#+ MAP1
+
+# MAP1 ----------------------------------------------------------------
+MAP1 <- cbind(ID,
              BIBKEY,
              bibdf[, c("YEAR", "TITLE", "JOURNAL", "ABSTRACT")]) %>%
-    as.data.frame()
-    ## bibdf[c(3:5, 8)] ##
-names(MAP)[-1] <- tolower(names(MAP)[-1])
+    as.data.frame() ## bibdf[c(3:5, 8)] ##
+names(MAP1)[-1] <- tolower(names(MAP1)[-1])
+
+# KEYSv1 -------------------------------------------------------------------
+
+KEYSv0 <- as.character(MAP1$bibkey)
+
 #'
 #+ MAP_RQDA, results='hide', fig.keep='none', fig.show='none'
+
 # MAP-RQDA ----------------------------------------------------------------
 source("MAPrqda.R", echo = FALSE)
-#'
-csid <- caseids[, c("caseid", "case", "RM", "scat")]
-    ## caseids[, -3] ##
+
+csid <- caseids[, c("caseid", "case", "RM", "scat")] ## caseids[, -3] ##
 csid$case <- factor(csid$case)
 
-MAP <- merge(MAP, csid, by.x = "bibkey", by.y = "case")
+# MAP2 --------------------------------------------------------------------
 
-Rtdf(MAP$journal, names = c("Journal", "$N_{Articles}$")) %>%
-    kable(caption = "Number of articles published in each included journal after restricting search results to only those published in community-psychology specific journals and the _four selected_ violence-related journals")
+MAP2 <- merge(MAP1, csid, by.x = "bibkey", by.y = "case")
 
-### n.inits3 & n.inits4 ####
-n.inits3 <- MAP[MAP$scat == "S3", ] %>% nrow()
-n.inits4 <- MAP[MAP$scat == "S4", ] %>% nrow()
-MAPv1 <- as.character(MAP$bibkey)
-
-MAPv2 <- c("rumptz1991ecological", "gondolf1999comparison", "thompson2000identification", "gregory2002effects", "sullivan2002findings", "foshee2004assessing", "hendricks2006recidivism", "hovell2006evaluation", "silvergleid2006how", "contrino2007compliance", "muftic2007evaluation", "gillum2008benefits", "roffman2008mens", "price2009batterer", "enriquez2010development", "welland2010culturally", "feder2011need", "potter2011bringing", "boal2014barriers", "boal2014impact", "ermentrout2014this", "fox2015development", "howell2015strengthening", "lockhart1994letting", "wise1997comparison", "bernhard2000physical", "giorgio2002speaking", "younglove2002law", "fortunata2003demographic", "mccloskey2003contribution", "glass2004female-perpetrated", "balsam2005relationship", "sorenson2005restraining", "heintz2006intimate", "pattavina2007comparison", "bossarte2008clustering", "glass2008risk", "hassouneh2008influence", "swahn2008measuring", "blosnich2009comparisons", "edelen2009measurement", "oswald2010lesbian", "ackerman2011gender", "davidovic2011impelling", "hardesty2011lesbian/bisexual", "iverson2011contribution", "messinger2011invisible", "porter2011intimate", "gillum2012there", "goldberg2013sexual", "kanuha2013relationships", "witte2013social", "finneran2014antecedents", "lewis2014sexual", "mustanski2014syndemic", "tran2014prevalence", "edwards2015physical", "kubicek2015same-sex", "lewis2015emotional", "sylaska2015disclosure", "witte2015perceived", "wu2015association", "dixon2016association", "edwards2016college", "langenderfer-magruder2016experiences")
-
-v1v2 <- MAPv1[!MAPv1 %in% MAPv2]
-v1v2 <- paste0("@", v1v2)
-
-j.vcap <- sapply(j.v, RtCap)
+n.inits3 <- MAP2[MAP2$scat == "S3", ] %>% nrow()
+n.inits4 <- MAP2[MAP2$scat == "S4", ] %>% nrow()
 #'
-#' \newpage
+#+ ctblz1
+
+# ctbl.z1 -----------------------------------------------------------------
+
+ctbl.z1 <- merge(ctbl.z1, cbk, all.x = TRUE, all.y = FALSE) ## from MAPrqda.R ##
+ctbl.z1$clab <- factor(ctbl.z1$clab) %>% droplevels()
+t.excl <- Rtdf(ctbl.z1$clab, names = c("Reason for Exclusion", "$N_{excluded~articles}$"))
+
+v1v2 <- paste0("@", as.character(ctbl.z1[, "case"]))
+
+cat(tufte::newthought(paste0("$N = ", length(v1v2), "$ items excluded ")), "after restricting results to only _U.S.-based empirical_ studies.")
+# v1v2 %>% sort() %>% as.list() %>% pander()
+
+t.excl %>% kable(caption = "Number of Articles Removed per Exclusion Criteria",
+                 align = c('l', 'r'))
 #'
-cat(tufte::newthought("Items excluded after restricting search results"), " to only those published in community-psychology specific journals and the _four selected_ violence-related journals (i.e., ", paste0("_", j.vcap[1:(length(j.vcap)-1)], "_, "), "and ", paste0("_", j.vcap[length(j.vcap)], "_):\n\n"))
-v1v2 %>% as.list() %>% pander()
 #'
+#+ MAP2rm
+
+# MAP2$RM ------------------------------------------------------------------
+
+MAP2$RM <- ifelse(MAP2$RM == 1, NA, 0)
+MAP2rm <- MAP2[is.na(MAP2$RM), "bibkey"] %>% droplevels() %>% as.character()
+MAP2 <- na.omit(MAP2)
+MAP2 <- droplevels(MAP2)
+KEYSv1 <- as.character(MAP2$bibkey)
 #'
 #+ MAP_CPV
 
 # MAP-CPV ----------------------------------------------------------------
+MAP2$journal <- sapply(MAP2$journal, tolower)
+MAP2$journal <- gsub(" & ", " and ", MAP2$journal)
 
-## (map.cp & map.v) ============================================================
+cp <- MAP2$journal %in% j.cp
+map.cp <- MAP2[cp, ] %>% data.frame()
 
-MAP$journal <- sapply(MAP$journal, tolower)
-MAP$journal <- gsub(" & ", " and ", MAP$journal)
-MAP$journal <- factor(MAP$journal)
 
-cp <- MAP$journal %in% j.cp
-map.cp <- MAP[cp, , drop = FALSE]
-levels(map.cp$journal) <- c(levels(map.cp$journal),
-                            j.cp[!j.cp %in% levels(map.cp$journal)])
-levels(map.cp$journal) <- sapply(levels(map.cp$journal), RtCap)
-
-vlc <- MAP$journal %in% j.v
-map.v <- MAP[vlc, , drop = FALSE]
+vlc <- MAP2$journal %in% j.v
+map.v <- MAP2[vlc, ] %>% data.frame()
 map.v <- map.v[map.v$scat == "S3", , drop = FALSE]
-levels(map.v$journal) <- sapply(levels(map.v$journal), RtCap)
+map.v$journal <- sapply(map.v$journal, RtCap)
 
 j.cpv <- c(j.v, j.cp)
-cpv <- MAP$journal %in% j.cpv
+cpv <- MAP2$journal %in% j.cpv
 
-map.cpv <- MAP[cpv, , drop = FALSE]
+map.cpv <- MAP2[cpv, ] %>% data.frame()
+
 map.cpv$rms4 <- ifelse(map.cpv$journal %in% j.v & map.cpv$scat == "S4", NA, map.cpv$scat)
 map.cpv <- na.omit(map.cpv)
-# levels(map.v$journal) <- sapply(levels(map.v$journal), RtCap)
 
-MAP <- merge(map.cp, map.v, all = TRUE)
+MAP3 <- MAP2[vlc | cp, ] %>% data.frame()
+MAP3$bibkey <- as.character(MAP3$bibkey)
 
-# MAP(v3) - FINAL --------------------------------------------------------
+# KEYSv2 -------------------------------------------------------------------
 
-MAPv3 <- as.character(MAP$bibkey)
+KEYSv2 <- as.character(MAP3$bibkey)
+v1v2 <- KEYSv1[!KEYSv1 %in% KEYSv2]
 
-v2v3 <- MAPv2[!MAPv2 %in% MAPv3]
-v2v3 <- paste0("@", v2v3)
+cat(tufte::newthought(paste0("$N = ", length(v1v2), "$ items excluded after restricting search results")), " to only those published in community-psychology specific journals and the _four selected_ violence-related journals (i.e., ", paste0("_", j.vp[1:(length(j.vp)-1)], "_, "), "and ", paste0("_", j.vp[length(j.vp)], "_)."))
+# v1v2 <- paste0("@", as.character(v1v2))
+# v1v2 %>% as.list() %>% pander()
+
+MAP3$rms4 <- ifelse(MAP3$journal %in% j.v & MAP3$scat == "S4", NA, MAP3$scat)
+MAP <- na.omit(MAP3)
+
+# KEYSv3 - FINAL --------------------------------------------------------
+
+KEYSv3 <- as.character(MAP$bibkey)
+
+v2v3 <- KEYSv2[!KEYSv2 %in% KEYSv3]
 #'
-#' \newpage
+#+ v2v3_cat
+cat(tufte::newthought(paste0("$N = ", length(v2v3), "$ items excluded after restricting ")), "SMW-inclusive search results to only include items published in community-psychology specific journals.")
+# v2v3 %>% as.list() %>% pander()
 #'
-cat(tufte::newthought("Items excluded after restricting SMW-Inclusive search results category"), "to only include items published in community-psychology specific journals:\n\n")
-v2v3 %>% as.list() %>% pander()
-
-MAP$RM <- ifelse(MAP$RM == 1, NA_character_, 0)
-MAPrm <- MAP[is.na(MAP$RM), "bibkey"] %>% droplevels() %>% as.character()
-MAP <- na.omit(MAP)
-MAP <- droplevels(MAP)
-
-EXCL <- ctbl.z1[ctbl.z1$case %in% MAPrm, c("case", "scat", "code")]
+#' ------
 #'
-#' ## Final Inclusion \\& Exclusion Decisions
-#'
-#' Any articles retained from the above-described database searches and filtering processes that either did not meet the basic inclusion criteria (i.e., U.S.-based empirical research) or were determined to be unrelated to the topics of interest for the current review were excluded from the set of formally reviewed articles ($N_{excluded} = `r length(MAPrm)`$). The final set of `r paste0("$N_{included} = ", nrow(MAP), "$")` is divided into two categories: (C1) IPV intervention evaluations research (`r paste0("$n_{c_{1}} = ", nrow(MAP[MAP$scat == "S3", ]), "$")`), and (C2) community-psychology-specific research specific to SMW-Inclusive and inclusive of sexual minority women (`r paste0("$n_{c_{2}} = ", nrow(MAP[MAP$scat == "S4", ]), "$")`).
-#'
-ctbl.z1 <- ctbl.z1[ctbl.z1$case %in% MAPrm, ]
-ctbl.z1 <- merge(ctbl.z1, cbk, all.x = TRUE, all.y = FALSE)
-ctbl.z1$clab <- factor(ctbl.z1$clab) %>% droplevels()
-t.excl <- Rtdf(ctbl.z1$clab, names = c("Reason for Exclusion", "$N_{excluded~articles}$"))
+#+ tempPanderOpts, opts.label="invisible"
+panderOptions("p.wrap", "")
+panderOptions("p.sep", "; ")
+panderOptions("p.copula", "; ")
 
-library(kableExtra)
-t.excl %>% kable(caption = "Number of Articles Removed per Exclusion Criteria", align = c('l', 'r')) %>% #, format = 'latex', booktabs = TRUE) #%>%
-    add_footnote("The inclusion of SMW criterion was only applied to articles returned from the database searches specific to SMW-Inclusive research")
-
-MAPv31 <- as.character(MAP$bibkey)
-v3v31 <- MAPv3[!MAPv3 %in% MAPv31]
-v3v31 <- paste0("@", v3v31)
-cat(tufte::newthought("Items excluded from the final list of formally evaluated studies"), "after restricting results to only _U.S.-based empirical_ studies:\n\n")
-v3v31 %>% as.list() %>% pander()
+#' `r tufte::newthought(paste0("$N = ", length(KEYSv3), "$ items included in the formal literature review"))` [paste0("@", KEYSv3) %>% as.list() %>% pander()]
 #'
 #'
+#+ resetPanderOpts, opts.label="invisible"
+panderOptions("p.wrap", "_")
+panderOptions("p.sep", ", ")
+panderOptions("p.copula", " and ")
+#'
+#'
+#'
+#+ map_jrnl
 ## map-jrnl ============================================================
+
 MAP$journal <- factor(MAP$journal)
 levels(MAP$journal) <- sapply(levels(MAP$journal), RtCap)
 MAP$journal <- droplevels(MAP$journal)
 
-### FUN - 'Rabbr()' ####
-Rabbr <- function(x) {
-    s0 <- strsplit(x, " ")[[1]]
-    ex <- c("a", "the", "to", "at", "in", "with", "and", "but", "or", "of", "\\&")
-    s1 <- s0[!s0 %in% ex]
-    s2 <- substring(s1, 1,1)
-    s <- paste(s2, sep = "", collapse = "")
-    s <- toupper(s)
-    return(s)
-}
-
 MAP$jrnl <- sapply(as.character(MAP$journal), Rabbr)
+
+MAP <- merge(MAP, jdat, by = "jrnl", all.x = TRUE)
 #'
 #' \newpage
 #'
@@ -351,7 +245,7 @@ MAP$jrnl <- sapply(as.character(MAP$journal), Rabbr)
 #'
 #+ cb
 
-# CTBL ---------------------------------------------------------------
+# CTBL/CB ---------------------------------------------------------------
 
 cb <- merge(MAP, ctbl, by = c("caseid", "scat"))
 cb <- within(cb, {
@@ -382,7 +276,8 @@ cb$clab <- factor(cb$clab)
 #' # General Research Categories
 #' \Frule
 #'
-#+ desc
+#+ desc, fig.cap="Proportions of reviewed articles in each of the two overarching research categories: IPV interventions research, and SMW-inclusive IPV research", fig.lab="desc"
+
 ### catpal ####
 
 catpal <- c(adjustcolor(pal_my[16], alpha.f = 0.9), adjustcolor(pal_my[5], alpha.f = 0.9))
@@ -474,12 +369,15 @@ cpv.bn2 <- table(MAP$cpv) %>% rev() %>% Rbinom(pi0 = pr.jv)
 
 cpv.bn1 %>% pander(caption = "Binomial Test of $N_{articles}$ per Journal Category (Violence vs. Community Psychology ($\\pi_{0} = 0.5$).")
 cpv.bn2 %>% pander(caption = paste0("Binomial Test of $N_{articles}$ per Journal Category (Violence vs. Community Psychology [$\\pi_{0} = ", round(pr.jv, 3), "$ (based on proportion of $N_{journals}$ per journal category included in database searches; $n_{journals_{V}} = ", length(j.v), "$; $n_{journals_{CP}} = ", length(j.cp), "$)]."))
-
+#'
+#' \newpage
+#'
 #' ## Research Category by Journal & Journal Category
 #'
 #+ scat_x_journal
 ftm.j <- Rna(ft.jrnl)
 sum.j <- apply(ftm.j, 1, sum)
+ftm.j <- ifelse(ftm.j == 0, NA, ftm.j)
 ftm.jp <- cbind(ft.jrnl, "**Total**" = sum.j)
 ftm.jp %>% pander(justify = c("left", "right", "right", "right"),
                   caption = "$N_{articles}$ in Each Research Category per Journal")
@@ -521,12 +419,6 @@ j.ps
 MAP.j <- MAP[, c("scat", "journal", "cpv", "jrnl")]
 pcpv <- mpal(1:2)
 
-# clr.cp <- MAP.j[MAP.j$jrnl %in% j.cp, "jrnl"] %>% unique() %>% length()
-# clr.v <- MAP.j[MAP.j$jrnl %in% j.v, "jrnl"] %>% unique() %>% length()
-# clr.cpv <- c(rep(pcpv[1], 3), ,  rep(pcpv[2], 2), rep(pcpv[1], 2), rep(pcpv[2], 2))
-# clr.cpv1 <- levels(factor(MAP.j$Journal))
-# clr.cpv <- ifelse(clr.cpv %in% j.cpp, pcpv[1], pcpv[2])
-
 clr.cpv1 <- levels(factor(MAP.j$journal))
 clr.cpv <- ifelse(clr.cpv1 %in% j.cpp, pcpv[1], pcpv[2])
 
@@ -560,7 +452,7 @@ s4hist <- hist(MAP$year[MAP$scat == "S4"], plot = FALSE, right = F, breaks = s3h
 ## col = pal_my.a75[12], border = pal_my[19], lwd = .5
 
 plot(s4hist, col = pal_sci[8], border = pal_my[19], density = 50, lwd = .25,
-     main = " ", xlab = "Year", ylab = expression(N[Articles]),
+     main = " ", xlab = "Year Published", ylab = expression(N[Articles]),
      ylim = c(0, max(s3hist$counts))); plot(s3hist, col = pal_my[16], border = pal_my[19], density = 50, angle = -45, lwd = .25, add = TRUE); legend(x = 1990, y = 3.75, legend = c("IPV Research Specifically Inclusive of Sexual Minority Women", "IPV Interventions Research (general)"),
        fill = c(pal_sci[8], pal_my[16]), density = 50, angle = c(45, -45),
        border = NA, bty = 'n', cex = 0.8, text.font = 3,
@@ -783,7 +675,7 @@ mo.ps <- ggparset2(list("Category", "Methodology"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pmo), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-mo.ps
+mo.ps# + coord_flip()
 #'
 #' \newpage
 #' `r tufte::newthought("\\large{QuaLitative \\textit{Methods}}")`

@@ -8,37 +8,84 @@
 # SETUP --------------------------------------------------------------
 
 source("bibs.R", echo = FALSE, print.eval = FALSE, verbose = FALSE)
-knitr::opts_chunk$set(fig.path = "graphics/bibkeys/rplot-")
+knitr::opts_chunk$set(fig.path = "graphics/bibkeys/rplot-")#, echo = TRUE)
 # options(warn = -1)
 #'
 #' \Frule
 #'
 #' \newpage
 #'
-#+ maptl, fig.fullwidth=TRUE, fig.height=3, out.width='\\linewidth'
-MAPtl <- within(MAP, { ## making a copy so i don't mess up anything already written below that may depend on the original version of "MAP" ##
-    cpv <- factor(cpv, labels = c("Community-Psychology", "Violence"))
+#+ maptl, fig.fullwidth=TRUE, fig.height=4, out.width='1.1\\linewidth', fig.align='left'
+
+# MAPtl -------------------------------------------------------------------
+MAP <- MAP[, c("bibkey", "year", "journal", "caseid", "scat", "jrnl", "cpv", "j.loc", "j.year", "SJR", "Hindex", "count", "prop", "title")]
+
+MAPtl <- within(MAP, {
+    ## - making a copy so i don't mess up anything already
+    ##   written below that may depend on the original
+    ##   version of "MAP" ##
     bibkey2 <- as.integer(factor(bibkey))
+    bibkey2 <- gsub("(\\w+)\\d{4}\\w+", "\\1", bibkey)
+    bibkey2 <- sapply(bibkey2, RtCap, USE.NAMES = FALSE)
+    yrv <- ifelse(cpv == "V", year, 0)
+    yrcp <- ifelse(cpv == "CP", year, 0)
+    cpv <- factor(cpv, labels = c("Community-Psychology", "Violence"))
 })
 
-MAPtl$bibkey2 <- gsub("(\\w+)\\d{4}\\w+", "\\1", MAPtl$bibkey)
-MAPtl$bibkey2 <- sapply(MAPtl$bibkey2, RtCap, USE.NAMES = FALSE)
-MAPtl$pos <- sample(seq(1, nrow(MAPtl), by = 1), size = nrow(MAPtl), replace = FALSE)
+MAPtl <- MAPtl[order(MAPtl$yrv), , drop = FALSE] %>% within({
+    posv <- sequence(rle(sort(yrv))$lengths)
+    posv <- ifelse(yrv == 0, 0, posv)
+    posv <- posv * -1
+})
+
+MAPtl <- MAPtl[order(MAPtl$yrcp), , drop = FALSE] %>% within({
+    poscp <- sequence(rle(sort(yrcp))$lengths)
+    poscp <- ifelse(yrcp == 0, 0, poscp)
+    pos <- posv + poscp
+        ## could've achieved the same in the previous line,
+        ## but wanted to preserve the separate pos* columns just in case ##
+})
+    ## !!!! THANKS TO THIS SO ANSWER FOR THE "sequence(rle())" solution:
+    ##      http://stackoverflow.com/a/19998876/5944560
+    ##      (i spent HOURS trying to figure out how to do this,
+    ##      only to find that the geniuses behind R
+    ##      [specifically the {utils} pkg] had already developed
+    ##      an effecient, vectorized, solution) ##
+
+# grays_nord <- colorRampPalette(pal_nord$polar[c(8, 1)]) ## add to pkg::Riley (in "Rpals.R")##
+vawa <- 1994 ## year original VAWA was passed ##
+vawaclr <- grays_nord(12)[7]
+# yrcnt <- Rtdf(MAPtl$year, names = c("year", "yrcnt"))#[, 1, drop == FALSE]
+
+# as.integer(MAPtl$year) %>% min() -> yrmin
+# as.integer(MAPtl$year) %>% max()+1 -> yrmax
 
 gg.tl <- ggplot(MAPtl, aes(x = year, y = 0, colour = cpv)) +
-    thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE, ptitle = TRUE) +
-    theme(legend.text = element_text(size = rel(0.65)),
-          legend.title = element_text(size = rel(0.75), face = "bold")) +
-    labs(colour = "Journal Category") +
+    thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE,
+             ptitle = TRUE, xtext = FALSE, xticks = FALSE) +
+    theme(legend.text = element_text(size = rel(0.55)),
+          legend.title = element_text(size = rel(0.65), face = "bold"),
+          legend.justification = c(1, 0.635),
+          legend.box.spacing = unit(0, "cm")) +
+    labs(colour = "Journal Category", title = "Timeline of Reviewed Research\n") +
     scale_colour_manual(values = pcpv) + #, guide = FALSE) +
-    geom_hline(yintercept = mean(MAPtl$pos), size = 0.25, color = pal_my[19], alpha = 0.5) +
-    geom_segment(aes(y = mean(MAPtl$pos), yend = pos, x = year, xend = year),
+    geom_hline(yintercept = 0, size = 0.25, color = pal_nord$polar[7], alpha = 0.5) +
+    geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
                  colour = pal_my[19], alpha = 0.45,
                  na.rm = TRUE, size = 0.15) +
-    ##, position = position_dodge(width = 1)) +
-    geom_text(aes(y = pos, x = year, label = bibkey2),#, position = position_jitter(),
-              vjust = "outward", angle = 0, size = 2.5, fontface = "bold"); gg.tl +
-    ggtitle("Timeline of Reviewed Research")
+    geom_text(aes(y = pos, x = year, label = bibkey2), hjust = 0.5, vjust = 0,
+              angle = 45, size = 2.5, fontface = "bold") +
+    # geom_vline(xintercept = vawa, size = 0.45, color = pal_nord$polar[1], linetype = 3) +
+    geom_text(aes(y = 0, x = vawa, label = "1994 Violence Against Women Act"),
+              alpha = 0.5, angle = 90, colour = vawaclr, size = 3,
+              nudge_x = -0.25,
+              family = "serif", fontface = "italic") +
+    geom_text(aes(y = 0, x = year, label = year), check_overlap = TRUE,
+              vjust = 0.5, hjust = 0.5, angle = 0, colour = pal_my[20],
+              size = 2.5, family = "serif", fontface = "bold")
+gg.tl
+
+
 #'
 #' \newpage
 #'
@@ -52,72 +99,46 @@ cb$clab <- factor(cb$clab)
 #'
 # s3cb --------------------------------------------------------
 s3cb <- cb[cb$scat == 1, ] %>% droplevels
-# s3cb.keys <- paste0("_**", levels(s3cb$bibkey), "**_ [@", levels(s3cb$bibkey), "]")
 s3cb.keys <- paste0("@", levels(s3cb$bibkey))
-s3cb.keys %>% as.list() %>% pander()
 #'
 #'
-#+ inv, fig.fullwidth=TRUE, fig.height=3, out.width='\\linewidth'
-inv <- MAP[MAP$scat == "S3", ]
-# inv.a <- cb[as.character(cb$bibkey) %in% as.character(inv$bibkey), ]
+#+ inv, fig.fullwidth=TRUE, fig.height=2.75, out.width='\\linewidth'
+inv <- MAPtl[MAPtl$scat == "S3", ]
 
-tl.inv <- inv[order(inv$year), c("bibkey", "year", "cpv", "journal", "title")] %>% droplevels()
+tl.inv <- inv[order(inv$year), c("bibkey", "year", "cpv", "journal", "title"), drop = FALSE] %>% droplevels()
 tl.inv$bibkey <- paste0("@", tl.inv$bibkey)
 tl.inv <- dplyr::rename(tl.inv, "Study" = bibkey, "Journal" = journal, "Year Published" = year)
 rownames(tl.inv) <- NULL
-tl.inv[, c(1, 4, 2)] %>% kable(caption = "IPV Interventions Research Timeline")
 
-bibkey.inv <- gsub("(\\w+)\\d{4}\\w+", "\\1", inv$bibkey)
-bibkey.inv <- sapply(bibkey.inv, RtCap, USE.NAMES = FALSE)
-inv$bibkey <- bibkey.inv
-# tl.inv$pos <- runif(nrow(tl.inv), min = -1, max = 1)#*1.5
-# tl.inv$pos <- ifelse(abs(tl.inv$pos) < 0.25, tl.inv$pos*10, tl.inv$pos)
-# probs1 <- seq(1, nrow(inv), by = 1)
-# probs2 <- mean(probs1)
 
-inv$pos <- sample(seq(1, nrow(inv), by = 1), size = nrow(inv), replace = FALSE)
-
-# inv$yrjt <- jitter(tl.inv$year, amount = 1.5)
-# jitter(tl.inv$pos, amount = 2)
-
-inv$cpv <- factor(inv$cpv, labels = c("Community-Psychology", "Violence"))
-inv$bibkey2 <- as.integer(factor(inv$bibkey))
-gg.tlinv <- ggplot(inv, aes(x = year, y = 0, colour = cpv)) +
-    thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE, ptitle = TRUE) +
-    theme(legend.text = element_text(size = rel(0.65)),
-          legend.title = element_text(size = rel(0.75), face = "bold")) +
-    labs(colour = "Journal Category") +
+gg.invtl <- ggplot(inv, aes(x = year, y = 0, colour = cpv)) +
+    thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE,
+             ptitle = FALSE, xtext = FALSE, xticks = FALSE) +
+    theme(legend.text = element_text(size = rel(0.55)),
+          legend.title = element_text(size = rel(0.65), face = "bold"),
+          legend.justification = c(1, 0.8),
+          legend.box.spacing = unit(0, "cm")) +
+          # plot.margin = unit(c(1, rep(0.15, 3)), "cm")) +
+    ylim(min(inv$pos) - 0.5, max(inv$pos) + 0.5) +
+    labs(colour = "Journal Category", title = "IPV-Interventions Research Timeline") +
     scale_colour_manual(values = pcpv) + #, guide = FALSE) +
-    geom_hline(yintercept = mean(inv$pos), size = 0.25, color = pal_my[19], alpha = 0.5) +
-    geom_segment(aes(y = mean(inv$pos), yend = pos, x = year, xend = year),
+    geom_hline(yintercept = 0, size = 0.25, color = pal_nord$polar[7], alpha = 0.5) +
+    geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
                  colour = pal_my[19], alpha = 0.45,
                  na.rm = TRUE, size = 0.15) +
-                 ##, position = position_dodge(width = 1)) +
-    geom_text(aes(y = pos, x = year, label = bibkey),#, position = position_jitter(),
-              vjust = "outward", angle = 0, size = 2.5, fontface = "bold"); gg.tlinv +
-    ggtitle("IPV-Interventions Research Timeline")
+    geom_text(aes(y = pos, x = year, label = bibkey2), hjust = 0.5, vjust = 1,
+              angle = 45, size = 2.5, fontface = "bold") + #, nudge_y = -0.05) +
+    # geom_vline(xintercept = vawa, size = 0.45, color = pal_nord$polar[1], linetype = 3) +
+    geom_text(aes(y = 0, x = vawa, label = "1994 Violence Against Women Act"),
+              alpha = 0.5, angle = 90, colour = vawaclr, size = 2.5,
+              nudge_x = -0.25, family = "serif", fontface = "italic") +
+    geom_text(aes(y = 0, x = year, label = year), check_overlap = TRUE,
+              vjust = 0.5, hjust = 0.5, angle = 0, colour = pal_my[20],
+              size = 2.5, family = "serif", fontface = "bold")
+gg.invtl
 
-# gg.tlinv <- ggplot(inv, aes(x = year, y = 0, colour = journal)) +
-#     thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE) +
-#     theme(legend.text = element_text(size = rel(0.65)),
-#           legend.title = element_text(size = rel(0.75), face = "bold")) +
-#     labs(colour = "Journal") +
-#     scale_colour_manual(values = mpal(1:length(unique(inv$jrnl))))) + #, guide = FALSE) +
-#     geom_hline(yintercept = 0, size = 0.5, color = pal_my[19]) +
-#     geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
-#                  colour = pal_my[19], alpha = 0.5,
-#                  na.rm = TRUE, size = 0.25) +
-#                  # position = position_dodge(width = 1)) +
-#     geom_text(aes(y = pos, x = year, label = bibkey),
-#               vjust = "center", angle = 0, size = 2.65, fontface = "bold"); gg.tlinv
+tl.inv[, c(1, 4, 2)] %>% kable(caption = "IPV Interventions Research Timeline")
 
-# gg.tlinv <- ggplot(tl.inv, aes(x = year, y = 0)) + thm_Rtft() +
-#     geom_hline(yintercept = 0, size = 1, color = pal_my[19]) +
-#     geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
-#                  colour = pal_my[19], na.rm = TRUE, size = 0.5) + #,
-#     # position = position_dodge(width = 1)) +
-#     geom_text(aes(y = pos, x = year, label = bibkey), angle = 45, size = 1.75)#, position = position_jitter(height = 1.5))
-# gg.tlinv
 #'
 #' \newpage
 #'
@@ -141,15 +162,20 @@ levels(s3top$clab) <- seq(1:length(unique(s3top$clab)))
 ks3tp <- ftable(s3top$bibkey, s3top$clab) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
 ks3tp <- ifelse(ks3tp >= 1, "\\checkmark", "$\\cdot$")
 rownames(ks3tp) <- paste0("@", rownames(ks3tp))
-
+#'
+#' \newpage
+#'
 # panderOptions("table.split.table", 120)
 kable(ks3tp[, 1:9], caption = "Research Topics (1/2)")
-
+pander(lvls.tp[1:9])
+#'
+#' \newpage
+#'
 kable(ks3tp[, 10:ncol(ks3tp)], caption = "Research Topics (2/2)")
 # library(kableExtra)
 # kable(ks3tp, format = "latex", booktabs = T, escape = FALSE) %>%
     # kable_styling(latex_options = c("scale_down"))
-pander(lvls.tp)
+pander(lvls.tp[10:length(lvls.tp)])
 #'
 #' \newpage
 #' ## Target Populations/Sampling Frames
@@ -246,40 +272,43 @@ pander(lvls.mm)
 # s4cb --------------------------------------------------------
 s4cb <- cb[cb$scat == 2, ] %>% droplevels
 s4cb.keys <- paste0("@", levels(s4cb$bibkey))
-s4cb.keys %>% as.list() %>% pander
+# s4cb.keys %>% as.list() %>% pander
 #'
-#' \newpage
-#'
-#+ smw, fig.fullwidth=TRUE, fig.height=3, out.width='\\linewidth', fig.show='asis'
-smw <- MAP[MAP$scat == "S4", ]
-# inv.a <- cb[as.character(cb$bibkey) %in% as.character(inv$bibkey), ]
+#+ smw, fig.fullwidth=TRUE, fig.height=2, out.width='\\linewidth', fig.show='asis'
+smw <- MAPtl[MAPtl$scat == "S4", ]
 
 tl.smw <- smw[order(smw$year), c("bibkey", "year", "cpv", "journal", "title")] %>% droplevels()
+
 tl.smw$bibkey <- paste0("@", tl.smw$bibkey)
 tl.smw <- dplyr::rename(tl.smw, "Study" = bibkey, "Journal" = journal, "Year Published" = year)
 rownames(tl.smw) <- NULL
-tl.smw[, c(1, 2, 4)] %>% pander(caption = "IPV Interventions Research Timeline")
 
-bibkey.smw <- gsub("(\\w+)\\d{4}\\w+", "\\1", smw$bibkey)
-bibkey.smw <- sapply(bibkey.smw, RtCap, USE.NAMES = FALSE)
-smw$bibkey <- bibkey.smw
-
-smw$pos <- sample(seq(1, nrow(smw), by = 1), size = nrow(smw), replace = FALSE)
 psmw <- pal_sci[1:length(unique(smw$journal))]
-
-gg.tlsmw <- ggplot(smw, aes(x = year, y = 0, colour = journal)) +
-    thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE, ptitle = TRUE) +
-    theme(legend.text = element_text(size = rel(0.65)),
-          legend.title = element_text(size = rel(0.75), face = "bold")) +
-    labs(colour = "Journal Title") +
+smw$pos <- rep_len(c(1, -1), length(smw$pos))
+gg.smwtl <- ggplot(smw, aes(x = year, y = 0, colour = journal)) +
+    thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE,
+             ptitle = FALSE, xtext = FALSE, xticks = FALSE) +
+    theme(legend.text = element_text(size = rel(0.55)),
+          legend.title = element_text(size = rel(0.65), face = "bold"),
+          legend.justification = c(1, 0.635),
+          legend.box.spacing = unit(0, "cm")) +
+          # plot.margin = unit(c(1, rep(0.15, 3)), "cm")) +
+    ylim(min(smw$pos) - 0.5, max(smw$pos) + 0.5) +
+    labs(colour = "Journal Title", title = "SMW-Inclusive IPV Research Timeline\n") +
     scale_colour_manual(values = psmw) + #, guide = FALSE) +
-    geom_hline(yintercept = mean(smw$pos), size = 0.25, color = pal_my[19], alpha = 0.5) +
-    geom_segment(aes(y = mean(smw$pos), yend = pos, x = year, xend = year),
+    geom_hline(yintercept = 0, size = 0.25, color = pal_nord$polar[7], alpha = 0.5) +
+    geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
                  colour = pal_my[19], alpha = 0.45,
                  na.rm = TRUE, size = 0.15) +
-    geom_text(aes(y = pos, x = year, label = bibkey),#, position = position_jitter(),
-              vjust = "outward", angle = 0, size = 2.5, fontface = "bold"); gg.tlsmw +
-    ggtitle("SMW-Inclusive Research Timeline")
+    geom_text(aes(y = pos, x = year, label = bibkey2), hjust = 0.5, vjust = 0,
+              angle = 45, size = 2.5, fontface = "bold") + #, nudge_y = -0.05) +
+    geom_text(aes(y = 0, x = year, label = year), check_overlap = TRUE,
+              vjust = 0.5, hjust = 0.5, angle = 0, colour = pal_my[20],
+              size = 2.5, family = "serif", fontface = "bold")
+gg.smwtl
+
+tl.smw[, c(1, 4, 2)] %>% kable(caption = "IPV Interventions Research Timeline")
+
 
 #'
 #' \newpage
