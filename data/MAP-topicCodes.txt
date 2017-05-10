@@ -24,7 +24,7 @@ contrino2007compliance: BI, PO, EVAL, PR-EFF, IMPT, EV-SUM
 muftic2007evaluation: CCR, BI, PO, EVAL, PR-EFF, EV-SUM
 hendricks2006recidivism: BI, PO, PR-EFF, EVAL, EV-SUM
 hovell2006evaluation: CJ, CJ-PLC-R, VS, PO, FVRT, PR-EFF, EVAL, EV-SUM
-silvergleid2006how: BI, EVAL, EV-PROC, EV-DESCR, IDEV, EV-FRM
+silvergleid2006batterer: BI, EVAL, EV-PROC, EV-DESCR, IDEV, EV-FRM
 foshee2004assessing: PREV, SPREV, EVAL, PR-EFF, EV-SUM
 sullivan2002findings: VI, VS, PR-EFF, STRB, EVAL, EV-SUM
 gregory2002effects: V-PERSP, PR-EFF, MAND-P, PO, EVAL, EV-SUM

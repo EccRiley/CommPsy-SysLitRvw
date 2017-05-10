@@ -632,3 +632,79 @@
 #                  colour = pal_my[19], na.rm = TRUE, size = 0.5) + #,
 #     # position = position_dodge(width = 1)) +
 #     geom_text(aes(y = pos, x = year, label = bibkey), angle = 45, size = 1.75)#, position = position_jitter(height = 1.5))
+#, position = position_jitter(), vjust = "outward",
+##, position = position_dodge(width = 1)) +
+
+# bibkey.inv <- gsub("(\\w+)\\d{4}\\w+", "\\1", inv$bibkey)
+# bibkey.inv <- sapply(bibkey.inv, RtCap, USE.NAMES = FALSE)
+# inv$bibkey <- bibkey.inv
+# tl.inv$pos <- runif(nrow(tl.inv), min = -1, max = 1)#*1.5
+# tl.inv$pos <- ifelse(abs(tl.inv$pos) < 0.25, tl.inv$pos*10, tl.inv$pos)
+# probs1 <- seq(1, nrow(inv), by = 1)
+# probs2 <- mean(probs1)
+
+# inv$pos <- sample(seq(1, nrow(inv), by = 1), size = nrow(inv), replace = FALSE)
+
+# inv$yrjt <- jitter(tl.inv$year, amount = 1.5)
+# jitter(tl.inv$pos, amount = 2)
+
+# inv$cpv <- factor(inv$cpv, labels = c("Community-Psychology", "Violence"))
+# inv$bibkey2 <- as.integer(factor(inv$bibkey))
+# gg.tlinv <- ggplot(inv, aes(x = year, y = 0, colour = cpv)) +
+#     thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE, ptitle = TRUE) +
+#     theme(legend.text = element_text(size = rel(0.65)),
+#           legend.title = element_text(size = rel(0.75), face = "bold")) +
+#     labs(colour = "Journal Category") +
+#     scale_colour_manual(values = pcpv) + #, guide = FALSE) +
+#     geom_hline(yintercept = mean(inv$pos), size = 0.25, color = pal_my[19], alpha = 0.5) +
+#     geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
+#                  colour = pal_my[19], alpha = 0.45,
+#                  na.rm = TRUE, size = 0.15) +
+#                  ##, position = position_dodge(width = 1)) +
+#     geom_text(aes(y = pos, x = year, label = bibkey),#, position = position_jitter(),
+#               vjust = "outward", angle = 0, size = 2.5, fontface = "bold"); gg.tlinv +
+#     ggtitle("IPV-Interventions Research Timeline")
+
+# gg.tlinv <- ggplot(inv, aes(x = year, y = 0, colour = journal)) +
+#     thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE) +
+#     theme(legend.text = element_text(size = rel(0.65)),
+#           legend.title = element_text(size = rel(0.75), face = "bold")) +
+#     labs(colour = "Journal") +
+#     scale_colour_manual(values = mpal(1:length(unique(inv$jrnl))))) + #, guide = FALSE) +
+#     geom_hline(yintercept = 0, size = 0.5, color = pal_my[19]) +
+#     geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
+#                  colour = pal_my[19], alpha = 0.5,
+#                  na.rm = TRUE, size = 0.25) +
+#                  # position = position_dodge(width = 1)) +
+#     geom_text(aes(y = pos, x = year, label = bibkey),
+#               vjust = "center", angle = 0, size = 2.65, fontface = "bold"); gg.tlinv
+
+# gg.tlinv <- ggplot(tl.inv, aes(x = year, y = 0)) + thm_Rtft() +
+#     geom_hline(yintercept = 0, size = 1, color = pal_my[19]) +
+#     geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
+#                  colour = pal_my[19], na.rm = TRUE, size = 0.5) + #,
+#     # position = position_dodge(width = 1)) +
+#     geom_text(aes(y = pos, x = year, label = bibkey), angle = 45, size = 1.75)#, position = position_jitter(height = 1.5))
+# gg.tlinv
+
+
+# bibkey.smw <- gsub("(\\w+)\\d{4}\\w+", "\\1", smw$bibkey)
+# bibkey.smw <- sapply(bibkey.smw, RtCap, USE.NAMES = FALSE)
+# smw$bibkey <- bibkey.smw
+#
+# smw$pos <- sample(seq(1, nrow(smw), by = 1), size = nrow(smw), replace = FALSE)
+
+# gg.tlsmw <- ggplot(smw, aes(x = year, y = 0, colour = journal)) +
+#     thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE, ptitle = TRUE) +
+#     theme(legend.text = element_text(size = rel(0.65)),
+#           legend.title = element_text(size = rel(0.75), face = "bold")) +
+#     labs(colour = "Journal Title") +
+#     scale_colour_manual(values = psmw) + #, guide = FALSE) +
+#     geom_hline(yintercept = mean(smw$pos), size = 0.25, color = pal_my[19], alpha = 0.5) +
+#     geom_segment(aes(y = mean(smw$pos), yend = pos, x = year, xend = year),
+#                  colour = pal_my[19], alpha = 0.45,
+#                  na.rm = TRUE, size = 0.15) +
+#     geom_text(aes(y = pos, x = year, label = bibkey),#, position = position_jitter(),
+#               vjust = "outward", angle = 0, size = 2.5, fontface = "bold"); gg.tlsmw +
+#     ggtitle("SMW-Inclusive Research Timeline")
+# inv.a <- cb[as.character(cb$bibkey) %in% as.character(inv$bibkey), ]

@@ -1,0 +1,15 @@
+dims <- c(1, 11)
+plot(dims, dims, type = 'n')
+abline(h = 1:11, v = 1:11, lty = 3)
+b1dim <- list(x = c(4, 8), y = c(8, 10))
+segments(x0 = b1dim$x[1], y0 = b1dim$y[1], x1 = b1dim$x[2], y1 = b1dim$y[1])
+segments(x0 = b1dim$x[1], y0 = b1dim$y[2], x1 = b1dim$x[2], y1 = b1dim$y[2])
+segments(x0 = b1dim$x[1], y0 = b1dim$y[1], x1 = b1dim$x[1], y1 = b1dim$y[2])
+segments(x0 = b1dim$x[2], y0 = b1dim$y[1], x1 = b1dim$x[2], y1 = b1dim$y[2])
+
+text(x = 6, y = 10.25, labels = "1. Identification")
+text(x = 5, y = 9.8, labels = "150 Initial hits")
+text(x = 4.5, y = 8.8, labels = "IPV Interventions Research = 86 - 5 Duplicates ==> 81")
+text(x = 4.5, y = 7.8, labels = "SMW-Inclusiv IPV Research = 64 - 12 Duplicates ==> 52")
+text(x = 4.5, y = 6.8, labels = "Combined = 133 - 2 Duplicates ==> 131")
+

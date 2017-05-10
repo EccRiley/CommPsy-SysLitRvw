@@ -27,7 +27,7 @@ knitr::opts_chunk$set(
 
 {\fontfamily{pzc}\selectfont\huge{Rachel M. Smith}}
 
-\includegraphics{graphics/inputs/quill_small.png}
+\includegraphics{graphics/inputs/compsLogo-small.png}
 
 \vspace*{3em}
 

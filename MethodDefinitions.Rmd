@@ -1,14 +1,11 @@
 ---
-title: "Community Methods Minor Comprehensive Examination"
-author: "Rachel M. Smith"
-date: "`r format(Sys.Date(), '%d %B %Y')`"
+title: "Community Methods Reading Notes - Definitions of Each Method"
+date: "3 May 2017"
 ---
 
-\newpage
-
-# \centerline{\textsc{\huge{(1.a.) Definition of the method}}}
-
 \Frule
+
+\newpage
 
 # Community-Based Participatory Research & Participatory Action Research
 
@@ -130,11 +127,14 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 > > "Sometimes it is said that paradigms are incommensurable and cannot be mixed. _However, they can be, using a **dialectical and dialogic logic**. That is why **equal-status mixed methods designs** are also called **interactive mixed methods designs**_" [@stefurak2016mixed, p. 347, _emph. added_]
 
 
-`r tufte::newthought("\\Large{Mixed-methods research, in general, is:}")`
+\newpage
+
+
+`r tufte::newthought("\\large{Mixed-methods research, in general, is:}")`
 
 \vspace*{1em}
 
-\LARGE{``}
+\Large{``}
 
 > > ... a research approach or methodology:
 
@@ -150,7 +150,7 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 
 \vspace*{-1em}
 
-> > `r tufte::quote_footer("\\LARGE{''}")`
+> > `r tufte::quote_footer("\\Large{''}")`
 
 > > `r tufte::quote_footer("@creswell2016best, (p. 4, _emph. added_)")`
 
@@ -199,17 +199,6 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 > > "... analytic methods should be dynamic and adaptable to the challenges of complex research designs and data structures" [@connell2016introduction, p. 122].
 
 > > > "... previous examinations of the state of the field's statistical methods [e.g., @luke2005getting] revealed that community researchers continue to rely on more traditional data-analytic methods (e.g., analysis of variance [ANOVA], regression, and correlation), rather than methods permitting greater complexity (e.g., structural equation modeling [SEM], cluster analysis, and SNA) or contextualization (e.g., multilevel modeling [MLM] and GIS analysis)" [@connell2016introduction, p. 122].
-
-
-
-
-\newpage
-
-# \centerline{\textsc{\huge{(1.b.) Discuss an application of the method}}}
-
-
-
-
 
 
 \newpage

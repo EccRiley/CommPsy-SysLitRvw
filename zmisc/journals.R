@@ -50,32 +50,36 @@ JOURNAL <- c("Action Research",
              "Social Science and Medicine",
              "The Community Psychologist",
              "Transcultural Psychiatry",
-             "Progress in Community Health Partnerships: Research, Education, and Action")
+             "Progress in Community Health Partnerships: Research, Education, and Action",
+             "Journal of Interpersonal Violence",
+             "Violence Against Women",
+             "Violence and Victims",
+             "Journal of Family Violence")
 #'
 #+ tidy=TRUE, echoRule=NULL, Rrule=NULL, Rerule=TRUE
-Year <- c(2003, 1973, 1986, 1930, 1985, 1971, 2006, 2005, 1966, 1965, 2015, 1995, 2010, 1997, 2000, 1971, 1991, 1994, 1967, 1996, 1981, 1980, 1997, 1973, 1996, 1976, 2011, 1967, 1975, 1997, 2007)
+Year <- c(2003, 1973, 1986, 1930, 1985, 1971, 2006, 2005, 1966, 1965, 2015, 1995, 2010, 1997, 2000, 1971, 1991, 1994, 1967, 1996, 1981, 1980, 1997, 1973, 1996, 1976, 2011, 1967, 1975, 1997, 2007, 1986, 1995, 1986, 1986)
 
-SJR <- c(0.33, 1.237, 0.821, 0.756, 2.764, 2.52, NA, NA, 0.47, 0.467, NA, NA, NA, 1.177, 0.769, 0.639, 0.855, 0.278, 1.727, 0.231, 0.64, NA, 1.467, 0.425, 0.692, 1.216, 0.331, 1.894, NA, 1.141, 0.427)
+SJR <- c(0.33, 1.237, 0.821, 0.756, 2.764, 2.52, NA, NA, 0.47, 0.467, NA, NA, NA, 1.177, 0.769, 0.639, 0.855, 0.278, 1.727, 0.231, 0.64, NA, 1.467, 0.425, 0.692, 1.216, 0.331, 1.894, NA, 1.141, 0.427, 1.064, 0.851, 0.449, 0.639) ## SJR is for 2015 (most recent available on http://www.scimagojr.com) ##
 
-H <- c(15, 83, 72, 69, 154, 196, NA, NA, 28, 51, NA, NA, NA, 72, 32, 78, 44, 15, 93, 21, 36, NA, 89, 65, 48, 66, 8, 177, NA, 35, 15)
+H <- c(15, 83, 72, 69, 154, 196, NA, NA, 28, 51, NA, NA, NA, 72, 32, 78, 44, 15, 93, 21, 36, NA, 89, 65, 48, 66, 8, 177, NA, 35, 15, 78, 66, 64, 56) ## also retrieved from http://www.scimagojr.com ##
 
-Med <- c(0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0)
+Med <- c(0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0)
 
-Psych <- c(0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0)
+Psych <- c(0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1)
 
-SocSci <- c(1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1)
+SocSci <- c(1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1)
 
-Biz <- c(1, rep(0, 30))
+Biz <- c(1, rep(0, length(JOURNAL)-1))
+AH <- c(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0)
 
-AH <- c(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0)
+Nurs <- c(rep(0, 14), 1, rep(0, length(JOURNAL)-15))
 
-Nurs <- c(rep(0, 14), 1, rep(0, 16))
+HlthPrf <- c(rep(0, 21), 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0)
 
-HlthPrf <- c(rep(0, 21), 1, 0, 0, 1, 0, 0, 0, 1, 0, 0)
-
-Location <- c("UK", "US", "US", "US", "US", "US", "AU", "UK", "UK", "NL", "IT", "US", "US", "US", "US", "UK", "UK", "US", "US", "US", "US", "US", "UK", "US", "US", "UK", "ES", "UK", "US", "UK", "US")
+Location <- c("UK", "US", "US", "US", "US", "US", "AU", "UK", "UK", "NL", "IT", "US", "US", "US", "US", "UK", "UK", "US", "US", "US", "US", "US", "UK", "US", "US", "UK", "ES", "UK", "US", "UK", "US", "US", "US", "US", "US")
 
 dat <- data.frame(JOURNAL, Location, Year, SJR, H)
+dat$jrnl <- sapply(as.character(dat$JOURNAL), Rabbr)
 
 dat.subj <- data.frame(Med, Psych, SocSci, Biz, AH, Nurs, HlthPrf)
 dat.subj$Nsubj <- apply(dat.subj, 1, sum)
@@ -83,10 +87,13 @@ dat <- cbind(dat, dat.subj) %>% as.data.frame()
 dat.narm <- na.omit(dat) %>% as.data.frame()
 names(dat.narm) <- c("Journal", "Location", "Year", "ScimagoJourn.Rating", "H-Index", "Medical", "Psychology", "SocialSciences", "Business", "Arts&Humanities", "Nursing", "HealthProfessions", "N_CoveredTopics")
 
-cor(dat.narm[, -1:-2]) %>% corrplot::corrplot.mixed(lower = "number", upper = "shade", tl.pos = "lt", diag = "u", bg = NA, col = blgrmg(length(cor(dat.narm[, -1:-2]))), tl.col = pal_my[19])
+# cor(dat.narm[, -1:-2]) %>% corrplot::corrplot.mixed(lower = "number", upper = "shade", tl.pos = "lt", diag = "u", bg = NA, col = blgrmg(length(cor(dat.narm[, -1:-2]))), tl.col = pal_my[19])
 
 cl <- mpal(H, p = cols3); bg <- adjustcolor(cl, alpha.f = 0.6)
+
 with(dat, {lm1 <- lm(H ~ SJR); plot(SJR, H, col = cl, bg = bg, pch = 21, xlab = "Scimago Journal Rating", ylab = "H Index"); abline(lm1, lwd = 2.5, col = pal_my[18])})
+
+cor.test(dat$H, dat$SJR)
 #'
 #'
 #' # IPV-Related Journals

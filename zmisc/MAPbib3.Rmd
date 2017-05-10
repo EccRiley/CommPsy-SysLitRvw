@@ -59,7 +59,7 @@ author: "`r format(Sys.Date(), '%d %B %Y')`"
 
 \newpage
 
-## \textcolor[HTML]{5b0057}{silvergleid2006how}
+## \textcolor[HTML]{5b0057}{silvergleid2006batterer}
 
 \textsc{\large{How Batterer Intervention Programs Work: Participant and Facilitator Accounts of Processes of Change}} (_Journal of Interpersonal Violence_)
 
@@ -120,6 +120,12 @@ author: "`r format(Sys.Date(), '%d %B %Y')`"
 
 "The lack of rigorous evaluations of intimate partner violence (IPV) programs has severely limited our knowledge about what works. However, IPV programs can be rigorously evaluated through randomized controlled trials (RCTs) conducted ethically and safely. This article provides an example of how a RCT to test an IPV preventive intervention—the Enhanced Nurse Family Partnership Study (ENFPS)—was successfully implemented by a partnership of researchers and practitioners. The article concludes with some recommendations, arrived at by the researchers and practitioners on the ENFPS team, for achieving a successful collaboration thought to be essential in executing a field experiment."
 
+## \textcolor[HTML]{5b0057}{portwood2011evaluation}
+
+\textsc{\large{An evaluation of the Adults and Children Together (ACT) Against Violence Parents Raising Safe Kids program}} (_Journal of Primary Prevention_)
+
+"This study evaluated the effectiveness of the Adults and Children Together (ACT) Against Violence Parents Raising Safe Kids program, developed by the American Psychological Association in collaboration with the National Association for the Education of Young Children, as an economical primary prevention intervention for child maltreatment. Using an experimental design with random assignment to groups, program impact on participating parents' knowledge, behavior, and attitudes compared to those of a comparison group of parents receiving standard community-based support services was examined. As hypothesized, the ACT Parents Raising Safe Kids program achieved positive results in several areas related to effective parenting, including a reduction in the use of harsh verbal and physical discipline and an increase in nurturing behavior. Positive results were observable both at the conclusion of the ACT program and at three-month follow-up. Results further indicated a positive impact on parent expectations and social support for those parents with the greatest need in these areas. Qualitative data collected through focus groups demonstrated that parents themselves perceived numerous benefits to the ACT program, including assistance in controlling their anger, learning and implementing better parenting and discipline strategies, and recognizing when their child's behavior is developmentally appropriate. Overall, findings suggest that the ACT Parents Raising Safe Kids program is a promising primary prevention strategy that can be implemented across diverse community settings."
+
 ## \textcolor[HTML]{5b0057}{potter2011bringing}
 
 \textsc{\large{Bringing in the target audience in bystander social marketing materials for communities: Suggestions for practitioners}} (_Violence Against Women_)
@@ -144,14 +150,6 @@ author: "`r format(Sys.Date(), '%d %B %Y')`"
 
 "Two community-based agencies collaborated to create a program for justice-involved female intimate partner violence (IPV) survivors and their children. Our research team conducted a feasibility study of the children's program using an exploratory, multimethod qualitative design with child participants ( n = 8), adult participants ( n = 18), and providers ( n = 7). Analyses determined four key findings: (a) importance of attendance; (b) the need for a flexible, child-driven curriculum; (c) improvement through expression and peer bonding; and (d) the value of specific program content. The findings point to indispensable program elements and enhancement recommendations. Implications for other communities and providers serving IPV-exposed children are described."
 
-## \textcolor[HTML]{5b0057}{fox2015development}
-
-\textsc{\large{Development of the Attitudes to Domestic Violence questionnaire for children and adolescents}} (_Journal of Interpersonal Violence_)
-
-"To provide a more robust assessment of the effectiveness of a domestic abuse prevention education program, a questionnaire was developed to measure children's attitudes to domestic violence. The aim was to develop a short questionnaire that would be easy to use for practitioners but, at the same time, sensitive enough to pick up on subtle changes in young people's attitudes. We therefore chose to ask children about different situations in which they might be willing to condone domestic violence. In Study 1, we tested a set of 20 items, which we reduced by half to a set of 10 items. The factor structure of the scale was explored and its internal consistency was calculated. In Study 2, we tested the factor structure of the 10-item Attitudes to Domestic Violence (ADV) Scale in a separate calibration sample. Finally, in Study 3, we then assessed the test–retest reliability of the 10-item scale. The ADV Questionnaire is a promising tool to evaluate the effectiveness of domestic abuse education prevention programs. However, further development work is necessary."
-
-
-\newpage
 
 ## \textcolor[HTML]{5b0057}{howell2015strengthening}
 

@@ -787,13 +787,13 @@ t.mm <- Rtdf(ct.mm$clab)
 ft.mm <- ftable(ct.mm[, c("clab", "scat")], row.vars = 1)
 ftm.mm <- matrix(ft.mm, nrow = nrow(t.mm), byrow = FALSE)
 dimnames(ftm.mm) <- list("Mixed-Methods" = levels(ct.mm$clab),
-                         scat = c(#"IPV Interventions",
+                         scat = c("IPV Interventions",
                                   "SMW-Inclusive Research"))
 # t.mm
 sum.mm <- apply(ftm.mm, 1, sum)
 ftm.mm <- ifelse(ftm.mm == 0, NA, ftm.mm)
 ftm.mm <- cbind(ftm.mm, "**Total**" = sum.mm)
-ftm.mm %>% pander(justify = c("left", "right", "right"),
+ftm.mm %>% pander(justify = c("left", "right", "right", "right"),
                   caption = "Research Topics")
 
 ### PLOT - mixed-methods ####

@@ -4,47 +4,149 @@ author: "Riley Smith"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 ---
 
+# FIND DUPLICTE LINES IN A SORTED LIST
+^(.*)(\r?\n\1)+$
+
 # Re-format bib`BibTeX` Entries in `*.*md` Files
 
 ```regex
-ó >> \\acute{o}
-á >> \\acute{o}
-í >> \\acute{i}
-é >> \\acute{e}
-ú >> \\acute{u}
-ä >> \\ddot{a}
-ö >> \\ddot{o}
-ć >> \\acute{c}
+ó
+>> \\acute{o}
 
-[“|”] >> "
-[‘|’] >> '
+á
+>> \\acute{o}
 
-month={.*?},\n >> BLANK
-doi={.*?},\n >> BLANK
-note={.*?},\n >> BLANK
-isbn={.*?},\n >> BLANK
-url={.*?},\n >> BLANK
-language={.*?},\n >> BLANK
+í
+>> \\acute{i}
 
-(@.*?\{)\nauthor=\{(.*?)(,.*?\nyear=\{)(\d+)\},\ntitle={(.*?)( .*?)} >> $1$2$4$5,\nauthor={$2$3$4},\ntitle={$5$6}
-@\w+\{.*?, >> "ALT-ENTER" >> "CMD-P" >> "LOWER"
+é
+>> \\acute{e}
 
-(@.*?\{)\nauthor=\{(.*?)(,.*?\ntitle={)(.*?)( .*?)(\njournal=.*?\nyear=\{)(\d+)\}, >> $1$2$7$4,\nauthor={$2$3$4$5$6$7},
-@\w+\{.*?, >> "ALT-ENTER" >> "CMD-P" >> "LOWER"
+ú
+>> \\acute{u}
 
-\d{4}the, >> BLANK
-\d{4}a, >> BLANK
-\d{4}an, >> BLANK
-\d{4}are, >> BLANK
-\d{4}do, >> BLANK
-\d{4}does, >> BLANK
+ä
+>> \\ddot{a}
 
-(@\w+\{o)'(.*?,) >> $1$2
-(@\w+\{.*?)'s, >> $1,
-(@\w+\{.*?).*?", >> $1,
-(@\w+\{.*?\d+)[`]{1,} >> $1
+ö
+>> \\ddot{o}
 
-(pages=\{\d+)\-(\d+\}) >> $1--$2
+ć
+>> \\acute{c}
+
+
+[“|”]
+>> "
+
+[‘|’]
+>> '
+
+
+month={.*?},\n
+>> BLANK
+
+doi={.*?},\n
+>> BLANK
+
+note={.*?},\n
+>> BLANK
+
+isbn={.*?},\n
+>> BLANK
+
+url={.*?},\n
+>> BLANK
+
+language={.*?},\n
+>> BLANK
+
+
+## PSYCHINFO BIBTEX RETURN:
+month={.*?},\n
+>> BLANK
+
+(@.*?\{)\nauthor=\{(.*?)(,.*?\nyear=\{)(\d+)\},\ntitle={(.*?)( .*?)}
+>> $1$2$4$5,\nauthor={$2$3$4},\ntitle={$5$6}
+
+## WEB OF SCIENCE BIBTEX RETURN:
+Journal = {.*?},\n
+>> BLANK
+
+\{\{
+>> {
+
+\}\}
+>> }
+
+\n[ ]+
+>> SPACE
+
+(@\w+\{) .*?,
+>> $1
+
+(@.*?\{)\nauthor = \{(.*?)(,.*?\},\ntitle = \{)(.*?)( .*?\},\nyear = \{)(\d{4})\}
+>> $1$2$6$4,\nauthor={$2$3$4$5$6}
+
+## (@.*?\{) #1
+## \nauthor=\{
+## (.*?) #2
+## (,.*?\},\n\ntitle=\{) #3
+## (.*?) #4
+## ( .*?\},\nyear=\{) #5
+## (\d{4}) #6
+## \}
+## >> $1$2$6$4,\nauthor={$2$3$4$5$6}
+
+@\w+\{.*?,
+>> "ALT-ENTER"
+>>> "CMD-P"
+>>>> "LOWER"
+
+
+(@.*?\{)\nauthor=\{(.*?)(,.*?\ntitle={)(.*?)( .*?)(\njournal=.*?\nyear=\{)(\d+)\},
+>> $1$2$7$4,\nauthor={$2$3$4$5$6$7},
+
+@\w+\{.*?,
+>> "ALT-ENTER"
+>>> "CMD-P"
+>>>> "LOWER"
+
+
+\d{4}the,
+>> BLANK
+
+\d{4}a,
+>> BLANK
+
+\d{4}an,
+>> BLANK
+
+\d{4}are,
+>> BLANK
+
+\d{4}do,
+>> BLANK
+
+\d{4}does,
+>> BLANK
+
+
+(@\w+\{o)'(.*?,)
+>> $1$2
+
+(@\w+\{.*?)'s,
+>> $1,
+
+(@\w+\{.*?).*?",
+>> $1,
+
+(@\w+\{.*?\d+)[`]{1,}
+>> $1
+
+
+(pages=\{\d+)\-(\d+\})
+>> $1--$2
+
 ```
 
 ## Find All BibEntries in '.*md' Files:
@@ -83,6 +185,7 @@ language={.*?},\n >> BLANK
 // Find and Replace Text Across Multiple Files in Terminal. //
 //  In the below command, replace "SEARCH_FOR" and "REPLACE_WITH" with the search and replace text:
 //>> perl -pi -w -e 's/SEARCH_FOR/REPLACE_WITH/g;' *.txt
+
 // ------------------------------------------------------------------------------------------------ //
 
 // perl -pi -w -e 's/"auxDocs\/REFs.bib"/"..\/auxDocs\/REFs.bib"/g;' *.R

@@ -18,7 +18,7 @@
 []   roffman2008mens
 []   rumptz1991ecological
 []   sargent2016evaluating
-[x] silvergleid2006how
+[x] silvergleid2006batterer
 []   sullivan2002findings
 []   thompson2000identification
 []   welland2010culturally

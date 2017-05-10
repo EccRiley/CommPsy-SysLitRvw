@@ -57,7 +57,7 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 
 "The Family Violence Response Team (FVRT) responded to police calls for domestic violence and provided services to victims. Police records were followed for (a) 327 FVRT clients with an index police visit in 1998 and (b) 498 nonconcurrent controls with an index visit in 1997. Except for marriage, no demographic characteristics were associated with batterer recidivism, as measured by police calls. The between-group odds ratio (OR) suggested that FVRT clients experienced a 1.7 (95% Confidence Interval CI]: 1.2 to 2.5) times greater recidivism rate than controls. Although increased reporting cannot be ruled out, results raise concerns about the effects of domestic violence interventions."
 
-## \textcolor[HTML]{5b0057}{silvergleid2006how}
+## \textcolor[HTML]{5b0057}{silvergleid2006batterer}
 
 \textsc{\large{How Batterer Intervention Programs Work: Participant and Facilitator Accounts of Processes of Change}} (_Journal of Interpersonal Violence_)
 

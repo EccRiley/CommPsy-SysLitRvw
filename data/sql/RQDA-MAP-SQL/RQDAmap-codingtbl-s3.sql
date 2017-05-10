@@ -411,7 +411,7 @@ UPDATE `coding` SET `seltext`="@article{hovell2006evaluation,
     keywords={family violence response team; domestic violence; police; program evaluation; Empirical Study; Quantitative Study; Human; Adulthood (18 yrs & older); Teams; Social Services; Police Personnel; Intervention; US; article; 3230:Behavior Disorders & Antisocial Behavior; Odds Ratio; Humans; Pilot Projects; Public Policy; Community-Institutional Relations; Mass Screening; Prospective Studies; Mandatory Reporting; Adult; Confidence Intervals; Social Work; Female; Male},
 }" WHERE `selfirst`='51810.0';
 
-UPDATE `coding` SET `seltext`="@article{silvergleid2006how,
+UPDATE `coding` SET `seltext`="@article{silvergleid2006batterer,
     author={Silvergleid,Courtenay S. and Mankowski,Eric S.},
     year={2006},
     title={How Batterer Intervention Programs Work: Participant and Facilitator Accounts of Processes of Change},
