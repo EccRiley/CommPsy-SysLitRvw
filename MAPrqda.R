@@ -24,7 +24,7 @@
 # OPEN RQDA PROJECT --------------------------------------------------------
 
 library(RQDA)
-openProject("data/RQDA/comps.RQDA")
+openProject("data/RQDA/comps.rqda")
 # RQDA()
 # openProject("data/RQDA/comps.RQDA", updateGUI = TRUE)
 # openProject("data/RQDA/MAP-new.RQDA", updateGUI = TRUE)
@@ -48,7 +48,11 @@ openProject("data/RQDA/comps.RQDA")
 ctbl1 <- getCodingTable()[, c("cid", "codename", "index1")] ## all codings (sans coded text) ##
 names(ctbl1)[2] <- "code" ## for compatability later ##
 
-cbk <- RQDAQuery("SELECT `name` as `code`, `memo` as `clab`
+cids.all <- RQDAQuery("SELECT `id`, `name` AS `code`
+                 FROM `freecode`
+                 WHERE `status` = 1") ## codelist only (without categories) ##
+
+cbk <- RQDAQuery("SELECT `name` as `code`, `memo` AS `clab`
                  FROM `freecode`
                  WHERE `status` = 1") ## codelist only (without categories) ##
 cbk <- within(cbk, {

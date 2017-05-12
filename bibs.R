@@ -19,19 +19,37 @@ knitr::opts_chunk$set(
     echoRule = NULL,
     echoRuleb = NULL,
     fig.height = 5,
-    fig.path = "graphics/bibs/rplot-")#, dev = 'png',
+    fig.path = "graphics/bibs/rplot-")
+    #fignos = TRUE)#, dev = 'png',
     # fig.retina = 4)
 
+# rpm()
+
 knitr::opts_template$set(invisible = list(echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE, fig.keep='none', fig.show='none'))
+
+knitr::opts_template$set(asis = list( tidy = TRUE, echo = FALSE, fig.keep = 'high', fig.show = 'asis', results = 'asis', tidy.opts = list(comment = FALSE)))
+
+knitr::opts_template$set(echo = list(tidy = TRUE, echo = TRUE, fig.keep = 'high', fig.show = 'asis', results = 'asis', tidy.opts = list(comment = FALSE)), echoRule = TRUE)
+
+knitr::opts_template$set(echo_cmt = list(tidy = TRUE, echo = TRUE, fig.keep = 'high', fig.show = 'asis', results = 'asis', tidy.opts = list(comment = TRUE)), echoRule = TRUE)
+
+## FOR DOCX/HTML OUTPUT ##
+
 # knit_hooks$set(plot = function(x, options) {
-#     if (!is.null(options$fig.lab) & !knitr:::is_latex_output()) {
+#     if (!is.null(options$fig.lab) {
 #     paste('![', options$fig.cap, '](',
 #           opts_knit$get('base.url'), paste(x, collapse = '.'),
 #           '){#fig:', options$fig.lab, "}",
 #           sep = '')
 #         }
 # })
-# rpm()
+knitr::opts_template$set(docx = list(plot = TRUE, dev = 'png', fig.retina = 4))
+
+knitr::opts_template$set(docx_echo = list(plot = TRUE, dev = 'png', fig.retina = 4, tidy = TRUE, echo = TRUE, fig.keep = 'high', fig.show = 'asis', results = 'asis', tidy.opts = list(comment = FALSE)))
+
+knitr::opts_template$set(docx_echo_cmt = list(plot = TRUE, dev = 'png', fig.retina = 4, tidy = TRUE, echo = TRUE, fig.keep = 'high', fig.show = 'asis', results = 'asis', tidy.opts = list(comment = TRUE)))
+
+# fig.retina = 4)
 #'
 #' \Frule
 #'
@@ -55,20 +73,27 @@ knitr::opts_template$set(invisible = list(echo=FALSE, results='hide', message=FA
 #'
 #' \Frule
 #'
-#+ dbsrch
+#+ src_dbsrch, opts.label='invisible'
+
+# dbsrch ------------------------------------------------------------------
+
 source("dbsrch.R")
+#'
+#+ dbsrch, results='asis'
 pander(dbsrch, justify = c("right", "left", "centre"), caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned")
 #'
 #' \newpage
 #'
 #' # Community Psychology Publications & Closely-Related Violence-Specific Publications
 #'
-#+ journals
+#+ src_journals, opts.label='invisible'
+
 # JOURNALS -----------------------------------------------------------
 source("journals.R")
+#'
+#+ journals, results='asis'
 cat(tufte::newthought("Community-psychology journals"), "included in database searches:\n\n")
 j.cpp %>% as.list() %>% pander()
-
 
 cat(tufte::newthought("Violence-specific journals"), " selected for inclusion in database searches.")
 j.vp %>% as.list() %>% pander()
@@ -117,11 +142,13 @@ names(MAP1)[-1] <- tolower(names(MAP1)[-1])
 KEYSv0 <- as.character(MAP1$bibkey)
 
 #'
-#+ MAP_RQDA, results='hide', fig.keep='none', fig.show='none'
+#+ src_MAPrqda, opts.label='invisible'
 
 # MAP-RQDA ----------------------------------------------------------------
-source("MAPrqda.R", echo = FALSE)
 
+source("MAPrqda.R", echo = FALSE)
+#'
+#+ csid, results='asis'
 csid <- caseids[, c("caseid", "case", "RM", "scat")] ## caseids[, -3] ##
 csid$case <- factor(csid$case)
 
@@ -209,15 +236,17 @@ cat(tufte::newthought(paste0("$N = ", length(v2v3), "$ items excluded after rest
 #'
 #' ------
 #'
-#+ tempPanderOpts, opts.label="invisible"
+#+ tempPanderOpts
+#, opts.label="invisible"
 panderOptions("p.wrap", "")
 panderOptions("p.sep", "; ")
 panderOptions("p.copula", "; ")
 
-#' `r tufte::newthought(paste0("$N = ", length(KEYSv3), "$ items included in the formal literature review"))` [paste0("@", KEYSv3) %>% as.list() %>% pander()]
+#' `r tufte::newthought(paste0("$N = ", length(KEYSv3), "$ items included in the formal literature review"))` [`r paste0("@", KEYSv3) %>% pander()`]
 #'
 #'
-#+ resetPanderOpts, opts.label="invisible"
+#+ resetPanderOpts
+#, opts.label="invisible"
 panderOptions("p.wrap", "_")
 panderOptions("p.sep", ", ")
 panderOptions("p.copula", " and ")
@@ -227,13 +256,10 @@ panderOptions("p.copula", " and ")
 #+ map_jrnl
 ## map-jrnl ============================================================
 
+MAP <- merge(MAP, jdat, by = "journal", all.x = TRUE)
 MAP$journal <- factor(MAP$journal)
 levels(MAP$journal) <- sapply(levels(MAP$journal), RtCap)
-MAP$journal <- droplevels(MAP$journal)
-
 MAP$jrnl <- sapply(as.character(MAP$journal), Rabbr)
-
-MAP <- merge(MAP, jdat, by = "jrnl", all.x = TRUE)
 #'
 #' \newpage
 #'
@@ -396,39 +422,39 @@ Rdotchart(
 ); axis(1, at = seq(range(ftm.j, na.rm = TRUE)[1],
                     range(ftm.j, na.rm = TRUE)[2], by = 3))
 
-MAP.j <- MAP[, c("scat", "journal")]
-names(MAP.j) <- c("Category", "Journal")
-MAP.j$Category <- ifelse(MAP.j$Category == "S3",
+MAP.jrnl <- MAP[, c("scat", "journal")]
+names(MAP.jrnl) <- c("Category", "Journal")
+MAP.jrnl$Category <- ifelse(MAP.jrnl$Category == "S3",
                          "IPV Interventions",
                          "SMW-Inclusive Research")
 pj <- mpal(1:length(unique(MAP$jrnl)), p = sci)
 library(ggparallel)
 pscat <- c("#a6afbb", pal_my[17])
 
-j.ps <- ggparset2(list("Category", "Journal"),
-                  data = MAP.j,
+parset.jrnl <- ggparset2(list("Category", "Journal"),
+                  data = MAP.jrnl,
                   method = "parset", label = TRUE,
                   label.size = 2.75, text.angle = 0, order = c(1, 1)) +
     scale_fill_manual(values = c(pscat, adjustcolor(pj, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pj), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-j.ps
+parset.jrnl
 
 
-MAP.j <- MAP[, c("scat", "journal", "cpv", "jrnl")]
+MAP.jrnl <- MAP[, c("scat", "journal", "cpv", "jrnl")]
 pcpv <- mpal(1:2)
 
-clr.cpv1 <- levels(factor(MAP.j$journal))
+clr.cpv1 <- levels(factor(MAP.jrnl$journal))
 clr.cpv <- ifelse(clr.cpv1 %in% j.cpp, pcpv[1], pcpv[2])
 
-MAP.j$cpv <- ifelse(MAP.j$cpv == "CP", "Community Psychology", "Violence-Specific")
-MAP.j$scat <- ifelse(MAP.j$scat == "S3", "IPV Interventions", "SMW-Inclusive Research")
+MAP.jrnl$cpv <- ifelse(MAP.jrnl$cpv == "CP", "Community Psychology", "Violence-Specific")
+MAP.jrnl$scat <- ifelse(MAP.jrnl$scat == "S3", "IPV Interventions", "SMW-Inclusive Research")
 
-names(MAP.j) <- c("Category", "Journal", "Discipline", "jrnl")
+names(MAP.jrnl) <- c("Category", "Journal", "Discipline", "jrnl")
 
-j.ps2 <- ggparset2(list("Category", "Journal", "Discipline"),
-                   data = MAP.j,
+parset.jrnl2 <- ggparset2(list("Category", "Journal", "Discipline"),
+                   data = MAP.jrnl,
                    method = "parset", label = TRUE,
                    label.size = 2.75, text.angle = 0, order = c(1, 0, 0)) +
     scale_fill_manual(values = c(pscat, adjustcolor(pcpv, alpha.f = 0.85),
@@ -437,7 +463,7 @@ j.ps2 <- ggparset2(list("Category", "Journal", "Discipline"),
     scale_colour_manual(values = c(pscat, adjustcolor(pcpv, alpha.f = 0.85),
                                    adjustcolor(clr.cpv, alpha.f = 0.85)),
                         guide = FALSE) +
-    thm_Rtft(ticks = FALSE, ytext = FALSE); j.ps2
+    thm_Rtft(ticks = FALSE, ytext = FALSE); parset.jrnl2
 #'
 #' \tufteskip
 #'
@@ -586,7 +612,7 @@ ct.d <- dplyr::rename(ct.d, "Category" = scat, "Design" = clab)
 
 library(ggparallel)
 pscat <- c("#a6afbb", pal_my[17])
-d.ps <- ggparset2(list("Category", "Design"),
+parset.dsgn <- ggparset2(list("Category", "Design"),
                   data = ct.d,
                   method = "parset", label = TRUE,
                   label.size = 3.5, text.angle = 0, order = c(1, 1)) +
@@ -594,7 +620,7 @@ d.ps <- ggparset2(list("Category", "Design"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pmo), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-d.ps
+parset.dsgn
 #'
 #' \newpage
 #' `r tufte::newthought("\\Large{Experimental Research Designs}")`
@@ -626,7 +652,7 @@ ct.exp <- dplyr::rename(ct.exp, "Category" = scat, "Experimental Design" = clab)
 
 library(ggparallel)
 pscat <- c("#a6afbb", pal_my[17])
-exp.ps <- ggparset2(list("Category", "Experimental Design"),
+parset.exp <- ggparset2(list("Category", "Experimental Design"),
                     data = ct.exp,
                     method = "parset", label = TRUE,
                     label.size = 3, text.angle = 0, order = c(1, 1)) +
@@ -634,7 +660,7 @@ exp.ps <- ggparset2(list("Category", "Experimental Design"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pmo), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-exp.ps
+parset.exp
 #'
 #' \newpage
 #' ## Data Collection Methodologies
@@ -667,7 +693,7 @@ ct.mo <- dplyr::rename(ct.mo, "Category" = scat, "Methodology" = clab)
 
 library(ggparallel)
 pscat <- c("#a6afbb", pal_my[17])
-mo.ps <- ggparset2(list("Category", "Methodology"),
+parset.mo <- ggparset2(list("Category", "Methodology"),
                    data = ct.mo,
                    method = "parset", label = TRUE,
                    label.size = 3.5, text.angle = 0, order = c(1, 1)) +
@@ -675,7 +701,7 @@ mo.ps <- ggparset2(list("Category", "Methodology"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pmo), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-mo.ps# + coord_flip()
+parset.mo# + coord_flip()
 #'
 #' \newpage
 #' `r tufte::newthought("\\large{QuaLitative \\textit{Methods}}")`
@@ -701,7 +727,7 @@ pql <- mpal(1:length(unique(ct.ql$clab)), p = sci)
 ct.ql <- dplyr::rename(ct.ql, "QuaLitative Methods" = clab, "Category" = scat)
 
 
-ql.ps <- ggparset2(list("Category", "QuaLitative Methods"),
+parset.ql <- ggparset2(list("Category", "QuaLitative Methods"),
                    data = ct.ql,
                    method = "parset", label = TRUE,
                    label.size = 3.5, text.angle = 0, order = c(1, 1)) +
@@ -709,7 +735,7 @@ ql.ps <- ggparset2(list("Category", "QuaLitative Methods"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pql), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-ql.ps
+parset.ql
 #'
 #' \newpage
 #'
@@ -738,7 +764,7 @@ pqt <- mpal(1:length(unique(ct.dqt$clab)), p = sci)
 ct.dqt <- dplyr::rename(ct.dqt, "QuaNTitative Design" = clab, "Category" = scat)
 
 
-dqt.ps <- ggparset2(list("Category", "QuaNTitative Design"),
+parset.dqt <- ggparset2(list("Category", "QuaNTitative Design"),
                     data = ct.dqt,
                     method = "parset", label = TRUE,
                     label.size = 3.5, text.angle = 0, order = c(1, 1)) +
@@ -746,7 +772,7 @@ dqt.ps <- ggparset2(list("Category", "QuaNTitative Design"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pqt), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-dqt.ps
+parset.dqt
 #'
 #'
 #' \newpage
@@ -777,7 +803,7 @@ pqt <- mpal(1:length(unique(ct.qt$clab)), p = sci)
 ct.qt <- dplyr::rename(ct.qt, "QuaNTitative Methods" = clab, "Category" = scat)
 
 
-qt.ps <- ggparset2(list("Category", "QuaNTitative Methods"),
+parset.qt <- ggparset2(list("Category", "QuaNTitative Methods"),
                    data = ct.qt,
                    method = "parset", label = TRUE,
                    label.size = 3.5, text.angle = 0, order = c(1, 1)) +
@@ -785,7 +811,7 @@ qt.ps <- ggparset2(list("Category", "QuaNTitative Methods"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pqt), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-qt.ps
+parset.qt
 #'
 #' \newpage
 #' `r tufte::newthought("\\large{Archival/Secondary Data Sources}")`
@@ -814,7 +840,7 @@ prcrd <- mpal(1:length(unique(ct.rcrd$clab)), p = sci)
 ct.rcrd <- dplyr::rename(ct.rcrd, "Archival Data Source" = clab, "Category" = scat)
 
 
-rcrd.ps <- ggparset2(list("Category", "Archival Data Source"),
+parset.rcrd <- ggparset2(list("Category", "Archival Data Source"),
                      data = ct.rcrd,
                      method = "parset", label = TRUE,
                      label.size = 3.5, text.angle = 0, order = c(1, 1)) +
@@ -822,7 +848,7 @@ rcrd.ps <- ggparset2(list("Category", "Archival Data Source"),
                       guide = FALSE) +
     scale_colour_manual(values = rev(c(rev(pscat), prcrd)), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-rcrd.ps
+parset.rcrd
 #'
 #' \newpage
 #'
@@ -853,7 +879,7 @@ pmm <- mpal(1:length(unique(ct.dmm$clab)), p = sci)
 ct.dmm <- dplyr::rename(ct.dmm, "Mixed-Methodological Design" = clab, "Category" = scat)
 
 
-dmm.ps <- ggparset2(list("Category", "Mixed-Methodological Design"),
+parset.dmm <- ggparset2(list("Category", "Mixed-Methodological Design"),
                     data = ct.dmm,
                     method = "parset", label = TRUE,
                     label.size = 3.5, text.angle = 0, order = c(-1,-1)) +
@@ -861,7 +887,7 @@ dmm.ps <- ggparset2(list("Category", "Mixed-Methodological Design"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pmm), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-dmm.ps
+parset.dmm
 #' \newpage
 #' `r tufte::newthought("\\large{Mixed (QuaLitative \\& QuaNTitative) \\textit{Methods}}")`
 #'
@@ -890,7 +916,7 @@ pmm <- mpal(1:length(unique(ct.mm$clab)), p = sci)
 ct.mm <- dplyr::rename(ct.mm, "Mixed-Methods" = clab, "Category" = scat)
 
 
-mm.ps <- ggparset2(list("Category", "Mixed-Methods"),
+parset.mm <- ggparset2(list("Category", "Mixed-Methods"),
                    data = ct.mm,
                    method = "parset", label = TRUE,
                    label.size = 3.5, text.angle = 0, order = c(-1,-1)) +
@@ -898,7 +924,7 @@ mm.ps <- ggparset2(list("Category", "Mixed-Methods"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pmm), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-mm.ps
+parset.mm
 #'
 #' \newpage
 #' ## Target Populations & Sampling Frames
@@ -938,3 +964,6 @@ Rdotchart(
 #' \newpage
 #'
 #' # References`r Rcite_r(file = "../auxDocs/REFs.bib", footnote = TRUE)`
+#'
+#' \refs
+#'

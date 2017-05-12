@@ -1,0 +1,17 @@
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 187048.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 187048.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 183394.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 183394.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 129408.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 129408.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 167673.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 167673.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 133023.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 133023.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 141810.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 141810.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 141810.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 147290.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 147290.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 97502.0 AND `cid` = 90;
+SELECT `seltext` FROM `coding` WHERE `selfirst` = 97502.0 AND `cid` = 90;

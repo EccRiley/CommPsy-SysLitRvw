@@ -91,3 +91,11 @@ INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color
 INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color`) VALUES ("NON-US",?,"Riley","Wed Feb 22 12:36:57 2017",?,91,1,?);
 INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color`) VALUES ("NOT_AVAILABLE",?,"Riley","Wed Feb 22 12:36:57 2017",?,92,1,?);
 INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color`) VALUES ("NON-EMPIRICAL",?,"Riley","Wed Feb 22 12:36:57 2017",?,93,1,?);
+
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("LVL1","Individual","Riley","Thu May 11 12:36:57 2017",121,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("LVL2","Relationship","Riley","Thu May 11 12:36:57 2017",122,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("LVL3","Community","Riley","Thu May 11 12:36:57 2017",123,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("LVL4","Societal","Riley","Thu May 11 12:36:57 2017",124,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SYS1","Micro","Riley","Thu May 11 12:36:57 2017",125,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SYS2","Meso-Exo","Riley","Thu May 11 12:36:57 2017",126,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SYS3","Exo-Macro","Riley","Thu May 11 12:36:57 2017",127,1);

@@ -8,14 +8,15 @@
 # SETUP --------------------------------------------------------------
 
 source("bibs.R", echo = FALSE, print.eval = FALSE, verbose = FALSE)
-knitr::opts_chunk$set(fig.path = "graphics/bibkeys/rplot-")#, echo = TRUE)
+knitr::opts_chunk$set(fig.path = "graphics/bibkeys/rplot-",
+                      fig.show = 'asis')#, echo = TRUE)
 # options(warn = -1)
 #'
 #' \Frule
 #'
 #' \newpage
 #'
-#+ maptl, fig.fullwidth=TRUE, fig.height=4, out.width='1.1\\linewidth', fig.align='left'
+#+ maptl, fig.fullwidth=TRUE, fig.height=4, out.width='\\linewidth', fig.align='center'
 
 # MAPtl -------------------------------------------------------------------
 MAP <- MAP[, c("bibkey", "year", "journal", "caseid", "scat", "jrnl", "cpv", "j.loc", "j.year", "SJR", "Hindex", "count", "prop", "title")]
@@ -107,6 +108,7 @@ inv <- MAPtl[MAPtl$scat == "S3", ]
 
 tl.inv <- inv[order(inv$year), c("bibkey", "year", "cpv", "journal", "title"), drop = FALSE] %>% droplevels()
 tl.inv$bibkey <- paste0("@", tl.inv$bibkey)
+tl.inv$journal <- paste0("_", tl.inv$journal, "_")
 tl.inv <- dplyr::rename(tl.inv, "Study" = bibkey, "Journal" = journal, "Year Published" = year)
 rownames(tl.inv) <- NULL
 
@@ -137,7 +139,7 @@ gg.invtl <- ggplot(inv, aes(x = year, y = 0, colour = cpv)) +
               size = 2.5, family = "serif", fontface = "bold")
 gg.invtl
 
-tl.inv[, c(1, 4, 2)] %>% kable(caption = "IPV Interventions Research Timeline")
+tl.inv[, c(1, 4)] %>% kable(caption = "IPV Interventions Research Timeline")
 
 #'
 #' \newpage
@@ -280,6 +282,7 @@ smw <- MAPtl[MAPtl$scat == "S4", ]
 tl.smw <- smw[order(smw$year), c("bibkey", "year", "cpv", "journal", "title")] %>% droplevels()
 
 tl.smw$bibkey <- paste0("@", tl.smw$bibkey)
+tl.smw$journal <- paste0("_", tl.smw$journal, "_")
 tl.smw <- dplyr::rename(tl.smw, "Study" = bibkey, "Journal" = journal, "Year Published" = year)
 rownames(tl.smw) <- NULL
 
@@ -307,7 +310,7 @@ gg.smwtl <- ggplot(smw, aes(x = year, y = 0, colour = journal)) +
               size = 2.5, family = "serif", fontface = "bold")
 gg.smwtl
 
-tl.smw[, c(1, 4, 2)] %>% kable(caption = "IPV Interventions Research Timeline")
+tl.smw[, c(1, 4)] %>% kable(caption = "IPV Interventions Research Timeline")
 
 
 #'
@@ -418,3 +421,6 @@ pander(lvls.mm)
 #' \newpage\onehalfspacing
 #'
 #' # References
+#'
+#' \refs
+#'

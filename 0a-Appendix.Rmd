@@ -63,7 +63,7 @@ The tables and figures provided in this appendix represent the qualitative compa
 
 `r Rcite_r(file = "../auxDocs/REFs.bib", footnote = FALSE, Rnote = "This process was conducted using")`
 
-Detailed source code for this process is publicly available in a GitHub repository owned and maintained by the author, which can be found at the following web address: \url{https://github.com/EccRiley/comps-git}.
+Detailed source code for this process is publicly available in a GitHub repository owned and maintained by the author, which can be found at the following web address: \url{https://github.com/EccRiley/CommPsy-SysLitRvw}.
 
 \Frule
 

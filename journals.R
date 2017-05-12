@@ -22,7 +22,7 @@ Rabbr <- function(x) {
     return(s)
 }
 
-j.all <- c("Action Research",
+j.map <- c("Action Research",
            "American Journal of Community Psychology",
            "American Journal of Health Promotion",
            "American Journal of Orthopsychiatry",
@@ -57,7 +57,7 @@ j.all <- c("Action Research",
            "Violence Against Women",
            "Violence and Victims",
            "Journal of Family Violence")
-j.all <- sapply(j.all, tolower, USE.NAMES = FALSE)
+j.map <- sapply(j.map, tolower, USE.NAMES = FALSE)
 #'
 #+ tidy=TRUE, echoRule=NULL, Rrule=NULL, Rerule=TRUE
 
@@ -69,24 +69,23 @@ SJR <- c(0.33, 1.237, 0.821, 0.756, 2.764, 2.52, NA, NA, 0.47, 0.467, NA, NA, NA
 
 Hindex <- c(15, 83, 72, 69, 154, 196, NA, NA, 28, 51, NA, NA, NA, 72, 32, 78, 44, 15, 93, 21, 36, NA, 89, 65, 48, 66, 8, 177, NA, 35, 15, 78, 66, 64, 56) ## also retrieved from http://www.scimagojr.com ##
 
-jdat <- data.frame(j.all, j.loc, j.year, SJR, Hindex)
+jdat.all <- data.frame(journal = j.map, j.loc, j.year, SJR, Hindex)
 
-jdat$jrnl <- sapply(as.character(jdat$j.all), Rabbr)
 
 jdat.v <- read.csv("data/ipvJournalsSearch.csv")[c(-1, -6, -7), ]
 ## Exclude Theses and Dissertations ##
 
 m.cnt <- mean(jdat.v[, 2])
 
-jdat.v$j <- as.integer(jdat.v$journal)
+# jdat.v$j <- as.integer(jdat.v$journal)
 
-jdat.v$jrnl <- sapply(as.character(jdat.v$journal), Rabbr)
+jdat.v$journal <- sapply(as.character(jdat.v$journal), tolower)
+jdat.v$journal <- gsub(" & ", " and ", jdat.v$journal)
 
 jv.sum <- sum(jdat.v$count)
 
-jdat.v$prop <- jdat.v$count/jv.sum
-
-jdat <- merge(jdat.v, jdat)[, c("jrnl", "count", "prop", "j.loc", "j.year", "SJR", "Hindex")]
+jdat <- merge(jdat.v, jdat.all)[, c("journal", "j.loc", "j.year", "SJR", "Hindex")]
+# jdat$jrnl <- sapply(as.character(jdat$journal), Rabbr)
 
 
 jfv.n <- jdat.v[jdat.v$j == 59, 2]

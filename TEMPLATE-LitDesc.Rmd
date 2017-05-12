@@ -1,0 +1,58 @@
+---
+title: Literature Description & Data Extraction Template
+author: Rachel M. Smith
+date: " "
+---
+
+\Frule
+
+# Hypotheses / Research Question(s) (RQs) / Purpose(s)
+
+# Target Population(s) & Sampling Frame(s)
+
+## Target Population(s) (By Level of Specificity)
+
+- Includes
+- Excludes
+
+## Sampling Frame(s) (By Level of Specificity)
+
+- Includes
+- Excludes
+
+# Sampling Method(s) (By Sampling Frame Level)
+
+# Study Design(s)
+
+\hspace*{2em} $\boxdot$ Experimental
+
+\parindent=2.25em\ $\boxdot$ Longitudinal
+\parindent=2.25em\ $\boxdot$ Pre-Post
+\parindent=2.25em\ $\boxdot$ RCT
+\parindent=3.25em\ $\boxdot$ RCT - Longitudinal
+\parindent=3.25em\ $\boxdot$ RCT - Pre-Post
+\parindent=1em\ $\boxdot$ Quasi-Experimental
+\parindent=1em\ $\boxdot$ Cross-Sectional
+
+# Methodology
+
+\hspace*{2em}\ $\boxdot$ Qualitative
+
+\parindent=1em\ $\boxdot$ Quantitative
+\parindent=1em\ $\boxdot$ Mixed-Methods
+
+# Data Collection Method(s) / Data Source(s) (By Sampling Frame Level)
+
+## Measure(s) (By Sampling Frame Level & Methodology [if applicable])
+
+## Archival / Secondary Data Source(s) (If Applicable)
+
+# Data Analytic Approach(es) (By Sampling Frame Level & Methodology)
+
+# Key Findings
+
+## Sampling Characteristics
+
+## Findings (By Hypothesis / RQ)
+
+# Ecological Levels of Analysis
