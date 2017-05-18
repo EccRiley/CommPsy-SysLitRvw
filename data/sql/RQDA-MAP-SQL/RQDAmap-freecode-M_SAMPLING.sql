@@ -1,0 +1,11 @@
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_PROB","Probability/Random Sampling","rachel97","Thu May 11 12:36:57 2017",181,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_PURP","Purposive Sampling","rachel97","Thu May 11 12:36:57 2017",182,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_CONV","Convenience Sampling","rachel97","Thu May 11 12:36:57 2017",183,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_PURP-PROB","Purposive-Probability Sampling","rachel97","Thu May 11 12:36:57 2017",184,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_MLTI","Multiple sampling methods","rachel97","Thu May 11 12:36:57 2017",185,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_ARCHV","Not Applicable (Archival/Secondary Data)","rachel97","Thu May 11 12:36:57 2017",186,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_SNOW","Snowball Sampling","rachel97","Thu May 11 12:36:57 2017",187,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_SNOW","Snowball Sampling","rachel97","Thu May 11 12:36:57 2017",187,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_STRA","Stratified Random Sampling","rachel97","Thu May 11 12:36:57 2017",188,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_MVAR","Maximum Variation Sampling","rachel97","Thu May 11 12:36:57 2017",189,1);
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_RDD","Random Digit Dialing","rachel97","Thu May 11 12:36:57 2017",190,1);

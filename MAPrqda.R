@@ -105,6 +105,18 @@ codecats2 <-
         freecode.id = treecode.cid AND treecode.status = 1 ORDER BY `catid`"
     )
 
+cdbk1 <-
+    RQDAQuery("SELECT `name` AS `cat`, `memo` AS `catlab`, `catid`
+              FROM `codecat`
+              ORDER BY `catid`")
+
+cdbk2 <- RQDAQuery(
+    "SELECT treecode.cid AS cid, treecode.catid AS catid,
+    freecode.name AS code, freecode.memo AS clab
+    FROM `treecode`
+    INNER JOIN `freecode` WHERE
+    freecode.id = treecode.cid AND treecode.status = 1 ORDER BY `catid`"
+)
 #'
 #' # Data Wrangling \& Cleaning
 #'
@@ -134,6 +146,7 @@ ctbl2 <- merge(caseids, ctbl1, by.x = "selfirst", by.y = "index1")
     ## returned from "getCodingTable()" ("ctbl1"; see queries above) ##
 
 codecats <- merge(codecats2, codecats1, by = "catid")
+cdbk <- merge(cdbk2, cdbk1, by = "catid")
 
 ctbl <- merge(ctbl2, codecats, by = c("cid", "code"))
 ctbl <-

@@ -1,14 +1,19 @@
-file <- "MAP-v6 copy.Rmd"
+file <- "MAP-v9-untex.Rmd"
 ex <- data.frame(
-	a = c("`\\{\\{(.*?) \\}\\}`",
+	a = c("`\\{\\{(.*?)\\}\\}`",
 		"\\\\chisq",
 		"\\\\url\\{(.*?)\\}",
 		"\\\\%",
         "\\\\refs",
 		"\\\\doublespacing",
 		"\\\\Frule",
+        "^$^$^$",
 		"^$^$^$",
-		"^$^$^$"),
+        "\\.pdf",
+        "\\\\rowgroup\\[.*?\\]\\{(.*?)\\}",
+        "\\\\part\\{(.*)\\}",
+        "\\\\&",
+        "\\\\tufteskip"),
 	b = c("\\1",
 		"\\\\chi^{2}",
 		"\\1",
@@ -17,9 +22,14 @@ ex <- data.frame(
 		"",
 		"",
 		"",
-		""))
+		"",
+        "\\.png",
+        "\\1",
+        "# \\1",
+        "&",
+        ""))
 
 
 library(Riley)
 
-Runtex(file = file, addlexpr = ex, cat = TRUE, catFile = "MAP-v6-untex.Rmd")
+Runtex(file = file, addlexpr = ex, cat = TRUE, catFile = "MAP-v9-docx.Rmd")

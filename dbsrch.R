@@ -53,10 +53,10 @@ db.n <- within(db.n, {
 })
 
 dbsrch <- data.frame(n = c("1.", "2.", "3.", "4.", "5.", "6."),
-                     srch = c("\\textbf{IPV, Domestic Violence, or Partner Abuse} - \\textit{General}",
+                     srch = c("\\textsc{IPV - General}",
                               "--- \\textit{Interventions}",
                               "--- \\textit{Intervention Evaluations}",
-                              "\\textbf{Female Same-Sex/Same-Gender IPV, Domestic Violence, or Partner Abuse} - \\textit{General}",
+                              "\\textsc{Female Same-Sex/Same-Gender IPV - General}",
                               "--- \\textit{Interventions}",
                               "--- \\textit{Intervention Evaluations}"),
                      nres = c(
@@ -76,9 +76,10 @@ dbsrch <- data.frame(n = c("1.", "2.", "3.", "4.", "5.", "6."),
 
 names(dbsrch) <- c(" ",
                    "Database Search",
-                   "\\footnotesize{$Range_{N_{Results}}$ (\\textit{Database with most results})}") #,
+                   "\\footnotesize{$Range_{N_{Results}}$}\n(\\textit{\\scriptsize{Database with most results})}") #,
                    # "Database with most results")
 
 
 # names(dbsrch) <- c("", "Database Search", "$Range_{N_{Results}}$")
-kable(dbsrch, caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned {#tbl:dbsrch}", align = c("r", "l", "c"))
+# kable(dbsrch, caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned {#tbl:dbsrch}", align = c("r", "l", "c"), escape = T)
+# pander(dbsrch, caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned {#tbl:dbsrch}", justify = c("right", "left", "left"), escape = T)

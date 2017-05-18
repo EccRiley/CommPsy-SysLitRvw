@@ -223,3 +223,8 @@ knitr::opts_chunk$set(
     fig.show = 'hold',
     results = 'asis'
 )
+
+
+// FOR SQL COMMANDS INVOLVING MULTI-LINE STRINGS (replace "UPDATE" with whatever the index command should be) //
+\n([^?UPDATE])
+\\n$1

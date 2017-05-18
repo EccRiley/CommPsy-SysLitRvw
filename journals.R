@@ -77,8 +77,6 @@ jdat.v <- read.csv("data/ipvJournalsSearch.csv")[c(-1, -6, -7), ]
 
 m.cnt <- mean(jdat.v[, 2])
 
-# jdat.v$j <- as.integer(jdat.v$journal)
-
 jdat.v$journal <- sapply(as.character(jdat.v$journal), tolower)
 jdat.v$journal <- gsub(" & ", " and ", jdat.v$journal)
 
@@ -87,11 +85,12 @@ jv.sum <- sum(jdat.v$count)
 jdat <- merge(jdat.v, jdat.all)[, c("journal", "j.loc", "j.year", "SJR", "Hindex")]
 # jdat$jrnl <- sapply(as.character(jdat$journal), Rabbr)
 
+# jdat.v$j <- as.numeric(factor(jdat.v$journal))
 
-jfv.n <- jdat.v[jdat.v$j == 59, 2]
-jiv.n <- jdat.v[jdat.v$j == 61, 2]
-vaw.n <- jdat.v[jdat.v$j == 94, 2]
-jvv.n <- jdat.v[jdat.v$j == 96, 2]
+jfv.n <- jdat.v[3, 2]
+jiv.n <- jdat.v[2, 2]
+vaw.n <- jdat.v[4, 2]
+jvv.n <- jdat.v[5, 2]
 jv.n <- rbind(jiv.n, jfv.n, vaw.n, jvv.n)
 
 jdat.v.m <- jdat.v[jdat.v[,2] >= m.cnt, ]
