@@ -148,6 +148,21 @@ ctbl2 <- merge(caseids, ctbl1, by.x = "selfirst", by.y = "index1")
 codecats <- merge(codecats2, codecats1, by = "catid")
 cdbk <- merge(cdbk2, cdbk1, by = "catid")
 
+    ## RECODE ALL THE THINGS! (using `car::recode()`) ##
+
+rec.code2clab <- paste0("\"", cdbk$code, "\" = \"", cdbk$clab, "\"", collapse = "; ")
+rec.clab2code <- paste0("\"", cdbk$clab, "\" = \"", cdbk$code, "\"", collapse = "; ")
+rec.code2cid <- paste0("\"", cdbk$code, "\" = \"", cdbk$cid, "\"", collapse = "; ")
+rec.cid2code <- paste0("\"", cdbk$cid, "\" = \"", cdbk$code, "\"", collapse = "; ")
+rec.cid2clab <- paste0("\"", cdbk$cid, "\" = \"", cdbk$clab, "\"", collapse = "; ")
+rec.clab2cid <- paste0("\"", cdbk$clab, "\" = \"", cdbk$cid, "\"", collapse = "; ")
+rec.cat2catlab <- paste0("\"", cdbk$cat, "\" = \"", cdbk$catlab, "\"", collapse = "; ")
+rec.catlab2cat <- paste0("\"", cdbk$catlab, "\" = \"", cdbk$cat, "\"", collapse = "; ")
+rec.cat2catid <- paste0("\"", cdbk$cat, "\" = \"", cdbk$catid, "\"", collapse = "; ")
+rec.catid2cat <- paste0("\"", cdbk$catid, "\" = \"", cdbk$cat, "\"", collapse = "; ")
+rec.catid2catlab <- paste0("\"", cdbk$catid, "\" = \"", cdbk$catlab, "\"", collapse = "; ")
+rec.catlab2catid <- paste0("\"", cdbk$catlab, "\" = \"", cdbk$catid, "\"", collapse = "; ")
+
 ctbl <- merge(ctbl2, codecats, by = c("cid", "code"))
 ctbl <-
     ctbl[, c("caseid", "case", "RM", "scat", "cid", "code", "catid", "cat")] #"clab",

@@ -1,4 +1,4 @@
-file <- "MAP-v9-untex.Rmd"
+file <- "MAP-v9-1-untex.Rmd"
 ex <- data.frame(
 	a = c("`\\{\\{(.*?)\\}\\}`",
 		"\\\\chisq",

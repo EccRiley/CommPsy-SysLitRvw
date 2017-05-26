@@ -193,3 +193,62 @@
 # aledges <- cbind(as.character(alnet$clab), alnet$to)
 # allabs0 <- unique(aledges1[, 1])
 # alrec <- paste0("'", allabs0, "' = '.", allabs0, "'; ", collapse = "")
+
+# cbaft <- with(cba, {ftable(code, bibkey)}) %>% data.frame()
+# cbaft <- cbaft[cbaft$Freq > 0, ]
+# cbaft
+# cbaft <- with(cba, {ftable(code, bibkey)}) %>% data.frame()
+# cbaft <- cbaft[cbaft$Freq>0,]
+# cbaft
+# cbaft <- with(cba, {ftable(clab, bibkey)}) %>% data.frame()
+# cbaft <- cbaft[cbaft$Freq>0,]
+# cbaft
+
+# reccb <- paste0("'", cbk$code, "' = '", seq(1:nrow(cbk)), "'", collapse = "; ")
+# alrec <- c(alrec0, alrec)
+# aln1 <- car::recode(alnet[, 1], alrec2) %>% as.character()
+
+# aln <- cbind(aln1, alnet[, 2])
+
+# aln[, 1] <- factor(aln[, 1])
+
+# al$lvl <- as.character(al$lvl)
+# allabs1 <- car::recode(allabs0, alreca)
+# allabs2 <- car::recode(allabs1, alrec3)
+
+# V(aledges0)$name <- av.ar
+
+# allabs <- sort(c(unique(aledges[, 1]), unique(aledges[, 2])))
+
+# allabs2 <- car::recode(allabs1, alrec3)
+# allabs3 <- ifelse(grepl("\\(L\\d\\) \\w+", allabs1),
+#                   gsub("\\((L\\d)\\) \\w+",
+#                        "\\1", allabs1), allabs1)
+
+# allabs2[1:4] <- sapply(allabs2, 1:4, noquote)
+
+# avalsdf2 <- Rtdf(lcba.a$id)
+# avnlvls <- apply(lcba.a[, 2:5], 1, sum)
+# avalsdf <- data.frame(lcba.a, avnlvls) ## "nlvls" = number of eco levels each code crosses per case (bibkey) ##
+
+# avals <- V(aledges0)$Freq
+# aarcs <- .25 * (avals %>% matrix())
+# aarcs <- ifelse(aarcs == 0, NA, aarcs) %>% na.omit()
+
+# allabs <- c(unique(aledges[, 1]), unique(aledges[, 2]))
+
+# av.all <- V(aledges0)$name
+# av.lvl <- av.all[av.all %in% elvl]
+# av.a <- av.all[!av.all %in% elvl]
+
+# alreca <- paste0("'", av.a, "' = 'A-", seq(1:length(av.a)), "'", collapse = "; ")
+
+# av.ar <- car::recode(av.a, alreca)
+
+# allabs0 <- c(unique(aledges[, 1]), unique(aledges[, 2]))
+# allabs1 <- car::recode(allabs0, reccb)
+
+# alrec2 <- paste0("'", unique(alnet[, 2]), "' = '", elvl, "'", collapse = "; ")
+# lvl <- gsub("\\.", "", lvl)
+
+# alnet[, "clab"] <- gsub("\\n", "", alnet[, "clab"])

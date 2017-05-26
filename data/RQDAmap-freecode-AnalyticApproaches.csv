@@ -1,0 +1,49 @@
+code,label,cat,catid
+"QTDESC","Quantitative Descriptives","A-QT",18
+"X2D","Chi-Square ($\chi^{2}$) Difference Test","A-QT",18
+"LGR","Logistic Regression","A-QT",18
+"CNTA","Content Analysis","A-QL",19
+"LRT","Likelihood Ratio Tests ($\chi^{2}$)","A-QT",18
+"CORR","Correlations","A-QT",18
+"MLTV","Multivariate Analyses","A-QT",18
+"MOD","Moderation/Conditional Process Analysis","A-QT",18
+"MED","Mediation Analysis","A-QT",18
+"TTEST","T-Tests (Mean Differences)","A-QT",18
+"OR","Odds Ratios (OR)","A-QT",18
+"THMA","Thematic Analysis","A-QL",19
+"GT-QL","Grounded Theory (GT)-Based Analysis","A-QL",19
+"GT-QT","Grounded Theory (GT)-Based Analysis","A-QT",18
+"XCASE","Cross-Case Analysis","A-QL",19
+"LNR","Linear Regression","A-QT",18
+"HLNR","Hierarchical Linear Regression","A-QT",18
+"STRGR","Step-Wise Regression","A-QT",18
+"X2GF","Chi-Square ($\chi^{2}$) Goodness of Fit","A-QT",18
+"SEM","Structural Equation Modeling (SEM)","A-QT",18
+"MLM","Multi-Level/Hierarchical Linear Modeling (MLM/HLM)","A-QT",18
+"MEM","Mixed-Effects Modeling","A-QT",18
+"CLUST","Cluster Analysis","A-QT",18
+"PHCOMP","Post-Hoc Comparisons","A-QT",18
+"OLSRG","Ordinary Least Squares Regression","A-QT",18
+"ANOVA","Analysis of Variance (ANOVA)","A-QT",18
+"MANOVA","Multivariate Analysis of Variance (MANOVA)","A-QT",18
+"ANCOVA","Analysis of Covariance (ANCOVA)","A-QT",18
+"MANCOVA","Multivariate Analysis of Covariance (MANCOVA)","A-QT",18
+"RMANOVA","Repeated-Measures Analysis of Variance (ANOVA)/Covariance (ANCOVA)","A-QT",18
+"CCA","Constant Comparative Analysis","A-QL",19
+"QLDESC","Qualitative Descriptive Analysis","A-QL",19
+"RRR","Relative Risk Ratios","A-QT",18
+"PATH","Path Analysis","A-QT",18
+"CFA","Confirmatory Factor Analysis (CFA)","A-QT",18
+"EFA","Exploratory Factor Analysis (EFA)","A-QT",18
+"BOOT","Boostrapping","A-QT",18
+"MLE","Maximum Likelihood Estimation (MLE)","A-QT",18
+"SEM-FULL","Full SEM (Measurement & Structural Models)","A-QT",18
+"INDEFF","Indirect-Effects","A-QT",18
+"MGM","Multi-Group Modeling","A-QT",18
+"LVM","Latent Variable Modeling","A-QT",18
+"IRT","Item Response Theory","A-QT",18
+"FAINV","Factorial Invariance Testing Across Groups","A-QT",18
+"WLSE","Weighted Least Squares Estimation","A-QT",18
+"VARE","Variance Adjusted Estimation","A-QT",18
+"MLR","Maximum Likelihood Estimation - Assuming Missing at Random","A-QT",18
+"THMA-GRP","Grouped Thematic Analysis","A-QL",19

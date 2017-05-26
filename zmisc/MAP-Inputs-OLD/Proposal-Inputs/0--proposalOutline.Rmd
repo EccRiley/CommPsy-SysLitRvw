@@ -1,0 +1,20 @@
+---
+title: "Comprehensive Examination Proposal"
+author: "Rachel M. Smith"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+---
+
+
+# Comprehensive Proposal Outline
+
+`r tufte::newthought("\\textbf{I.} \\href{0-PersonalStatement.Rmd}{Personal Statement}")`
+
+`r tufte::newthought("\\textbf{II.} \\href{A-coursework.Rmd}{Foundational Coursework}")`
+
+`r tufte::newthought("\\textbf{III.} \\href{B-rational.Rmd}{Rational \\& Significance}")`
+
+`r tufte::newthought("\\textbf{IV.} \\href{C-MAP.Rmd}{Major Area Paper (MAP) Outline}")`
+
+`r tufte::newthought("\\textbf{V.} \\href{D-dissertationTopic.Rmd}{Relevance to Dissertation Topic}")`
+
+`r tufte::newthought("\\textbf{VI.} \\href{E-ReadingList.Rmd}{Reading List}")`

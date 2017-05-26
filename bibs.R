@@ -665,7 +665,7 @@ dimnames(ftm.exp) <- list("Experimental Design" = levels(ct.exp$clab),
 sum.exp <- apply(ftm.exp, 1, sum)
 ftm.exp <- ifelse(ftm.exp == 0, NA, ftm.exp)
 ftm.expp <- cbind(ftm.exp, "**Total**" = sum.exp)
-rownames(ftm.expp) <- gsub("\\n", "", rownames(ftm.expp))
+# rownames(ftm.expp) <- gsub("\\n", "", rownames(ftm.expp))
 ftm.expp %>% kable(align = rep("r", 3),
                    caption = "Experimental Research Designs")
 
@@ -844,7 +844,7 @@ dimnames(ftm.aql) <- list("QuaLitative Data Analytic Approaches" = levels(ct.aql
 sum.aql <- apply(ftm.aql, 1, sum)
 ftm.aql <- ifelse(ftm.aql == 0, NA, ftm.aql)
 ftm.aqlp <- cbind(ftm.aql, "**Total**" = sum.aql)
-rownames(ftm.aqlp) <- gsub("\\n", "", rownames(ftm.aqlp))
+# rownames(ftm.aqlp) <- gsub("\\n", "", rownames(ftm.aqlp))
 ftm.aqlp %>% kable(align = rep("r", 3),
                     caption = "QuaLitative Analytic Approaches")
 
@@ -1752,6 +1752,10 @@ arcplot(sedges, col.arcs = hsv(0, 0, 0.1, 0.06), pch.nodes = 21, bg.nodes = adju
 #'
 cba <- cb[cb$cat == "A-QT" | cb$cat == "A-QL",
           c("bibkey", "scat", "cat", "code", "clab")] %>% droplevels()
+cba <- cba[!duplicated(cba), ]
+# x <- cba[, c("bibkey", "code")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
 cbaqt <- cba[cba$cat == "A-QT", ] %>% droplevels()
 cbaql <- cba[cba$cat == "A-QL", ] %>% droplevels()
 
@@ -1801,11 +1805,8 @@ alnet4 <- na.omit(alnet4)
 names(alnet4) <- c("from", "to", "Freq")
 
 alnet0 <- rbind(alnet1, alnet2, alnet3, alnet4)
-alnet01 <- merge(alnet0, lcba[, c("code", "clab")], by.x = "from", by.y = "code")
-alnet <- alnet01[!duplicated(alnet01), c("from", "to", "clab", "Freq")]
-
-avert <- alnet[, 3:4]
-avert <- avert[!duplicated(avert), ]
+alnet0$clab <- recode(alnet0$from, rec.code2clab) ## "rec.code2clab" is from "MAPrqda.R"
+alnet <- alnet0[!duplicated(alnet0), c("from", "to", "clab", "Freq")]
 
 #+ alnet_llabs
 library(car)
@@ -1843,7 +1844,7 @@ alblsize <- c(log(V(alnetg)$size[1:4])*0.125, log(V(alnetg)$size[5:aindex.g])*0.
 #'
 #+ echo=FALSE
 # panderOptions("p.wrap", "")
-alabs <- gsub("\\n", "", alabs)
+# alabs <- gsub("\\n", "", alabs)
 alabs <- gsub("&", "\\\\&", alabs)
 # alabs1 <- paste0(alabs[1:length(alabs)-1], sep = ", ")
 # deparse(alabs1)
@@ -1863,7 +1864,7 @@ plot(alnetg, rescale = T, layout = lal3, edge.arrow.size = .2, vertex.label.colo
 alnet.pr <- ftable(alnet[, 2:3], row.vars = 2) %>% as.matrix() #(nrow = nrow(alfrq), byrow = FALSE)
 dimnames(alnet.pr) <- list(levels(factor(alnet$clab)), gsub("\\.", "", levels(factor(alnet$to))))
 alnet.pr <- ifelse(alnet.pr >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(alnet.pr) <- gsub("\\n", "", rownames(alnet.pr))
+# rownames(alnet.pr) <- gsub("\\n", "", rownames(alnet.pr))
 rownames(alnet.pr) <- gsub("&", "\\\\&", rownames(alnet.pr))
 #'
 kable(alnet.pr, caption = "Analytic approaches used across ecological levels of analysis", escape = F)

@@ -1,0 +1,58 @@
+# III. Systematic Literature Review Methodology
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE, fig.show='none', fig.keep='none'}
+source("bibs.R")
+knitr::opts_chunk$set(echo=FALSE)
+```
+
+\doublespacing
+
+The purpose of this review is to provide a critical methodological overview of the available empirical research related to intimate partner violence (IPV) intervention and prevention efforts through a community psychological lens. As such, this review is specifically focused on the _applied_ methodologies employed within community-based and action-oriented research frameworks. This overarching purpose stems primarily from the goal of informing IPV intervention and prevention approaches specific to same-gender IPV perpetration among female-identified individuals. However, while there is currently a burgeoning body of research related to the causes, correlates, and consequences of IPV within the context of women's same-gender relationships, the below-described literature searches indicated that there is no currently available empirical evaluation research examining interventions implemented to address IPV within such contexts.
+
+## Literature search strategy
+
+<!-- _B. Focal data bases_ -->
+
+Six separate literature searches were conducted using the [_PsycINFO_](http://www.apa.org/pubs/databases/psycinfo/) and [_Web of Science_](http://wokinfo.com) online citation indexing databases via the [Portland State University library website](library.pdx.edu):
+
+<!-- _C. Key search terms_ -->
+
+\singlespacing
+
+1. _Intimate Partner Violence, Domestic Violence, or Partner Abuse - General_
+2. _Intimate Partner Violence, Domestic Violence, or Partner Abuse Interventions_
+3. _Intimate Partner Violence, Domestic Violence, or Partner Abuse Intervention Evaluations_
+4. _Female Same-Sex/Same-Gender Domestic Violence, or Partner Abuse - General_
+5. _Female Same-Sex/Same-Gender Domestic Violence, or Partner Abuse Interventions_
+6. _Female Same-Sex/Same-Gender Domestic Violence, or Partner Abuse Intervention Evaluations_
+
+\doublespacing
+
+<!-- D. Inclusion/exclusion criteria -->
+
+Because this review is not intended to provide a cross-national examination of IPV interventions research, each of the above literature searches was restricted to empirical studies conducted within the United States. In addition, to focus the review around a community psychological framework and intimate partner violence, results were initially confined to articles published in scholarly peer-reviewed journals specific to Community Psychology. The list Community Psychology journals included _The American Journal of Community Psychology_ and the additional publications, \edit{provided in Table [\todot]},<!-- !!! TODO: map.cp !!! --> endorsed by the Society for Community Research and Action (SCRA) as related to Community Psychology [@scra2017other]. This restriction yielded a limited number of empirical articles specific to intimate partner violence interventions in general, and yielded zero (0) IPV intervention-related studies specifically inclusive of sexual minority women. Thus, the literature searches were revised to also include articles published in \edit{any of the following violence-specific publications}: _Journal of Interpersonal Violence_, _Journal of Family Violence_, _Violence Against Women_, or _Violence and Victims_. These additional publications were included based on results from a database search of IPV-related terms conducted with no constraints imposed on the publishing journal, which revealed that these journal publish the majority of IPV-related research ($n_{articles} =$ `r pander(as.character(jv.n[, 1]))`, respectively), and (2) the alignment of the topical and methodological foci of these violence-related journals with community psychological principles and values. Finally, each database search was restricted to empirical studies published between 1965 and 2017 [i.e., the year of the [Swampscott conference](http://www.scra27.org/publications/tcp/tcp-past-issues/tcpsummer2014/remembering-swampscott/) and the present year; @fryer2008some].
+
+Details regarding the number of results obtained from each of the above-listed database searches \edit{are provided in Table [\todot]}.<!-- !!! TODO: dbsrch !!! --> Collectively, the literature database searches yielded `r n.init` journal articles, of which `r n.inits3` focused on intimate partner violence prevention and intervention programs, approaches, and evaluations, ; whereas the remaining `r n.inits4` consisted of research specific or closely related to IPV among sexual minority women and LGBTQ populations in general, but not necessarily specific to IPV prevention nor intervention among these populations. The majority of the latter research sub-category's initial results focused primarily on the prevalence of IPV among sexual minority populations, as well as causal antecedents, risk factors, correlates, and consequences of IPV among members of these target sub-populations.
+
+Through a systematic evaluation of the full set of results obtained from the database searches, described below, a large number of the latter category's articles published in the included violence-specific journals were determined to be, at best, loosely relevant to the community-psychological focus of this review. Specifically, among the two empirical research articles returned from the database search seeking IPV interventions research specifically inclusive of sexual minority women [i.e., @witte2015perceived; @edelen2009measurement], one examined college students general attitudes about same-gender IPV, and another detailed an item-response theory approach to measuring teens' attitudes about dating violence among heterosexual adolescents. As such, results from the LGBTQ-IPV research sub-category were restricted to studies published within any of the community-psychology-related scholarly journals \edit{(see Table [\todot])}<!-- !!! TODO: map.cp !!! --> in an effort to maintain the overall community-psychological focus of this review [@scra2017other]. The final set of `r nrow(MAP)` articles included in this review therefore consists of `r nrow(MAP[MAP$scat == "S3", ])` empirical studies related to IPV intervention and prevention program evaluations in general, and `r nrow(MAP[MAP$scat == "S4", ])` studies specific to sexual minority populations.
+
+
+## Systematic Review Methodology
+
+The selection of empirical literature, representing a community-psychology-focused subset of the U.S.-based IPV-related literature, was reviewed using a `primarily deductive` _qualitative comparative analytic approach_ [_QCA_; @leech2007array; @onwuegbuzie2017framework]. This review approach was conducted in two \edit{phases}, each of which was primarily conducted using of the _`R` Statistical Programming Language and Environment_ [ R-packages @R-RQDA; @R-base].^[\edit{See Appendix [\todo] for details regarding specific} _`R`_ \edit{packages used in conducting analyses and presenting this review.}]
+
+The first QCA phase served as the initial data reduction, organization, and \edit{quality-control} process undertaken to determine the final set of articles to be included in the formal review. Each article in the full set of results ($N = 106$) from the previously-described literature database searches was first assessed according to the basic criteria for inclusion in the present review (i.e., U.S.-based empirical research). The content of each of the articles retained from this first filtering procedure was subsequently evaluated in terms of its overall relevance to the present review. Thus, any articles returned from the above-described database searches that either did not meet the basic inclusion criteria for this review or were determined to be unrelated to the topics of interest for the current review were excluded from the set of formally reviewed articles ($N_{excluded} = `r length(MAPrm)`$).
+
+The final set of `r paste0("$N_{included} = ", nrow(MAP), "$")` is divided into two categories: (C1) IPV intervention evaluations research (`r paste0("$n_{c_{1}} = ", nrow(MAP[MAP$scat == "S3", ]), "$")`), and (C2) community-psychology-specific research specific to LGBTQ-IPV and inclusive of sexual minority women (`r paste0("$n_{c_{2}} = ", nrow(MAP[MAP$scat == "S4", ]), "$")`).
+
+The second QCA phase served as a systematic method for examining the similarities, differences, and anomalies among the final set of reviewed articles according to the above-described two categories determined in the first QCA phase data reduction and organization process [@onwuegbuzie2017framework; @onwuegbuzie2009qualitative]. That is, the reviewed literature was categorized according to the commonalities in overarching research topics, target populations, sampling frames, sampling and data collection methodologies and measures\todot, data analytic approaches and procedures, findings\todot, and implications\todot.
+
+
+
+
+<!-- This review of the empirical literature described above is structured ... TODO ... -->
+
+
+\newpage
+
+# References

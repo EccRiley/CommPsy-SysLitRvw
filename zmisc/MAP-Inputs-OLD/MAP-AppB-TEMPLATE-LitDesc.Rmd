@@ -1,0 +1,143 @@
+---
+title: Appendix B. Literature Description & Data Extraction Form
+author: Rachel M. Smith
+date: NULL
+---
+
+\vspace*{-2em}\SFrule
+
+# Citation
+
+# Substantive Research Topic(s)
+
+\Frule
+
+`r tufte::newthought("Study Purpose(s)")`
+
+`r tufte::newthought("Research Question(s) (RQs)")`
+
+\vspace*{-1.5em}
+\hspace*{2em} \small{Including theoretical model(s) (if applicable)}
+
+`r tufte::newthought("Hypotheses")`
+
+\vspace*{-1.5em}
+\hspace*{2em} \small{Including hypothesized model(s) (if applicable)}
+
+\tufteskip
+
+# Target Population(s) & Sampling Frame(s)
+
+\Frule
+
+## Target Population(s) (By Level of Specificity)
+
+`r tufte::newthought("Includes")`
+
+`r tufte::newthought("Excludes")`
+
+## Sampling Frame Setting(s)
+
+\tufteskip
+
+## Sampling Frame (By Level of Specificity)
+
+`r tufte::newthought("Includes")`
+
+`r tufte::newthought("Excludes")`
+
+\tufteskip
+
+# Sampling Method(s) (By Sampling Frame Level)
+
+\Frule
+
+\hspace*{2em} $\square$ Probability/Random
+\hspace*{2em} $\square$ Purposive
+\hspace*{2em} $\square$ Convenience
+
+\tufteskip
+
+# Study Design(s)
+
+\Frule
+
+## QuaLitative Research Designs (if applicable)
+
+<!-- \hspace*{2em} $\square$ Multi-method design -->
+
+\hspace*{2em}  $\square$ \textsc{Grounded Theory}
+
+\parindent=1em\ $\square$ \textsc{Phenomenology}
+\parindent=1em\ $\square$ \textsc{Ethnography}
+\parindent=1em\ $\square$ \textsc{Case-Study}
+\parindent=1em\ $\square$ \textsc{Narrative/Descriptive}
+\parindent=2.25em\ $\square$ Biographical
+\parindent=2.25em\ $\square$ Historical
+
+
+## QuaNTitative Research Designs (if applicable)
+
+\parindent=1em\ $\square$ \textsc{Experimental}
+\parindent=2.5em\ $\square$ Longitudinal
+\parindent=2.5em\ $\square$ Pre-Post
+\parindent=2.25em\ $\square$ \textsc{Randomized Control Trial (RCT)}
+\parindent=3.25em\ $\square$ RCT - Longitudinal
+\parindent=3.25em\ $\square$ RCT - Pre-Post
+\parindent=1em\ $\square$ \textsc{Quasi-Experimental}
+\parindent=1em\ $\square$ \textsc{Cross-Sectional}
+
+# Methodology
+
+\Frule
+
+\parindent=1em\ $\square$ \textsc{Qualitative}
+\parindent=1em\ $\square$ \textsc{Quantitative}
+\parindent=1em\ $\square$ \textsc{Mixed-Methods}
+
+\tufteskip
+
+# Data Collection Method(s) / Data Source(s) (By Sampling Frame Level & Methodology)
+
+\Frule
+
+`r tufte::newthought("Measure(s)")`
+
+`r tufte::newthought("Archival / Secondary Data Source(s)")`
+
+\tufteskip
+
+# Data Analytic Approach(es)
+
+\Frule
+
+\tufteskip
+
+\tufteskip
+
+# Key Findings
+
+\Frule
+
+`r tufte::newthought("Sample Characteristics (by sampling frame level \\& methodology)")`
+
+`r tufte::newthought("Findings (by methodology \\& hypothesis/RQ)")`
+
+\tufteskip
+
+# Social Ecological Levels of Analysis
+
+\Frule
+
+\parindent=1em\ $\square$ \textsc{Individual}
+\parindent=1em\ $\square$ \textsc{Relationship}
+\parindent=1em\ $\square$ \textsc{Community}
+\parindent=1em\ $\square$ \textsc{Societal}
+
+\SFrule
+
+![Social-Ecological Model](graphics/inputs/sem.pdf){#fig:sem}
+
+`r tufte::quote_footer("--- @centers2015social; @dahlberg2002violence")`
+
+\newpage

@@ -46,3 +46,5 @@
 # clr.cpv <- c(rep(pcpv[1], 3), ,  rep(pcpv[2], 2), rep(pcpv[1], 2), rep(pcpv[2], 2))
 # clr.cpv1 <- levels(factor(MAP.j$Journal))
 # clr.cpv <- ifelse(clr.cpv %in% j.cpp, pcpv[1], pcpv[2])
+
+# alnet01 <- merge(alnet0, cbk, by.x = "from", by.y = "code")

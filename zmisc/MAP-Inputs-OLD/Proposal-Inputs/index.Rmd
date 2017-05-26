@@ -1,0 +1,65 @@
+---
+title: "Comrpehensive Examination Proposal"
+author: " "
+date: " "
+---
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE}
+source("../SETUP.R")
+knitr::opts_chunk$set(
+    echo = FALSE,
+    cache = FALSE,
+    results = 'asis')
+```
+\newpage
+
+\newpage
+
+\begin{center}
+
+`r tufte::newthought("\\Huge{Integrating Theory, Methods, \\& Social Justice}")`
+
+\LARGE{by: Rachel M. Smith}
+
+\end{center}
+
+![](quill_small.png)
+
+\begin{center}
+
+\Large{\textit{Community Psychology Comprehensive Examination}} \\
+
+
+\Large{\textit{Major Area Paper Proposal}} \\
+
+
+\end{center}
+
+
+-----
+
+\begin{center}
+
+`r newthought("Portland State University")` \\
+
+`r format(Sys.Date(), '%d %B %Y')`
+
+\end{center}
+
+
+\newpage
+
+# Comprehensive Proposal Outline
+
+`r tufte::newthought("\\textbf{I.} Personal Statement")`
+
+`r tufte::newthought("\\textbf{II.} Foundational Coursework")`
+
+`r tufte::newthought("\\textbf{III.} Rational \\& Significance")`
+
+`r tufte::newthought("\\textbf{IV.} Major Area Paper (MAP) Outline")`
+
+`r tufte::newthought("\\textbf{V.} Relevance to Dissertation Topic")`
+
+`r tufte::newthought("\\textbf{VI.} Reading List")`
+
