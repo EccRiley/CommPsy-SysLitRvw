@@ -1,7 +1,0 @@
-# IV. Methodological Considerations
-
-## Defining Methodological Rigor
-
-The notion of "scientific rigor" is particularly important in evaluating a set of applied social science research studies employing varying methodologies. This is because "rigor" is not necessarily clearly defined across methodologies, and some research philosophies do not consider certain methodologies as capable of achieving scientific rigor at all.
-
-For the purposes of this review, methodological rigor is broadly defined as the extent to which a given study employs research methods that best address the overarching research question(s) and/or hypothesis/hypotheses, and the quality of the implementation of those methods. This definition of methodological rigor therefore does not prioritize a particular method nor category of methods (e.g., quantitative over qualitative, mixed-methods over single-methods, etc.), but rather prioritizes the choice and implementation of methods employed to address a given study's purposes. In addition, this definition of methodological rigor allows for more specific and in-depth consideration of the limitations presented, and not presented, in each study's report.
