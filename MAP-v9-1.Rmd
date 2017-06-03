@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo=FALSE)
 
 \Frule
 
-# `{{Introduction}}`<!--TODO: RM INTRODUCTION HEADING-->
+# Introduction<!--TODO: RM INTRODUCTION HEADING-->
 
 The purpose of this review is to provide a systematic methodological overview and critique of the available empirical research related to intimate partner violence (IPV) intervention and prevention efforts through a community psychological lens. This review is specifically focused on the applied methodologies employed within community-based, participatory, and action-oriented research frameworks. The following general research questions were initially formulated to guide the present review's literature search and evaluation methodologies:
 
@@ -489,7 +489,7 @@ ftm.expp %>% kable(align = rep("r", 3),
 
 \newpage
 
-![Network graph of the levels of analysis involved in the reviewed literature](graphics/inputs/keysnet.pdf){#fig:keysnet}
+![Network graph of the levels of analysis involved in the reviewed literature](graphics/inputs/keysnet.png){#fig:keysnet}
 
 \newpage
 
