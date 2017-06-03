@@ -456,11 +456,11 @@ ftm.expp %>% kable(align = rep("r", 3),
 ```
 \newpage
 
-![Social-Ecological Model](graphics/inputs/sem.pdf){#fig:sem}
+![Social-Ecological Model](graphics/inputs/sem.png){#fig:sem}
 
 \newpage
 
-![Timeline of publication years of the reviewed literature](graphics/inputs/yrhist.pdf){#fig:yrhist}
+![Timeline of publication years of the reviewed literature](graphics/inputs/yrhist.png){#fig:yrhist}
 
 \newpage
 
