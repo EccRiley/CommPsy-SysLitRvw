@@ -10,4 +10,4 @@ Given the multi-disciplinary and complex natures of both community-psychological
 
 -----
 
-![Flow-chart of systematic literature database search results and decisions for inclusion and exclusion in formal review.](graphics/inputs/MAP-litSrchFlow-2.png)
+![Flow-chart of systematic literature database search results and decisions for inclusion and exclusion in formal review.](graphics/inputs/flowchart.png)
