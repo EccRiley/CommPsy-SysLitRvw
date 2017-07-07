@@ -8,18 +8,20 @@
 #+ setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE
 # SETUP --------------------------------------------------------------
 
-source("../SETUP.R")
+source("../SETUP.R") ## SEE EccRiley.github.io/Rrscs/SETUP.R ##
+options(width = 75)
 knitr::opts_chunk$set(
     tidy = TRUE,
-    echo = FALSE,
+    echo = TRUE,
     fig.keep = 'high',
     fig.show = 'asis',
     results = 'asis',
     tidy.opts = list(comment = FALSE),
-    echoRule = NULL,
-    echoRuleb = NULL,
+    # echoRule = NULL,
+    # echoRuleb = NULL,
     fig.height = 5,
-    fig.path = "graphics/bibs/rplot-")
+    fig.path = "graphics/bibs/rplot-",
+    dev = "svg")
     #fignos = TRUE)#, dev = 'png',
     # fig.retina = 6)
 # panderOptions("table.emphasize.rownames", "FALSE")
@@ -69,7 +71,7 @@ knitr::opts_template$set(invisible = list(echo=FALSE, results='hide', message=FA
 
 source("dbsrch.R")
 #'
-#+ dbsrch, results='asis'
+#+ dbsrch, results='asis',echo=FALSE
 pander(dbsrch, justify = c("right", "left", "centre"), caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned")
 #'
 #' \newpage
@@ -81,13 +83,15 @@ pander(dbsrch, justify = c("right", "left", "centre"), caption = "Descriptions o
 # JOURNALS -----------------------------------------------------------
 source("journals.R")
 #'
-#+ journals, results='asis'
-cat(tufte::newthought("Community-psychology journals"), "included in database searches:\n\n")
+#' `r tufte::newthought("Community-psychology journals")` included in database searches:
+#'
+#+ journals, results='asis', echo=FALSE
 j.cpp %>% as.list() %>% pander()
-
-cat(tufte::newthought("Violence-specific journals"), " selected for inclusion in database searches.")
+#'
+#' `r tufte::newthought("Violence-specific journals")` selected for inclusion in database searches.
+#'
+#+ journals2, results='asis', echo=FALSE
 j.vp %>% as.list() %>% pander()
-
 #'
 #' \newpage
 #'
@@ -158,10 +162,11 @@ ctbl.z1$clab <- factor(ctbl.z1$clab) %>% droplevels()
 t.excl <- Rtdf(ctbl.z1$clab, names = c("Reason for Exclusion", "$N_{excluded~articles}$"))
 
 v1v2 <- paste0("@", as.character(ctbl.z1[, "case"]))
-
-cat(tufte::newthought(paste0("$N = ", length(v1v2), "$ items excluded ")), "after restricting results to only _U.S.-based empirical_ studies.")
+#'
+#' `r tufte::newthought(paste0("$N = ", length(v1v2), "$ items excluded "))` after restricting results to only _U.S.-based empirical_ studies.
+#'
+#+ texcl, echo=FALSE
 # v1v2 %>% sort() %>% as.list() %>% pander()
-
 t.excl %>% kable(caption = "Number of Articles Removed per Exclusion Criteria",
                  align = c('l', 'r'))
 #'
@@ -206,11 +211,11 @@ MAP3$bibkey <- as.character(MAP3$bibkey)
 
 KEYSv2 <- as.character(MAP3$bibkey)
 v1v2 <- KEYSv1[!KEYSv1 %in% KEYSv2]
-
-cat(tufte::newthought(paste0("$N = ", length(v1v2), "$ items excluded after restricting search results")), " to only those published in community-psychology specific journals and the _four selected_ violence-related journals (i.e., ", paste0("_", j.vp[1:(length(j.vp)-1)], "_, "), "and ", paste0("_", j.vp[length(j.vp)], "_)."))
 # v1v2 <- paste0("@", as.character(v1v2))
 # v1v2 %>% as.list() %>% pander()
 
+#' `r tufte::newthought(paste0("$N = ", length(v1v2), "$ items excluded after restricting search results"))` to only those published in community-psychology specific journals and the _four selected_ violence-related journals (i.e., `r paste0("_", j.vp[1:(length(j.vp)-1)], "_, ")` and `r paste0("_", j.vp[length(j.vp)], "_")`.
+#'
 MAP3$rms4 <- ifelse(MAP3$journal %in% j.v & MAP3$scat == "S4", NA, MAP3$scat)
 MAP <- na.omit(MAP3)
 
@@ -220,13 +225,14 @@ KEYSv3 <- as.character(MAP$bibkey)
 
 v2v3 <- KEYSv2[!KEYSv2 %in% KEYSv3]
 #'
+#' `r tufte::newthought(paste0("$N = ", length(v2v3), "$ items excluded after restricting "))` SMW-inclusive search results to only include items published in community-psychology specific journals.
+#'
 #+ v2v3_cat
-cat(tufte::newthought(paste0("$N = ", length(v2v3), "$ items excluded after restricting ")), "SMW-inclusive search results to only include items published in community-psychology specific journals.")
 # v2v3 %>% as.list() %>% pander()
 #'
 #' ------
 #'
-#+ tempPanderOpts
+#+ tempPanderOpts,echo=FALSE
 #, opts.label="invisible"
 panderOptions("p.wrap", "")
 panderOptions("p.sep", "; ")
@@ -235,7 +241,7 @@ panderOptions("p.copula", "; ")
 #' `r tufte::newthought(paste0("$N = ", length(KEYSv3), "$ items included in the formal literature review"))` [`r paste0("@", KEYSv3) %>% pander()`]
 #'
 #'
-#+ resetPanderOpts
+#+ resetPanderOpts,echo=FALSE
 #, opts.label="invisible"
 panderOptions("p.wrap", "_")
 panderOptions("p.sep", ", ")
@@ -867,7 +873,6 @@ Rdotchart(
     gcex = 0.75,
     gfont = 2,
     pt.cex = 1.125,
-    main = "SMW-Inclusive IPV Research",
     color = c(rep(catpal[1], nrow(ftm.aql)), rep(catpal[2], nrow(ftm.aql))))
 
 t.aql$log <- log(t.aql[, 2])+2
@@ -1018,7 +1023,6 @@ Rdotchart(
     gcex = 0.75,
     gfont = 2,
     pt.cex = 1.125,
-    main = "SMW-Inclusive IPV Research",
     color = c(rep(catpal[1], nrow(ftm.aqt)), rep(catpal[2], nrow(ftm.aqt))))
 
 t.aqt$log <- log(t.aqt[, 2])*1.65
@@ -2037,12 +2041,14 @@ rownames(ks3tp) <- paste0("@", rownames(ks3tp))
 #'
 #' \newpage
 #'
+#+ echo=FALSE
 # panderOptions("table.split.table", 120)
 kable(ks3tp[, 1:9], caption = "Primary Topics by Study (IPV Interventions Research [1/2])")
 pander(lvls3.tp[1:9])
 #'
 #' \newpage
 #'
+#+ echo=FALSE
 kable(ks3tp[, 10:ncol(ks3tp)], caption = "Primary Topics by Study (IPV Interventions Research [2/2])")
 pander(lvls3.tp[10:length(lvls3.tp)])
 #'
@@ -2094,6 +2100,7 @@ pander(lvla3.set[1:9])
 #'
 #' \newpage
 #'
+#+ echo=FALSE
 kable(ks3set[, 11:ncol(ks3set)], caption = "Sampling Settings by Study (IPV Interventions Research [2/2])")
 pander(lvla3.set[10:length(lvla3.set)])
 #'

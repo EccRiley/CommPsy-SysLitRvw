@@ -1,7 +1,7 @@
 ---
 title: |
   | Major Area Paper
-  | (v8.1)
+  | (v9)
 author: "Rachel M. Smith"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 fignos-plus-name: "Figure "
