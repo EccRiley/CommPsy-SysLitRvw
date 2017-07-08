@@ -1,0 +1,60 @@
+<link type="text/css" href="riley.css" rel="stylesheet" />
+<link type="text/css" href="nav-sidebar.css" rel="stylesheet" />
+<div id="wrapper">
+    <div class="overlay"></div>
+
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <li>
+                <a href="attachments/SmithRachel-CV.pdf">Curriculum Vitae</a>
+            </li>
+            <li>
+                <a href="attachments/SmithRachel-Resume"><i class="fa fa-fw fa-file-o"></i> Resum&eacute;</a>
+            </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/rachel-smith-9b8b2931/" target="_blank"><i class="fa fa-linkedin-square fa-inverse" aria-hidden="true"></i>LinkedIn</a>
+                </li>
+                <li>
+                    <a href="https://github.com/eccriley" target="_blank"><i class="fa fa-github-square fa-inverse" aria-hidden="true"></i>@EccRiley</a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/rileymsmith19" target="_blank"><i class="fa fa-twitter-square fa-inverse" aria-hidden="true"></i>@rileymsmith19</a>
+                </li>
+                <li>
+                    <a href="mailto:rms7@pdx.edu" target="_blank"><i class="fa fa-envelope-o" aria-hidden="true"></i> rms7@pdx.edu</a>
+                </li>
+        </ul>
+    </nav>
+    <!-- /#sidebar-wrapper -->
+
+<script>
+$(document).ready(function () {
+  var trigger = $('.hamburger'),
+      overlay = $('.overlay'),
+     isClosed = false;
+
+    trigger.click(function () {
+      hamburger_cross();
+    });
+
+    function hamburger_cross() {
+
+      if (isClosed == true) {
+        overlay.hide();
+        trigger.removeClass('is-open');
+        trigger.addClass('is-closed');
+        isClosed = false;
+      } else {
+        overlay.show();
+        trigger.removeClass('is-closed');
+        trigger.addClass('is-open');
+        isClosed = true;
+      }
+  }
+
+  $('[data-toggle="offcanvas"]').click(function () {
+        $('#wrapper').toggleClass('toggled');
+  });
+});
+</script>

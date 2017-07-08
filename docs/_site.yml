@@ -1,0 +1,35 @@
+name: "rachelmsmith"
+output_dir: "."
+# navbar:
+    # title: "Home"
+    # right:
+    #   - text: "R-Programming"
+        # href: "Rstats.html"
+    #   - text: "About Me"
+        # href: "about.html"
+        # menu:
+        # - text: "Portfolio"
+        #   href: "portfolio.html"
+        # - text: "CV"
+        #   href: "CV.html"
+output:
+  html_document:
+      theme: null
+      highlight: null
+      md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables+grid_tables
+      bibliography: "auxDocs/REFs.bib"
+      pandoc_args: [
+        "--filter", "pandoc-fignos",
+        "--filter", "pandoc-citeproc",
+        "--csl", "auxDocs/apa.csl",
+        "--bibliography", "auxDocs/REFs.bib",
+      ]
+      include:
+        before_body:
+            - "auxDocs/_navbar-head.html"
+            - "auxDocs/_navbar.html"
+        after_body: "auxDocs/_footer.html"
+    #   css:
+    #   - "auxDocs/reset.css"
+    #   - "auxDocs/et-book.css"
+    #   - "auxDocs/riley.css"

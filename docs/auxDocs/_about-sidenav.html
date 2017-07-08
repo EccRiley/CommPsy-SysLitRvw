@@ -1,0 +1,30 @@
+<link type="text/css" href="riley.css" rel="stylesheet" />
+<link type="text/css" href="riley-sidenav.css" rel="stylesheet" />
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="mySkills.html">Skills &amp; Expertise</a>
+  <a href="attachments/SmithRachel-CV.pdf"><i class="fa fa-fw fa-file-o"></i> Curriculum Vitae</a>
+  <a href="attachments/SmithRachel-Resume"><i class="fa fa-fw fa-file-o"></i> Resum&eacute;</a>
+
+</div>
+
+<div id="main">
+  <h2>Sidenav Push Example</h2>
+  <p>Click on the element below to open the side navigation menu, and push this content to the right.</p>
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+</div>
+
+<script>
+// Set the width of the side navigation to 250px and the left margin of the page content to 250px
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+// Set the width of the side navigation to 0 and the left margin of the page content to 0
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+}
+</script>

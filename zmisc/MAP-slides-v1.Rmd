@@ -1,0 +1,152 @@
+# Part I. Background & Significance
+
+## Rationale for the Present Review
+
+> "... despite our awareness of context for those we study, we do not always apply that understanding to ourselves".
+>
+> `r tufte::quote_footer("--- [@riger1993what, p. 279]")`
+
+\hrulefill
+
+`r tufte::newthought("Community psychological values, theories, and methods favor...")`
+
+- inclusion over exclusion
+- participant voices considered equally with researchers' voices
+- participatory or purposive sampling methods
+
+> `r tufte::quote_footer("[@balcazar2004participatory; @senn2005you; @maguire1987doing]")`
+
+- resistance to research methodologies, social policies, and implementation practices that ultimately served to reinforce and/or strengthen social and economic inequalities
+
+> `r tufte::quote_footer("[@fine2003participatory; @senn2005you; @balcazar2004participatory]")`
+
+
+## Theoretical Grounding
+
+> "... community scientists study domestic violence using methods and theories that are consistent with the view that domestic violence is not just an individual behavior, but a complex process shaped by historical, social, financial, and legal contexts".
+>
+> `r tufte::quote_footer("--- @luke2005getting, p. 185")`
+
+- Social **Ecological** framework [@espino2008spirit; @kelly1977social; @dahlberg2002violence]
+- **Action**-oriented theory and methodology [@kelly2004community; @seidman2012emerging]
+- Social scientific theory related to **IPV** and **sexual minority women** [@meyer1995minority; @meyer2015resilience]
+
+## Theoretical Grounding: Ecological systems theory and the Social Ecological Model
+
+```{r fig.cap="Social-Ecological Model"}
+knitr::include_graphics("graphics/inputs/sem.png")
+```
+
+# Part II. Systematic Literature Review
+
+## Systematic Literature Search Methods (1/2) {.shrink}
+
+```{r fig.cap="Systematic Literature Search and Inclusion Flow-Chart"}
+knitr::include_graphics("graphics/inputs/flowchart.png")
+```
+
+## Systematic Literature Search Methods (2/2) {.shrink}
+
+```{r dbsrchkable}
+pander(dbsrch, caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned^a^ {#tbl:dbsrch}", justify = c("right", "left", "left"))
+```
+
+\smallskip
+
+\footnotesize{$^a$ For each database search, multiple search terms were included for the subject/keywords parameters to represent intimate partner violence}
+
+
+## Initial Literature Assessment \& Screening Procedures {.shrink}
+
+```{r jsftkable}
+MAP$journal <- droplevels(MAP$journal)
+
+MAPp <- MAP[, c("journal", "scat")] %>% dplyr::rename("Publication Title" = journal, "Research Category" = scat)
+
+MAPp[, 2] <- factor(MAPp[, 2],
+                    labels = c("IPV Interventions Research",
+                               "SMW-Inclusive IPV Research"))
+
+jsft1 <- ftable(MAPp) %>% as.matrix()
+jsft2 <- ifelse(jsft1 == 0, NA, jsft1)
+jsftt <- apply(jsft2, 1, sum, na.rm = TRUE)
+jsftt <- paste0("**", jsftt, "**")
+jsft <- cbind(jsft2, jsftt)
+
+kable(jsft, col.names = c(colnames(jsft)[1:2], "$N_{Articles_{Total}}$"), caption = "Number of Formally Reviewed Articles per Journal in Each Research Domain Covered in this Review {#tbl:jsft}", align = c("c", "c", "c"))
+```
+
+## Systematic Review \& Evaluation Analytic Approach {.shrink}
+
+
+```{r cdbk, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE, fig.show='none', fig.keep='none'}
+source("cdbk.R")
+```
+
+```{r tblcdbk}
+cdbk.ft$clab <- gsub("\\n", "", cdbk.ft$clab)
+kable(cdbk.ft, col.names = c("\\textbf{Information Category}", "Codes"), caption = "Codebook Constructed from the Discrete Summative Data Compiled Across the Formally Reviewed Literature {#tbl:cdbk}", align = c("r", "l"))
+```
+
+## Methodological Rigor
+
+# Part III. Literature Review \& Methodological Critique
+
+## IPV Perpetrator Interventions Efficacy
+
+## Overview of IPV-Related Community-Based and Action-Oriented IPV Research {.shrink}
+
+```{r fig.cap="Timeline of publication years of the reviewed literature"}
+knitr::include_graphics("graphics/inputs/yrhist.png")
+```
+
+## Substantive Research Topics
+
+```{r fig.cap="Substantive Research Topics Covered across the Reviewed Empirical Research"}
+knitr::include_graphics("graphics/inputs/topics.png")
+```
+
+
+## Target Populations
+
+
+```{r fig.cap="Target Populations Included in the Sampling Frames among the Review Literature in Each Substantive Research Category"}
+knitr::include_graphics("graphics/inputs/populations.png")
+```
+
+## Sampling Frame Definitions \& Sampling Methods
+
+```{r fig.cap="Sampling Methods Employed among the Review Literature in Each Substantive Research Category"}
+knitr::include_graphics("graphics/inputs/sampling.png")
+```
+
+## Sampling \& Data Collection Settings
+
+```{r}
+knitr::include_graphics("graphics/inputs/settings.png")
+```
+
+## Methodologies \& Methods Utilized {.shrink}
+
+\begin{columns}[c]
+\begin{column}[0.48\linewidth]
+
+`r tufte::newthought("Research Designs")`
+```{r}
+knitr::include_graphics("graphics/inputs/designs.png")
+```
+
+\end{column}
+\begin{column}[0.48\linewidth]
+
+`r tufte::newthought("Research Methodologies")`
+
+```{r}
+knitr::include_graphics("graphics/inputs/methodologies.png")
+```
+
+## Methodological Strengths and Weaknesses of the Reviewed Literature
+
+## Ecological Levels of Analysis
+
+## Epilogue: Reflections on the Unique Challenges of Conducting a Community-Psychology-Focused Systematic Literature Reviews
