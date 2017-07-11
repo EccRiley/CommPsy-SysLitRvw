@@ -34,7 +34,7 @@ h1:not(.title)::after {
 </div>
 <hr class="SemiBold">
 
-```{r echo=FALSE, results="asis"}
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE}
 knitr::opts_chunk$set(echo = FALSE, results = 'asis')
 
 g0 <- list.files(path = "../graphics", pattern = ".*?\\.png$", recursive = TRUE)

@@ -17,9 +17,7 @@ knitr::opts_chunk$set(echo=FALSE)
 
 \Frule
 
-# Introduction<!--TODO: RM INTRODUCTION HEADING-->
-
-<!-- TODO: INTRO ABOUT FSSIPV -->
+# <!-- TODO: INTRO ABOUT FSSIPV -->
 
 The purpose of this review is to provide a systematic methodological overview and critique of the available empirical research related to intimate partner violence (IPV) intervention and prevention efforts through a community psychological lens. This review is specifically focused on the applied methodologies employed within community-based, participatory, and action-oriented research frameworks. The following general research questions were initially formulated to guide the present review's literature search and evaluation methodologies:
 
@@ -56,7 +54,7 @@ The critical methodological review provided here is structured according to two 
 In the sections that follow, I provide details regarding the theoretical and methodological rationale for a systematic review of IPV research specifically conducted within community-psychological and related fields. With this context in mind, the methods employed for conducting the present systematic literature review are described in detail, followed by a critical methodological description and evaluation of the empirical research selected for review from the multiple systematic literature database searches.
 <!--TODO: THERE'S MORE CONTENT TO BE OUTLINED HERE -->
 
-# Rationale for the Present Review
+# Rationale
 
 > _"... despite our awareness of context for those we study, we do not always apply that understanding to ourselves"._
 >
@@ -64,7 +62,13 @@ In the sections that follow, I provide details regarding the theoretical and met
 
 <!-- TODO: SUMMARIZE BARRIER TO FSSIPV RESEARCH  -->
 
-The above-described barriers to IPV-related research, intervention, and prevention efforts inclusive of and specific to sexual minority women necessitate a research approach that takes into account this unique context. Central to community-psychological theory and underlying values is the notion that the communities in which research is taking place and which, whether directly or indirectly, are affected by such research should be, ideally, as involved as possible in all phases of the research process. This contrasts with more traditional research paradigms, in which the extent of communities' or individuals' involvement in the research is, ultimately, as anonymous data points in the analysis [@senn2005you; @maguire1987doing]. Community psychological values, theories, and methods thus favor inclusion over exclusion, participant voices considered equally with researchers' voices, and participatory or purposive sampling methods employed based on the research questions or hypotheses at hand over sampling methods employed out of convenience or primarily employed toward the goal of generating a large sample size [@balcazar2004participatory; @senn2005you; @maguire1987doing]. The action-oriented and values-transparent community psychological research approach was born out of a resistance to research methodologies, social policies, and implementation practices that ultimately served to reinforce and/or strengthen social and economic inequalities [@fine2003participatory; @senn2005you; @balcazar2004participatory]. This foundation necessitates vigilance in critical reflexivity throughout and beyond the research process.
+> "In other research, battered LGBTs described how couples counselors did not acknowledge IPV in their relationships and encouraged them to remain in the abusive situations (Bornstein et al., 2006; Kulkin et al., 2007)."
+>
+> `r tufte::quote_footer("[@ford2013intimate, p. 2]")`
+
+IPV-related research inclusive of and specific to sexual minority women has faced several barriers throughout the course of the U.S. Feminist and Domestic Violence Movements. Specifically
+
+necessitate a research approach that takes into account this unique context. Central to community-psychological theory and underlying values is the notion that the communities in which research is taking place and which, whether directly or indirectly, are affected by such research should be, ideally, as involved as possible in all phases of the research process. This contrasts with more traditional research paradigms, in which the extent of communities' or individuals' involvement in the research is, ultimately, as anonymous data points in the analysis [@senn2005you; @maguire1987doing]. Community psychological values, theories, and methods thus favor inclusion over exclusion, participant voices considered equally with researchers' voices, and participatory or purposive sampling methods employed based on the research questions or hypotheses at hand over sampling methods employed out of convenience or primarily employed toward the goal of generating a large sample size [@balcazar2004participatory; @senn2005you; @maguire1987doing]. The action-oriented and values-transparent community psychological research approach was born out of a resistance to research methodologies, social policies, and implementation practices that ultimately served to reinforce and/or strengthen social and economic inequalities [@fine2003participatory; @senn2005you; @balcazar2004participatory]. This foundation necessitates vigilance in critical reflexivity throughout and beyond the research process.
 
 ## Intersecting Community-Psychology Theory \& Research Methodology
 
@@ -72,7 +76,7 @@ The present critical methodological review is intended to serve the above-descri
 
 <!-- TODO: ADD AT LEAST ONE ADDITIONAL SUBSECTION (L2) UNDER 'RATIONALE' SECTION (L1) -->
 
-# Theoretical Grounding
+# Guiding Theoretical Frameworks
 
 > _"... community scientists study domestic violence using methods and theories that are consistent with the view that domestic violence is not just an individual behavior, but a complex process shaped by historical, social, financial, and legal contexts"._
 >

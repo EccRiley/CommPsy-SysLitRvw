@@ -10,7 +10,23 @@ title: "Source Code used for Systematic Literature Review & Analyses<br /><figur
 # `R` Code
 
 ```{r echo=FALSE, results='asis'}
-p <- list.files(path = "../", pattern = ".*?\\.R$")
-srcDocs <- paste0("[", p, "](../", p, ")")
-pander::pander(as.list(srcDocs))
+p_r <- list.files(path = "../", pattern = ".*?\\.R$")
+rsrcDocs <- paste0("[", p_r, "](../", p_r, ")")
+pander::pander(as.list(rsrcDocs))
+```
+
+# `SQL` Queries
+
+```{r echo=FALSE, results='asis'}
+p_sql <- list.files(path = "../data/sql/RQDA-MAP-SQL/", pattern = ".*?\\.sql$")
+sqlsrcDocs <- paste0("[", p_sql, "](../", p_sql, ")")
+pander::pander(as.list(sqlsrcDocs))
+```
+
+# Data Files Generated from/for `R` code, `RQDA`, & `SQL` queries
+
+```{r echo=FALSE, results='asis'}
+p_dat <- list.files(path = "../data/", pattern = ".*?\\.csv$")
+datsrcDocs <- paste0("[", p_dat, "](../", p_dat, ")")
+pander::pander(as.list(datsrcDocs))
 ```
