@@ -1,0 +1,65 @@
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+
+.gallery {
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: transparent;
+    box-shadow: 0 1px 2px rgba(0,0,0,.3);
+}
+
+.gallery > div {
+    position: relative;
+    width: 200px;
+    float: left;
+    padding: 5px;
+    background-color: #ffffff;
+}
+
+.gallery > div > img {
+    display: inline-block;
+    transform: scale(0.25);
+    transition: .1s transform;
+    transform: translateZ(0);
+        /* hack */
+}
+
+.gallery > div:hover {
+    z-index: 1;
+}
+
+.gallery > div:hover:active > img {
+    display: block;
+    transform: scale(1, 1);
+    position: static;
+    left: auto;
+    right: auto;
+    top: 25%;
+    bottom: 25%;
+    opacity: 1;
+    transition: .1s transform;
+}
+
+.gallery > div:not(hover) > img {
+    filter: grayscale(50%)
+    opacity: 0.5;
+    transition: .1s transform;
+}
+
+/*.gallery > div:not(hover) > img {*/
+    /*opacity: .1;*/
+    /*transition: .1s transform;*/
+/*}*/
+.cf:before, .cf:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+.cf:after {
+    clear: both;
+}

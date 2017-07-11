@@ -1,0 +1,186 @@
+---
+title: "<em><code>R</code></em> DataViz Gallery"
+---
+
+<style>
+body {
+    background-color: rgba(0, 0, 0, 0.025);
+    width: 95%;
+}
+p {
+    width:95% !important;
+}
+
+h1:not(.title) {
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+}
+
+h1:not(.title)::after {
+    width         : 100%;
+    /*margin-top    : 21px;*/
+    /*margin-bottom : 21px;*/
+    border        : 0;
+    height: 1px;
+    /*border-top    : 2px solid #3f3f3f;*/
+    background-image: linear-gradient(to right, #e6e6e6, #333, #e6e6e6);
+}
+</style>
+
+<hr class="Bold"/>
+<div style="text-align:center;">
+`r Riley::Rcite_r(file = "../../auxDocs/REFs.bib", footnote = FALSE, Rnote = "Graphics on this page were created using", )`
+</div>
+<hr class="SemiBold">
+
+```{r echo=FALSE, results="asis"}
+knitr::opts_chunk$set(echo = FALSE, results = 'asis')
+
+g0 <- list.files(path = "../graphics", pattern = ".*?\\.png$", recursive = TRUE)
+g1 <- g0[!grepl("(zARCHIVE-)|(inputs/)|( copy)", g0)]
+g2 <- paste0("../graphics/", g1)
+
+ginfo <- file.info(g2)[, c("ctime", "mtime", "atime")]
+
+g <- g2[ginfo$ctime > "2017-05-31"]
+
+glabs2 <- gsub("\\.\\./(\\w+/){1,}(.*?)\\.png", "\\1", g)
+glabs1 <- paste0("#", glabs2)
+
+Rlightbox <- function(g, glabs1) { #, glabs2
+    gl <- vector("character", length(g))
+    for (i in 1:length(g)) {
+        gl[i] <- paste0("<div class='lightbox' href=", glabs1[i], "><img src=", g[i], " style=\"width=auto;\" /></div>")
+        # <div class='lightbox-target' id=", glabs2[i], "><span class='close cursor' onclick='closeModal()'>&times;</span><img src=", g[i], " /><a class='lightbox-close' href='#'></a></div><a class='prev' onclick='plusSlides(-1)'>&#10094;</a><a class='next' onclick='plusSlides(1)'>&#10095;</a>
+    }
+    return(gl)
+}
+
+
+library(pander)
+panderOptions("p.sep", "\n")
+panderOptions("p.copula", "\n")
+panderOptions("p.wrap", "")
+# pander(gl)
+
+library(Riley); library(ggplot2); library(igraph); library(ggparallel); library(arcdiagram); library(ggthemes); library(Riley)
+```
+
+# Donut Plot via the **`ggplot2`** package
+
+<div class="gallery cf">
+
+```{r}
+gdonut <- g[grepl("donut_", g)]
+gdonutlabs2 <- gsub("\\.\\./(\\w+/){1,}(.*?)\\.png", "\\2", gdonut)
+gdonutlabs1 <- paste0("#", gdonutlabs2)
+gldonut <- Rlightbox(gdonut, gdonutlabs1)
+# for (i in 1:length(gdonut)) {
+#     gldonut[i] <- paste0("<a class='lightbox' href=", gdonutlabs1[i], "><img src=", gdonut[i], " /></a><div class='lightbox-target' id=", gdonutlabs2[i], "><img src=", gdonut[i], " /><a class='lightbox-close' href='#'></a></div>")
+# }
+
+pander(gldonut)
+```
+
+</div>
+
+# Timelines via the **`ggplot2`** package
+
+<div class="gallery cf">
+
+```{r}
+gtl <- g[grepl("tl_", g)]
+gtllabs2 <- gsub("\\.\\./(\\w+/){1,}(.*?)\\.png", "\\1", gtl)
+gtllabs1 <- paste0("#", gtllabs2)
+gltl <- Rlightbox(gtl, gtllabs1)
+
+# for (i in 1:length(gtl)) {
+    # gltl[i] <- paste0("<a class='lightbox' href=", gtllabs1[i], "><img src=", gtl[i], " /></a><div class='lightbox-target' id=", gtllabs2[i], "><img src=", gtl[i], " /><a class='lightbox-close' href='#'></a></div>")
+# }
+
+pander(gltl)
+```
+
+</div>
+
+# Histogram Timeline via **`Base R Graphics`**
+
+<div class="gallery cf">
+
+```{r}
+gtlhist <- g[grepl("hist_", g)]
+gtlhistlabs2 <- gsub("\\.\\./(\\w+/){1,}(.*?)\\.png", "\\1", gtlhist)
+gtlhistlabs1 <- paste0("#", gtlhistlabs2)
+gltlhist <- Rlightbox(gtlhist, gtlhistlabs1)
+# for (i in 1:length(gtlhist)) {
+    # gltlhist[i] <- paste0("<a class='lightbox' href=", gtlhistlabs1[i], "><img src=", gtlhist[i], " /></a><div class='lightbox-target' id=", gtlhistlabs2[i], "><img src=", gtlhist[i], " /><a class='lightbox-close' href='#'></a></div>")
+# }
+
+pander(gltlhist)
+```
+
+</div>
+
+# Dot plots^[@robbins2006dot;@cleveland1984graphical]
+
+<div class="gallery cf">
+
+```{r}
+gdot <- g[grepl("dot_", g)]
+gdotlabs2 <- gsub("\\.\\./(\\w+/){1,}(.*?)\\.png", "\\1", gdot)
+gdotlabs1 <- paste0("#", gdotlabs2)
+gldot <- Rlightbox(gdot, gdotlabs1)
+
+# for (i in 1:length(gdot)) {
+    # gldot[i] <- paste0("<a class='lightbox' href=", gdotlabs1[i], "><img src=", gdot[i], " onclick='openModal();' /></a><div class='lightbox-target' id=", gdotlabs2[i], "><span class='close cursor' onclick='closeModal()'>&times;</span><img src=", gdot[i], " /><a class='lightbox-close' href='#'></a></div><a class='prev' onclick='plusSlides(-1)'>&#10094;</a><a class='next' onclick='plusSlides(1)'>&#10095;</a>")
+# }
+
+pander(gldot)
+```
+
+</div>
+
+# Parallel Sets via the **`ggplot2`** package
+
+<div class="gallery cf">
+
+```{r}
+gparset <- g[grepl("parset_", g)]
+gparsetlabs2 <- gsub("\\.\\./(\\w+/){1,}(.*?)\\.png", "\\1", gparset)
+gparsetlabs1 <- paste0("#", gparsetlabs2)
+glparset <- Rlightbox(gparset, gparsetlabs1)
+
+# for (i in 1:length(gparset)) {
+    # glparset[i] <- paste0("<a class='lightbox' href=", gparsetlabs1[i], "><img src=", gparset[i], " /></a><div class='lightbox-target' id=", gparsetlabs2[i], "><img src=", gparset[i], " /><a class='lightbox-close' href='#'></a></div>")
+# }
+
+pander(glparset)
+```
+
+</div>
+
+# Network Diagrams via the **`igraph`** & **`arcdiagram`**
+
+<div class="gallery cf">
+
+```{r}
+gnet <- g[grepl("net_", g)]
+garc <- g[grepl("arc_", g)]
+gnets <- c(gnet, garc)
+gnetslabs2 <- gsub("\\.\\./(\\w+/){1,}(.*?)\\.png", "\\1", gnets)
+gnetslabs1 <- paste0("#", gnetslabs2)
+glnets <- Rlightbox(gnets, gnetslabs1)
+# for (i in 1:length(gnets)) {
+    # glnets[i] <- paste0("<a class='lightbox' href=", gnetslabs1[i], "><img src=", gnets[i], " /></a><div class='lightbox-target' id=", gnetslabs2[i], "><img src=", gnets[i], " /><a class='lightbox-close' href='#'></a></div>")
+# }
+
+pander(glnets)
+```
+
+</div>
+
+<hr class="Bold">
+
+<h1 style="text-align:left;margin-top:-1em;">References</h1>
+<div class="refs">

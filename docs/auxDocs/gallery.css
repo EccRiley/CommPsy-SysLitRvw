@@ -1,0 +1,180 @@
+/* Styles the thumbnail */
+
+.gallery {
+    margin-bottom: 5em;
+}
+
+.lightbox img {
+/*height: 150px;*/ /* FOR THUMBNAILS (TODO) */
+display: block;
+max-width: 40%;
+overflow: hidden;
+border: 1px solid rgba(0,0,0,.5);
+box-shadow: 0px 0px 3px rgba(0,0,0,.5);
+align: middle;
+margin-bottom: 2em;
+}
+
+.lightbox img:focus,
+.lightbox img:hover {
+    box-shadow: 0px 0px 20px rgba(0,0,0,.85);
+    max-width: 80%;
+    -webkit-transition: max-width .5s ease-in-out;
+    -moz-transition: max-width .5s ease-in-out;
+    -o-transition: max-width .5s ease-in-out;
+    transition: max-width .5s ease-in-out;
+    background-color: transparent;
+}
+/* Styles the lightbox, removes it from sight and adds the fade-in transition */
+
+.lightbox-target {
+position: fixed;
+top: -90%;
+width: 90%;
+background: rgba(0,0,0,.7);
+width: 90%;
+opacity: 0;
+-webkit-transition: opacity .5s ease-in-out;
+-moz-transition: opacity .5s ease-in-out;
+-o-transition: opacity .5s ease-in-out;
+transition: opacity .5s ease-in-out;
+overflow: hidden;
+}
+
+/* Styles the lightbox image, centers it vertically and horizontally, adds the zoom-in transition and makes it responsive using a combination of margin and absolute positioning */
+
+.lightbox-target img {
+margin: auto;
+position: absolute;
+top: 0;
+left:0;
+right:0;
+bottom: 0;
+max-height: 0%;
+max-width: 0%;
+border: 3px solid white;
+box-shadow: 0px 0px 8px rgba(0,0,0,.3);
+box-sizing: border-box;
+-webkit-transition: .5s ease-in-out;
+-moz-transition: .5s ease-in-out;
+-o-transition: .5s ease-in-out;
+transition: .5s ease-in-out;
+}
+
+/* Styles the close link, adds the slide down transition */
+
+/*.close {*/
+/*display: inline-block;*/
+/*width:50px;*/
+/*height:50px;*/
+/*box-sizing: border-box;*/
+/*background: black;*/
+/*color: white;*/
+/*text-decoration: none;*/
+/*position: relative;*/
+/*top: -10px;*/
+/*right: 0;*/
+/*-webkit-transition: .5s ease-in-out;*/
+/*-moz-transition: .5s ease-in-out;*/
+/*-o-transition: .5s ease-in-out;*/
+/*transition: .5s ease-in-out;*/
+/*}*/
+
+/* Provides part of the "X" to eliminate an image from the close link */
+
+/*.close:before {*/
+/*content: "";*/
+/*display: inline-block;*/
+/*height: 30px;*/
+/*width: 1px;*/
+/*background: white;*/
+/*position: relative;*/
+/*left: 26px;*/
+/*top:50px;*/
+/*-webkit-transform:rotate(45deg);*/
+/*-moz-transform:rotate(45deg);*/
+/*-o-transform:rotate(45deg);*/
+/*transform:rotate(45deg);*/
+/*}*/
+
+/* Provides part of the "X" to eliminate an image from the close link */
+
+/*.close:after {*/
+/*content: "";*/
+/*display: inline-block;*/
+/*height: 30px;*/
+/*width: 1px;*/
+/*background: white;*/
+/*position: relative;*/
+/*left: 26px;*/
+/*top:50px;*/
+/*-webkit-transform:rotate(-45deg);*/
+/*-moz-transform:rotate(-45deg);*/
+/*-o-transform:rotate(-45deg);*/
+/*transform:rotate(-45deg);*/
+/*}*/
+
+/* Uses the :target pseudo-class to perform the animations upon clicking the .lightbox-target anchor */
+
+.lightbox-target:target {
+opacity: 1;
+top: 0;
+bottom: 0;
+}
+
+.lightbox-target:target img {
+max-height: 90%;
+max-width: 90%;
+}
+
+.close,
+.lightbox-target:target .close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.cursor {
+  cursor: pointer
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

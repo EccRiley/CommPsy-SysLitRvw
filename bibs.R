@@ -6,7 +6,7 @@
 #' ---
 #'
 #+ setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE
-# SETUP --------------------------------------------------------------
+# SETUP ----------------
 
 source("../SETUP.R") ## SEE EccRiley.github.io/Rrscs/SETUP.R ##
 options(width = 75)
@@ -21,12 +21,16 @@ knitr::opts_chunk$set(
     # echoRuleb = NULL,
     fig.height = 5,
     fig.path = "graphics/bibs/rplot-",
-    dev = "svg")
-    #fignos = TRUE)#, dev = 'png',
-    # fig.retina = 6)
+    fignos = TRUE,
+    # dev = c('pdf', 'svg'),
+    dev='png',
+    # dev.args=list(pointsize = 10),
+    fig.retina = 6,
+    Rplot = NULL,
+    Rplot_whbg = TRUE)
+
 # panderOptions("table.emphasize.rownames", "FALSE")
 # rpm()
-
 
 knitr::opts_template$set(invisible = list(echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE, fig.keep='none', fig.show='none'))
 
@@ -40,8 +44,6 @@ knitr::opts_template$set(invisible = list(echo=FALSE, results='hide', message=FA
 #           sep = '')
 #         }
 # })
-# knitr::opts_template$set(docx = list(plot = TRUE, dev = 'png', fig.retina = 4))
-# fig.retina = 4)
 #'
 #' \Frule
 #'
@@ -67,7 +69,7 @@ knitr::opts_template$set(invisible = list(echo=FALSE, results='hide', message=FA
 #'
 #+ src_dbsrch, opts.label='invisible'
 
-# dbsrch ------------------------------------------------------------------
+# dbsrch ----------------
 
 source("dbsrch.R")
 #'
@@ -80,7 +82,7 @@ pander(dbsrch, justify = c("right", "left", "centre"), caption = "Descriptions o
 #'
 #+ src_journals, opts.label='invisible'
 
-# JOURNALS -----------------------------------------------------------
+# JOURNALS ----------------
 source("journals.R")
 #'
 #' `r tufte::newthought("Community-psychology journals")` included in database searches:
@@ -108,7 +110,7 @@ Rbibkeys <- function(bib) {
     return(keys)
 }
 
-# BIB --------------------------------------------------------------
+# BIB ----------------
 
 bib <- readLines("MAP.bib")
 BIBKEY <- Rbibkeys(bib)
@@ -124,21 +126,21 @@ MAP.au <- cbind(BIBKEY, bibdf[, "AUTHOR"]) ## bibdf[,2] ##
 #'
 #+ MAP1
 
-# MAP1 ----------------------------------------------------------------
+# MAP1 ----------------
 MAP1 <- cbind(ID,
              BIBKEY,
              bibdf[, c("YEAR", "TITLE", "JOURNAL", "ABSTRACT")]) %>%
     as.data.frame() ## bibdf[c(3:5, 8)] ##
 names(MAP1)[-1] <- tolower(names(MAP1)[-1])
 
-# KEYSv1 -------------------------------------------------------------------
+# KEYSv1 ----------------
 
 KEYSv0 <- as.character(MAP1$bibkey)
 
 #'
 #+ src_MAPrqda, opts.label='invisible'
 
-# MAP-RQDA ----------------------------------------------------------------
+# MAP-RQDA ----------------
 
 source("MAPrqda.R", echo = FALSE)
 #'
@@ -146,7 +148,7 @@ source("MAPrqda.R", echo = FALSE)
 csid <- caseids[, c("caseid", "case", "RM", "scat")] ## caseids[, -3] ##
 csid$case <- factor(csid$case)
 
-# MAP2 --------------------------------------------------------------------
+# MAP2 ----------------
 
 MAP2 <- merge(MAP1, csid, by.x = "bibkey", by.y = "case")
 
@@ -155,7 +157,7 @@ n.inits4 <- MAP2[MAP2$scat == "S4", ] %>% nrow()
 #'
 #+ ctblz1
 
-# ctbl.z1 -----------------------------------------------------------------
+# ctbl.z1 ----------------
 
 ctbl.z1 <- merge(ctbl.z1, cbk, all.x = TRUE, all.y = FALSE) ## from MAPrqda.R ##
 ctbl.z1$clab <- factor(ctbl.z1$clab) %>% droplevels()
@@ -173,7 +175,7 @@ t.excl %>% kable(caption = "Number of Articles Removed per Exclusion Criteria",
 #'
 #+ MAP2rm
 
-# MAP2$RM ------------------------------------------------------------------
+# MAP2$RM ----------------
 
 MAP2$RM <- ifelse(MAP2$RM == 1, NA, 0)
 MAP2rm <- MAP2[is.na(MAP2$RM), "bibkey"] %>% droplevels() %>% as.character()
@@ -183,7 +185,7 @@ KEYSv1 <- as.character(MAP2$bibkey)
 #'
 #+ MAP_CPV
 
-# MAP-CPV ----------------------------------------------------------------
+# MAP-CPV ----------------
 MAP2$journal <- sapply(MAP2$journal, tolower)
 MAP2$journal <- gsub(" & ", " and ", MAP2$journal)
 
@@ -207,7 +209,7 @@ map.cpv <- na.omit(map.cpv)
 MAP3 <- MAP2[vlc | cp, ] %>% data.frame()
 MAP3$bibkey <- as.character(MAP3$bibkey)
 
-# KEYSv2 -------------------------------------------------------------------
+# KEYSv2 ----------------
 
 KEYSv2 <- as.character(MAP3$bibkey)
 v1v2 <- KEYSv1[!KEYSv1 %in% KEYSv2]
@@ -219,7 +221,7 @@ v1v2 <- KEYSv1[!KEYSv1 %in% KEYSv2]
 MAP3$rms4 <- ifelse(MAP3$journal %in% j.v & MAP3$scat == "S4", NA, MAP3$scat)
 MAP <- na.omit(MAP3)
 
-# KEYSv3 - FINAL --------------------------------------------------------
+# KEYSv3 - FINAL ----------------
 
 KEYSv3 <- as.character(MAP$bibkey)
 
@@ -250,7 +252,7 @@ panderOptions("p.copula", ", and ")
 #'
 #'
 #+ map_jrnl
-## map-jrnl ============================================================
+## map-jrnl ================
 
 MAP <- merge(MAP, jdat, by = "journal", all.x = TRUE)
 MAP$journal <- factor(MAP$journal)
@@ -267,7 +269,7 @@ MAP$jrnl <- sapply(as.character(MAP$journal), Rabbr)
 #'
 #+ cb
 
-# CTBL/CB ---------------------------------------------------------------
+# CTBL/CB ----------------
 
 cb <- merge(MAP, ctbl, by = c("caseid", "scat"))
 cb <- within(cb, {
@@ -318,15 +320,15 @@ kable(cdbk.ft, col.names = c("\\textbf{Information Category}", "Codes"), caption
 #' # General Research Categories
 #' \Frule
 #'
-#+ desc, fig.cap="Proportions of reviewed articles in each of the two overarching research categories: IPV interventions research, and SMW-inclusive IPV research", fig.lab="desc"
+#+ scat
 
 ### catpal ####
 
 catpal <- c(adjustcolor(pal_my[16], alpha.f = 0.9), adjustcolor(pal_my[5], alpha.f = 0.9))
 
-# DESCRIPTIVES ---------------------------------------------------------------
+# DESCRIPTIVES ----------------
 
-## search categories ============================================================
+## search categories ================
 
 ### [MAP-abstracts-S3.csv] ####
 cpv.s3 <- MAP[MAP$scat == "S3", ]; ## write.csv(cpv.s3[order(cpv.s3$year), c("bibkey", "year", "title", "journal", "abstract")], "data/MAP-abstracts-S3.csv", row.names = FALSE)
@@ -350,7 +352,9 @@ t.scat <- t.scat[order(t.scat$prop), ]
 t.scat$ymax <- cumsum(t.scat$prop)
 t.scat$ymin <- c(0, head(t.scat$ymax, n = -1))
 
-### PLOT - scat ####
+#+ donut_scat, fig.cap="Proportions of reviewed articles in each of the two overarching research categories: IPV interventions research, and SMW-inclusive IPV research", fig.lab="donut_scat"
+### PLOT - scat - donut ####
+
 library(ggplot2)
 scat.p <- ggplot(t.scat, aes(fill = Category,
                              ymax = ymax,
@@ -378,7 +382,7 @@ scat.p
 #' \Frule
 #'
 #+ pub_titles
-## publication titles ============================================================
+## publication titles ================
 t.jrnl <- Rtdf(MAP$journal)
 ft.jrnl <- with(MAP, {
     ftable(journal, scat) %>%
@@ -416,7 +420,8 @@ MAP$cpv <- ifelse(MAP$jrnl %in% j.cp, "CP", "V")
 #'
 #' ## Research Category by Journal & Journal Category
 #'
-#+ scat_x_journal
+#+ dot_scatXjournal
+### PLOT - scat-x-journal - dotchart ####
 ftm.j <- Rna(ft.jrnl)
 sum.j <- apply(ftm.j, 1, sum)
 ftm.j <- ifelse(ftm.j == 0, NA, ftm.j)
@@ -424,7 +429,7 @@ ftm.jp <- cbind(ft.jrnl, "**Total**" = sum.j)
 ftm.jp %>% kable(align = rep("r", 3),
                   caption = "$N_{articles}$ in Each Research Category per Journal")
 
-Rdotchart(
+Rdotchart(main = expression(paste(italic(N[Articles]), italic(" per Publication"))),
     ftm.j,
     pch = 19,
     gcolor = pal_my[20],
@@ -437,6 +442,9 @@ Rdotchart(
     xaxt = 'n'
 ); axis(1, at = seq(range(ftm.j, na.rm = TRUE)[1],
                     range(ftm.j, na.rm = TRUE)[2], by = 3))
+
+#+ parset_scatXjournal, fig.fullwidth=TRUE
+### PLOT - scat-x-journal - parset ####
 
 MAP.jrnl <- MAP[, c("scat", "journal")]
 names(MAP.jrnl) <- c("Category", "Journal")
@@ -458,7 +466,7 @@ parset.jrnl <- ggparset2(list("Category", "Journal"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pj), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.jrnl
+parset.jrnl + labs(subtitle = "Journals")
 
 
 MAP.jrnl <- MAP[, c("scat", "journal", "cpv", "jrnl")]
@@ -482,16 +490,17 @@ parset.jrnl2 <- ggparset2(list("Category", "Journal", "Discipline"),
     scale_colour_manual(values = c(pscat, adjustcolor(pcpv, alpha.f = 0.85),
                                    adjustcolor(clr.cpv, alpha.f = 0.85)),
                         guide = FALSE) +
-    thm_Rtft(ticks = FALSE, ytext = FALSE); parset.jrnl2
+    thm_Rtft(ticks = FALSE, ytext = FALSE);
+parset.jrnl2+ labs(subtitle = "Journals & Research Disciplines")
 #'
 #' \tufteskip
 #'
 #' # Publication Years
 #' \Frule
 #'
-#+ yr_hist, echo=FALSE, fig.fullwidth=TRUE, fig.cap="Publication Years Grouped by Research Category", fig.height = 4
+#+ hist_yrXscat, echo=FALSE, fig.fullwidth=TRUE, fig.cap="Publication Years Grouped by Research Category", fig.height = 4
 
-### PLOT - year/scat ####
+### PLOT - year-X-scat - hist ####
 s3hist <- hist(MAP$year[MAP$scat == "S3"], plot = FALSE, right = F, breaks = 25)
 s4hist <- hist(MAP$year[MAP$scat == "S4"], plot = FALSE, right = F, breaks = s3hist$breaks)
 ## col = pal_my.a75[12], border = pal_my[19], lwd = .5
@@ -503,7 +512,7 @@ plot(s4hist, col = pal_sci[8], border = pal_my[19], density = 50, lwd = .25,
        border = NA, bty = 'n', cex = 0.8, text.font = 3,
        trace = F)
 #'
-#+ echo=FALSE
+#+ noEcho, echo=FALSE
 #### NO MORE ECHO ####
 ## knitr::opts_chunk$set(echo = FALSE)
 #'
@@ -553,7 +562,7 @@ Rftm <- function(x1, x2, dnn = NULL, zero.action = NA, zero.qt = FALSE) {
 #'
 #+ topics, fig.fullwidth=TRUE, fig.height = 7.5
 
-## topics ============================================================
+## topics ================
 # cb$clab <- factor(cb$clab)
 
 codes.tp <- cb[cb$cat == "TOPIC", "clab"] %>% droplevels()
@@ -569,9 +578,9 @@ sum.tp <- apply(ftm.tp2, 1, sum)
 ftm.tpp <- cbind(ftm.tp, "**Total**" = sum.tp)
 ftm.tpp %>% kable(align = rep("r", 3),
                    caption = "Research Topics")
-
-### PLOT - topic - 1 ####
-Rdotchart(
+#+ dot_topics
+### PLOT - topics - dotchart ####
+Rdotchart(main = "Research Topics",
     ftm.tp,
     pch = 19,
     gcolor = pal_my[20],
@@ -607,8 +616,8 @@ tp.s4 <- cb[cb$scat == levels(cb$scat)[2] &
 #' \newpage
 #' ## Research Designs
 #'
-#+ designs, fig.fullwidth=TRUE
-## designs ============================================================
+#+ designs
+## designs ================
 
 ct.d <- cb[cb$cat == "DESIGN", ] %>% droplevels()
 # ct.d <- ct.d[!duplicated(ct.d), ]
@@ -633,7 +642,8 @@ pd <- mpal(1:length(unique(ct.d$clab)), p = sci)
 
 ct.d <- dplyr::rename(ct.d, "Category" = scat, "Design" = clab)
 
-### PLOT - designs ####
+#+ parset_designs, fig.fullwidth=TRUE
+### PLOT - designs - parset ####
 
 library(ggparallel)
 pscat <- c("#a6afbb", pal_my[17])
@@ -647,13 +657,13 @@ parset.dsgn <- ggparset2(list("Category", "Design"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pd), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.dsgn
+parset.dsgn + labs(subtitle = "Research Designs")
 #'
 #' \newpage
 #' `r tufte::newthought("\\Large{Experimental Research Designs}")`
 #'
-#+ exp, fig.fullwidth=TRUE
-## experimental designs ============================================================
+#+ exp
+## experimental designs ================
 
 ct.exp <- cb[cb$cat == "DESIGN-EXP", ] %>% droplevels()
 ct.exp <- ct.exp[!duplicated(ct.exp), ]
@@ -680,7 +690,8 @@ pexp <- mpal(1:length(unique(ct.exp$clab)), p = sci)
 
 ct.exp <- dplyr::rename(ct.exp, "Category" = scat, "Experimental Design" = clab)
 
-### PLOT - experimental designs ####
+#+ parset_exp, fig.fullwidth = TRUE
+### PLOT - experimental designs - parset ####
 
 library(ggparallel)
 pscat <- c("#a6afbb", pal_my[17])
@@ -695,15 +706,13 @@ parset.exp <- ggparset2(list("Category", "Experimental Design"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pexp), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.exp
+parset.exp + labs(subtitle = "Experimental Designs")
 #'
 #' \newpage
 #' ## Data Collection Methodologies
 #'
-#+ methodologies, fig.fullwidth=TRUE
-## methodologies ============================================================
-
-### PLOT - methodologies - 1 ####
+#+ methodologies
+## methodologies ================
 
 ct.mo <- cb[cb$cat == "METHODS", ] %>% droplevels()
 ct.mo <- ct.mo[!duplicated(ct.mo), ]
@@ -723,7 +732,8 @@ ftm.mo <- cbind(ftm.mo, "**Total**" = sum.mo)
 ftm.mo %>% kable(align = rep("r", 3),
                   caption = "Methodologies")
 
-### PLOT - methodologies ####
+#+ parset_methodologies, fig.fullwidth=TRUE
+### PLOT - methodologies - parset ####
 
 nlabs <- length(unique(ct.mo$clab))
 pmo <- mpal(1:length(unique(ct.mo$clab)), p = sci)
@@ -741,15 +751,15 @@ parset.mo <- ggparset2(list("Category", "Methodology"),
     scale_fill_manual(values = c(pscat, adjustcolor(pmo, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pmo), guide = FALSE) +
-    thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.mo# + coord_flip()
+    thm_Rtft(ticks = FALSE, ytext = FALSE) #+ coord_flip()
+parset.mo + labs(subtitle = "Methodologies")
 #'
 #' \newpage
 #'
 #'
 #' `r tufte::newthought("\\Large{QuaLitative Research \\textit{Designs}}")`
 #'
-#+ quaL_designs, fig.fullwidth=TRUE
+#+ qlDesigns
 ct.dql <- cb[cb$cat == "D-QL", ] %>% droplevels()
 ct.dql <- ct.dql[!duplicated(ct.dql), ]
 # x <- ct.dql[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -768,7 +778,8 @@ ftm.dql <- cbind(ftm.dql, "**Total**" = sum.dql)
 ftm.dql %>% kable(align = rep("r", 3),
                    caption = "Qua**L**itative Designs")
 
-### PLOT - quaLitative ####
+#+ parset_qlDesigns, fig.fullwidth=TRUE
+### PLOT - qual designs - parset ####
 
 nlabs <- length(unique(ct.dql$clab))
 pdql <- mpal(1:length(unique(ct.dql$clab)), p = sci)
@@ -786,13 +797,13 @@ parset.dql <- ggparset2(list("Category", "QuaLitative Design"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pdql), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.dql
+parset.dql + labs(subtitle = "Qualitative Research Designs")
 #'
 #'  \newpage
 #' `r tufte::newthought("\\large{QuaLitative \\textit{Methods}}")`
 #'
-#+ qual, fig.fullwidth=TRUE
-## qualitative ============================================================
+#+ qlMethods
+## qual methods ================
 
 ct.ql <- cb[cb$cat == "M-QL", ] %>% droplevels()
 ct.ql <- ct.ql[!duplicated(ct.ql), ]
@@ -810,7 +821,8 @@ ftm.ql <- cbind(ftm.ql, "**Total**" = sum.ql)
 ftm.ql %>% kable(align = rep("r", 3),
                   caption = "Qua**L**itative Method(s)")
 
-### PLOT - qualitative ####
+#+ parset_qlMethods, fig.fullwidth=TRUE
+### PLOT - qual methods - parset ####
 pql <- mpal(1:length(unique(ct.ql$clab)), p = sci)
 
 ct.ql <- dplyr::rename(ct.ql, "QuaLitative Methods" = clab, "Category" = scat)
@@ -826,14 +838,14 @@ parset.ql <- ggparset2(list("Category", "QuaLitative Methods"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pql), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.ql
+parset.ql + labs(subtitle = "Qualitative Research Methods")
 #'
 #' \newpage
 #'
 #' `r tufte::newthought("\\Large{QuaLitative Data Analytic Approaches}")`
 #'
-#+ aql, fig.fullwidth=TRUE, fig.height=7
-## QL Analytic Approaches ========================================================
+#+ qlAnalytics, fig.fullwidth=TRUE, fig.height=7
+## QL Analytic Approaches ================
 
 ct.aql <- cb[cb$cat == "A-QL", ] %>% droplevels()
 ct.aql <- ct.aql[!duplicated(ct.aql), ]
@@ -854,7 +866,8 @@ ftm.aqlp <- cbind(ftm.aql, "**Total**" = sum.aql)
 ftm.aqlp %>% kable(align = rep("r", 3),
                     caption = "QuaLitative Analytic Approaches")
 
-### PLOT - QL analytic approaches ####
+#+ dot_qlAnalytics
+### PLOT - QL analytic approaches - dotchart ####
 
 nlabs <- length(unique(ct.aql$clab))
 paql <- mpal(1:length(unique(ct.aql$clab)), p = sci)
@@ -864,7 +877,7 @@ ct.aqlps <- dplyr::rename(ct.aql, "QuaLitative Analytic Approaches" = clab, "Cat
 aql.s3 <- ftm.aql[, 1]
 aql.s4 <- ftm.aql[, 2]
 
-Rdotchart(
+Rdotchart(main = "QuaLitative Analytics",
     ftm.aql,
     pch = 19,
     gcolor = pal_my[20],
@@ -878,6 +891,9 @@ Rdotchart(
 t.aql$log <- log(t.aql[, 2])+2
 laql <- c(3.5, 3.5, t.aql[, 3])
 
+#+ parset_qlAnalytics, fig.fullwidth=TRUE
+### PLOT - QL analytic approaches - parset ####
+
 parset.aql <- ggparset2(list("Category", "QuaLitative Analytic Approaches"),
                         data = ct.aqlps,
                         method = "parset", label = TRUE,
@@ -887,14 +903,14 @@ parset.aql <- ggparset2(list("Category", "QuaLitative Analytic Approaches"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, paql), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.aql
+parset.aql + labs(subtitle = "Qualitative Analytics")
 #'
 #'
 #' \newpage
 #'
 #' `r tufte::newthought("\\Large{QuaNTitative Research \\textit{Designs}}")`
 #'
-#+ quaNT_designs, fig.fullwidth=TRUE
+#+ qtDesigns
 ct.dqt <- cb[cb$cat == "D-QT", ] %>% droplevels()
 ct.dqt <- ct.dqt[!duplicated(ct.dqt), ]
 # x <- ct.dqt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -913,7 +929,8 @@ ftm.dqt <- cbind(ftm.dqt, "**Total**" = sum.dqt)
 ftm.dqt %>% kable(align = rep("r", 3),
                    caption = "Qua**NT**itative Designs")
 
-### PLOT - quantitative ####
+#+ parset_qtDesigns, fig.fullwidth=TRUE
+### PLOT - quant designs - parset ####
 
 nlabs <- length(unique(ct.dqt$clab))
 pdqt <- mpal(1:length(unique(ct.dqt$clab)), p = sci)
@@ -931,14 +948,14 @@ parset.dqt <- ggparset2(list("Category", "QuaNTitative Design"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pdqt), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.dqt
+parset.dqt + labs(subtitle = "Quantitative Research Designs")
 #'
 #'
 #' \newpage
 #' `r tufte::newthought("\\large{QuaNTitative \\textit{Methods}}")`
 #'
-#+ quant, fig.fullwidth=TRUE, fig.height=6
-### quantitative ============================================================
+#+ qtMethods
+### quant methods ================
 
 ct.qt <- cb[cb$cat == "M-QT", ] %>% droplevels()
 ct.qt <- ct.qt[!duplicated(ct.qt), ]
@@ -958,7 +975,8 @@ ftm.qt <- cbind(ftm.qt, "**Total**" = sum.qt)
 ftm.qt %>% kable(align = rep("r", 3),
                   caption = "Qua**NT**itative Methods")
 
-### PLOT - quantitative ####
+#+ parset_qtMethods, fig.fullwidth=TRUE, fig.height=6
+### PLOT - quant Methods - parset ####
 
 nlabs <- length(unique(ct.qt$clab))
 pqt <- mpal(1:length(unique(ct.qt$clab)), p = sci)
@@ -976,14 +994,14 @@ parset.qt <- ggparset2(list("Category", "QuaNTitative Methods"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pqt), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.qt
+parset.qt + labs(subtitle = "Quantitative Research Methods")
 #'
 #' \newpage
 #'
 #' `r tufte::newthought("\\Large{QuaNTitative Data Analytic Approaches}")`
 #'
-#+ aqt, fig.fullwidth=TRUE, fig.height=7
-## Analytic Approaches ========================================================
+#+ qtAnalytics
+## quant analytics ================
 
 ct.aqt <- cb[cb$cat == "A-QT", ] %>% droplevels()
 ct.aqt <- ct.aqt[!duplicated(ct.aqt), ]
@@ -1004,7 +1022,8 @@ ftm.aqtp <- cbind(ftm.aqt, "**Total**" = sum.aqt)
 ftm.aqtp %>% kable(align = rep("r", 3),
                     caption = "Qua**NT**itative Analytic Approaches")
 
-### PLOT - QT analytic approaches ####
+#+ dot_qtAnalytics, fig.fullwidth=TRUE, fig.height=7
+### PLOT - quant analytics - dotchart ####
 
 nlabs <- length(unique(ct.aqt$clab))
 paqt <- mpal(1:length(unique(ct.aqt$clab)), p = sci)
@@ -1014,7 +1033,7 @@ ct.aqtps <- dplyr::rename(ct.aqt, "QuaNTitative Analytic Approaches" = clab, "Ca
 aqt.s3 <- ftm.aqt[, 1]
 aqt.s4 <- ftm.aqt[, 2]
 
-Rdotchart(
+Rdotchart(main = "QuaNTitative Analytics",
     ftm.aqt,
     pch = 19,
     gcolor = pal_my[20],
@@ -1028,6 +1047,8 @@ Rdotchart(
 t.aqt$log <- log(t.aqt[, 2])*1.65
 laqt <- c(3.5, 3.5, t.aqt[, 3])
 
+#+ parset_qtAnalytics, fig.fullwidth=TRUE, fig.height=7
+### PLOT-qtAnalytics-parset ####
 parset.aqt <- ggparset2(list("Category", "QuaNTitative Analytic Approaches"),
                         data = ct.aqtps,
                         method = "parset", label = TRUE,
@@ -1037,13 +1058,13 @@ parset.aqt <- ggparset2(list("Category", "QuaNTitative Analytic Approaches"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, paqt), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.aqt
+parset.aqt + labs(subtitle = "Quantitative Analytics")
 #'
 #'
 #' \newpage
 #' `r tufte::newthought("\\large{Archival/Secondary Data Sources}")`
 #'
-#+ m_rcrd, fig.fullwidth=TRUE
+#+ archivalMethods
 ### archival/secondary data sources ####
 ct.rcrd <- cb[cb$cat == "M-RCRD", ] %>% droplevels()
 ct.rcrd <- ct.rcrd[!duplicated(ct.rcrd), ]
@@ -1063,7 +1084,8 @@ ftm.rcrd <- cbind(ftm.rcrd, "**Total**" = sum.rcrd)
 ftm.rcrd %>% kable(align = rep("r", 3),
                     caption = "Archival Data Sources")
 
-### PLOT - archival/secondary data sources ####
+#+ parset_archivalDataSrcs, fig.fullwidth=TRUE
+### PLOT - archival/secondary data sources - parset####
 
 nlabs <- length(unique(ct.rcrd$clab))
 prcrd <- mpal(1:length(unique(ct.rcrd$clab)), p = sci)
@@ -1081,14 +1103,14 @@ parset.rcrd <- ggparset2(list("Category", "Archival Data Source"),
                       guide = FALSE) +
     scale_colour_manual(values = rev(c(rev(pscat), prcrd)), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.rcrd
+parset.rcrd + labs(subtitle = "Archival/Secondary Data Sources")
 #'
 #' \newpage
 #'
 #' `r tufte::newthought("\\Large{Mixed-Methodological \\textit{Designs}}")`
 #'
-#+ mm_designs, fig.fullwidth=TRUE
-## mixed-methods designs ========================================================
+#+ mmDesigns
+## mixed-methods designs ================
 
 ct.dmm <- cb[cb$cat == "D-MM", ] %>% droplevels()
 ct.dmm <- ct.dmm[!duplicated(ct.dmm), ]
@@ -1107,7 +1129,8 @@ ftm.dmm <- cbind(ftm.dmm, "**Total**" = sum.dmm)
 ftm.dmm %>% kable(align = rep("r", 3),
                    caption = "Mixed-Methodological Designs")
 
-### PLOT - mixed-methods ####
+#+ parset_mixedMethods, fig.fullwidth=TRUE
+### PLOT - mm designs - parset ####
 
 nlabs <- length(unique(ct.dmm$clab))
 pmm <- mpal(1:length(unique(ct.dmm$clab)), p = sci)
@@ -1125,13 +1148,13 @@ parset.dmm <- ggparset2(list("Category", "Mixed-Methodological Design"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pmm), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.dmm
+parset.dmm + labs(subtitle = "Mixed-Methods Research Designs")
 #'
 #' \newpage
 #' `r tufte::newthought("\\large{Mixed (QuaLitative \\& QuaNTitative) \\textit{Methods}}")`
 #'
-#+ mm_methods, fig.fullwidth=TRUE
-## mixed-methods ============================================================
+#+ mmMethods
+## mixed-methods methods ================
 
 ct.mm <- cb[cb$cat == "M-MM", ] %>% droplevels()
 ct.mm <- ct.mm[!duplicated(ct.mm), ]
@@ -1150,7 +1173,8 @@ ftm.mm <- cbind(ftm.mm, "**Total**" = sum.mm)
 ftm.mm %>% kable(align = rep("r", 3),
                   caption = "Mixed-Methods")
 
-### PLOT - mixed-methods ####
+#+ parset_mmMethods, fig.fullwidth = TRUE
+### PLOT - mm methods - parset ####
 
 nlabs <- length(unique(ct.mm$clab))
 pmm <- mpal(1:length(unique(ct.mm$clab)), p = sci)
@@ -1168,13 +1192,13 @@ parset.mm <- ggparset2(list("Category", "Mixed-Methods"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pmm), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.mm
+parset.mm + labs(subtitle = "Mixed-Methods")
 #'
 #' \newpage
 #' ## Target Populations & Sampling Frames
 #'
-#+ populations, fig.fullwidth=TRUE, fig.height = 7.5
-## populations ============================================================
+#+ populations
+## populations ================
 
 ct.pop <- cb[cb$cat == "POPULATION", ] %>% droplevels()
 ct.pop <- ct.pop[!duplicated(ct.pop), ]
@@ -1194,9 +1218,10 @@ ftm.pop <- ifelse(ftm.pop == 0, NA, ftm.pop)
 ftm.popp <- cbind(ftm.pop, "**Total**" = sum.pop)
 ftm.popp %>% kable(align = rep("r", ncol(ftm.popp)), caption = "Populations Included in Sampling Frame")
 
+#+ dot_populations, fig.fullwidth=TRUE, fig.height = 7.5
 ### PLOT - populations - 1 ####
 
-Rdotchart(
+Rdotchart(main = "Populations",
     ftm.pop,
     pch = 19,
     gcolor = pal_my[20],
@@ -1210,8 +1235,8 @@ Rdotchart(
 #' \newpage
 #' ## Sampling Settings
 #'
-#+ settings, fig.fullwidth=TRUE, fig.height = 7.5
-## settings ============================================================
+#+ settings
+## settings ================
 
 ct.set <- cb[cb$cat == "M-SETTINGS", ] %>% droplevels()
 ct.set <- ct.set[!duplicated(ct.set), ]
@@ -1232,9 +1257,10 @@ ftm.set <- ifelse(ftm.set == 0, NA, ftm.set)
 ftm.setp <- cbind(ftm.set, "**Total**" = sum.set)
 ftm.setp %>% kable(align = rep("r", ncol(ftm.setp)), caption = "Sampling Settings")
 
-### PLOT - settings - 1 ####
+#+ dot_settings, fig.fullwidth=TRUE, fig.height = 7.5
+### PLOT - settings - dotchart ####
 
-Rdotchart(
+Rdotchart(main = "Sampling Settings",
     ftm.set,
     pch = 19,
     gcolor = pal_my[20],
@@ -1245,7 +1271,8 @@ Rdotchart(
     pt.cex = 1.125,
     color = c(rep(catpal[1], nrow(ftm.set)), rep(catpal[2], nrow(ftm.set))))
 
-### PLOT - settings - 1 ####
+#+ parset_settings, fig.fullwidth=TRUE, fig.height = 7.5
+### PLOT - settings - parset ####
 
 sets <- c(191, 196, 198, 202, 203, 206, 207, 208, 209, 210, 211, 212, 213, 216, 218, 219)
 ct.set2 <- ct.set[ct.set$cid %in% sets, ] %>% droplevels()
@@ -1269,13 +1296,13 @@ parset.set <- ggparset2(list("Category", "Sampling Settings"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pset2), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.set
+parset.set + labs(subtitle = "Sampling Settings")
 #'
 #' \newpage
 #' ## Sampling Methods
 #'
-#+ samplingMethods, fig.fullwidth=TRUE, fig.height = 7.5
-## samplingMethods ============================================================
+#+ samplingMethods
+## samplingMethods ================
 
 ct.smthds <- cb[cb$cat == "M-SAMPLING", ] %>% droplevels()
 ct.smthds <- ct.smthds[!duplicated(ct.smthds), ]
@@ -1295,9 +1322,10 @@ ftm.smthds <- ifelse(ftm.smthds == 0, NA, ftm.smthds)
 ftm.smthdsp <- cbind(ftm.smthds, "**Total**" = sum.smthds)
 ftm.smthdsp %>% kable(align = rep("r", ncol(ftm.smthdsp)), caption = "Sampling Methods")
 
-### PLOT - samplingMethods - 1 ####
+#+ dot_sampling
+### PLOT - samplingMethods - dotchart ####
 
-Rdotchart(
+Rdotchart(main = "Sampling Methods",
     ftm.smthds,
     pch = 19,
     gcolor = pal_my[20],
@@ -1308,17 +1336,18 @@ Rdotchart(
     pt.cex = 1.125,
     color = c(rep(catpal[1], nrow(ftm.smthds)), rep(catpal[2], nrow(ftm.smthds))))
 
-### PLOT - samplingMethods - 1 ####
+#+ parset_sampling, fig.fullwidth=TRUE
+### PLOT - samplingMethods - parset ####
 
 nlabs <- length(unique(ct.smthds$clab))
 psmthds <- mpal(1:length(unique(ct.smthds$clab)), p = sci)
 
-ct.smthds <- dplyr::rename(ct.smthds, "Levels of Analysis" = clab, "Category" = scat)
+ct.smthds <- dplyr::rename(ct.smthds, "Sampling Methods" = clab, "Category" = scat)
 
 t.smthds$log <- log(t.smthds[, 2])+1
 lsmthds <- c(3.5, 3.5, t.smthds[, 3])
 
-parset.smthds <- ggparset2(list("Category", "Levels of Analysis"),
+parset.smthds <- ggparset2(list("Category", "Sampling Methods"),
                            data = ct.smthds,
                            method = "parset", label = TRUE,
                            label.size = lsmthds, text.angle = 0, order = c(0, 0)) +
@@ -1326,7 +1355,7 @@ parset.smthds <- ggparset2(list("Category", "Levels of Analysis"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, psmthds), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.smthds
+parset.smthds + labs(subtitle = "Sampling Methods")
 
 #'
 #' \newpage
@@ -1340,8 +1369,8 @@ parset.smthds
 
 knitr::opts_chunk$set(fig.path = "graphics/EcoLvls/rplot-")
 
-#+ ecoLvls, fig.fullwidth=TRUE
-## eco levels of analysis ========================================================
+#+ ecoLvls
+## eco levels of analysis ================
 
 ct.eco <- cb[cb$cat == "ECO", ] %>% droplevels()
 ct.eco <- ct.eco[!duplicated(ct.eco), ]
@@ -1361,7 +1390,8 @@ ftm.eco <- cbind(ftm.eco, "**Total**" = sum.eco)
 ftm.eco %>% kable(align = rep("r", 3),
                    caption = "Mixed-Methodological Designs")
 
-### PLOT - eco levels ####
+#+ parset_ecoLvls, fig.fullwidth=TRUE
+### PLOT - eco levels - parset ####
 
 nlabs <- length(unique(ct.eco$clab))
 peco <- mpal(1:length(unique(ct.eco$clab)), p = sci)
@@ -1379,14 +1409,14 @@ parset.eco <- ggparset2(list("Category", "Levels of Analysis"),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, peco), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
-parset.eco
+parset.eco + labs(subtitle = "Ecological Levels of Analysis")
 #'
 #' \newpage
 #'
 #+ ecoLvlsData
 ## SEE "MAPlvls.R" FOR MORE DETAILED COMMENTARY ON THE REMAINING CODE BELOW ##
 
-# DATA - ECO-LEVELS -------------------------------------------------------
+# DATA - ECO-LEVELS ----------------
 
 
 mpeco0 <- read.csv("data/mapeco.csv")
@@ -1407,7 +1437,7 @@ mplvls <- mplvls1[, -1, drop = FALSE]
 #'
 #+ clrs_labs
 
-# COLORS & LABELS ---------------------------------------------------------
+# COLORS & LABELS ----------------
 
 vclrs <- rev(grad(1:10, p = nord_polar))[4:7]
 vtclrs <- rev(grad(1:10, p = nord_polar))[6:9]
@@ -1421,7 +1451,7 @@ sclabs <- c("'S3' = 'IPV Interventions Research'; 'S4' = 'SMW-Inclusive IPV Rese
 #'
 #+ l_MAP
 
-# MERGE - MAP+l -------------------------------------------------------------
+# MERGE - MAP+l ----------------
 
 l <- mplvls[, 1:4]
 l$id <- rownames(l)
@@ -1429,7 +1459,7 @@ l$id <- rownames(l)
 mpjscat <- MAP[, c("bibkey", "scat", "journal")]
 l <- merge(l, mpjscat, by.x = "id", by.y = "bibkey", all = TRUE)
 
-# `llong` -------------------------------------------------------------------
+# `llong` ----------------
 
 llong0 <- reshape(l, varying = 2:5, direction = 'long', sep = "")
 
@@ -1472,7 +1502,7 @@ llongbi2 <- llongbi1[, c(2, 1)] %>% dplyr::rename("from" = to, "to" = from)
 
 #+ llongg_net
 
-# GRAPH DATA - LVLS -------------------------------------------------------
+# GRAPH DATA - LVLS ----------------
 
 library(igraph)
 llongg <- graph_from_data_frame(llong, directed = F, vertices = llongv)
@@ -1492,14 +1522,16 @@ E(llongg)$width <- 0.35
 kindex.g <- V(llongg)$name %>% length()-4
 lblsize <- c(log(V(llongg)$size[1:kindex.g])*0.35, log(V(llongg)$size[-1:-kindex.g])*0.125)
 #'
-#+ keysnet_lvls, fig.fullwidth=TRUE
-# PLOT - `llongg` ---------------------------------------------------------
+#+ net_lvls_bibkeys, fig.fullwidth=TRUE
+# PLOT - `llongg` ----------------
+
+par(mar = rep(0, 4))
 lfr <- layout_with_fr(llongg) %>% norm_coords()
 plot(llongg, rescale = T, layout = lfr, vertex.label.color = V(llongg)$cvclr, vertex.label.cex = lblsize)
 
 #+ lvls_lnet
 
-# `lnet` --------------------------------------------------------------------
+# `lnet` ----------------
 
 lnet12 <- within(l, {
     from <- Rdich(l1, values = c(NA, "l1"))
@@ -1542,7 +1574,7 @@ lnet <- lnet0[, -1]
 
 #+ lnet_llabs
 
-# llabs -------------------------------------------------------------------
+# llabs ----------------
 
 library(car)
 llabs <- c("'l1' = 'Individual'; 'l2' = 'Relationship'; 'l3' = 'Community'; 'l4' = 'Societal'")
@@ -1551,14 +1583,14 @@ lnet$to <- car::recode(lnet$to, llabs)
 
 #+ lfrq
 
-# lfrq --------------------------------------------------------------------
+# lfrq ----------------
 
 lfrq1 <- lnet[, 1]
 lfrq2 <- lnet[, 2]
 lfrq3 <- c(lfrq1, lfrq2)
 lfrq <- Rtdf(lfrq3, names = c("lvl", "Freq"))
 
-# `lnetg` ------------------------------------------------------------------
+# `lnetg` ----------------
 
 library(igraph)
 lnetg <- graph_from_data_frame(lnet, directed = FALSE, vertices = lfrq)
@@ -1568,9 +1600,10 @@ V(lnetg)$color <- lnetcol
 E(lnetg)$width <- 0.25
 #'
 
-#+ lnetg_gem
-# PLOTS - `lnetg` (layout-0 & layout-2) -----------------------------------
+#+ net_ecolvls
+# PLOT - ecolvls ----------------
 
+par(mar = rep(0, 4))
 ll3 <- layout.gem(lnetg)
 ll3n <- norm_coords(ll3)
 plot(lnetg, rescale = T, layout = ll3n, edge.arrow.size = .2, vertex.label.color = "#1a1e22", vertex.frame.color = NA)
@@ -1579,7 +1612,7 @@ plot(lnetg, rescale = T, layout = ll3n, edge.arrow.size = .2, vertex.label.color
 #'
 #+ lnetft
 
-# `lnetft` -----------------------------------------------------------------
+# `lnetft` ----------------
 
 
 lnetft <- ftable(lnet)
@@ -1609,8 +1642,8 @@ larcs <- ifelse(larcs == 0, NA, larcs) %>% na.omit()
 
 #+ arc_lvls, fig.height=3.75, fig.fullwidth=TRUE
 
-# PLOT - `lnet - arcplot()` -----------------------------------------------
-
+# PLOT - `lnet - arcplot()` ----------------
+par(mar = c(5, 0, 0, 0))
 arcplot(ledges, col.arcs = hsv(0, 0, 0.1, 0.075), pch.nodes = 21, bg.nodes = adjustcolor(lnetcol, alpha.f = 0.75), cex.nodes = log(ldeg[c("Individual", "Relationship", "Community", "Societal")])*0.37, col.nodes = lnetcol, lwd.nodes = 0.75, lwd.arcs = larcs, line = 1.25, cex.labels = 0.5, font = 1, col.labels = pal_my[20])
 
 #'
@@ -1635,7 +1668,7 @@ kysaql <- cbaql[, c("bibkey", "clab")] %>% dplyr::rename("from" = bibkey, "to" =
 #'
 #+ sysnet
 
-# `snet` -----------------------------------------------------------------
+# `snet` ----------------
 
 sys <- names(mplvls[, 5:7])
 slabs <- c("'micro' = 'Micro-system'; 'meso_exo' = 'Meso- & Exo-system'; 'exo_macro' = 'Exo- & Macro-system'")
@@ -1687,7 +1720,7 @@ snet$from <- car::recode(snet$from, slabs2)
 snet$to <- car::recode(snet$to, slabs2)
 
 
-# `sfrq` ------------------------------------------------------------------
+# `sfrq` ----------------
 
 sfrq1 <- snet[, 1]
 sfrq2 <- snet[, 2]
@@ -1695,7 +1728,7 @@ sfrq3 <- c(sfrq1, sfrq2)
 sfrq <- Rtdf(sfrq3, names = c("lvl", "Freq"))
 
 
-# GRAPH DATA - ECO SYS ------------------------------------------------------------------
+# GRAPH DATA - ECO SYS ----------------
 
 
 library(igraph) ## not necessary - but included as reminder and in case I move/copy the code later ##
@@ -1708,9 +1741,10 @@ V(snetg)$color <- snetcol
 E(snetg)$width <- 0.25
 #'
 #'
-#+ snetg_fr
-# PLOT - `snetg` -----------------------------------
+#+ net_snetgfr
+# PLOT - `snetg` ----------------
 
+par(mar = rep(0, 4))
 ls1 <- layout.fruchterman.reingold(snetg)
 ls1n <- norm_coords(ls1)
 plot(snetg, rescale = T, layout = ls1n, edge.arrow.size = .2, vertex.label.color = "#1a1e22", vertex.frame.color = NA)
@@ -1720,7 +1754,7 @@ plot(snetg, rescale = T, layout = ls1n, edge.arrow.size = .2, vertex.label.color
 #'
 #+ snetft
 
-# `snetft` ----------------------------------------------------------------
+# `snetft` ----------------
 
 snetft <- ftable(snet) %>% matrix(nrow = nrow(sfrq), byrow = FALSE)
 dimnames(snetft) <- list(levels(factor(snet$to)), levels(factor(snet$from)))
@@ -1746,8 +1780,9 @@ sarcs <- ifelse(sarcs == 0, NA, sarcs) %>% na.omit()
 
 #+ arc_sys, fig.height=3.5, fig.fullwidth=TRUE
 
-# PLOT - `snetft-arcplot` -------------------------------------------------
+# PLOT - `snetft-arcplot` ----------------
 
+par(mar = c(5, 0, 0, 0))
 arcplot(sedges, col.arcs = hsv(0, 0, 0.1, 0.06), pch.nodes = 21, bg.nodes = adjustcolor(snetcol, alpha.f = 0.5), cex.nodes = log(sdeg[c("Micro", "Meso-Exo", "Exo-Macro")])*0.3, col.nodes = snetcol, lwd.nodes = 0.75, lwd.arcs = sarcs, line = 1.25, cex.labels = 0.5, font = 1, col.labels = pal_my[20])
 #'
 #' \newpage
@@ -1819,7 +1854,7 @@ alnet$to <- car::recode(alnet$to, llabs)
 
 #+ alfrq
 
-# alfrq --------------------------------------------------------------------
+# alfrq ----------------
 
 alfrq1 <- alnet[, 1] %>% as.character()
 alfrq2 <- alnet[, 2]
@@ -1831,7 +1866,7 @@ av2 <- alnet[, 2]
 av3 <- c(av1, av2)
 av <- Rtdf(av3, names = c("id", "Freq"))
 av[, 1] <- as.character(av[, 1])
-# `alnetg` ------------------------------------------------------------------
+# `alnetg` ----------------
 
 library(igraph)
 alnetg <- graph_from_data_frame(alnet[, 1:2], directed = FALSE, vertices = alfrq)
@@ -1855,16 +1890,19 @@ alabs <- gsub("&", "\\\\&", alabs)
 alabs <- paste(alabs, collapse = ", ")
 
 alnetg_cap <- paste0("Network Diagram Showing Relations among Analytic Approaches (numbered graph nodes) used and Ecological Levels of Analysis (named graph nodes) Invovled among the Reviewed Literature: \\textit{", alabs, "}")
-# PLOTS - `alnetg` (layout-0 & layout-2) -----------------------------------
+# PLOTS - `alnetg` (layout-0 & layout-2) ----------------
 
 #'
-#+ alnetg_fr, out.height='4in', fig.cap=alnetg_cap
+#+ arc_alnetg, out.height='4in', fig.cap=alnetg_cap
+
+par(mar = rep(0, 4))
 lal3 <- layout_with_fr(alnetg) %>% norm_coords()
 plot(alnetg, rescale = T, layout = lal3, edge.arrow.size = .2, vertex.label.color = "#1a1e22", vertex.frame.color = c(vclrs[1:4], rep(NA, length(alnetcol))), vertex.label.cex = alblsize)
 #'
 #'
 #' \newpage
 #'
+#+ alnetpr
 alnet.pr <- ftable(alnet[, 2:3], row.vars = 2) %>% as.matrix() #(nrow = nrow(alfrq), byrow = FALSE)
 dimnames(alnet.pr) <- list(levels(factor(alnet$clab)), gsub("\\.", "", levels(factor(alnet$to))))
 alnet.pr <- ifelse(alnet.pr >= 1, "$\\checkmark$", "$\\cdot$")
@@ -1875,9 +1913,101 @@ kable(alnet.pr, caption = "Analytic approaches used across ecological levels of 
 #'
 #' \newpage
 #'
-#+ anetg_arc, echo=FALSE
-knitr::include_graphics("graphics/inputs/arc_analysEs.pdf")
+#+ aledges, echo=FALSE
+# knitr::include_graphics("graphics/inputs/arc_analysEs.pdf")
+# source("alnetg_arc.R")
+
+elvl <- c("(L1) Individual", "(L2) Relationship", "(L3) Community", "(L4) Societal")
+eLVL <- c("L1", "L2", "L3", "L4")
+
+alrec <- paste0("'", alfrq$lvl[1:4], "' = '", elvl, "'", collapse = "; ") ## "alfrq" is from "bibs.R" ##
+alrec1 <- paste0("'", elvl, "' = '", eLVL, "'", collapse = "; ")
+
+aln <- alnet[, 1:2] ## "alnet" is from "bibs.R" ##
+aln[, 2] <- car::recode(aln[, 2], alrec)
+aln[, 1] <- car::recode(aln[, 1], rec.code2cid) ## "rec.code2cid" is from "bibs.R ##
+
+al <- within(alfrq, {
+    lvl <- car::recode(lvl, alrec)
+    lvl <- car::recode(lvl, rec.code2cid)
+})
+
+# aledges ----------------------------
+
+aledges0 <- graph_from_data_frame(aln, directed = FALSE, vertices = al)
+aledges <- get.edgelist(aledges0)
+
+alnetcol <- mpal(alfrq, p = sci, a = 0.5)[-1:-4]
+avbrdrs <- c(vclrs[1:4], alnetcol) ## "vclrs" is from "bibs.R" ##
+avclrs <-
+    c(adjustcolor(vclrs[1:4], alpha.f = 0.35),
+      adjustcolor(alnetcol, alpha.f = 0.25))
+
+adeg <- degree(aledges0)*.25
+alstrength <- strength(aledges0)
+
+
+allabs0 <- car::recode(al[, 1], rec.cid2clab)
+allabs <- paste0(al[, 1], " = ", allabs0)
+allabs1 <- paste0("**", al[-1:-4, 1], "**", " = _", allabs0[-1:-4], "_", collapse = ", ")
+
+allabs.p <- gsub(" & ", " \\\\& ", allabs)
 #'
+#'
+#' \newpage
+#'
+#+ arc_aledges2, fig.show='asis', fig.cap="Network Diagram Showing Relations among Analytic Approaches (numbered graph nodes) used and Ecological Levels of Analysis (named graph nodes) Invovled among the Reviewed Literature", fig.height=8, fig.fullwidth=TRUE
+# PLOT - Analytic Approaches (`alnetg_arc`) - arc ------------------------
+
+allabs_pl0 <- gsub("_|\\*{2}|`(.*?)`|_|\\*{2}", "\\1", allabs1, perl = TRUE)
+allabs_pl <- gsub(", ", "\n", allabs_pl0)
+# allabs_pl1 <- strsplit(allabs_pl0, ", ")
+# zdiv <- as.integer(length(allabs_pl[[1]])/2)
+# z1 <- 1:zdiv
+# z2 <- seq((length(z1) + 1), (length(z1) + 1 + zdiv))
+# z3 <- seq((length(z1) + length(z2) + 1), (length(z1) + length(z2) + 1 + zdiv))
+# z4 <- seq((length(z1) + length(z2) + length(z3) + 1), length(allabs_pl1[[1]]))
+
+# allabs_pl21 <- paste0(allabs_pl1[[1]][z1], collapse = ", ")
+# allabs_pl21 <- gsub(", ", "\n", allabs_pl21)
+# allabs_pl22 <- paste0(allabs_pl1[[1]][z2], collapse = ", ")
+# allabs_pl22 <- gsub(", ", "\n", allabs_pl22)
+# allabs_pl23 <- paste0(allabs_pl1[[1]][z3], collapse = ", ")
+# allabs_pl24 <- paste0(allabs_pl1[[1]][z4], collapse = ", ")
+
+# z0 <- sapply(allabs_pl1, nchar)
+# z1 <- c(z0, z0[length(z0)])
+# z2 <- c(1, rep(NA, length(z1)))
+# z3 <- ifelse(is.na(z2), z0[1:length(z0)], z2)
+par(mar = c(5, 0, 0, 11.5))
+arcplot(
+    aledges,
+    vertices = al[, 1],
+    col.arcs = hsv(0, 0, 0.1, 0.15),
+    pch.nodes = 21,
+    bg.nodes = avclrs,
+    col.nodes = avbrdrs,
+    lwd.nodes = 0,
+    cex.nodes = log(adeg)+1*1.25,
+    lwd.arcs = adeg, #adeg,
+    line = 0,
+    cex.labels = 0.85,
+    font = 1,
+    col.labels = pal_my[20],
+    horizontal = T,
+    sorted = FALSE,
+    # ordering = allabs,
+    family = "serif"
+)
+mtext(text = allabs_pl, side = 4, cex = 0.5, adj = 0, padj = 0.5, las = 2, outer = TRUE, line = -11.25)
+
+# title(sub = allabs_pl, adj =  0, cex.sub = 0.5, line = -3, outer = TRUE)
+# title(sub = allabs_pl, adj =  0, cex.sub = 0.5, line = -14)
+#'
+#' `r allabs1`
+#'
+#+ echo=FALSE
+
 knitr::opts_chunk$set(fig.path = "graphics/bibkeys/rplot-",
                       fig.show = 'asis')#, echo = TRUE)
 # options(warn = -1)
@@ -1886,9 +2016,10 @@ knitr::opts_chunk$set(fig.path = "graphics/bibkeys/rplot-",
 #'
 #' \newpage
 #'
-#+ maptl, fig.fullwidth=TRUE, fig.height=4, out.width='\\linewidth', fig.align='center'
+#'
+#+ tl_map, fig.fullwidth=TRUE, fig.height=4, out.width='\\linewidth', fig.align='center'
 
-# MAPtl -------------------------------------------------------------------
+# MAPtl ----------------
 MAP <- MAP[, c("bibkey", "year", "journal", "caseid", "scat", "jrnl", "cpv", "j.loc", "j.year", "SJR", "Hindex", "title")]
 
 MAPtl <- within(MAP, {
@@ -1931,7 +2062,7 @@ vawaclr <- grays_nord(12)[7]
 # as.integer(MAPtl$year) %>% min() -> yrmin
 # as.integer(MAPtl$year) %>% max()+1 -> yrmax
 
-# GGPLOT - tl -------------------------------------------------------------
+# GGPLOT - tl ----------------
 
 gg.tl <- ggplot(MAPtl, aes(x = year, y = 0, colour = cpv)) +
     thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE,
@@ -1960,15 +2091,15 @@ gg.tl
 #'
 #' \newpage
 #'
-#' # \textsc{IPV Interventions Research}
+#' # \textsc{IPV Intervention \& Prevention Research}
 #'
 #' \Frule
 #'
-# reclab(cb$scat) --------------------------------------------------------
+# reclab(cb$scat) ----------------
 levels(cb$scat) <- c(1, 2)
 cb$clab <- factor(cb$clab)
 #'
-# s3cb --------------------------------------------------------
+# s3cb ----------------
 s3cb <- cb[cb$scat == 1, ] %>% droplevels
 s3cb.keys <- paste0("@", levels(s3cb$bibkey))
 #'
@@ -1982,11 +2113,11 @@ tl.inv$journal <- paste0("_", tl.inv$journal, "_")
 tl.inv <- dplyr::rename(tl.inv, "Study" = bibkey, "Journal" = journal, "Year Published" = year)
 rownames(tl.inv) <- NULL
 
-# GGPLOT - invtl ----------------------------------------------------------
+# GGPLOT - invtl ----------------
 
 gg.invtl <- ggplot(inv, aes(x = year, y = 0, colour = cpv)) +
     thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE,
-             ptitle = FALSE, xtext = FALSE, xticks = FALSE) +
+             ptitle = TRUE, xtext = FALSE, xticks = FALSE) +
     theme(legend.text = element_text(size = rel(0.55)),
           legend.title = element_text(size = rel(0.65), face = "bold"),
           legend.justification = c(1, 0.8),
@@ -2019,7 +2150,7 @@ tl.inv[, c(1, 4, 2)] %>% kable(caption = "IPV Interventions Research Timeline")
 #' ## Research Topics
 #'
 #+ topics_s3
-## s3cb - TOPICS ========================================================
+## s3cb - TOPICS ================
 
 # levels(droplevels(cb[cb$cat == "TOPIC", "clab"])) %>% as.list() %>% pander()
 # l1tops <-levels(droplevels(cb[cb$cat == "TOPIC", "clab"]))[c(12, 16, )]
@@ -2056,7 +2187,7 @@ pander(lvls3.tp[10:length(lvls3.tp)])
 #' ## Target Populations/Sampling Frames
 #'
 #+ pop_s3
-## s3cb - POPULATIONS ========================================================
+## s3cb - POPULATIONS ================
 s3pop <- s3cb[s3cb$cat == "POPULATION", ] %>% droplevels()
 s3pop <- s3pop[!duplicated(s3pop), ]
 # x <- s3pop[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2133,7 +2264,7 @@ pander(lvla3.smthds)
 #' ## Overarching Methodology
 #'
 #+ mthds_s3
-## s3cb - METHODS ========================================================
+## s3cb - METHODS ================
 s3mo <- s3cb[s3cb$cat == "METHODS", ] %>% droplevels()
 s3mo <- s3mo[!duplicated(s3mo), ]
 # x <- s3mo[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2152,10 +2283,11 @@ kable(ks3mo, caption = "Methodology by Study (IPV Interventions Research)")
 pander(lvla3.mo)
 #'
 #' \newpage
-#' ## QuaLitative Methods
+#' ## Qualitative Methods
 #'
 #+ QL_s3
-## s3cb - QUAL ========================================================
+## s3cb - QUAL ================
+
 s3ql <- s3cb[s3cb$cat == "M-QL", ] %>% droplevels()
 s3ql <- s3ql[!duplicated(s3ql), ]
 # x <- s3ql[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2173,10 +2305,10 @@ rownames(ks3ql) <- paste0("@", rownames(ks3ql))
 kable(ks3ql, caption = "Qua**L**itative Methods by Study (IPV Interventions Research)")
 pander(lvla3.ql)
 #'
-#' ## QuaLitative Analytic Appraoches
+#' ## Qualitative Analytic Appraoches
 #'
-#+ AQL_s3
-## s3cb - QUAL ========================================================
+#+ qlAnalytics_s3
+## s3cb - QUAL ================
 s3aqt <- s3cb[s3cb$cat == "A-QT", ] %>% droplevels()
 # s3aqt <- s3ql[!duplicated(s3aqt), ]
 # x <- s3aqt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2195,10 +2327,10 @@ kable(ks3aqt, caption = "Qua**L**itative Analytic Approaches by Study (IPV Inter
 pander(lvla3.ql)
 #'
 #' \newpage
-#' ## QuaNTitative Methods
+#' ## Quantitative Methods
 #'
-#+ QT_s3
-## s3cb - QUANT ========================================================
+#+ qtMethods_s3
+## s3cb - QUANT ================
 s3qt <- s3cb[s3cb$cat == "M-QT", ] %>% droplevels()
 s3qt <- s3ql[!duplicated(s3qt), ]
 # x <- s3qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2216,10 +2348,10 @@ rownames(ks3qt) <- paste0("@", rownames(ks3qt))
 kable(ks3qt, caption = "Qua**NT**itative Methods by Study (IPV Interventions Research)")
 pander(lvla3.qt)
 #'
-#' ## QuaNTitative Analytic Approaches
+#' ## Quantitative Analytic Approaches
 #'
 #+ AQT_s3
-## s3cb - QUANT - ANALYSIS ========================================================
+## s3cb - QUANT - ANALYSIS ================
 s3aqt <- s3cb[s3cb$cat == "A-QT", ] %>% droplevels()
 # s3aqt <- s3ql[!duplicated(s3aqt), ]
 # x <- s3aqt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2241,7 +2373,7 @@ pander(lvls3.aqt)
 #' ## Mixed-Methods
 #'
 #+ mmr_s3
-## s3cb - MIXED-MTHDS ========================================================
+## s3cb - MIXED-MTHDS ================
 s3mm <- s3cb[s3cb$cat == "M-MM", ] %>% droplevels()
 s3mm <- s3mm[!duplicated(s3mm), ]
 # x <- s3mm[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2285,12 +2417,12 @@ pander(lvls3.eco)
 #'
 #' \newpage
 #'
-#' # \textsc{SMW-Inclusive Research}
+#' # \textsc{SMW-Inclusive IPV Research}
 #'
 #' \Frule
 #'
 #+ s4cb
-# s4cb --------------------------------------------------------
+# s4cb ----------------
 s4cb <- cb[cb$scat == 2, ] %>% droplevels
 s4cb.keys <- paste0("@", levels(s4cb$bibkey))
 # s4cb.keys %>% as.list() %>% pander
@@ -2308,11 +2440,11 @@ rownames(tl.smw) <- NULL
 psmw <- pal_sci[1:length(unique(smw$journal))]
 smw$pos <- rep_len(c(1, -1), length(smw$pos))
 
-# GGPLOT - smwtl ----------------------------------------------------------
+# GGPLOT - smwtl ----------------
 
 gg.smwtl <- ggplot(smw, aes(x = year, y = 0, colour = journal)) +
     thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE,
-             ptitle = FALSE, xtext = FALSE, xticks = FALSE) +
+             ptitle = TRUE, xtext = FALSE, xticks = FALSE) +
     theme(legend.text = element_text(size = rel(0.55)),
           legend.title = element_text(size = rel(0.65), face = "bold"),
           legend.justification = c(1, 0.635),
@@ -2341,7 +2473,7 @@ tl.smw[, c(1, 4)] %>% kable(caption = "SMW-Inclusive Research Timeline")
 #' ## Research Topics
 #'
 #+ topics_s4
-## s4cb - TOPICS ========================================================
+## s4cb - TOPICS ================
 s4top <- s4cb[s4cb$cat == "TOPIC", ] %>% droplevels()
 s4top <- s4top[!duplicated(s4top), ]
 # x <- s4top[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2363,7 +2495,7 @@ pander(lvls4.tp)
 #' ## Target Populations/Sampling Frames
 #'
 #+ pop_s4
-## s4cb - POPULATIONS ========================================================
+## s4cb - POPULATIONS ================
 s4pop <- s4cb[s4cb$cat == "POPULATION", ] %>% droplevels()
 s4pop <- s4pop[!duplicated(s4pop), ]
 # x <- s4pop[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2433,7 +2565,7 @@ pander(lvla4.smthds)
 #' ## Overarching Methodology
 #'
 #+ mthds_s4
-## s4cb - METHODS ========================================================
+## s4cb - METHODS ================
 s4mo <- s4cb[s4cb$cat == "METHODS", ] %>% droplevels()
 s4mo <- s4mo[!duplicated(s4mo), ]
 # x <- s4mo[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2452,10 +2584,10 @@ kable(ks4mo, caption = "Methodology by Study (SMW-Inclusive Research)")
 pander(lvla4.mo)
 #'
 #' \newpage
-#' <!-- ## QuaLitative Methods -->
+#' <!-- ## qual Methods -->
 #'
 #+ QL_s4
-## s4cb - QUAL ========================================================
+## s4cb - QUAL ================
 s4ql <- s4cb[s4cb$cat == "M-QL", ] %>% droplevels()
 s4ql <- s4ql[!duplicated(s4ql), ]
 # x <- s4ql[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2474,10 +2606,10 @@ kable(ks4ql, caption = "Qua**L**itative Methods by Study (SMW-Inclusive Research
 pander(lvla4.ql)
 
 #'
-#' ## QuaLitative Analytic Appraoches
+#' ## Qualitative Analytic Appraoches
 #'
 #+ AQL_s4
-## s4cb - QUAL ========================================================
+## s4cb - QUAL ================
 s4aqt <- s4cb[s4cb$cat == "A-QT", ] %>% droplevels()
 # s4aqt <- s4ql[!duplicated(s4aqt), ]
 # x <- s4aqt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2496,10 +2628,10 @@ kable(ks4aqt, caption = "Qua**L**itative Analytic Approaches by Study (IPV Inter
 pander(lvla4.ql)
 #'
 #'  \newpage
-#' ## QuaNTitative Methods
+#' ## Quantitativeitative Methods
 #'
 #+ QT_s4
-## s4cb - QUANT ========================================================
+## s4cb - QUANT ================
 s4qt <- s4cb[s4cb$cat == "M-QT", ] %>% droplevels()
 s4qt <- s4qt[!duplicated(s4qt), ]
 # x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2517,10 +2649,10 @@ rownames(ks4qt) <- paste0("@", rownames(ks4qt))
 kable(ks4qt, caption = "Qua**NT**itative Methods by Study (SMW-Inclusive Research)")
 pander(lvla4.qt)
 #'
-#' ## QuaNTitative Analytic Appraoches
+#' ## Quantitative Analytic Appraoches
 #'
 #+ AQT_s4
-## s4cb - QUANT ========================================================
+## s4cb - QUANT ================
 s4aqt <- s4cb[s4cb$cat == "A-QT", ] %>% droplevels()
 # s4aqt <- s4ql[!duplicated(s4aqt), ]
 # x <- s4aqt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
@@ -2542,7 +2674,7 @@ pander(lvla4.qt)
 #' ## Mixed-Methods
 #'
 #+ mmr_s4
-## s4cb - MIXED-MTHDS ========================================================
+## s4cb - MIXED-MTHDS ================
 s4mm <- s4cb[s4cb$cat == "M-MM", ] %>% droplevels()
 s4mm <- s4mm[!duplicated(s4mm), ]
 # s4ql <- s4ql[!duplicated(s4ql), ]

@@ -782,8 +782,8 @@ a {
   color           : var(--link-color);
 }
 
-a:focus,
-a:hover {
+a:focusnot(.lightbox),
+a:hover:not(.lightbox) {
   text-decoration : none;
   border-top: 0;
   border-bottom-width :0.015em;

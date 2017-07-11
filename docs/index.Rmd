@@ -1,6 +1,9 @@
 ---
-title: "Conducting a Community-Psychology-Focused & Action-Oriented Systematic Literature Review using R, SQL, & Git"
+title: "Conducting a Community-Psychology-Focused & Action-Oriented Systematic Literature Review using R, SQL, & Git<figure class=\"title\"><img src=\"graphics/inputs/bibkeys-ecoLvls-net.png\" alt=\"Network visualization of ecological levels of analysis\"></figure>"
 ---
+
+<hr class="Bold" />
+
 A newly implemented component of the doctoral comprehensive exam for Applied Psychology doctoral students majoring in Community Psychology at Portland State University is writing a Major Area Paper (MAP) consisting of a systematic literature review focused each student's substantive research area. This repository contains the inputs and outputs from my personal process of completing this component of my comprehensive exam.
 
 -----
