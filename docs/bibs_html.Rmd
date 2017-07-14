@@ -1,6 +1,5 @@
 ---
 title: "Source Code & Results from Qualitative Comparitive Analyses"
-author: "Riley M. Smith"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 fignos-plus-name: "Figure "
 tablenos-plus-name: "Table "
@@ -12,7 +11,7 @@ img {
     max-width: 60%;
     overflow: hidden;
     border: 1px solid rgba(0,0,0,.5);
-    box-shadow: 0px 0px 3px rgba(0,0,0,.5);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
     align: middle;
     margin-bottom: 2em;
 }
@@ -90,7 +89,8 @@ knitr::knit_hooks$set(plot = function(x, options) {
 
 # Systematic Database Search
 
-Six separate literature searches were conducted using the [_PsycINFO_](http://www.apa.org/pubs/databases/psycinfo/) and [_Web of Science_](http://wokinfo.com) online citation indexing databases via the [Portland State University library website](library.pdx.edu)^[Note that (1) "intimate partner violence" included "domestic violence" and "partner abuse", (2) "same-sex" included "same-gender", and (3) the results ranges provided after each search description listed reflect the minimum and maximum number of results returned across the two databases searched.]:
+Six separate literature searches were conducted using the [_PsycINFO_](http://www.apa.org/pubs/databases/psycinfo/) and [_Web of Science_](http://wokinfo.com) online citation indexing databases via the [Portland State University library website](library.pdx.edu)<sup style="color:var(--link-color);font-weight:bold;">1</sup>:
+`r tufte::margin_note("<sup style=\"color:var(--link-color);font-weight:bold;\">1</sup>Note that (1) \"intimate partner violence\" included \"domestic violence\" and \"partner abuse\", (2) \"same-sex\" included \"same-gender\", and (3) the results ranges provided after each search description listed reflect the minimum and maximum number of results returned across the two databases searched.")`
 
 <!-- _C. Key search terms_ -->
 

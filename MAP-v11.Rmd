@@ -118,7 +118,6 @@ As @riger1993what details, _empowerment_, as both a generalized theory and a spe
 \part{Part II. Systematic Literature Review}
 
 # Literature Search Methods
-# Literature Search Methods
 
 Six separate literature searches were conducted using the PsycINFO (PI) and Web of Science (WoS) online citation indexing databases via the Portland State University library website:
 
@@ -152,7 +151,7 @@ The six database searches were intentionally designed to successively narrow the
 
 Each of the `r n.init` articles returned from the database searches ($N_{initial} = 106$) was assessed according to three successive levels of inclusion criteria. The first and most basic inclusion criterion is that the articles must present U.S.-based empirical research. Second, the content of each article should be directly applicable to intimate partner violence intervention and/or prevention. Finally, a particularly crucial inclusion criteria for literature obtained from the fourth through sixth database searches (see {+@tbl:dbsrch}) is that the presented research must include sexual minority women as a focal population. Any articles not meeting these three levels of inclusion criterio were excluded from the set of formally reviewed articles.
 
-However, through the initial literature assessment and filtering process, many articles resulting from these SMW-focused database searches were determined to be, at best, only loosely relevant to the present review's primary research and methodological foci. For example, among the two empirical research articles returned from the fifth and sixth literature searches, which targeted SMW-inclusive IPV intervention and prevention research (see {+@tbl:dbsrch}), one examined male and female college students' perceptions of the prevalence of IPV perpetration among their peers [@witte2015perceived], and the other detailed an item-response theory approach to measuring teens' attitudes about dating violence among heterosexual adolescents [@edelen2009measurement]. While both of these studies somewhat reflect research aligned with community psychological values and methods, their substantive foci failed to meet this review's inclusion criteria for articles returned from the three database searches specific to sexual minority women.
+Through this initial assessment and filtering process, many articles resulting from these SMW-focused database searches were determined to be only loosely relevant to the present review's primary research and methodological foci. For example, among the two empirical research articles returned from the fifth and sixth literature searches, which targeted SMW-inclusive IPV intervention and prevention research (see {+@tbl:dbsrch}), one examined male and female college students' perceptions of the prevalence of IPV perpetration among their peers [@witte2015perceived], and the other detailed an item-response theory approach to measuring teens' attitudes about dating violence among heterosexual adolescents [@edelen2009measurement]. While both of these studies somewhat reflect research aligned with community psychological values and methods, their substantive foci failed to meet this review's inclusion criteria for articles returned from the three database searches specific to sexual minority women.
 
 ```{r jcpkable}
 

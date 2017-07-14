@@ -394,6 +394,12 @@ table {
   border-top: 1px solid #000000;
   border-bottom: 1px solid #000000;
   table-layout: auto;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.25);
+}
+
+table:focus,
+table:hover {
+    box-shadow: 0px 0px 10px rgba(0,0,0,.25);
 }
 
 th {
@@ -408,6 +414,7 @@ th {
     font-variant: small-caps;
     border-bottom: 2px solid #000000;
     background-color: rgba(0, 0, 0, 0.05);
+    white-space: nowrap;
     }
 
 td {
@@ -950,24 +957,33 @@ h4.author, h4.date {
 
 div.contactIcons {
     clear:both;
-    display: block;
+    display: inline-block;
+    margin-top: 0;
+    padding-top: 0;
     width: 95%;
     text-align:center !important;
     font-size:80%;
-    background-color:
+    background-color: transparent;
 }
 a.iconOnly:hover {
   text-decoration : none;
-  border: none;
+  border-bottom: 1px solid var(--link-color);
+  padding: 0;
 }
 
 a.iconOnly {
-    /*padding-top: 5rem;*/
+    padding-top: 0;
     font-size: 200%;
     display: inline-block;
+    background-color: transparent;
 }
 
 div.refs {
     padding-left: 2em;
     text-indent: -2em;
+}
+
+sup,sub {
+    font-size: 70%;
+    font-variant: normal;
 }
