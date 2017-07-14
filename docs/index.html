@@ -137,6 +137,15 @@ body {
 <!-- </head> -->
 
 <!-- <body> -->
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 <div class="container-fluid main-container">
     <div class="navbar navbar-default navbar-fixed-top" role=
     "navigation">
@@ -150,11 +159,11 @@ body {
                         DataViz <!--&amp; Tabulations-->
                     </a>
                 </li>
-                <li>
-                    <a href="sourceCode.html">
-                        <!-- <img src="Rlogo-light.png" height="10%" width="10%" style="vertical-align:baseline"; /> -->
-                        <code>< Source Code ></code>
-                    </a>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">< Source Code ></a>
+                <ul class="dropdown-menu" role="button">
+                    <li><a href="bibs_html.html"><code>R</code> Source Code with Output</a></li>
+                    <li><a href="sourceCode.html"><code>R</code>, <code>SQL</code>, &amp; Data Files</a></li>
+                </ul>
                 </li>
                 <li>
                     <a target="_blank" href="auxDocs/_journal-Passcode.html"> [<i class="fa fa-lock" aria-hidden="true"></i>]</a>
@@ -178,15 +187,11 @@ body {
 
 
 <hr class="Bold" />
-<p>A newly implemented component of the doctoral comprehensive exam for Applied Psychology doctoral students majoring in Community Psychology at Portland State University is writing a Major Area Paper (MAP) consisting of a systematic literature review focused each student’s substantive research area. This repository contains the inputs and outputs from my personal process of completing this component of my comprehensive exam.</p>
+<p>A newly implemented component of the doctoral comprehensive exam for <a href="!--TODO:%20link%20to%20psych%20grad%20program%20website--"><em>Applied Psychology</em> doctoral students majoring in <em>Community Psychology</em> at Portland State University</a> is writing a <em>Major Area Paper (MAP)</em> consisting of a systematic literature review focused around each student’s substantive research area. This repository contains procedural and analytic details, inputs, outputs, and resources from my personal process of completing this component of my comprehensive exam.</p>
 <hr />
-<p>The process of conducting the community-psychology-focused systematic review of empirical research related to IPV and sexual minority women was arduous to say the least. Community Psychological, as a field, is overwhelmingly more multi-disciplinary than most scientific research fields. Further, the field of Community Psychology is more so a methodologically- and values- focused field, rather than a field of study defined around a specific substantive area of research. That is, unlike research fields such as medicine, or sub-fields of medicine such as Oncology, Community Psychology is a primarily a field of social scientific research providing a range of general and specific values-based frameworks and ecologically-relevant methodologies. In addition, although intimate partner violence is increasingly recognized and treated as a public health issue, like many of the substantive research topics covered by community scientists, IPV-related research is not exclusive to any one research discipline, such as Public Health, nor is it in and of itself a distinct field of research. Rather, IPV-specific and related research is conducted out of a multitude of research and practice fields, including, but certainly not limited to, Psychology and its various sub-fields (e.g., Community, Social, Clinical, Organizational, and Cognitive Psychology), Sociology, Criminology, Public Policy, Economics, Public Health, Biology, Medicine, etcetera.</p>
-<p>Given the multi-disciplinary and complex natures of both community-psychological and IPV-related research, as well as the specificity of the present systematic review’s focus, the author was careful to maintain detailed records regarding each decision made throughout the article selection and review process (see flowchart below), as well as the rationale underlying each decision. The criteria and procedures used in the present review to determine the community-psychology relevance of research obtained from the literature database searches are provided in this repository for two purposes: (1) to ensure the transparency and reproducibility of the systematic review methods conducted for this review, and (2) as a potentially useful by-product of this process for future efforts to conduct similarly community-psychology-focused systematic literature reviews, including and beyond research related to intimate partner violence and sexual minority women.</p>
-<hr />
-<div class="figure">
-<img src="graphics/inputs/flowchart.png" alt="Flow-chart of systematic literature database search results and decisions for inclusion and exclusion in formal review." />
-<p class="caption">Flow-chart of systematic literature database search results and decisions for inclusion and exclusion in formal review.</p>
-</div>
+<p>The methodologically-focused critical review presented here provides a unique perspective of IPV-related empirical research by restricting the reviewed literature as a whole to only include studies published either in violence-specific journals determined by the primary author as being aligned with community-psychology or in journals endorsed by the Society for Community Research and Action as closely aligned with or related to community-psychology values, theory, and methods. This perspective therefore inherently incorporates applied research conducted within a range of action-oriented, community-based, participatory, and multilevel frameworks.</p>
+<p>The process of conducting the community-psychology-focused systematic review of empirical research related to IPV and sexual minority women was arduous to say the least. Community Psychology, as a field, is overwhelmingly more multi-disciplinary than most scientific research domains, and is more so a methodologically- and values- focused field, rather than a field of study defined around a specific substantive area of research. That is, unlike disciplines such as medicine, or sub-fields of medicine such as Oncology, Community Psychology is primarily a field of social scientific research providing a range of general and specific values-based frameworks and ecologically-relevant methodologies. In addition, although intimate partner violence is increasingly recognized and treated as a public health issue, like many of the substantive research topics covered by community scientists, IPV is not exclusive to any one research discipline, such as Public Health, nor is it in and of itself a distinct research discipline. Rather, IPV-specific and related research is conducted out of a multitude of research and practice fields, including, but certainly not limited to, Psychology and its various sub-fields (e.g., Community, Social, Clinical, Organizational, and Cognitive Psychology), Sociology, Criminology, Public Policy, Economics, Public Health, Biology, Medicine, etcetera.</p>
+<p>Given the multi-disciplinary and complex natures of both community-psychological and IPV-related research, as well as the specificity of the present systematic review’s focus, I was careful to maintain detailed records regarding each decision made throughout the article selection and review process (see <a href="litSearchMethods.html">Literature Search Methods</a>), as well as the rationale underlying each decision. The criteria and procedures used in the present review to determine the community-psychology relevance of research obtained from the literature database searches are provided in this repository for two purposes: (1) to ensure the transparency and reproducibility of the systematic review methods conducted for this review, and (2) as a potentially useful by-product of this process for future efforts to conduct similarly community-psychology-focused systematic literature reviews, including and beyond research related to intimate partner violence and sexual minority women.</p>
 
 <hr class="Bold" />
 <style>

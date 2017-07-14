@@ -74,7 +74,10 @@ knitr::opts_template$set(invisible = list(echo=FALSE, results='hide', message=FA
 source("dbsrch.R")
 #'
 #+ dbsrch, results='asis',echo=FALSE
-pander(dbsrch, justify = c("right", "left", "centre"), caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned")
+# pander(dbsrch, justify = c("right", "left", "centre"), caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned")
+library(kableExtra)
+kable(dbsrch, caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned {#tbl:dbsrch}", justify = c("r", "l", "l")) %>%
+    add_footnote(c("Note: For each database search, multiple search terms were included for the subject/keywords parameters to represent intimate partner violence", "'PI' = PsycINFO; 'WoS' = Web of Science"))
 #'
 #' \newpage
 #'

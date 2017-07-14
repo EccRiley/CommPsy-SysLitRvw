@@ -48,8 +48,8 @@ db.n$mx <- apply(db.n, 1, max)
 db.n$whchmn <- apply(db.n[, 1:2], 1, which.min)
 db.n$whchmx <- apply(db.n[, 1:2], 1, which.max)
 db.n <- within(db.n, {
-    whchmn <- ifelse(whchmn == 1, "Web of Science", "PsychINFO")
-    whchmx <- ifelse(whchmx == 1, "Web of Science", "PsychINFO")
+    whchmn <- ifelse(whchmn == 1, "WoS", "PI")
+    whchmx <- ifelse(whchmx == 1, "WoS", "PI")
 })
 
 dbsrch <- data.frame(n = c("1.", "2.", "3.", "4.", "5.", "6."),
@@ -76,7 +76,7 @@ dbsrch <- data.frame(n = c("1.", "2.", "3.", "4.", "5.", "6."),
 
 names(dbsrch) <- c(" ",
                    "Database Search",
-                   "\\footnotesize{$Range_{N_{Results}}$}\n(\\textit{\\scriptsize{Database with most results})}") #,
+                   "$Range_{N_{Results}}$\\newline(Database with most results)") #,
                    # "Database with most results")
 
 

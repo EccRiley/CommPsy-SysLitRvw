@@ -43,6 +43,7 @@
     --link-color: rgb(0, 0, 140);
     --darkslate: #2d343a;
     --darkslate-a: rgba(34, 39, 44, 0.75);
+    --caption-color: rgba(0, 0, 50, 0.8);
     /*--darkslate-a: rgba(51, 51, 51, 0.85);*/
 }
 
@@ -63,6 +64,35 @@ code {
   color: inherit;
   /*background-color: rgba(0, 0, 0, 0.04);*/
 }
+
+/* ADDED FROM tufte-rs.css */
+
+pre {
+    display: block;
+    width: auto;
+    max-width: 76%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+    margin-bottom: 2rem;
+}
+pre, pre > code {
+    padding-left: 1.25%;
+    padding: 1em;
+    color: #eee;
+    background: rgba(34, 34, 34, 0.95);
+}
+
+pre code {
+    padding-left: 0;
+}
+pre, pre code, p code, p pre code {
+    font-family: Menlo, "Liberation Mono", Consolas, Courier, monospace;
+    font-size: 0.85rem;
+    line-height: 1.71;
+    margin-top: 1rem;
+}
+
 body {
   padding-top: 51px;
   padding-bottom: 40px;
@@ -115,6 +145,7 @@ body {
                      Georgia,
                      serif;
   counter-reset    : sidenote-counter;
+   /*counter-reset: table-counter;*/
    margin-left: auto;
    margin-right: auto;
    /*width            : 90%;*/
@@ -140,15 +171,15 @@ h1.title {
     text-align: center;
 }
 
-h1 {
-  margin-bottom : 1.5rem;
-  margin-top   : 3rem;
+h1:not(.title) {
+  margin-bottom : 2rem;
+  margin-top   : 3em;
   font-size     : 1.75rem;
   font-style    : italic;
   font-weight   : 400;
   line-height   : 1;
   /*margin-top    : 2rem;*/
-  /*padding-top: 2em;*/
+  padding-top: 2em;
   /*font-size     : 3.2rem;*/
   /*font-weight   : 400;*/
 }
@@ -278,13 +309,13 @@ p {
     line-height: 1.3;
 }
 
-ol:not(.navbar-nav),
-ul:not(.navbar-nav),
+ol:not(.navbar-nav,.dropdown-menu),
+ul:not(.navbar-nav,.dropdown-menu),
 section>ol,
 section>ul {
   font-size: inherit;
   margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
   width: 55%;
   line-height: 1.3;
   /*font-size : 1.2em;*/
@@ -307,23 +338,43 @@ ul>li>ul .sidenote {
     margin-right: -50%;
 }
 
-ol>li>ul:not(.navbar-nav),
-ul>li>ol:not(.navbar-nav),
-ol>li>ol:not(.navbar-nav),
-ul>li>ul:not(.navbar-nav) {
+ol>li>ul:not(.navbar-nav,.dropdown-menu),
+ul>li>ol:not(.navbar-nav,.dropdown-menu),
+ol>li>ol:not(.navbar-nav,.dropdown-menu),
+ul>li>ul:not(.navbar-nav,.dropdown-menu) {
     width: 80%;
 }
 
-ol:not(.navbar-nav) > li,
-ul:not(.navbar-nav) > li {
-    padding-top: 0.5rem;
+ol:not(.navbar-nav,.dropdown-menu) > li,
+ul:not(.navbar-nav,.dropdown-menu) > li {
+    margin-top: 0.25rem;
+    margin-bottom: 0.15rem;
 }
 
-ul>li {
-  padding-top : 0.5rem;
-  margin-top: 0 !important;
-  margin-bottom: 0;
-  /*padding-bottom: 0;*/
+ul:not(.navbar-nav,.dropdown-menu)>li:first-child,
+ol:not(.navbar-nav,.dropdown-menu)>li:first-child {
+    margin-top: 1rem;
+}
+
+/*ul:not()*/
+ul:not(.navbar-nav,.dropdown-menu)>li:last-child,
+ol:not(.navbar-nav,.dropdown-menu)>li:last-child {
+    margin-bottom: 2rem;
+}
+
+ul:not(.navbar-nav,.dropdown-menu)>li>ul>li:first-child,
+ol:not(.navbar-nav,.dropdown-menu)>li>ul>li:first-child,
+ul:not(.navbar-nav,.dropdown-menu)>li>ol>li:first-child,
+ol:not(.navbar-nav,.dropdown-menu)>li>ol>li:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+ul:not(.navbar-nav,.dropdown-menu)>li>ul>li:last-child,
+ol:not(.navbar-nav,.dropdown-menu)>li>ul>li:last-child,
+ul:not(.navbar-nav,.dropdown-menu)>li>ol>li:last-child,
+ol:not(.navbar-nav,.dropdown-menu)>li>ol>li:last-child {
+    margin-bottom: 0.15rem;
 }
 
 .last-child {
@@ -334,27 +385,81 @@ ul>li {
 /* --------------------------------------------------------*/
 
 table {
-  border-collapse: separate;
+  margin-top: 1em;
+  border-collapse: collapse;
   border-spacing: 50px 0;
-  margin-bottom: 2em;
+  margin: auto;
+  /*white-space: nowrap;*/
+  margin-bottom: 1em;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  table-layout: auto;
 }
 
 th {
-    font-size: 100%;
+    padding-top: 0.15rem;
+    padding-bottom: 0.1rem;
+    padding-left: 0.5em;
+    padding-right: 0.75em;
+    font-size: 105%;
     line-height: 1.5;
     vertical-align: middle !important;
     font-weight: bold;
     font-variant: small-caps;
-}
+    border-bottom: 2px solid #000000;
+    background-color: rgba(0, 0, 0, 0.05);
+    }
 
 td {
     font-size: 100%;
-    line-height: 1.25;
     vertical-align: middle !important;
     font-weight: normal;
-    padding: 2px 0 2px 0;
+    padding: 5px;
+    padding-left: 0.5em;
+    padding-right: 0.75em;
 }
 
+tbody>tr:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+/*tbody>tr>td:active,*/
+/*tbody>tr>td:hover {*/
+/*tbody>tr>td:focus {*/
+    /*border: 2px solid var(--link-color);*/
+/*}*/
+table caption {
+    color: var(--caption-color);
+    font-size: 120%;
+    font-variant: small-caps;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    text-align: center;
+    /*counter-increment : table-counter;*/
+}
+
+table + p {
+    display: block;
+    margin: auto;
+    margin-top: -1em;
+    font-style: italic;
+    font-size: 95%;
+    max-width: 50%;
+    color: var(--caption-color);
+}
+/*table caption:before {*/
+    /*content: "Table " counter(table-counter) ": ";*/
+/*}*/
+
+div>img+p.caption {
+    color: var(--caption-color);
+    font-variant: small-caps;
+    margin-top: -1em;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 /* -------------------------------------------------------------------- */
 /* Epigraphs */
 /* -------------------------------------------------------------------- */
@@ -426,6 +531,7 @@ figure {
 }
 
 figcaption {
+  color: var(--caption-color);
   position       : relative;
   max-width      : 40%;
   float          : right;
@@ -437,7 +543,7 @@ figcaption {
   line-height    : 1.6;
 }
 
-figure.fullwidth figcaption {
+.fullwidth figcaption {
   margin-right : 24%;
 }
 
@@ -569,8 +675,7 @@ blockquote .sidenote {
 /* p, footer, table { width: 55%; } */
 
 footer,
-p,
-table {
+p {
   width : 85%;
 }
 
