@@ -204,12 +204,12 @@ map.v$journal <- sapply(map.v$journal, RtCap)
 j.cpv <- c(j.v, j.cp)
 cpv <- MAP2$journal %in% j.cpv
 
-map.cpv <- MAP2[cpv, ] %>% data.frame()
+MAP3 <- MAP2[cpv, ] %>% data.frame()
 
-map.cpv$rms4 <- ifelse(map.cpv$journal %in% j.v & map.cpv$scat == "S4", NA, map.cpv$scat)
-map.cpv <- na.omit(map.cpv)
+# map.cpv$rms4 <- ifelse(map.cpv$journal %in% j.v & map.cpv$scat == "S4", NA, map.cpv$scat)
+# map.cpv <- na.omit(map.cpv)
 
-MAP3 <- MAP2[vlc | cp, ] %>% data.frame()
+# MAP3 <- MAP2[vlc | cp, ] %>% data.frame()
 MAP3$bibkey <- as.character(MAP3$bibkey)
 
 # KEYSv2 ----------------
@@ -221,36 +221,44 @@ v1v2 <- KEYSv1[!KEYSv1 %in% KEYSv2]
 
 #' `r tufte::newthought(paste0("$N = ", length(v1v2), "$ items excluded after restricting search results"))` to only those published in community-psychology specific journals and the _four selected_ violence-related journals (i.e., `r paste0("_", j.vp[1:(length(j.vp)-1)], "_, ")` and `r paste0("_", j.vp[length(j.vp)], "_")`.
 #'
-MAP3$rms4 <- ifelse(MAP3$journal %in% j.v & MAP3$scat == "S4", NA, MAP3$scat)
-MAP <- na.omit(MAP3)
+# MAP3$rms4 <- ifelse(MAP3$journal %in% j.v & MAP3$scat == "S4", NA, MAP3$scat)
+# MAP <- na.omit(MAP3)
 
 # KEYSv3 - FINAL ----------------
 
+cb_tp <- ctbl[ctbl$cat == "TOPIC", ] ## "ctbl" created in "MAPrqda.R" ##
+
+tpFilter <- c(25, 100, 11, 10, 99, 23, 18, 20, 19, 95,
+               24, 96, 14, 6, 15, 94, 97, 21, 22, 16, 17) ## "tp_filter" is a list of the code ids (cid) corresponding to the subset of "TOPICS" codes directly applicable to IPV intervention & prevention. ##
+
+keys_tpFilter <- cb_tp[cb_tp$cid %in% tpFilter, "case"]
+MAP <- MAP3[MAP3$bibkey %in% keys_tpFilter, ]
 KEYSv3 <- as.character(MAP$bibkey)
 
 v2v3 <- KEYSv2[!KEYSv2 %in% KEYSv3]
 #'
-#' `r tufte::newthought(paste0("$N = ", length(v2v3), "$ items excluded after restricting "))` SMW-inclusive search results to only include items published in community-psychology specific journals.
+#' `r tufte::newthought(paste0("$N = ", length(v2v3), "$ items excluded after restricting "))`  results to only include items directly applicable to IPV intervention and/or prevention.
 #'
 #+ v2v3_cat
 # v2v3 %>% as.list() %>% pander()
 #'
-#' ------
-#'
+
 #+ tempPanderOpts,echo=FALSE
 #, opts.label="invisible"
 panderOptions("p.wrap", "")
 panderOptions("p.sep", "; ")
 panderOptions("p.copula", "; ")
 
-#' `r tufte::newthought(paste0("$N = ", length(KEYSv3), "$ items included in the formal literature review"))` [`r paste0("@", KEYSv3) %>% pander()`]
+#' `r tufte::newthought(paste0("$N = ", length(KEYSv3), "$ items included in the formal literature review")): `
+#'
+#' `r paste0("@", KEYSv3) %>% as.list %>% pander()`
 #'
 #'
 #+ resetPanderOpts,echo=FALSE
 #, opts.label="invisible"
 panderOptions("p.wrap", "_")
 panderOptions("p.sep", ", ")
-panderOptions("p.copula", ", and ")
+panderOptions("p.copula", ", \\& ")
 #'
 #'
 #'
@@ -276,7 +284,7 @@ MAP$jrnl <- sapply(as.character(MAP$journal), Rabbr)
 
 cb <- merge(MAP, ctbl, by = c("caseid", "scat"))
 cb <- within(cb, {
-    journal <- droplevels(journal)
+    # journal <- droplevels(journal)
     jrnl <- sapply(as.character(journal), Rabbr)
     code <- gsub("FG-\\w+", "FG", code)
     # code <- gsub("EXP-\\w+", "EXP", code)
@@ -290,13 +298,16 @@ cb <- within(cb, {
     scat <- factor(scat, labels = c("IPV Interventions", "SMW-Inclusive Research"))
 })
 cb <- na.omit(cb) %>% droplevels()
-cb <- cb[, c("caseid", "scat", "journal", "bibkey", "year", "RM", "rms4", "j.loc", "j.year", "SJR", "Hindex", "jrnl", "case", "cid", "code", "catid", "cat")]
+cb <- cb[, c("caseid", "scat", "journal", "bibkey", "year", "RM", "j.loc", "j.year", "SJR", "Hindex", "jrnl", "case", "cid", "code", "catid", "cat")]
 # cbk$clab <- ifelse(cbk$code %in% cb$code, cbk$clab, NA)
 # cbk <- na.omit(cbk) %>% droplevels()
 
 cb <- merge(cb, cbk, by = "code")
 cb$code <- factor(cb$code)
 cb$clab <- factor(cb$clab)
+#'
+#'
+#' \newpage
 #'
 #' ## Codebook
 #'
@@ -308,15 +319,17 @@ cdbk.ft1 <- with(cdbk, {
 })
 
 cdbk.ft1$Freq <- ifelse(cdbk.ft1$Freq == 0, NA, cdbk.ft1$Freq)
-cdbk.ft <- na.omit(cdbk.ft1)[, 1:2]
+    ## filter out unused codes ##
+cdbk.ft <- na.omit(cdbk.ft1)[, 1:2] ## rm "Freq" column after filtering, and other oclumns not needed right here ##
 rownames(cdbk.ft) <- NULL
 cdbk.ft$catlab <- as.character(cdbk.ft$catlab)
 cdbk.ft$catlab <- ifelse(duplicated(cdbk.ft$catlab), NA, paste0("**", cdbk.ft$catlab, "**"))
 cdbk.ft <- cdbk.ft[, c("catlab", "clab"), drop = FALSE]
-
+#'
+#' \newpage
+#'
+#+ echo=FALSE
 kable(cdbk.ft, col.names = c("\\textbf{Information Category}", "Codes"), caption = "Codebook Constructed from the Discrete Summative Data Compiled Across the Formally Reviewed Literature {#tbl:cdbk}", align = c("r", "l"))
-
-
 #'
 #' \newpage
 #'
@@ -494,7 +507,7 @@ parset.jrnl2 <- ggparset2(list("Category", "Journal", "Discipline"),
                                    adjustcolor(clr.cpv, alpha.f = 0.85)),
                         guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE);
-parset.jrnl2+ labs(subtitle = "Journals & Research Disciplines")
+parset.jrnl2 + labs(subtitle = "Journals & Research Disciplines")
 #'
 #' \tufteskip
 #'

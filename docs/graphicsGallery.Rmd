@@ -44,14 +44,13 @@ g2 <- paste0("../graphics/", g1)
 ginfo <- file.info(g2)[, c("ctime", "mtime", "atime")]
 
 g <- g2[ginfo$ctime > "2017-05-31"]
-
-glabs2 <- gsub("\\.\\./(\\w+/){1,}(.*?)\\.png", "\\1", g)
-glabs1 <- paste0("#", glabs2)
-
-Rlightbox <- function(g, glabs1) { #, glabs2
+glabs_ref <- gsub("\\.\\./(\\w+/){1,}rplot-(.*?)\\.png", "\\2", g)
+# glabs_id <- paste0("#", glabs_path)
+# pathPrefix = "../graphics/"
+Rlightbox <- function(g, glabs) {
     gl <- vector("character", length(g))
     for (i in 1:length(g)) {
-        gl[i] <- paste0("<div class='lightbox' href=", glabs1[i], "><img src=", g[i], " style=\"width=auto;\" /></div>")
+        gl[i] <- paste0("<div class='lightbox' href=", glabs[i], "><img src=", g[i], " style=\"width=auto;\" /></div>")
         # <div class='lightbox-target' id=", glabs2[i], "><span class='close cursor' onclick='closeModal()'>&times;</span><img src=", g[i], " /><a class='lightbox-close' href='#'></a></div><a class='prev' onclick='plusSlides(-1)'>&#10094;</a><a class='next' onclick='plusSlides(1)'>&#10095;</a>
     }
     return(gl)
