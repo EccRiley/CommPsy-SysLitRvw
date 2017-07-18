@@ -79,7 +79,7 @@ dbsrch[, 3] <- gsub("\\\\footnotesize\\{(.*?)\\}", "\\1", dbsrch[, 3])
 names(dbsrch) <- c("", "Database Search[note]", "$Range_{N_{Results}}$")
 library(kableExtra)
 kable(dbsrch, caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned {#tbl:dbsrch}", align = c("r", "l", "c")) %>%
-    add_footnote("For each database search, multiple search terms were included for the subject/keywords parameters to represent intimate partner violence<br /><br />")
+    add_footnote("For each database search, multiple search terms were included for the subject/keywords parameters to represent intimate partner violence<br /><br />", threeparttable = TRUE)
 #'
 #' -----
 #'

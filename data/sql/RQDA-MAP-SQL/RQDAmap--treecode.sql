@@ -195,3 +195,10 @@ INSERT INTO `treecode`(`cid`,`catid`,`date`,`status`,`owner`) VALUES ("206","21"
 INSERT INTO `treecode`(`cid`,`catid`,`date`,`status`,`owner`) VALUES ("207","21","Thu May 11 15:00:00 2017","1","Riley");
 INSERT INTO `treecode`(`cid`,`catid`,`date`,`status`,`owner`) VALUES ("208","21","Thu May 11 15:00:00 2017","1","Riley");
 INSERT INTO `treecode`(`cid`,`catid`,`date`,`status`,`owner`) VALUES ("209","21","Thu May 11 15:00:00 2017","1","Riley");
+
+
+INSERT INTO `treecode`(`cid`,`catid`,`date`,`status`,`owner`) VALUES ("220","13","Thu May 11 15:00:00 2017","1","Riley");
+INSERT INTO `treecode`(`cid`,`catid`,`date`,`status`,`owner`) VALUES ("221","21","Thu May 11 15:00:00 2017","1","Riley");
+
+-- INSERT INTO `freecode`(`name`,`memo`,`owner`,`id`,`status`) VALUES ("PREV_T","Prevention: Tertiary","Riley","Wed Feb 22 12:36:57 2017",?,220,1,?);
+-- INSERT INTO `treecode`(`cid`,`catid`,`date`,`status`,`owner`) VALUES ("222","1","Thu May 11 15:00:00 2017","1","Riley");

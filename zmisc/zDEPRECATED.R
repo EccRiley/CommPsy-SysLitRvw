@@ -41,7 +41,7 @@
 # methods$V <- vars
 # methods$L <- slvls
 
-# kable(sf[, c(2, 1)], align = c("r", "l"), col.names = c(names(sf)[1], "S[note]") %>% add_footnote("'S' = Sub-Samples")
+# kable(sf[, c(2, 1)], align = c("r", "l"), col.names = c(names(sf)[1], "S[note]") %>% add_footnote("'S' = Sub-Samples", threeparttable = TRUE)
 
 # kable(sf.incl[, c(2, 1)], align = c("r", "l"), format = 'latex', booktabs = TRUE, escape = FALSE, caption = "Populations Included in Sampling Frame") %>% kable_styling(full_width = TRUE, latex_options = c("scale_down"))
 

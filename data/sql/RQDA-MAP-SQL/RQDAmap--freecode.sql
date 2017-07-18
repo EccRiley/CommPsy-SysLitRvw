@@ -186,3 +186,8 @@ INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP
 INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_STRA","Stratified Random Sampling","rachel97","Thu May 11 12:36:57 2017",188,1);
 INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_MVAR","Maximum Variation Sampling","rachel97","Thu May 11 12:36:57 2017",189,1);
 INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`id`,`status`) VALUES ("SAMP_RDD","Random Digit Dialing","rachel97","Thu May 11 12:36:57 2017",190,1);
+
+
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color`) VALUES ("VIGNETTE",?,"Riley","Wed Feb 22 12:36:57 2017",?,220,1,?);
+UPDATE `freecode` SET `memo`="Vignette" WHERE `id`=220;
+INSERT INTO `freecode`(`name`,`memo`,`owner`,`date`,`dateM`,`id`,`status`,`color`) VALUES ("PRINT_COLLEGE", "Print Media - Colleges/Universities","Riley","Wed Feb 22 12:36:57 2017",?,221,1,?);

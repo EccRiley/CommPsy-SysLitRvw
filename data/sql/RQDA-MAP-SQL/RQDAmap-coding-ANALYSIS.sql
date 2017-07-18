@@ -133,3 +133,5 @@ INSERT INTO `coding` (`cid`,`fid`,`selfirst`,`selend`,`status`) VALUES (144,1,40
 
 INSERT INTO `coding` (`cid`,`fid`,`selfirst`,`selend`,`status`) VALUES (141,1,20782.0, 22705.0); -- boal2014barriers;
 INSERT INTO `coding` (`cid`,`fid`,`selfirst`,`selend`,`status`) VALUES (133,1,20782.0, 22705.0); -- boal2014barriers;
+
+INSERT INTO `coding` (`cid`,`fid`,`selfirst`,`selend`,`status`) VALUES (133,1,20782.0, 22705.0); -- boal2014barriers;

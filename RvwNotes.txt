@@ -1,0 +1,30 @@
+# @portwood2011evaluation
+
+> "The ACT Parents Raising Safe Kids program (‘‘the ACT program’’) represents a universal approach to prevention, incorporating edu- cational components directed at parents and other primary caregivers, without regard to risk level. In fact, a particular strength of ACT is its ability to be administered to all groups of parents in an efficient and cost-effective manner." 
+> 
+> `r tufte::quote_footer("--- [@portwood2011evaluation, p. 149]")`
+
+> "These instru- ments were selected on the basis of four criteria: ability to assess the construct of interest, a history of utilization in previous evaluation studies, sound psychometric properties, and appropriateness of use with diverse populations."
+> 
+> `r tufte::quote_footer("--- [@portwood2011evaluation, p. 151]")`
+
+> "The interclass correlations resulting from the null models ranged from .019 to .029. Therefore, it was concluded that there was insufficient between group or site variance to model, and a single level analysis of variance model was considered appropri- ate."
+> 
+> `r tufte::quote_footer("--- [@portwood2011evaluation, p. 154]")`
+
+> "Several individual level covariates were included in initial models: child gender, child age in months, mother’s age, and number of children in the family. None of these variables was a statistically significant predictor of any of the outcome measures. Moreover, the intervention and comparison groups were not found to differ with respect to the following demo- graphic background variables: child gender, child age in months, mother’s age, number of children in the family, ethnicity of family, and marital status, education level, and socio-economic status of the mother. Therefore, it was concluded that random assignment was effective in producing equivalent groups."
+> 
+> `r tufte::quote_footer("--- [@portwood2011evaluation, p. 154]")`
+
+
+**`PRO:` _Adaptive analytic process driven as much by theory as by the real-world context of the data._**
+
+# @pattavina2007comparison
+
+> "The NIBRS database presented a unique challenge to our analysis. **Given the large number of cases included in the analysis, estimated coefficients were likely to reach significance. Thus, tests of significance should be interpreted with caution, especially for the heterosexual groups.**" [p. 384]
+>
+> > "**Although we do present significance levels in our results, our analytic approach will focus more on the comparison of marginal effects of independent variables on the probability of arrest across groups based on sexual orientation (same sex vs. heterosexual).**"  [p. 384]
+>
+> > "We also present separate models for male and female same-sex groups to determine if the patterns of relationships differ across gender. This comparison based on sex is informed by the literature discussed earlier that suggests male and female same-sex couples may have different experiences with the law enforcement response to intimate partner violence." [pp. 384--385]
+>
+> `r tufte::quote_footer("--- [@pattavina2007comparison, p. 149]")`

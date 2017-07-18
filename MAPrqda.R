@@ -147,7 +147,7 @@ ctbl2 <- merge(caseids, ctbl1, by.x = "selfirst", by.y = "index1")
 
 codecats <- merge(codecats2, codecats1, by = "catid")
 cdbk <- merge(cdbk2, cdbk1, by = "catid")
-
+#'
     ## RECODE ALL THE THINGS! (using `car::recode()`) ##
 
 rec.code2clab <- paste0("\"", cdbk$code, "\" = \"", cdbk$clab, "\"", collapse = "; ")
@@ -213,6 +213,15 @@ table(ctbl.z1$code) ## tabulated reasons for exclusion from review ##
 ctbl <- na.omit(ctbl.z)[, c("caseid", "case", "scat", "cid", "code", "catid", "cat")]# "clab",
     ## remove NAs created in the new "RM2" column...and remove the
     ## "RM" and "RM2" columns bc they are no longer needed ##
+#'
+#' Below is for the final filtering/selection process conducted in _"`bibs.R`"_ & described "[here](https://eccriley.github.io/CommPsy-SysLitRvw/litSearchMethods.html)"
+#'
+tpFilter <- c(25, 100, 11, 10, 99, 23, 18, 20, 19, 95, 96, 14, 6, 15, 94, 97, 21, 22, 16, 17) ##"tpFilter" is a list of the code ids (cid) corresponding to the subset of "TOPICS" codes directly applicable to IPV intervention & prevention. ##
+
+labs_tpFilter <- cdbk[cdbk$cid %in% tpFilter, "clab"] %>% unique() %>% as.character()
+
+
+keys_tpFilter <- ctbl[ctbl$cid %in% tpFilter, "case"] %>% unique() ## "cb" created in "MAPrqda.R" ##
 
 # ctbl - DESCRIPTIVES --------------------------------------------------------
 

@@ -56,13 +56,13 @@
 /* --------------------------------------------------------*/
 
 .main-container {
-  /*max-width: 940px;*/
-  margin-left: auto;
-  margin-right: auto;
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
 }
 code {
-  color: inherit;
-  /*background-color: rgba(0, 0, 0, 0.04);*/
+    color: inherit;
+    /*background-color: rgba(0, 0, 0, 0.04);*/
 }
 
 /* ADDED FROM tufte-rs.css */
@@ -94,33 +94,33 @@ pre, pre code, p code, p pre code {
 }
 
 body {
-  padding-top: 51px;
-  padding-bottom: 40px;
+    padding-top: 51px;
+    padding-bottom: 40px;
 }
 .section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
+    padding-top: 56px;
+    margin-top: -56px;
 }
 
 .section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
+    padding-top: 56px;
+    margin-top: -56px;
 }
 .section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
+    padding-top: 56px;
+    margin-top: -56px;
 }
 .section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
+    padding-top: 56px;
+    margin-top: -56px;
 }
 /*.section h5 {*/
-  /*padding-top: 56px;*/
-  /*margin-top: -56px;*/
+    /*padding-top: 56px;*/
+    /*margin-top: -56px;*/
 /*}*/
 /*.section h6 {*/
-  /*padding-top: 56px;*/
-  /*margin-top: -56px;*/
+    /*padding-top: 56px;*/
+    /*margin-top: -56px;*/
 /*}*/
 
 /* -------------------------------------------------------------------- */
@@ -130,21 +130,21 @@ body {
 /* -------------------------------------------------------------------- */
 
 html {
-  font-size : 1rem;
+    font-size : 1rem;
 }
 
 body {
-  width            : 87.5%;
-  max-width        : 100%;
-  color            : #111;
-  background-color : #ffffff;
-  font-family      : Palatino,
+    width            : 87.5%;
+    max-width        : 100%;
+    color            : #111;
+    background-color : #ffffff;
+    font-family      : Palatino,
                      "Palatino Linotype",
                      "Palatino LT STD",
                      "Book Antiqua",
                      Georgia,
                      serif;
-  counter-reset    : sidenote-counter;
+    counter-reset    : sidenote-counter;
    /*counter-reset: table-counter;*/
    margin-left: auto;
    margin-right: auto;
@@ -162,48 +162,53 @@ body {
 /* -------------------------------------------------------------------- */
 
 h1.title {
-    margin-top   : 3rem;
-    font-size     : 2rem;
+    margin-top   : 2rem;
+    font-size     : 2.5rem;
     font-style: normal;
-    font-variant: small-caps;
-    font-weight   : 400;
+    font-weight   : 500;
     line-height   : 1;
     text-align: center;
+    letter-spacing: .2em;
+    font-variant: small-caps;
 }
 
 h1:not(.title) {
-  margin-bottom : 2rem;
-  margin-top   : 3em;
-  font-size     : 1.75rem;
-  font-style    : italic;
-  font-weight   : 400;
-  line-height   : 1;
-  /*margin-top    : 2rem;*/
-  padding-top: 2em;
-  /*font-size     : 3.2rem;*/
-  /*font-weight   : 400;*/
+    margin-bottom : 1.5rem;
+    margin-top   : 2rem;
+    font-size     : 1.75rem;
+    font-style    : italic;
+    font-weight   : 400;
+    line-height   : 1;
+    text-align: center;
+    letter-spacing: .2em;
+    font-variant: small-caps;
+    /*margin-top    : 2rem;*/
+    padding-top: 2em;
+    /*font-size     : 3.2rem;*/
+    /*font-weight   : 400;*/
 }
 
 h2 {
-  /*margin-top    : 7em;*/
-  /*padding-top: 10em;*/
-  /*margin-bottom : 0;*/
-  margin-bottom : 1rem;
-  font-size     : 1.5rem;
-  font-style    : italic;
-  font-weight   : 400;
-  line-height   : 1;
+    margin-top    : 3rem;
+    /*padding-top: 10em;*/
+    /*margin-bottom : 0;*/
+    margin-bottom : 1rem;
+    font-size     : 1.5rem;
+    font-style    : italic;
+    font-weight   : 400;
+    line-height   : 1;
 }
 
 h3 {
-  /*margin-top    : 2rem;*/
-  /*margin-top   : 3rem;*/
-  /*padding-top: 7rem !important;*/
-  padding-bottom: 3rem;
-  font-size     : 1.7rem;
-  font-weight   : 400;
-  line-height   : 1;
-  font-variant: small-caps;
+    /*margin-top    : 2rem;*/
+    /*margin-top   : 3rem;*/
+    /*padding-top: 7rem !important;*/
+    padding-bottom: 3rem;
+    font-size     : 1.7rem;
+    font-weight   : 400;
+    line-height   : 1;
+    font-variant: small-caps;
+    letter-spacing: .15em;
 }
 
 /* -------------------------------------------------------------------- */
@@ -211,43 +216,43 @@ h3 {
 /* -------------------------------------------------------------------- */
 
 hr.Bold {
-  width         : 100%;
-  clear: left;
-  margin-top    : 1em;
-  margin-bottom : 1em;
-  margin-left: 0;
-  margin-right: auto;
-  border        : 0;
-  height: 2px;
-  background-image: linear-gradient(to right, #e6e6e6, #333, #e6e6e6);
-  /*width         : 87.5%;*/
-  /*border-top    : 2px solid #3f3f3f;*/
+    width         : 100%;
+    clear: left;
+    margin-top    : 1em;
+    margin-bottom : 1em;
+    margin-left: 0;
+    margin-right: auto;
+    border        : 0;
+    height: 2px;
+    background-image: linear-gradient(to right, #e6e6e6, #333, #e6e6e6);
+    /*width         : 87.5%;*/
+    /*border-top    : 2px solid #3f3f3f;*/
 }
 
 hr.SemiBold {
-  clear: left;
-  margin-left: 0;
-  margin-right: auto;
-  width         : 87.5%;
-  margin-top    : 21px;
-  margin-bottom : 21px;
-  border        : 0;
-  height: 1px;
-  background-image: linear-gradient(to right, #c0c0c0, #333, #c0c0c0);
-  /*border-top    : 1px solid #3f3f3f;*/
-  /*border-bottom-color : rgba(255, 255, 255, 0.5);*/
-  /*border-bottom-width : 0.25px;*/
+    clear: left;
+    margin-left: 0;
+    margin-right: auto;
+    width         : 87.5%;
+    margin-top    : 21px;
+    margin-bottom : 21px;
+    border        : 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #c0c0c0, #333, #c0c0c0);
+    /*border-top    : 1px solid #3f3f3f;*/
+    /*border-bottom-color : rgba(255, 255, 255, 0.5);*/
+    /*border-bottom-width : 0.25px;*/
 }
 
 /*hr {*/
-  /*display    : block;*/
-  /*width      : 55%;*/
-  /*width      : 87.5%;*/
-  /*height     : 1px;*/
-  /*margin     : 1em 0;*/
-  /*padding    : 0;*/
-  /*border     : 0;*/
-  /*border-top : 1px solid #ccc;*/
+    /*display    : block;*/
+    /*width      : 55%;*/
+    /*width      : 87.5%;*/
+    /*height     : 1px;*/
+    /*margin     : 1em 0;*/
+    /*padding    : 0;*/
+    /*border     : 0;*/
+    /*border-top : 1px solid #ccc;*/
 /*}*/
 
 hr {
@@ -267,13 +272,13 @@ hr {
 
 
 h3.subtitle {
-  margin-top    : 0;
-  padding: 0;
-  margin-bottom : 0;
-  font-size     : 1.25rem;
-  text-align: center;
-  line-height   : 1;
-  /*z-index: -1;*/
+    margin-top    : 0;
+    padding: 0;
+    margin-bottom : 0;
+    font-size     : 1.25rem;
+    text-align: center;
+    line-height   : 1;
+    /*z-index: -1;*/
 }
 
 h3.subtitle:after {
@@ -286,13 +291,13 @@ h3.subtitle:after {
     background-image: linear-gradient(to right, #e6e6e6, #333, #e6e6e6);
 }
 article {
-  position : relative;
-  padding  : 5rem 0rem;
+    position : relative;
+    padding  : 5rem 0rem;
 }
 
 section {
-  padding-top    : 1rem;
-  padding-bottom : 1rem;
+    padding-top    : 1rem;
+    padding-bottom : 1rem;
 }
 
 /* -------------------------------------------------------------------- */
@@ -309,23 +314,29 @@ p {
     line-height: 1.3;
 }
 
+li strong {
+    font-variant: small-caps;
+    font-weight: 800;
+    font-size: 1.15rem;
+}
+
 ol:not(.navbar-nav,.dropdown-menu),
 ul:not(.navbar-nav,.dropdown-menu),
 section>ol,
 section>ul {
-  font-size: inherit;
-  margin-bottom: 0.5rem;
-  margin-top: 0.25rem;
-  width: 55%;
-  line-height: 1.3;
-  /*font-size : 1.2em;*/
+    font-size: inherit;
+    margin-bottom: 0.5rem;
+    margin-top: 0.25rem;
+    width: 55%;
+    line-height: 1.3;
+    /*font-size : 1.2em;*/
 }
 
 ul .marginnote,
 ul .sidenote,
 ol .marginnote,
 ol .sidenote {
-  margin-right   : -45%;
+    margin-right   : -45%;
 }
 ol>li>ul .marginnote,
 ol>li>ul .sidenote,
@@ -385,21 +396,22 @@ ol:not(.navbar-nav,.dropdown-menu)>li>ol>li:last-child {
 /* --------------------------------------------------------*/
 
 table {
-  margin-top: 1em;
-  border-collapse: collapse;
-  border-spacing: 50px 0;
-  margin: auto;
-  /*white-space: nowrap;*/
-  margin-bottom: 1em;
-  border-top: 1px solid #000000;
-  border-bottom: 1px solid #000000;
-  table-layout: auto;
-  box-shadow: 0px 0px 5px rgba(0,0,0,.25);
+    display: inline-table;
+    margin-top: 1em;
+    border-collapse: collapse;
+    border-spacing: 50px 0;
+    margin: auto;
+    /*white-space: nowrap;*/
+    margin-bottom: 1em;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    table-layout: auto;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.25);
 }
 
 table:focus,
 table:hover {
-    box-shadow: 0px 0px 10px rgba(0,0,0,.25);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
 }
 
 th {
@@ -412,6 +424,7 @@ th {
     vertical-align: middle !important;
     font-weight: bold;
     font-variant: small-caps;
+    letter-spacing: .1em;
     border-bottom: 2px solid #000000;
     background-color: rgba(0, 0, 0, 0.05);
     white-space: nowrap;
@@ -439,6 +452,7 @@ table caption {
     color: var(--caption-color);
     font-size: 120%;
     font-variant: small-caps;
+    letter-spacing: .2em;
     margin-top: 2em;
     margin-bottom: 0.75em;
     text-align: center;
@@ -446,7 +460,16 @@ table caption {
 }
 
 table + p {
-    display: block;
+    display: inline-block;
+    margin: auto;
+    margin-top: -1em;
+    font-style: italic;
+    font-size: 95%;
+    max-width: 50%;
+    color: var(--caption-color);
+}
+ {
+    display: inline-block;
     margin: auto;
     margin-top: -1em;
     font-style: italic;
@@ -461,6 +484,7 @@ table + p {
 div>img+p.caption {
     color: var(--caption-color);
     font-variant: small-caps;
+    letter-spacing: .2em;
     margin-top: -1em;
     margin-bottom: 2em;
     margin-left: auto;
@@ -472,27 +496,27 @@ div>img+p.caption {
 /* -------------------------------------------------------------------- */
 
 div.epigraph {
-  margin : 5em 0;
+    margin : 5em 0;
 }
 
 div.epigraph > blockquote {
-  margin-top    : 0.5em;
-  margin-bottom : 0.5em;
+    margin-top    : 0.5em;
+    margin-bottom : 0.5em;
 }
 
 blockquote > p,
 div.epigraph > blockquote,
 div.epigraph > blockquote > p {
-  font-style : italic;
-  font-size: 85%;
+    font-style : italic;
+    font-size: 85%;
 }
 
 div.epigraph > blockquote > footer {
-  font-style : italic;
+    font-style : italic;
 }
 
 div.epigraph > blockquote > footer > cite {
-  font-style : italic;
+    font-style : italic;
 }
 
 /* -------------------------------------------------------------------- */
@@ -500,26 +524,26 @@ div.epigraph > blockquote > footer > cite {
 /* -------------------------------------------------------------------- */
 
 blockquote {
-  font-size : 0.95rem;
-  width        : 90%;
-  margin-bottom: 1em;
+    font-size : 0.95rem;
+    width        : 90%;
+    margin-bottom: 1em;
 }
 
 blockquote p {
-  margin-right : 40px;
-  margin-bottom: 0;
+    margin-right : 40px;
+    margin-bottom: 0;
 }
 
 blockquote footer {
-  /*width      : 55%;*/
-  display: inline-block;
-  clear: both;
-  width: 65%;
-  margin-top: -2em;
-  margin-bottom: 1em;
-  text-align : right;
-  font-size  : 0.8rem;
-  font-style: italic;
+    /*width      : 55%;*/
+    display: inline-block;
+    clear: both;
+    width: 65%;
+    margin-top: -2em;
+    margin-bottom: 1em;
+    text-align : right;
+    font-size  : 0.8rem;
+    font-style: italic;
 }
 
 /* -------------------------------------------------------------------- */
@@ -527,31 +551,31 @@ blockquote footer {
 /* -------------------------------------------------------------------- */
 
 figure {
-  clear: both;
-  padding        : 0;
-  border         : 0;
-  display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  vertical-align : baseline;
-  /*max-width      : 55%;*/
+    clear: both;
+    padding        : 0;
+    border         : 0;
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    vertical-align : baseline;
+    /*max-width      : 55%;*/
 }
 
 figcaption {
-  color: var(--caption-color);
-  position       : relative;
-  max-width      : 40%;
-  float          : right;
-  clear          : right;
-  margin-top     : 0;
-  margin-bottom  : 0;
-  vertical-align : baseline;
-  font-size      : 1.1rem;
-  line-height    : 1.6;
+    color: var(--caption-color);
+    position       : relative;
+    max-width      : 40%;
+    float          : right;
+    clear          : right;
+    margin-top     : 0;
+    margin-bottom  : 0;
+    vertical-align : baseline;
+    font-size      : 1.1rem;
+    line-height    : 1.6;
 }
 
 .fullwidth figcaption {
-  margin-right : 24%;
+    margin-right : 24%;
 }
 
 figure.title {
@@ -564,10 +588,10 @@ figure.title {
 }
 
 img {
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width : 100%;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width : 100%;
 }
 
 img.rt {
@@ -618,54 +642,54 @@ img.lt {
 
 .marginnote,
 .sidenote {
-  display: inline-block;
-  position       : relative;
-  width          : 25%;
-  left           : 10%;
-  float          : right;
-  clear          : both;
-  margin-top     : 0;
-  margin-right   : -30%;
-  margin-bottom  : 0;
-  margin-left: 0;
-  padding-left: 0;
-  vertical-align : baseline;
-  font-size      : 0.9rem;
-  line-height    : 1;
-  vertical-align: baseline;
-  color: rgba(34, 39, 44, 0.85);
-  /*color: var(--darkslate-a) !important;*/
-  /*margin-top     : 1em;*/
+    display: inline-block;
+    position       : relative;
+    width          : 25%;
+    left           : 10%;
+    float          : right;
+    clear          : both;
+    margin-top     : 0;
+    margin-right   : -30%;
+    margin-bottom  : 0;
+    margin-left: 0;
+    padding-left: 0;
+    vertical-align : baseline;
+    font-size      : 0.9rem;
+    line-height    : 1;
+    vertical-align: baseline;
+    color: rgba(34, 39, 44, 0.85);
+    /*color: var(--darkslate-a) !important;*/
+    /*margin-top     : 1em;*/
 }
 
 .sidenote-number {
-  counter-increment : sidenote-counter;
-  color: var(--darkslate-a);
+    counter-increment : sidenote-counter;
+    color: var(--darkslate-a);
 }
 
 .sidenote-number:after,
 .sidenote:before {
-  content        : counter(sidenote-counter) " ";
-  position       : relative;
-  vertical-align : baseline;
-  font-size : 0.75rem;
-  color: var(--darkslate-a);
-  /*content        : counter(sidenote-counter);*/
-  /*vertical-align : super;*/
-  /*font-family    : et-book-roman-old-style;*/
+    content        : counter(sidenote-counter) " ";
+    position       : relative;
+    vertical-align : baseline;
+    font-size : 0.75rem;
+    color: var(--darkslate-a);
+    /*content        : counter(sidenote-counter);*/
+    /*vertical-align : super;*/
+    /*font-family    : et-book-roman-old-style;*/
 }
 
 .sidenote-number:after {
-  content   : counter(sidenote-counter);
-  top       : -0.5rem;
-  left      : 0.1rem;
-  font-size : 1rem;
+    content   : counter(sidenote-counter);
+    top       : -0.5rem;
+    left      : 0.1rem;
+    font-size : 1rem;
 }
 
 .sidenote:before {
-  content : counter(sidenote-counter) " ";
-  top     : -0.5rem;
-  /*content : counter(sidenote-counter);*/
+    content : counter(sidenote-counter) " ";
+    top     : -0.5rem;
+    /*content : counter(sidenote-counter);*/
 }
 
 /* -------------------------------------------------------------------- */
@@ -674,21 +698,21 @@ img.lt {
 
 blockquote .marginnote,
 blockquote .sidenote {
-  min-width    : 59%;
-  margin-right : -82%;
-  text-align   : left;
+    min-width    : 59%;
+    margin-right : -82%;
+    text-align   : left;
 }
 
 /* p, footer, table { width: 55%; } */
 
 footer,
 p {
-  width : 85%;
+    width : 85%;
 }
 
 div.fullwidth,
 table.fullwidth {
-  width : 100%;
+    width : 100%;
 }
 
 /* -------------------------------------------------------------------- */
@@ -696,66 +720,66 @@ table.fullwidth {
 /* -------------------------------------------------------------------- */
 
 div.table-wrapper {
-  overflow-x  : auto;
-  font-family : "Trebuchet MS",
+    overflow-x  : auto;
+    font-family : "Trebuchet MS",
                 "Gill Sans",
                 "Gill Sans MT",
                 sans-serif;
 }
 
 /*.sans {*/
-  /*font-family    : "Gill Sans",*/
+    /*font-family    : "Gill Sans",*/
                    /*"Gill Sans MT",*/
                    /*Calibri,*/
                    /*sans-serif;*/
-  /*letter-spacing : .03em;*/
+    /*letter-spacing : .03em;*/
 /*}*/
 
 code {
-  font-family : Consolas,
+    font-family : Consolas,
                 "Liberation Mono",
                 Menlo,
                 Courier,
                 monospace !important;
-  /*font-size   : 1.0rem;*/
-  font-size   : 90%;
-  background-color: transparent !important;
-  /*line-height : 1.42;*/
+    /*font-size   : 1.0rem;*/
+    font-size   : 90%;
+    background-color: transparent !important;
+    /*line-height : 1.42;*/
 }
 
 .sans > code {
-  /*font-size : 1.2rem;*/
-  /*font-size   : inherit;*/
+    /*font-size : 1.2rem;*/
+    /*font-size   : inherit;*/
 }
 
 h1 > code,
 h2 > code,
 h3 > code {
-  /*font-size : 0.80em;*/
-  /*font-size   : inherit;*/
+    /*font-size : 0.80em;*/
+    /*font-size   : inherit;*/
 }
 
 .marginnote > code,
 .sidenote > code {
-  font-size : 1rem;
-  font-size   : inherit;
+    font-size : 1rem;
+    font-size   : inherit;
 }
 
 pre.code {
-  width       : 52.5%;
-  margin-left : 2.5%;
-  overflow-x  : auto;
-  /*font-size   : 0.9rem;*/
-  /*font-size   : inherit;*/
+    width       : 52.5%;
+    margin-left : 2.5%;
+    overflow-x  : auto;
+    /*font-size   : 0.9rem;*/
+    /*font-size   : inherit;*/
 }
 
 pre.code.fullwidth {
-  width : 90%;
+    width : 90%;
 }
 
 .fullwidth {
    /*max-width: 90%; */
-  clear : both;
+    clear : both;
 }
 
 .fullfootc { /*fullwidth footer, center align*/
@@ -778,86 +802,86 @@ pre.code.fullwidth {
 /* span.newthought { font-variant: small-caps; font-size: 1.2em; } */
 
 .newthought {
-  padding-top   : 2em;
-  font-family  : inherit;
-  /*font-size    : 1.2em;*/
-  font-size    : 130%;
-  /*font-size: inherit;*/
-  font-variant : small-caps;
+    padding-top   : 2em;
+    font-family  : inherit;
+    /*font-size    : 1.2em;*/
+    font-size    : 130%;
+    /*font-size: inherit;*/
+    font-variant : small-caps;
 }
 
 input.margin-toggle {
-  display : none;
+    display : none;
 }
 
 label.sidenote-number,
 .margin-toggle::after,
 .sidenote-number::after  {
-  display : inline;
-  font-size: 0.75rem;
+    display : inline;
+    font-size: 0.75rem;
 
 }
 
 label.margin-toggle:not(.sidenote-number) {
-  display : none;
+    display : none;
 }
 
 @media (max-width: 760px) {
-  body {
+    body {
     width         : 84%;
     padding-right : 8%;
     padding-left  : 8%;
-  }
+    }
 
-  footer,
-  p {
+    footer,
+    p {
     width : 100%;
-  }
+    }
 
-  pre.code {
+    pre.code {
     width : 97%;
-  }
-  /* ul { width: 85%; } */
+    }
+    /* ul { width: 85%; } */
 
-  ul {
+    ul {
     width : 55%;
-  }
+    }
 
-  .figure {
+    .figure {
     max-width : 90%;
     /*float: right;*/
     align: middle;
     text-align: center;
     border: thin silver solid;
-  }
+    }
 
-  figcaption,
-  figure.fullwidth figcaption {
+    figcaption,
+    figure.fullwidth figcaption {
     max-width    : none;
     margin-right : 0%;
-  }
+    }
 
-  blockquote {
+    blockquote {
     margin-right : 0em;
     margin-left  : 1.5em;
-  }
+    }
 
-  blockquote footer,
-  blockquote p {
+    blockquote footer,
+    blockquote p {
     width : 100%;
-  }
+    }
 
-  label.margin-toggle:not(.sidenote-number) {
+    label.margin-toggle:not(.sidenote-number) {
     display : inline;
-  }
+    }
 
-  .marginnote,
-  .sidenote {
+    .marginnote,
+    .sidenote {
     display : none;
-  }
+    }
 
-  .margin-toggle:checked + .marginnote,
-  .margin-toggle:checked + .sidenote {
+    .margin-toggle:checked + .marginnote,
+    .margin-toggle:checked + .sidenote {
     display        : block;
     position       : relative;
     left           : 1rem;
@@ -866,41 +890,41 @@ label.margin-toggle:not(.sidenote-number) {
     clear          : both;
     margin         : 1rem 2.5%;
     vertical-align : baseline;
-  }
+    }
 
-  label {
+    label {
     cursor : pointer;
-  }
+    }
 
-  div.table-wrapper,
-  table {
+    div.table-wrapper,
+    table {
     width : 85%;
-  }
+    }
 
-  img {
+    img {
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
     max-width : 100%;
     /*align     : middle;*/
     text-align: center;
-  }
+    }
 }
 
 /* --------------------------------------------------------*/
 /* LINKS */
 /* --------------------------------------------------------*/
 a {
-  color           : var(--link-color);
+    color           : var(--link-color);
 }
 
 a:focusnot(.lightbox),
 a:hover:not(.lightbox) {
-  text-decoration : none;
-  border-top: 0;
-  border-bottom-width :0.015em;
-  border-bottom-style:  solid;
-  border-bottom-color: var(--link-color);
+    text-decoration : none;
+    border-top: 0;
+    border-bottom-width :0.015em;
+    border-bottom-style:  solid;
+    border-bottom-color: var(--link-color);
 }
 
 /* -------------------------- */
@@ -908,8 +932,8 @@ a:hover:not(.lightbox) {
 /* -------------------------- */
 
 .footnotes {
-  /*font-size : "xx-small";*/
-  font-size: 10px;
+    /*font-size : "xx-small";*/
+    font-size: 10px;
 }
 
 .footnotes ol li p {
@@ -923,9 +947,9 @@ a:hover:not(.lightbox) {
 
 
 txsub, txe, txeib {
-  vertical-align: -0.5ex;
-  margin-left: -0.05em;
-  margin-right: -0.05em;
+    vertical-align: -0.5ex;
+    margin-left: -0.05em;
+    margin-right: -0.05em;
 }
 
 
@@ -966,9 +990,9 @@ div.contactIcons {
     background-color: transparent;
 }
 a.iconOnly:hover {
-  text-decoration : none;
-  border-bottom: 1px solid var(--link-color);
-  padding: 0;
+    text-decoration : none;
+    border-bottom: 1px solid var(--link-color);
+    padding: 0;
 }
 
 a.iconOnly {

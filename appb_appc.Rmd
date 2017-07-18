@@ -1,0 +1,237 @@
+# Appendix B. Literature Description \& Data Extraction Template
+
+\Frule
+
+## Citation:
+
+\tufteskip
+
+\SFrule
+
+## Substantive Research Topic(s):
+
+\tufteskip
+
+\SFrule
+
+\medskip
+
+\SFrule
+
+## \textsc{Study Purpose(s):}
+
+\tufteskip
+
+\SFrule
+
+\medskip
+
+\SFrule
+
+`r tufte::newthought("Research Question(s) (RQs)")`:
+
+\hspace*{2em} \small{Including theoretical model(s) (if applicable)}
+
+\tufteskip
+
+\SFrule
+
+\medskip
+
+\SFrule
+
+`r tufte::newthought("Hypotheses")`:
+
+\hspace*{2em} \small{Including hypothesized model(s) (if applicable)}
+
+\tufteskip
+
+\SFrule
+
+\medskip
+
+\SFrule
+
+\tufteskip
+
+## Target Population(s) (By Level of Specificity):
+
+`r tufte::newthought("Includes")`:
+
+\medskip
+
+\SFrule
+
+\medskip
+
+\SFrule
+
+
+`r tufte::newthought("Excludes")`:
+
+\medskip
+
+\SFrule
+
+\medskip
+
+\SFrule
+
+## Sampling Frame (By Level of Specificity)
+
+`r tufte::newthought("Includes")`
+
+\medskip
+
+\SFrule
+
+\medskip
+
+\SFrule
+
+`r tufte::newthought("Excludes")`
+
+\medskip
+
+\SFrule
+
+\medskip
+
+\SFrule
+
+## Sampling Method(s) (By Sampling Frame Level):
+
+\Frule
+
+\tufteskip
+
+\hspace*{2em} $\square$ Probability/Random
+
+\hspace*{2em} $\square$ Purposive
+
+\hspace*{2em} $\square$ Convenience
+
+## \textsc{Sampling \& Recruitment Setting(s)}
+
+\medskip
+
+\SFrule
+
+\medskip
+
+\SFrule
+
+## Study Design(s)
+
+\Frule
+
+## \textsc{Qua\LARGE{L}itative Research Designs (if applicable):}
+
+\hspace*{2em}  $\square$ \textsc{Grounded Theory}
+
+\parindent=1em\ $\square$ \textsc{Phenomenology}
+
+\parindent=1em\ $\square$ \textsc{Ethnography}
+
+\parindent=1em\ $\square$ \textsc{Case-Study}
+
+\parindent=1em\ $\square$ \textsc{Narrative/Descriptive}
+
+\parindent=2.25em\ $\square$ Biographical
+
+\parindent=2.25em\ $\square$ Historical
+
+
+## \textsc{Qua\LARGE{NT}itative Research Designs (if applicable):}
+
+\parindent=1em\ $\square$ \textsc{Experimental}
+
+\parindent=2.5em\ $\square$ Longitudinal
+
+\parindent=2.5em\ $\square$ Pre-Post
+
+\parindent=2.25em\ $\square$ \textsc{Randomized Control Trial (RCT)}
+
+\parindent=3.25em\ $\square$ RCT - Longitudinal
+
+\parindent=3.25em\ $\square$ RCT - Pre-Post
+
+\parindent=1em\ $\square$ \textsc{Quasi-Experimental}
+
+\parindent=1em\ $\square$ \textsc{Cross-Sectional}
+
+## Methodology:
+
+\Frule
+
+\parindent=1em\ $\square$ \textsc{Qualitative}
+
+\parindent=1em\ $\square$ \textsc{Quantitative}
+
+\parindent=1em\ $\square$ \textsc{Mixed-Methods}
+
+\tufteskip
+
+## \textsc{Data Collection Method(s) \& Data Source(s) (By Sampling Frame Level \& Methodology):}
+
+\Frule
+
+`r tufte::newthought("Measure(s)")`
+
+`r tufte::newthought("Archival / Secondary Data Source(s)")`
+
+\tufteskip
+
+## Data Analytic Approach(es):
+
+\Frule
+
+\tufteskip
+
+\tufteskip
+
+## Key Findings
+
+\Frule
+
+`r tufte::newthought("Sample Characteristics (by sampling frame level \\& methodology)")`:
+
+\medskip
+
+\SFrule
+
+\medskip
+
+\SFrule
+
+`r tufte::newthought("Findings (by methodology \\& hypothesis/RQ)")`:
+
+\medskip
+
+\SFrule
+
+\medskip
+
+\SFrule
+
+\tufteskip
+
+## Social Ecological Levels of Analysis:
+
+\Frule
+
+\parindent=1em\ $\square$ \textsc{Individual}
+
+\parindent=1em\ $\square$ \textsc{Relationship}
+
+\parindent=1em\ $\square$ \textsc{Community}
+
+\parindent=1em\ $\square$ \textsc{Societal}
+
+Social-Ecological Model](graphics/inputs/sem.pdf){#fig:sem}
+
+> `r tufte::quote_footer("--- @centers2015social; @dahlberg2002violence")`
+
+# Appendix C. Qualitative Comparative Analysis
+
+<!-- TODO: INCLUDE APPENDIX C CONTENT -->

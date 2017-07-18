@@ -1,7 +1,7 @@
 ---
 title: |
   | Major Area Paper
-  | (v11)
+  | (v11.1)
 author: "Rachel M. Smith"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 fignos-plus-name: "Figure "
@@ -16,6 +16,10 @@ knitr::opts_chunk$set(echo=FALSE)
 ```
 
 \Frule
+
+> _\large{"... despite our awareness of context for those we study, we do not always apply that understanding to ourselves".}_
+>
+> `r tufte::quote_footer("--- [@riger1993what, p. 279]")`
 
 # <!-- TODO: INTRO ABOUT FSSIPV -->
 
@@ -47,18 +51,7 @@ Underlying the topical foci reflected in the above research questions is the mor
 
 <!-- > > > \rowgroup[-3em]{\textbf{RQ-4bii:} How does the extant body of IPV interventions research conducted within community-based and action-oriented research frameworks and settings inform potential solutions to such barriers?} -->
 
-# The way forward
-
-The critical methodological review provided here is structured according to two sub-domains of IPV research that emerged from the later-described systematic literature database searches: (1) IPV intervention and prevention research specific to heterosexual men and (2) IPV-related research specifically inclusive of sexual minority women but not necessarily restricted to interventions nor prevention efforts. To address the array of related, but qualitatively distinct, topics reflected in the above-listed research questions, the reviewed literature in both domains is restricted to research conducted within community-psychological and closely related research and practice frameworks.
-
-In the sections that follow, I provide details regarding the theoretical and methodological rationale for a systematic review of IPV research specifically conducted within community-psychological and related fields. With this context in mind, the methods employed for conducting the present systematic literature review are described in detail, followed by a critical methodological description and evaluation of the empirical research selected for review from the multiple systematic literature database searches.
-<!--TODO: THERE'S MORE CONTENT TO BE OUTLINED HERE -->
-
-# Rationale
-
-> _"... despite our awareness of context for those we study, we do not always apply that understanding to ourselves"._
->
-> `r tufte::quote_footer("--- [@riger1993what, p. 279]")`
+## Rationale
 
 <!-- TODO: SUMMARIZE BARRIER TO FSSIPV RESEARCH  -->
 
@@ -73,10 +66,9 @@ necessitate a research approach that takes into account this unique context. Cen
 ## Intersecting Community-Psychology Theory \& Research Methodology
 
 The present critical methodological review is intended to serve the above-described key characteristics of community psychology through a critical evaluation of the community-psychology-related empirical literature focused on intimate partner violence intervention and prevention. This review specifically examines the intersections that exist across the core theoretical and  methodological domains of community psychological research in terms of their applications and manifestations in various settings and at varying levels of ecological analysis. Thus, the literature reviewed here is evaluated according to core community psychological values and standards regarding (1) _research methodologies_, (2) _data analytic approaches_, (3) _interpretations of findings_, and (4) _research dissemination_.
-
 <!-- TODO: ADD AT LEAST ONE ADDITIONAL SUBSECTION (L2) UNDER 'RATIONALE' SECTION (L1) -->
 
-# Guiding Theoretical Frameworks
+## Guiding Theoretical Frameworks
 
 > _"... community scientists study domestic violence using methods and theories that are consistent with the view that domestic violence is not just an individual behavior, but a complex process shaped by historical, social, financial, and legal contexts"._
 >
@@ -84,7 +76,7 @@ The present critical methodological review is intended to serve the above-descri
 
 The present systematic review is situated within an ecological framework and posits that individuals are both affecting and affected by their environmental settings [@espino2008spirit; @kelly1977social]. This review is further grounded in an action-oriented theoretical and methodological framework [@chandler2003transforming; @brydon-miller2003why; @friedman-nimz2006blending; @kelly2004community; @noffke1997professional; @prilleltensky2001value-based; @prilleltensky1997values; @seidman2012emerging], as well as social scientific theories related to IPV and sexual minority women [@meyer1995minority; @meyer2003prejudice; @meyer2015resilience]. These frameworks collectively incorporate the community-psychological concepts discussed below.
 
-## Ecological systems theory and the Social Ecological Model
+`r tufte::newthought("\\Large{Ecological systems theory and the Social Ecological Model}")`
 
 > _"... community scientists have put context front and center as one of the core values of community psychology"._
 >
@@ -96,7 +88,7 @@ _Ecological analysis_ provides a framework which observes, describes, and evalua
 
 Ecological analysis is especially important to the design, implementation, and evaluation of community-based interventions [@trickett2009community; @trickett2009multilevel; @trickett2011water; @lounsbury2009introduction; @heise1998violence], including IPV-focused and closely related interventions and prevention approaches [@centers2013taking; @centers2015social; @baker2013lessons]. In particular, intimate partner violence has been somewhat well documented over the past few decades as a social and public health issue with causes, correlates, and consequences that span multiple levels of ecological analysis [@krug2002world; @centers2015social; @dahlberg2002violence]. In the early 2000s, the U.S. Centers for Disease Control and Prevention (CDC)'s Division of Violence and Injury Prevention developed and began utilizing a _Social-Ecological Model_ as a guiding framework intimate partner and sexual violence prevention efforts [@centers2015social; @dahlberg2002violence]. CDC's _Social-Ecological Model_ is a four-level adaptation of @bronfenbrenner1979ecology\'s five-system _Ecological Model of Human Development_, and is specifically conceptualized to evaluate and explain the causal factors of IPV, as well as a framework for mapping IPV intervention and prevention approaches to the _individual_, _relationship_, _community_, and _societal_ levels of analysis [@centers2015social; @dahlberg2002violence]. Within this analytic framework for IPV, the _individual level_ involves factors such as an individuals' family of origin, past trauma experiences, and personality characteristics that may influence individuals' behaviors and experiences with IPV. At the _relationship_ level are, of course, romantic or intimate relationships, but also the influences of individuals' close interpersonal interactions and relationships with family, friends, peers, coworkers (etc.) on their identities, experiences, and behaviors. An individual's _community_ is comprised of the contextual factors existing within or directly influenced by or influencing the settings in which interpersonal relationships and interactions among individuals occur, such as the economic structures and status of a community, the stability, or instability, of community members and settings, and the availability, accessibility, and quality of community-based services and communal spaces. Additional components of the _community-level_ of analysis include the organizations and institutions to which an individual belongs or is affiliated with, such as sports teams, professional organizations (e.g., the _Society for Community Research and Action_,  _American Psychological Association, etc._), school(s), and workplace(s). An individual's _community_ can be further parsed according to the sub-groups and sub-communities existing within larger settings, such as the department within which an individual works at a multi-departmental organization, communities of individuals sharing the same college major, special interest groups within professional organizations (etc.). Finally, at the _societal level_ are the broad cultural and socio-political structures and climates constructed and maintained by a society's economic, health, education, social policies, traditions, and rituals (see {+@fig:sem}).
 
-## Protective (versus risk) Factors
+`r tufte::newthought("\\Large{Protective (versus risk) Factors}")`
 
 <!-- TODO: FIND A DIFFERENT WORD FOR "FACTOR(S)" -->
 
@@ -107,7 +99,7 @@ Traditional psychological inquiry (e.g., Clinical Psychology research) has focus
  To date, however, IPV-related research, within and outside of community-based and action research disciplines and settings, tends to primarily examine risk factors for IPV perpetration and/or victimization, while protective factors, if at all considered in a given research inquiry, are often secondary considerations [@heise1998violence; @whitaker2014linking]. That is, although the foundations of community science promote a focus on protective, versus risk, factors, among the majority of community scientific research, risk remains the normative focus when it comes to analysis of the causes, correlates, and consequences of a given phenomenon, including, or especially, intimate partner and sexual violence perpetration and victimization [@browning2002span; @hegarty1999multidimensional; @whitaker2014linking].
  <!-- TODO: EXPAND HERE -->
 
-## "The inextricable relationship of _empowerment_ and politics" [@riger1993what, p. 283, _emph. added._]
+`r tufte::newthought("\\Large{\"The inextricable relationship of _empowerment_ and politics\"}")` [@riger1993what, p. 283, _emph. added._]
 
 > _"... psychology's emphasis on the cognitive processes of the individual lead us to study individuals' **sense of** empowerment rather than actual increases in power, thereby making the political personal"._
 >
@@ -115,18 +107,27 @@ Traditional psychological inquiry (e.g., Clinical Psychology research) has focus
 
 As @riger1993what details, _empowerment_, as both a generalized theory and a specific psychological construct, has played an increasingly key role in community-based and action-oriented research. Yet embedded within this role are several problematic features inherent within empowerment as a construct and its implementation in intervention and prevention research. The problematic aspects of empowerment are especially relevant with regards to intimate partner and sexual violence, as both phenomena are inherently tied to power, but, supposedly, in opposing ways. Empowerment, as it has historically been defined and intended within community-psychological contexts, refers to the extent to which "people, organizations, and communities gain mastery over their affairs" [@rappaport1987terms, p. 122]. Embedded within this definition are an individual's, organization's, or community's sense or perception of its own autonomy, as well as its actual exertion or application of that autonomy. From a not-so-positive perspective, an empowered individual, for instance, can come to an psychological sense of empowerment that may in turn lead the individual to feeling justified within her or his own empowered right to exert that power against another individual or group of individuals (e.g., through abusive control and manipulation, bullying, physical violence, etc.). On another level, an organization may gain a sufficient sense of collective empowerment to determine that the organization, or its executive leadership, is equipped to decide what is best for the organization's constituency, which could potentially result in the disempowerment of the individuals served by or within the organization [@riger1993what].
 
+## The way forward
+
+The critical methodological review provided here is structured according to two sub-domains of IPV research that emerged from the later-described systematic literature database searches: (1) IPV intervention and prevention research specific to heterosexual men and (2) IPV-related research specifically inclusive of sexual minority women but not necessarily restricted to interventions nor prevention efforts. To address the array of related, but qualitatively distinct, topics reflected in the above-listed research questions, the reviewed literature in both domains is restricted to research conducted within community-psychological and closely related research and practice frameworks.
+
+In the sections that follow, I provide details regarding the theoretical and methodological rationale for a systematic review of IPV research specifically conducted within community-psychological and related fields. With this context in mind, the methods employed for conducting the present systematic literature review are described in detail, followed by a critical methodological description and evaluation of the empirical research selected for review from the multiple systematic literature database searches.
+<!--TODO: THERE'S MORE CONTENT TO BE OUTLINED HERE -->
+
+
 \part{Part II. Systematic Literature Review}
+
 
 # Literature Search Methods
 
 Six separate literature searches were conducted using the PsycINFO (PI) and Web of Science (WoS) online citation indexing databases via the Portland State University library website:
 
-1. _**IPV - General**_
-2. _IPV Interventions_
-3. _IPV Intervention Evaluations_
-4. _**Female Same-Sex/Same-Gender IPV (FSSIPV) - General**_
-5. _FSSIPV Interventions_
-6. _FSSIPV Intervention Evaluations_
+1\. _**IPV - General**_
+    2\. _IPV Interventions_
+    3\. _IPV Intervention Evaluations_
+4\. _**Female Same-Sex/Same-Gender IPV (FSSIPV) - General**_
+    5\. _FSSIPV Interventions_
+    6\. _FSSIPV Intervention Evaluations_
 
 Because this review is not intended to provide a cross-national examination of IPV interventions research, I restricted each of the above literature searches to empirical studies conducted within the United States and published between 1965 and 2017 [i.e., the year of the [Swampscott conference](http://www.scra27.org/publications/tcp/tcp-past-issues/tcpsummer2014/remembering-swampscott/) and the present year; @fryer2008some]. In addition, to focus the review around community psychology theoretical and methodological frameworks, I initially confined the search results to articles published in scholarly peer-reviewed journals specific to Community Psychology. The list of Community Psychology journals, provided in {+@tbl:jcp}, included _The American Journal of Community Psychology_ and additional publications endorsed by the _Society for Community Research and Action (SCRA)_ as closely related to community psychological research [@scra2017other]. This restriction yielded a limited number of empirical articles specific to intimate partner violence interventions in general, and yielded zero (0) IPV intervention-related studies specifically inclusive of sexual minority women. In response to this initial finding, I re-ran the first database search listed above (labeled as _"IPV - General"_) using the same keywords, publication year range, and location restrictions as before, but omitting the previously-imposed constraints on the journal title parameter. Then, taking advantage of of the various data points provided along with the primary sources returned from a given search in the both PsycINFO and Web of Science databases, I extracted tabulated data comprised of the journal title of each article in the results list and the total number of articles returned from each of those journals for the latter database search's results.
 
@@ -138,7 +139,7 @@ Based on (a) the volume of IPV-related literature published by each journal and 
 ## BELOW IS FOR .DOCX/.HTML OUTPUT ##
 library(kableExtra)
 kable(dbsrch, caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned {#tbl:dbsrch}", align = c("r", "l", "l")) %>%
-    add_footnote("For each database search, multiple search terms were included for the subject/keywords parameters to represent intimate partner violence<br /><br />")
+    add_footnote("For each database search, multiple search terms were included for the subject/keywords parameters to represent intimate partner violence<br /><br />", threeparttable = TRUE)
 ```
 
 Collectively, the six database searches yielded `r n.init` journal articles after removing duplicates (see {+@tbl:dbsrch}). This selection of empirical research constitutes a community-psychology-focused subset of the available U.S.-based IPV-related literature. Among the initial set of `r n.init` articles, `r Riley::Rperc(n.inits3, n.init)` (`r n.inits3`) present IPV-related research focused on intervention and/or prevention approaches, programs, and evaluations; however, the majority of this research is not inclusive of sexual minority women. Conversely, the remaining `r n.inits4` articles consist of IPV-related research specifically inclusive of sexual minority women; however, does not directly concern IPV intervention or prevention approaches. Rather, this latter category of research primarily focuses on the prevalence, causal antecedents, risk factors, correlates, and/or consequences of IPV among sexual minority women and LGBTQ populations in general.
@@ -316,6 +317,11 @@ Collectively, the evaluation of the ecological complexity, or lack thereof, amon
 
 # **Epilogue:** Reflections on the Unique Challenges of Conducting a Community-Psychology-Focused Systematic Literature Reviews
 
+> "Many topics in community science will never coalesce around one theory because they are complex systems comprising multiple mechanisms of operation and change."
+>
+> `r tufte::quote_footer("--- [@jason2016handbook, p. 1]")`
+
+
 The methodologically-focused critical review presented here provides a unique perspective of IPV-related empirical research by restricting the reviewed literature as a whole to only include studies published either in violence-specific journals determined by the primary author as well-aligned with community-psychological or in journals endorsed by the Society for Community Research and Action as closely aligned with or related to community-psychology values, theory, and methods. This perspective therefore inherently incorporates applied research conducted within a range of action-oriented, community-based, participatory, and multilevel frameworks.
 
 The process of conducting this community-psychology-focused systematic review of empirical research related to IPV and sexual minority women was arduous, to say the least. Community Psychological, as a field, is overwhelmingly more multi-disciplinary than most scientific research fields [@toro2005community; @maton2006community]. Further, the field of Community Psychology is more so a methodologically- and values-focused research discipline, rather than a field of study defined around a specific substantive area of research. That is, unlike research fields such as medicine, or sub-fields of medicine such as Oncology, Community Psychology is a primarily a field of social scientific research providing a range of general and specific values-based frameworks and ecologically-relevant methodologies. In addition, although intimate partner violence is increasingly recognized and treated as a public health issue [@modi2014role; @dahlberg2009history], like many of the substantive research topics covered by community scientists, IPV-related research is not exclusive to any one research discipline, such as Public Health, nor is it in and of itself a distinct field of research. Rather, IPV-specific and related research is conducted out of a multitude of research and practice fields, including, but certainly not limited to, Psychology and its various sub-fields (e.g., Community, Social, Clinical, Organizational, and Cognitive Psychology), Sociology, Criminology, Public Policy, Economics, Public Health, Biology, Medicine, etcetera.
@@ -335,7 +341,7 @@ Given the multi-disciplinary and complex natures of both community-psychological
 #
 library(kableExtra)
 kable(dbsrch, caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned^a^ {#tbl:dbsrch}", justify = c("r", "l", "l")) %>%
-    add_footnote(c("Note: For each database search, multiple search terms were included for the subject/keywords parameters to represent intimate partner violence", "'PI' = PsycINFO; 'WoS' = Web of Science"))
+    add_footnote(c("Note: For each database search, multiple search terms were included for the subject/keywords parameters to represent intimate partner violence", "'PI' = PsycINFO; 'WoS' = Web of Science", threeparttable = TRUE))
 
 ```
 

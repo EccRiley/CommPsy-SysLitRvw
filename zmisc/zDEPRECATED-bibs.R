@@ -2,7 +2,7 @@
 #     kable(caption = "Number of articles published in each included journal after restricting search results to only those published in community-psychology specific journals and the _four selected_ violence-related journals")
 
 # t.excl %>% kable(caption = "Number of Articles Removed per Exclusion Criteria", align = c('l', 'r')) #%>% #, format = 'latex', booktabs = TRUE) #%>%
-# add_footnote("The inclusion of SMW criterion was only applied to articles returned from the database searches specific to SMW-Inclusive research.")
+# add_footnote("The inclusion of SMW criterion was only applied to articles returned from the database searches specific to SMW-Inclusive research.", threeparttable = TRUE)
 #'
 # MAPv2 <- MAP[!MAPv1 %in% ctbl.z1[, "case"], "bibkey"] %>% as.character()
 
