@@ -37,3 +37,4 @@
 -- INSERT INTO `coding` (`cid`,`fid`,`selfirst`,`selend`,`status`) VALUES (97,"1","27051.0","29855.0",1); -- portwood2011evaluation - TOPICS
 
 -- INSERT INTO `coding` (`cid`,`fid`,`selfirst`,`selend`,`status`) VALUES (97,"1","22707.0","24689.0",1); -- kan2014can - TOPICS
+-- INSERT INTO `coding` (`cid`,`fid`,`selfirst`,`selend`,`status`) VALUES (97,"1","55562.0","57701.0",1); -- foshee2004assessing - TOPICS

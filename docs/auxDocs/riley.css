@@ -44,6 +44,7 @@
     --darkslate: #2d343a;
     --darkslate-a: rgba(34, 39, 44, 0.75);
     --caption-color: rgba(0, 0, 50, 0.8);
+    --myblack: rgb(38, 38, 38); /* #262626 */
     /*--darkslate-a: rgba(51, 51, 51, 0.85);*/
 }
 
@@ -62,7 +63,7 @@
 }
 code {
     color: inherit;
-    /*background-color: rgba(0, 0, 0, 0.04);*/
+    /*background-color: rgba(38, 38, 38, 0.04);*/
 }
 
 /* ADDED FROM tufte-rs.css */
@@ -210,6 +211,17 @@ h3 {
     font-variant: small-caps;
     letter-spacing: .15em;
 }
+
+
+/*h4.author, h4.date {
+    display: inline-block;
+    font-size: 0.9rem !important;
+    margin-top: -5em;
+    padding-bottom: 4.5rem;
+    float: right;
+    clear: both;
+    color: rgba(0, 0, 120, 0.75);
+}*/
 
 /* -------------------------------------------------------------------- */
 /* Horizontal Rules */
@@ -403,8 +415,8 @@ table {
     margin: auto;
     /*white-space: nowrap;*/
     margin-bottom: 1em;
-    border-top: 1px solid #000000;
-    border-bottom: 1px solid #000000;
+    border-top: 1px solid var(--myblack);
+    border-bottom: 1px solid var(--myblack);
     table-layout: auto;
     box-shadow: 0px 0px 5px rgba(0,0,0,.25);
 }
@@ -425,8 +437,8 @@ th {
     font-weight: bold;
     font-variant: small-caps;
     letter-spacing: .1em;
-    border-bottom: 2px solid #000000;
-    background-color: rgba(0, 0, 0, 0.05);
+    border-bottom: 2px solid var(--myblack);
+    background-color: rgba(38, 38, 38, 0.05);
     white-space: nowrap;
     }
 
@@ -440,7 +452,7 @@ td {
 }
 
 tbody>tr:hover {
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(38, 38, 38, 0.15);
 }
 
 /*tbody>tr>td:active,*/

@@ -23,7 +23,6 @@ knitr::opts_chunk$set(
     fig.path = "graphics/bibs/rplot-",
     fignos = TRUE,
     dev = c('pdf', 'png'),
-    # dev='png',
     fig.retina = 6,
     Rplot = NULL,
     Rplot_whbg = TRUE,
@@ -45,6 +44,10 @@ op <- par(no.readonly = TRUE) ## current values for settable plotting params (se
 pmar <- par(mar = c(5, 4, 4, 2))
 sci <- colorRampPalette(pal_sci[c(1, 2, 4, 5, 8)])
 # panderOptions("table.emphasize.rownames", "FALSE")
+
+pp <- c(pal_sci, pal_lz, pal_lancet, pal_my[3:16])
+pp <- pp[c(20, 6, 2, 9, 10, 24, 25, 11, 17, 26, 3, 27, 29, 5, 31, 12, 18, 32, 33, 34, 13, 15, 1, 7, 19, 14, 21, 22, 23, 4, 8)]
+
 # rpm()
 
 knitr::opts_template$set(invisible = list(echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE, fig.keep='none', fig.show='none'))
@@ -494,32 +497,33 @@ Rdotchart(main = expression(paste(italic(N[Articles]), italic(" per Publication"
 ### PLOT - scat-x-journal - parset ####
 
 MAP.jrnl <- MAP[, c("scat", "journal", "jrnl")]
-names(MAP.jrnl) <- c("Category", "Journal", "J")
+names(MAP.jrnl) <- c("Category", "J", "Journal")
 MAP.jrnl$Category <- ifelse(MAP.jrnl$Category == "S3",
                             "IPV Interventions",
                             "SMW-Inclusive Research")
-pj <- mpal(seq_along(unique(MAP$jrnl)), p = sci)
+pj <- mpal(seq_along(unique(MAP$jrnl)), p = ppal)
 library(ggparallel)
 pscat <- c("#a6afbb", pal_my[17])
 pscat.a <- adjustcolor(pscat, alpha.f = 0.5)
 
-al.j <- c(rep(90, length(unique(MAP.jrnl$J))), rep(0, length(unique(MAP.jrnl$Category))))
-t.jrnl$log <- log(t.jrnl[, 2])+1
+al.j <- c(rep(90, length(unique(MAP.jrnl$Journal))), rep(0, length(unique(MAP.jrnl$Category))))
+t.jrnl$log <- log(t.jrnl[, 2]) + 3
 lj <- c(t.jrnl[, 3], rep(3.50, length(unique(MAP.jrnl$Category))))
-parset.jrnl <- ggparset2(list("J", "Category"),
+parset.jrnl <- ggparset2(list("Journal", "Category"),
                          data = MAP.jrnl,
                          method = "adj.angle", label = TRUE,
-                         label.size = lj, text.angle = 0, order = c(0, 0)) +
+                         label.size = lj, text.angle = al.j, order = c(0, 0)) +
      scale_fill_manual(values = c(pscat.a, adjustcolor(pj, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pj), guide = FALSE) + coord_flip() +
-    thm_Rtft(ticks = FALSE, ytext = FALSE, xtext = FALSE)
+    thm_Rtft(ticks = FALSE, ytext = TRUE, xtext = FALSE) #+ scale_y_discrete(labels = c("Category" = "Category", "J" = "Journal"))
 
 hideLabs(x = parset.jrnl, labs = labs(subtitle = "Journals"))
 
-
 MAP.jrnl <- MAP[, c("scat", "journal", "cpv", "jrnl")]
-pcpv <- mpal(1:2)
+
+
+pcpv <- pp[c(11, 30)]
 
 clr.cpv1 <- levels(factor(MAP.jrnl$journal))
 clr.cpv <- ifelse(clr.cpv1 %in% j.cpp, pcpv[1], pcpv[2])
@@ -527,24 +531,34 @@ clr.cpv <- ifelse(clr.cpv1 %in% j.cpp, pcpv[1], pcpv[2])
 MAP.jrnl$cpv <- ifelse(MAP.jrnl$cpv == "CP", "Community Psychology", "Violence-Specific")
 MAP.jrnl$scat <- ifelse(MAP.jrnl$scat == "S3", "IPV Interventions", "SMW-Inclusive Research")
 
-names(MAP.jrnl) <- c("Category", "Journal", "Discipline", "J")
+names(MAP.jrnl) <- c("Category", "J", "Discipline", "Journal")
 
-al.cj <- c(rep(0, length(unique(MAP.jrnl$Category))), rep(90, length(unique(MAP.jrnl$Journal))), rep(0, length(unique(MAP.jrnl$Discipline))))
+# al.cj <- c(rep(0, length(unique(MAP.jrnl$Category))), rep(90, length(unique(MAP.jrnl$Journal))), rep(0, length(unique(MAP.jrnl$Discipline))))
 
-al.cj <- c(rep(0, length(unique(MAP.jrnl$Category))), rep(90, length(unique(MAP.jrnl$J))), rep(0, length(unique(MAP.jrnl$Discipline))))
+al.cj <- c(rep(90, length(unique(MAP.jrnl$J))),
+           rep(0, length(unique(MAP.jrnl$Category))),
+           rep(0, length(unique(MAP.jrnl$Discipline))))
 
-parset.jrnl2 <- ggparset2(list("Category", "J", "Discipline"),
+ll.cj <- c(t.jrnl[, 3],
+           rep(3.50, length(unique(MAP.jrnl$Category))),
+           rep(3.50, length(unique(MAP.jrnl$Discipline))))
+
+parset.jrnl2 <- ggparset2(list("Journal", "Category", "Discipline"),
                           data = MAP.jrnl, method = "adj.angle",
-                          label = TRUE, label.size = 2.75, label.face = "bold",
-                          text.angle = al.cj, order = c(1, 0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(pcpv, alpha.f = 0.75),
-                                 adjustcolor(clr.cpv, alpha.f = 0.55)),
-                      guide = FALSE) +
-    scale_colour_manual(values = c(pscat.a, adjustcolor(pcpv, alpha.f = 0.85),
+                          label = TRUE, label.size = ll.cj,
+                          label.face = "bold",
+                          text.angle = al.cj, order = c(0, 0, 0)) +
+     scale_fill_manual(values = c(pscat.a,
+                                  adjustcolor(pcpv, alpha.f = 0.75),
+                                  adjustcolor(clr.cpv, alpha.f = 0.55)),
+                       guide = FALSE) +
+    scale_colour_manual(values = c(pscat.a,
+                                   adjustcolor(pcpv, alpha.f = 0.85),
                                    adjustcolor(clr.cpv, alpha.f = 0.85)),
-                        guide = FALSE) + coord_flip() +
-    thm_Rtft(ticks = FALSE, ytext = FALSE);
-hideLabs(x = parset.jrnl2, labs = labs(subtitle = "Journals & Research Disciplines"))
+                        guide = FALSE) +
+    coord_flip() +
+    thm_Rtft(ticks = FALSE, ytext = TRUE, xtext = FALSE);
+hideLabs(x = parset.jrnl2, labs = labs(subtitle = "Journals & Research Disciplines by Research Category"))
 
 
 #'
@@ -559,12 +573,15 @@ s3hist <- hist(MAP$year[MAP$scat == "S3"], plot = FALSE, right = F, breaks = 25)
 s4hist <- hist(MAP$year[MAP$scat == "S4"], plot = FALSE, right = F, breaks = s3hist$breaks)
 ## col = pal_my.a75[12], border = pal_my[19], lwd = .5
 
-plot(s4hist, col = pal_sci[8], border = pal_my[19], density = 50, lwd = .25,
+plot(s3hist, col = catpal[1], border = pal_my[19], density = 50, lwd = .25,
      main = " ", xlab = "Year Published", ylab = expression(N[Articles]),
-     ylim = c(0, max(s3hist$counts)), yaxt = "n"); plot(s3hist, col = pal_my[16], border = pal_my[19], density = 50, angle = -45, lwd = .25, yaxt = "n", add = TRUE); axis(2, at = 0:max(s3hist$counts)); legend(x = 1990, y = 2.75, legend = c("SMW-Inclusive Research", "IPV Interventions Research (general)"),
-                                                                                                                                                                                                                 fill = c(pal_sci[8], pal_my[16]), density = 50, angle = c(45, -45),
-                                                                                                                                                                                                                 border = NA, bty = 'n', cex = 0.8, text.font = 3,
-                                                                                                                                                                                                                 trace = F)
+     ylim = c(0, max(s3hist$counts)), yaxt = "n");
+
+plot(s4hist, col = catpal[2], border = pal_my[19], density = 50, angle = -45, lwd = .25, yaxt = "n", add = TRUE);
+
+axis(2, at = 0:max(s3hist$counts));
+
+legend(x = 1990, y = 2.75, legend = c("SMW-Inclusive Research", "IPV Interventions Research (general)"), fill = c(pal_sci[8], pal_my[16]), density = 50, angle = c(45, -45), border = NA, bty = 'n', cex = 0.8, text.font = 3, trace = F)
 #'
 #+ noEcho, echo=FALSE
 #### NO MORE ECHO ####
@@ -692,7 +709,7 @@ ftm.d %>% kable(align = rep("r", 3),
                 caption = "Research Designs")
 
 nlabs <- length(unique(ct.d$clab))
-pd <- mpal(seq_along(unique(ct.d$clab)), p = sci)
+pd <- mpal(seq_along(unique(ct.d$clab)), p = ppal)
 
 ct.d <- dplyr::rename(ct.d, "Category" = scat, "Design" = clab)
 
@@ -701,18 +718,19 @@ ct.d <- dplyr::rename(ct.d, "Category" = scat, "Design" = clab)
 
 library(ggparallel)
 pscat <- c("#a6afbb", pal_my[17])
-t.d$log <- log(t.d[, 2])+1
+t.d$log <- log(t.d[, 2]) + 2
+al.d0 <- ifelse(t.d[, 2] < 3, 90, 0)
 
-al.d <- c(rep(90, length(unique(ct.d$Design))), rep(0, length(unique(ct.d$Category))))
+al.d <- c(al.d0, rep(0, length(unique(ct.d$Category))))
 ld <- c(t.d[, 3], rep(3.50, length(unique(ct.d$Category))))
 parset.dsgn <- ggparset2(list("Design", "Category"),
                          data = ct.d,
                          method = "adj.angle", label = TRUE,
-                         label.size = ld, text.angle = al.d, order = c(0, 0), text.offset = 0.035) +
+                         label.size = ld, text.angle = al.d, order = c(0, 0)) +
      scale_fill_manual(values = c(pscat.a, adjustcolor(pd, alpha.f = 0.45)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pd), guide = FALSE) + coord_flip() +
-    thm_Rtft(ticks = FALSE, ytext = FALSE)
+    thm_Rtft(ticks = FALSE, ytext = TRUE, xtext = FALSE)
 
 hideLabs(x = parset.dsgn, labs = labs(subtitle = "Research Designs"))
 #'
@@ -742,7 +760,7 @@ ftm.expp %>% kable(align = rep("r", 3),
                    caption = "Experimental Research Designs")
 
 nlabs <- length(unique(ct.exp$clab))
-pexp <- mpal(seq_along(unique(ct.exp$clab)), p = sci)
+pexp <- mpal(seq_along(unique(ct.exp$clab)), p = ppal)
 
 ct.exp <- dplyr::rename(ct.exp, "Category" = scat, "Experimental Design" = clab)
 
@@ -751,12 +769,13 @@ ct.exp <- dplyr::rename(ct.exp, "Category" = scat, "Experimental Design" = clab)
 
 library(ggparallel)
 pscat <- c("#a6afbb", pal_my[17])
-t.exp$log <- log(t.exp[, 2])+1
-lexp <- c(rep(3.50, length(unique(ct.exp$Category))), t.exp[, 3])
+t.exp$log <- log(t.exp[, 2]) + 2
+lexp <- c(t.exp[, 3], rep(3.50, length(unique(ct.exp$Category))))
 
-parset.exp <- ggparset2(list("Category", "Experimental Design"),
+parset.exp <- ggparset2(list("Experimental Design",
+                             "Category"),
                         data = ct.exp,
-                        method = "parset", label = TRUE,
+                        method = "adj.angle", label = TRUE,
                         label.size = lexp, text.angle = 0, order = c(0, 0)) +
      scale_fill_manual(values = c(pscat.a, adjustcolor(pexp, alpha.f = 0.55)),
                       guide = FALSE) +
@@ -791,22 +810,22 @@ ftm.mo %>% kable(align = rep("r", 3),
 ### PLOT - methodologies - parset ####
 
 nlabs <- length(unique(ct.mo$clab))
-pmo <- mpal(seq_along(unique(ct.mo$clab)), p = sci)
+pmo <- mpal(seq_along(unique(ct.mo$clab)), p = ppal)
 
 ct.mo <- dplyr::rename(ct.mo, "Category" = scat, "Methodology" = clab)
 
-t.mo$log <- log(t.mo[, 2])+1
-lmo <- c(rep(3.50, length(unique(ct.mo$Category))), t.mo[, 3])
+t.mo$log <- log(t.mo[, 2]) + 2
+lmo <- c(t.mo[, 3], rep(3.50, length(unique(ct.mo$Category))))
 
 pscat <- c("#a6afbb", pal_my[17])
-parset.mo <- ggparset2(list("Category", "Methodology"),
+parset.mo <- ggparset2(list("Methodology", "Category"),
                        data = ct.mo,
-                       method = "parset", label = TRUE,
+                       method = "adj.angle", label = TRUE,
                        label.size = lmo, text.angle = 0, order = c(0, 0)) +
      scale_fill_manual(values = c(pscat.a, adjustcolor(pmo, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pmo), guide = FALSE) +
-    thm_Rtft(ticks = FALSE, ytext = FALSE) #+ coord_flip()
+    thm_Rtft(ticks = FALSE, ytext = TRUE, xtext = FALSE) #+ coord_flip()
 hideLabs(x = parset.mo, labs = labs(subtitle = "Methodologies"))
 #'
 #' \newpage
@@ -836,16 +855,16 @@ ftm.dql %>% kable(align = rep("r", 3),
 ### PLOT - qual designs - parset ####
 
 nlabs <- length(unique(ct.dql$clab))
-pdql <- mpal(seq_along(unique(ct.dql$clab)), p = sci)
+pdql <- mpal(seq_along(unique(ct.dql$clab)), p = ppal)
 
 ct.dql <- dplyr::rename(ct.dql, "QuaLitative Design" = clab, "Category" = scat)
 
-t.dql$log <- log(t.dql[, 2])+2
+t.dql$log <- log(t.dql[, 2]) + 2
 ldql <- c(rep(3.50, length(unique(ct.dql$Category))), t.dql[, 3])
 
-parset.dql <- ggparset2(list("Category", "QuaLitative Design"),
+parset.dql <- ggparset2(list("QuaLitative Design", "Category"),
                         data = ct.dql,
-                        method = "parset", label = TRUE,
+                        method = "adj.angle", label = TRUE,
                         label.size = ldql, text.angle = 0, order = c(0, 0)) +
      scale_fill_manual(values = c(pscat.a, adjustcolor(pdql, alpha.f = 0.55)),
                       guide = FALSE) +
@@ -878,16 +897,16 @@ ftm.ql %>% kable(align = rep("r", 3),
 
 #+ parset_qlMethods, fig.fullwidth=TRUE
 ### PLOT - qual methods - parset ####
-pql <- mpal(seq_along(unique(ct.ql$clab)), p = sci)
+pql <- mpal(seq_along(unique(ct.ql$clab)), p = ppal)
 
 ct.ql <- dplyr::rename(ct.ql, "QuaLitative Methods" = clab, "Category" = scat)
 
-t.ql$log <- log(t.ql[, 2])+2
+t.ql$log <- log(t.ql[, 2]) + 2
 lql <- c(rep(3.50, length(unique(ct.ql$Category))), t.ql[, 3])
 
-parset.ql <- ggparset2(list("Category", "QuaLitative Methods"),
+parset.ql <- ggparset2(list("QuaLitative Methods", "Category"),
                        data = ct.ql,
-                       method = "parset", label = TRUE,
+                       method = "adj.angle", label = TRUE,
                        label.size = lql, text.angle = 0, order = c(0, 0)) +
      scale_fill_manual(values = c(pscat.a, adjustcolor(pql, alpha.f = 0.55)),
                       guide = FALSE) +
@@ -899,7 +918,7 @@ hideLabs(x = parset.ql, labs = labs(subtitle = "Qualitative Research Methods"))
 #'
 #' `r tufte::newthought("\\Large{QuaLitative Data Analytic Approaches}")`
 #'
-#+ qlAnalytics, fig.fullwidth=TRUE, fig.height=7
+#+ qlAnalytics
 ## QL Analytic Approaches ================
 
 ct.aql <- cb[cb$cat == "A-QL", ] %>% droplevels()
@@ -921,11 +940,11 @@ ftm.aqlp <- cbind(ftm.aql, "**Total**" = sum.aql)
 ftm.aqlp %>% kable(align = rep("r", 3),
                    caption = "QuaLitative Analytic Approaches")
 
-#+ dot_qlAnalytics
+#+ dot_qlAnalytics, fig.fullwidth=TRUE, fig.height=7
 ### PLOT - QL analytic approaches - dotchart ####
 
 nlabs <- length(unique(ct.aql$clab))
-paql <- mpal(seq_along(unique(ct.aql$clab)), p = sci)
+paql <- mpal(seq_along(unique(ct.aql$clab)), p = ppal)
 
 al.cj <- c(rep(90, length(unique(ct.aql$clab))),
            rep(0, length(unique(ct.aql$scat))))
@@ -1008,16 +1027,17 @@ ftm.dqt %>% kable(align = rep("r", 3),
 ### PLOT - quant designs - parset ####
 
 nlabs <- length(unique(ct.dqt$clab))
-pdqt <- mpal(seq_along(unique(ct.dqt$clab)), p = sci)
+pdqt <- mpal(seq_along(unique(ct.dqt$clab)), p = ppal)
 
 ct.dqt <- dplyr::rename(ct.dqt, "QuaNTitative Design" = clab, "Category" = scat)
 
-t.dqt$log <- log(t.dqt[, 2])+1
-ldqt <- c(rep(3.50, length(unique(ct.dqt$Category))), t.dqt[, 3])
+t.dqt$log <- log(t.dqt[, 2]) + 2
+ldqt <- c(t.dqt[, 3], rep(3.50, length(unique(ct.dqt$Category))))
 
-parset.dqt <- ggparset2(list("Category", "QuaNTitative Design"),
+parset.dqt <- ggparset2(list("QuaNTitative Design",
+                             "Category"),
                         data = ct.dqt,
-                        method = "parset", label = TRUE,
+                        method = "adj.angle", label = TRUE,
                         label.size = ldqt, text.angle = 0, order = c(0, 0)) +
      scale_fill_manual(values = c(pscat.a, adjustcolor(pdqt, alpha.f = 0.55)),
                       guide = FALSE) +
@@ -1053,16 +1073,17 @@ ftm.qt %>% kable(align = rep("r", 3),
 ### PLOT - quant Methods - parset ####
 
 nlabs <- length(unique(ct.qt$clab))
-pqt <- mpal(seq_along(unique(ct.qt$clab)), p = sci)
+pqt <- mpal(seq_along(unique(ct.qt$clab)), p = ppal)
 
 ct.qt <- dplyr::rename(ct.qt, "QuaNTitative Methods" = clab, "Category" = scat)
 
-t.qt$log <- log(t.qt[, 2])+1
-lqt <- c(rep(3.50, length(unique(ct.qt$Category))), t.qt[, 3])
+t.qt$log <- log(t.qt[, 2]) + 2
+lqt <- c(t.qt[, 3], rep(3.50, length(unique(ct.qt$Category))))
 
-parset.qt <- ggparset2(list("Category", "QuaNTitative Methods"),
+parset.qt <- ggparset2(list("QuaNTitative Methods",
+                            "Category"),
                        data = ct.qt,
-                       method = "parset", label = TRUE,
+                       method = "adj.angle", label = TRUE,
                        label.size = lqt, text.angle = 0, order = c(0, 0)) +
      scale_fill_manual(values = c(pscat.a, adjustcolor(pqt, alpha.f = 0.55)),
                       guide = FALSE) +
@@ -1100,7 +1121,7 @@ ftm.aqtp %>% kable(align = rep("r", 3),
 ### PLOT - quant analytics - dotchart ####
 
 nlabs <- length(unique(ct.aqt$clab))
-paqt <- mpal(seq_along(unique(ct.aqt$clab)), p = sci)
+paqt <- mpal(seq_along(unique(ct.aqt$clab)), p = ppal)
 
 ct.aqtps <- dplyr::rename(ct.aqt, "QuaNTitative Analytic Approaches" = clab, "Category" = scat)
 
@@ -1121,11 +1142,12 @@ Rdotchart(main = "QuaNTitative Analytics",
 
 #+ parset_qtAnalytics, fig.fullwidth=TRUE, fig.height=7,figPath=TRUE
 ### PLOT-qtAnalytics-parset ####
-t.aqt$log <- log(t.aqt[, 2])*1.65
+t.aqt$log <- log(t.aqt[, 2]) + 1.5
 # laqt <- c(rep(3.50, length(unique(ct.aqtps$Category))), t.aqt[, 3])
 laqt <- rev(c(rep(3.50, length(unique(ct.aqtps$Category))), rev(t.aqt[, 3])))
 
-parset.aqt <- ggparset2(rev(list("Category", "QuaNTitative Analytic Approaches")),
+parset.aqt <- ggparset2(rev(list("Category",
+                                 "QuaNTitative Analytic Approaches")),
                         data = ct.aqtps, method = "adj.angle",
                         order = c(0, 0), #asp=1.25,
                         text.angle = 0, #text.offset = os.cj,
@@ -1174,20 +1196,21 @@ ftm.rcrd %>% kable(align = rep("r", 3),
 ### PLOT - archival/secondary data sources - parset####
 
 nlabs <- length(unique(ct.rcrd$clab))
-prcrd <- mpal(seq_along(unique(ct.rcrd$clab)), p = sci)
+prcrd <- mpal(seq_along(unique(ct.rcrd$clab)), p = ppal)
 
 ct.rcrd <- dplyr::rename(ct.rcrd, "Archival Data Source" = clab, "Category" = scat)
 
-t.rcrd$log <- log(t.rcrd[, 2])+2
-lrcrd <- c(rep(3.50, length(unique(ct.rcrd$Category))), t.rcrd[, 3])
+t.rcrd$log <- log(t.rcrd[, 2]) + 3
+lrcrd <- c(t.rcrd[, 3], rep(3.50, length(unique(ct.rcrd$Category))))
 
-parset.rcrd <- ggparset2(list("Category", "Archival Data Source"),
+parset.rcrd <- ggparset2(list("Archival Data Source",
+                              "Category"),
                          data = ct.rcrd,
-                         method = "parset", label = TRUE,
+                         method = "adj.angle", label = TRUE,
                          label.size = lrcrd, text.angle = 0, order = c(0, 0)) +
-    scale_fill_manual(values = rev(c(rev(pscat), adjustcolor(prcrd, alpha.f = 0.55))),
+    scale_fill_manual(values = c(adjustcolor(prcrd, alpha.f = 0.55), pscat.a),
                       guide = FALSE) +
-    scale_colour_manual(values = rev(c(rev(pscat), prcrd)), guide = FALSE) +
+    scale_colour_manual(values = c(prcrd, pscat), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
 hideLabs(x = parset.rcrd, labs = labs(subtitle = "Archival/Secondary Data Sources"))
 #'
@@ -1219,16 +1242,17 @@ ftm.dmm %>% kable(align = rep("r", 3),
 ### PLOT - mm designs - parset ####
 
 nlabs <- length(unique(ct.dmm$clab))
-pmm <- mpal(seq_along(unique(ct.dmm$clab)), p = sci)
+pmm <- mpal(seq_along(unique(ct.dmm$clab)), p = ppal)
 
 ct.dmm <- dplyr::rename(ct.dmm, "Mixed-Methodological Design" = clab, "Category" = scat)
 
-t.dmm$log <- log(t.dmm[, 2])+3
+t.dmm$log <- log(t.dmm[, 2]) + 3
 ldmm <- c(rep(3.50, length(unique(ct.dmm$Category))), t.dmm[, 3])
 
-parset.dmm <- ggparset2(list("Category", "Mixed-Methodological Design"),
+parset.dmm <- ggparset2(list("Mixed-Methodological Design",
+                             "Category"),
                         data = ct.dmm,
-                        method = "parset", label = TRUE,
+                        method = "adj.angle", label = TRUE,
                         label.size = ldmm, text.angle = 0, order = c(0, 0)) +
      scale_fill_manual(values = c(pscat.a, adjustcolor(pmm, alpha.f = 0.55)),
                       guide = FALSE) +
@@ -1263,16 +1287,17 @@ ftm.mm %>% kable(align = rep("r", 3),
 ### PLOT - mm methods - parset ####
 
 nlabs <- length(unique(ct.mm$clab))
-pmm <- mpal(seq_along(unique(ct.mm$clab)), p = sci)
+pmm <- mpal(seq_along(unique(ct.mm$clab)), p = ppal)
 
 ct.mm <- dplyr::rename(ct.mm, "Mixed-Methods" = clab, "Category" = scat)
 
-t.mm$log <- log(t.mm[, 2])+2
-lmm <- c(rep(3.50, length(unique(ct.mm$Category))), t.mm[, 3])
+t.mm$log <- log(t.mm[, 2]) + 3
+lmm <- c(t.mm[, 3], rep(3.50, length(unique(ct.mm$Category))))
 
-parset.mm <- ggparset2(list("Category", "Mixed-Methods"),
+parset.mm <- ggparset2(list("Mixed-Methods",
+                            "Category"),
                        data = ct.mm,
-                       method = "parset", label = TRUE,
+                       method = "adj.angle", label = TRUE,
                        label.size = lmm, text.angle = 0, order = c(0, 0)) +
      scale_fill_manual(values = c(pscat.a, adjustcolor(pmm, alpha.f = 0.55)),
                       guide = FALSE) +
@@ -1366,17 +1391,18 @@ ct.set2$clab <- droplevels(ct.set2$clab)
 t.set2 <- Rtdf(ct.set2$clab)
 
 nlabs <- length(unique(ct.set2$clab))
-pset2 <- mpal(seq_along(unique(ct.set2$clab)), p = sci)
+pset2 <- mpal(seq_along(unique(ct.set2$clab)), p = ppal)
 
 ct.set2 <- dplyr::rename(ct.set2, "Sampling Settings" = clab, "Category" = scat)
 
 
-t.set2$log <- log(t.set2[, 2])+1
-lset <- c(rep(3.50, length(unique(ct.set2$Category))), t.set2[, 3])
+t.set2$log <- log(t.set2[, 2]) + 2
+lset <- c(t.set2[, 3], rep(3.50, length(unique(ct.set2$Category))))
 
-parset.set <- ggparset2(list("Category", "Sampling Settings"),
+parset.set <- ggparset2(list("Sampling Settings",
+                             "Category"),
                         data = ct.set2,
-                        method = "parset", label = TRUE,
+                        method = "adj.angle", label = TRUE,
                         label.size = lset, text.angle = 0, order = c(0, 0)) +
      scale_fill_manual(values = c(pscat.a, adjustcolor(pset2, alpha.f = 0.55)),
                       guide = FALSE) +
@@ -1426,16 +1452,16 @@ Rdotchart(main = "Sampling Methods",
 ### PLOT - samplingMethods - parset ####
 
 nlabs <- length(unique(ct.smthds$clab))
-psmthds <- mpal(seq_along(unique(ct.smthds$clab)), p = sci)
+psmthds <- mpal(seq_along(unique(ct.smthds$clab)), p = ppal)
 
 ct.smthds <- dplyr::rename(ct.smthds, "Sampling Methods" = clab, "Category" = scat)
 
-t.smthds$log <- log(t.smthds[, 2])+1
-lsmthds <- c(rep(3.50, length(unique(ct.smthds$Category))), t.smthds[, 3])
+t.smthds$log <- log(t.smthds[, 2]) + 2
+lsmthds <- c(t.smthds[, 3], rep(3.50, length(unique(ct.smthds$Category))))
 
-parset.smthds <- ggparset2(list("Category", "Sampling Methods"),
+parset.smthds <- ggparset2(list("Sampling Methods", "Category"),
                            data = ct.smthds,
-                           method = "parset", label = TRUE,
+                           method = "adj.angle", label = TRUE,
                            label.size = lsmthds, text.angle = 0, order = c(0, 0)) +
      scale_fill_manual(values = c(pscat.a, adjustcolor(psmthds, alpha.f = 0.55)),
                       guide = FALSE) +
@@ -1480,16 +1506,17 @@ ftm.eco %>% kable(align = rep("r", 3),
 ### PLOT - eco levels - parset ####
 
 nlabs <- length(unique(ct.eco$clab))
-peco <- mpal(seq_along(unique(ct.eco$clab)), p = sci)
+peco <- mpal(seq_along(unique(ct.eco$clab)), p = ppal)
 
 ct.eco <- dplyr::rename(ct.eco, "Levels of Analysis" = clab, "Category" = scat)
 
-t.eco$log <- log(t.eco[, 2]) + 1
-leco <- c(rep(3.50, length(unique(ct.eco$Category))), t.eco[, 3])
+t.eco$log <- log(t.eco[, 2]) + 2
+leco <- c(t.eco[, 3], rep(3.50, length(unique(ct.eco$Category))))
 
-parset.eco <- ggparset2(list("Category", "Levels of Analysis"),
+parset.eco <- ggparset2(list("Levels of Analysis",
+                             "Category"),
                         data = ct.eco,
-                        method = "parset", label = TRUE,
+                        method = "adj.angle", label = TRUE,
                         label.size = leco, text.angle = 0, order = c(0, 0)) +
      scale_fill_manual(values = c(pscat.a, adjustcolor(peco, alpha.f = 0.55)),
                       guide = FALSE) +
@@ -1529,7 +1556,7 @@ vclrs <- rev(grad(1:10, p = nord_polar))[4:7]
 vtclrs <- rev(grad(1:10, p = nord_polar))[6:9]
 
 catpal85 <- adjustcolor(catpal, alpha.f = 0.85)
-lcvclrs <- c("1 = vclrs[1]; 2 = vclrs[2]; 3 = vclrs[3]; 4 = vclrs[4]; 'S3' = catpal85[1]; 'S4' = catpal85[2]")
+lcvclrs <- c("1 = vclrs[1]; 2 = vclrs[2]; 3 = vclrs[3]; 4 = vclrs[4]; 'S3' = catpal[1]; 'S4' = catpal[2]")
 ltclrs <- c("1 = vtclrs[1]; 2 = vtclrs[2]; 3 = vtclrs[3]; 4 = vtclrs[4]")
 
 llabs1 <- c("1 = 'Individual'; 2 = 'Relationship'; 3 = 'Community'; 4 = 'Societal'")
@@ -1834,6 +1861,16 @@ ls1 <- layout.fruchterman.reingold(snetg)
 ls1n <- norm_coords(ls1)
 plot(snetg, rescale = T, layout = ls1n, edge.arrow.size = .2, vertex.label.color = "#1a1e22", vertex.frame.color = NA)
 #'
+#' \newpage
+#'
+#+ net_sysLvls, fig.fullwidth=TRUE, figPath=TRUE
+par(mar = c(0, 0, 0, 0), mfrow = c(1, 2))
+plot(lnetg, rescale = T, layout = ll3n, edge.arrow.size = .2, vertex.label.color = "#1a1e22", vertex.frame.color = NA, margin = c(0, -0.15, -0.15, 0.05)); box(which = "figure")
+plot(snetg, rescale = T, layout = ls1n, edge.arrow.size = .2, vertex.label.color = "#1a1e22", vertex.frame.color = NA, margin = c(-2.5, -0.65, -2, 0.05)); box(which = "figure")
+par(mfrow=c(1, 1))
+
+
+#'
 #'
 #' \newpage
 #'
@@ -2026,7 +2063,7 @@ al <- within(alfrq, {
 aledges0 <- graph_from_data_frame(aln, directed = FALSE, vertices = al)
 aledges <- get.edgelist(aledges0)
 
-alnetcol <- mpal(alfrq, p = sci, a = 0.5)[-1:-4]
+alnetcol <- mpal(alfrq, p = ppal, a = 0.5)[-1:-4]
 avbrdrs <- c(vclrs[1:4], alnetcol) ## "vclrs" is from "bibs.R" ##
 avclrs <-
     c(adjustcolor(vclrs[1:4], alpha.f = 0.35),
@@ -2106,7 +2143,7 @@ knitr::opts_chunk$set(fig.path = "graphics/bibkeys/rplot-",
 #' \newpage
 #'
 #'
-#+ tl_map, fig.fullwidth=TRUE, fig.width=7, out.width='\\linewidth', fig.align='center'
+#+ tl_map, fig.fullwidth=TRUE, fig.width=7, out.width='\\linewidth', fig.align='center', figPath=TRUE
 
 # MAPtl ----------------
 MAP <- MAP[, c("bibkey", "year", "journal", "caseid", "scat", "jrnl", "cpv", "j.loc", "j.year", "SJR", "Hindex", "title")]
@@ -2160,26 +2197,31 @@ vawaclr <- grays_nord(12)[7]
 gg.tl <- ggplot(MAPtl, aes(x = year, y = 0, colour = cpv)) +
     thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE,
              ptitle = TRUE, xtext = FALSE, xticks = FALSE) +
-    theme(legend.text = element_text(size = rel(0.55)),
-          legend.title = element_text(size = rel(0.65), face = "bold"),
-          legend.justification = c(1, 0.635),
-          legend.box.spacing = unit(0, "cm")) +
+    theme(legend.text = element_text(size = rel(0.75), face = "italic"),
+          legend.title = element_text(size = rel(0.95), face = "bold.italic"),
+          legend.background = element_rect(fill = "transparent", size = 0.1, colour = pal_my[19]),
+          legend.key.height = unit(0.5, "cm"),
+          # legend.key = element_rect(size = 1),
+          legend.justification = c(1, 0.67),
+          legend.box.spacing = unit(0.1, "cm")) +
     labs(colour = "Journal Category", title = "Timeline of Reviewed Research\n") +
     scale_colour_manual(values = pcpv) + #, guide = FALSE) +
     geom_hline(yintercept = 0, size = 0.25, color = pal_nord$polar[7], alpha = 0.5) +
     geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
-                 colour = pal_my[19], alpha = 0.45,
-                 na.rm = TRUE, size = 0.15) +
+                 colour = pal_my[19], alpha = 0.55,
+                 na.rm = TRUE, size = 0.2, linetype = 3) +
     geom_text(aes(y = pos, x = year, label = bibkey2), hjust = 0.5, vjust = 0,
-              angle = 25, size = 1.5, fontface = "bold") +
+              angle = 25, size = 1.9, fontface = "bold", check_overlap = FALSE) +
     # geom_vline(xintercept = vawa, size = 0.45, color = pal_nord$polar[1], linetype = 3) +
     geom_text(aes(y = 0, x = vawa, label = "1994 Violence Against Women Act"),
-              alpha = 0.5, angle = 90, colour = vawaclr, size = 3,
+              alpha = 0.5, angle = 90, colour = adjustcolor(pal_my[19], alpha.f = 0.5), size = 2.75,
               nudge_x = -0.25,
               family = "serif", fontface = "italic") +
     geom_text(aes(y = 0, x = year, label = year), check_overlap = TRUE,
               vjust = 0.5, hjust = 0.5, angle = 0, colour = pal_my[20],
-              size = 2, fontface = "bold")
+              size = 2, fontface = "bold") +
+    xlim(min(MAPtl$year) - 0.25, max(MAPtl$year)) +
+    ylim(min(MAPtl$pos) - 0.15, max(MAPtl$pos) + 0.15)
 gg.tl
 #'
 #' \newpage
@@ -2197,7 +2239,7 @@ s3cb <- cb[cb$scat == 1, ] %>% droplevels
 s3cb.keys <- paste0("@", levels(s3cb$bibkey))
 #'
 #'
-#+ tl_inv, fig.fullwidth=TRUE, fig.height=2.75, out.width='\\linewidth'
+#+ tl_inv, fig.fullwidth=TRUE, fig.height=2.75, out.width='\\linewidth', figPath=TRUE
 inv <- MAPtl[MAPtl$scat == "S3", ]
 
 tl.inv <- inv[order(inv$year), c("bibkey", "year", "cpv", "journal", "title"), drop = FALSE] %>% droplevels()
@@ -2241,7 +2283,9 @@ gg.invtl <- ggplot(inv, aes(x = year, y = 0, colour = cpv)) +
               nudge_x = -0.25, family = "serif", fontface = "italic") +
     geom_text(aes(y = 0, x = year, label = year), check_overlap = TRUE,
               vjust = 0.5, hjust = 0.5, angle = 0, colour = pal_my[20],
-              size = 2.5, family = "serif", fontface = "bold")
+              size = 2.5, family = "serif", fontface = "bold") +
+    xlim(min(inv$year) - 0.25, max(inv$year)) +
+    ylim(min(inv$pos) - 0.15, max(inv$pos) + 0.15)
 gg.invtl
 
 tl.inv[, c(1, 4, 2)] %>% kable(caption = "IPV Interventions Research Timeline")
@@ -2556,7 +2600,7 @@ s4cb <- cb[cb$scat == 2, ] %>% droplevels
 s4cb.keys <- paste0("@", levels(s4cb$bibkey))
 # s4cb.keys %>% as.list() %>% pander
 #'
-#+ tl_smw, fig.fullwidth=TRUE, fig.height=2, out.width='\\linewidth', fig.show='asis'
+#+ tl_smw, fig.fullwidth=TRUE, fig.height=2, out.width='\\linewidth', fig.show='asis', figPath=TRUE
 smw <- MAPtl[MAPtl$scat == "S4", ]
 
 tl.smw <- smw[order(smw$year), c("bibkey", "year", "cpv", "journal", "title")] %>% droplevels()
@@ -2601,7 +2645,8 @@ gg.smwtl <- ggplot(smw, aes(x = year, y = 0, colour = cpv)) +
               angle = 45, size = 2.5, fontface = "bold") + #, nudge_y = -0.05) +
     geom_text(aes(y = 0, x = year, label = year), check_overlap = TRUE,
               vjust = 0.5, hjust = 0.5, angle = 0, colour = pal_my[20],
-              size = 2.5, family = "serif", fontface = "bold")
+              size = 2.5, family = "serif", fontface = "bold") +
+    xlim(min(smw$year) - 0.25, max(smw$year))
 gg.smwtl
 
 tl.smw[, c(1, 4)] %>% kable(caption = "SMW-Inclusive Research Timeline")
@@ -2904,10 +2949,133 @@ rownames(ks4eco) <- paste0("@", rownames(ks4eco))
 kable(ks4eco, caption = "Levels of Analysis by Study (SMW-Inclusive Research)")
 pander(lvla4.eco)
 
+par(pmar)
+#'
+#' \newpage
+#'
+#' # Network Analysis of Ecological Levels of Analysis \& Topics Covered
+#'
 
+cbt <- cb[cb$cat == "TOPIC",
+          c("bibkey", "scat", "cat", "code", "clab")] %>% droplevels()
+cbt <- cbt[!duplicated(cbt), ]
+tlabs <- paste0(seq(1:length(levels(cbt$clab))), " = ", levels(cbt$clab))
+
+lt <- mplvls[, 1:4]
+lt$id <- rownames(lt)
+
+lcbt <- merge(lt, cbt, by.x = "id", by.y = "bibkey", all = FALSE)
+lcbt.t <- lcbt[, c("code", "l1", "l2", "l3", "l4")] %>% dplyr::rename("id" = code)
+lcbt.t.nd <- lcbt.t[!duplicated(lcbt.t), ]
+
+
+
+tlnet1 <- lcbt.t[, 1:2] %>% Rtdf(names = c(names(lcbt.t[,1:2]), "Freq"))
+tlnet1$l1 <- as.numeric(tlnet1$l1)
+tlnet1$l1 <- ifelse(tlnet1$l1 == 1, NA, "l1")
+tlnet1$Freq <- ifelse(tlnet1$Freq == 0, NA, tlnet1$Freq)
+tlnet1 <- na.omit(tlnet1)
+# tlnet1 <- tlnet1[!duplicated(tlnet1$id), ]
+names(tlnet1) <- c("from", "to", "Freq")
+tlnet2 <- lcbt.t[, c(1, 3)] %>% Rtdf(names = c(names(lcbt.t[, c(1, 3)]), "Freq"))
+tlnet2$l2 <- as.numeric(tlnet2$l2)
+tlnet2$l2 <- ifelse(tlnet2$l2 == 1, NA, "l2")
+tlnet2$Freq <- ifelse(tlnet2$Freq == 0, NA, tlnet2$Freq)
+tlnet2 <- na.omit(tlnet2)
+names(tlnet2) <- c("from", "to", "Freq")
+
+tlnet3 <- lcbt.t[, c(1, 4)] %>% Rtdf(names = c(names(lcbt.t[,c(1, 4)]), "Freq"))
+tlnet3$l3 <- as.numeric(tlnet3$l3)
+tlnet3$l3 <- ifelse(tlnet3$l3 == 1, NA, "l3")
+tlnet3$Freq <- ifelse(tlnet3$Freq == 0, NA, tlnet3$Freq)
+tlnet3 <- na.omit(tlnet3)
+names(tlnet3) <- c("from", "to", "Freq")
+
+tlnet4 <- lcbt.t[, c(1, 5)] %>% Rtdf(names = c(names(lcbt.t[,c(1, 5)]), "Freq"))
+tlnet4$l4 <- as.numeric(tlnet4$l4)
+tlnet4$l4 <- ifelse(tlnet4$l4 == 1, NA, "l4")
+tlnet4$Freq <- ifelse(tlnet4$Freq == 0, NA, tlnet4$Freq)
+tlnet4 <- na.omit(tlnet4)
+names(tlnet4) <- c("from", "to", "Freq")
+
+tlnet0 <- rbind(tlnet1, tlnet2, tlnet3, tlnet4)
+tlnet0$clab <- recode(tlnet0$from, rec.code2clab) ## "rec.code2clab" is from "MAPrqda.R"
+tlnet <- tlnet0[!duplicated(tlnet0), c("from", "to", "clab", "Freq")]
+
+#+ tlnet_llabs
+library(car)
+llabs <- c("'l1' = '.Individual'; 'l2' = '.Relationship'; 'l3' = '.Community'; 'l4' = '.Societal'")
+tlnet$to <- car::recode(tlnet$to, llabs)
+
+#+ tlfrq
+
+# tlfrq ----------------
+
+tlfrq1 <- tlnet[, 1] %>% as.character()
+tlfrq2 <- tlnet[, 2]
+tlfrq3 <- c(tlfrq1, tlfrq2)
+tlfrq <- Rtdf(tlfrq3, names = c("lvl", "Freq"))
+
+tv1 <- tlnet[, 3] %>% as.character()
+tv2 <- tlnet[, 2]
+tv3 <- c(tv1, tv2)
+tv <- Rtdf(tv3, names = c("id", "Freq"))
+tv[, 1] <- as.character(tv[, 1])
+# `tlnetg` ----------------
+
+library(igraph)
+tlnetg <- graph_from_data_frame(tlnet[, 1:2], directed = FALSE, vertices = tlfrq)
+V(tlnetg)$size <- V(tlnetg)$Freq*3
+tlnetcol <- mpal(tlfrq, a = 0.8)[-1:-4] %>% adjustcolor(alpha.f = 0.5)
+tvclrs <- c(adjustcolor(vclrs[1:4], alpha.f = 0.65), tlnetcol)
+V(tlnetg)$color <- tvclrs
+# E(tlnetg)$width <- 0.25
+E(tlnetg)$frq <- tlnet$Freq
+E(tlnetg)$width <- log(tlnet$Freq) + 1
+V(tlnetg)$name[-1:-4] <- seq(1:length(tv[-1:-4, 1]))
+V(tlnetg)$name[1:4] <- gsub("\\.", "", V(tlnetg)$name[1:4])
+tindex.g <- V(tlnetg)$name %>% length()
+tlblsize <- c(log(V(tlnetg)$size[1:4])*0.125, log(V(tlnetg)$size[5:tindex.g])*0.325)
+#'
+#'
+#+ echo=FALSE
+tlabs <- gsub("&", "\\\\&", tlabs)
+tlabs <- paste(tlabs, collapse = ", ")
+
+tlnetg_cap <- paste0("Network Diagram Showing Relations among Substantive Research Topics (numbered graph nodes) Covered \\& Ecological Levels of Analysis (named graph nodes) Involved among the Reviewed Literature: \\textit{", tlabs, "}")
+# PLOTS - `tlnetg` (layout-0 & layout-2) ----------------
+
+#'
+#+ net_topics, out.height='4in', fig.cap=tlnetg_cap, figPath=TRUE
+
+par(mar = rep(0, 4))
+ltl <- layout_with_fr(tlnetg) %>% norm_coords()
+plot(tlnetg, rescale = T, layout = ltl, edge.arrow.size = .2, vertex.label.color = "#1a1e22", vertex.frame.color = c(vclrs[1:4], rep(NA, length(tlnetcol))), vertex.label.cex = tlblsize)
+
+l1tpsum <- tlnet[tlnet$to == "l1", "Freq"] %>% sum()
+l2tpsum <- tlnet[tlnet$to == "l2", "Freq"] %>% sum()
+l3tpsum <- tlnet[tlnet$to == "l3", "Freq"] %>% sum()
+l4tpsum <- tlnet[tlnet$to == "l4", "Freq"] %>% sum()
+
+l1tpWgtMu <- l1tpsum / length(unique(tlnet$from))
+l2tpWgtMu <- l2tpsum / length(unique(tlnet$from))
+l3tpWgtMu <- l3tpsum / length(unique(tlnet$from))
+l4tpWgtMu <- l4tpsum / length(unique(tlnet$from))
+
+l1tpRawMu <- tlnet[tlnet$to == "l1", "Freq"] %>% mean()
+l2tpRawMu <- tlnet[tlnet$to == "l2", "Freq"] %>% mean()
+l3tpRawMu <- tlnet[tlnet$to == "l3", "Freq"] %>% mean()
+l4tpRawMu <- tlnet[tlnet$to == "l4", "Freq"] %>% mean()
+
+tpMuAll <- mean(tlnet$Freq)
+# l1tpRawMu/tpMuAll
+# l1tpWgtMu/tpMuAll
+# l2tpRawMu/tpMuAll
+# l2tpWgtMu/tpMuAll
+#'
 #' \newpage\onehalfspacing
 #'
-#' # References`r Rcite_r(file = "../auxDocs/REFs.bib", footnote = TRUE)`
+#' # References`r Rcite_r(file = "../auxREFs.bib", footnote = TRUE)`
 #'
 #' \refs
 #'

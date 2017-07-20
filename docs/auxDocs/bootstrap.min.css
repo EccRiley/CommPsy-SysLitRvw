@@ -3,6 +3,11 @@
   * Copyright 2011-2015 Twitter, Inc.
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+ /* ADDED VARIABLE TO REPLACE ANY INSTANCES OF PURE BLACK -RMSH */
+
+ :root {
+     --myblack: rgb(38, 38, 38); /* #262626 */
+ }
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
