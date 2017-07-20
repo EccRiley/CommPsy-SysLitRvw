@@ -318,9 +318,19 @@ The process of conducting this community-psychology-focused systematic review of
 
 Given the multi-disciplinary and complex natures of both community-psychological and IPV-related research, as well as the specificity of the present systematic review's focus, the author was careful to maintain detailed records regarding each decision made throughout the article selection and review process (see {+@fig:flowchart}), as well as the rationale underlying each decision. The criteria and procedures used in the present review to determine the community-psychology relevance of research obtained from the literature database searches documented in Appendix B have also been made publicly available in an [online repository](https://eccriley.github.io/CommPsy-SysLitRvw/) owned, built, and maintained by the author for two purposes: (1) to ensure the transparency and reproducibility of the systematic review methods conducted for this review, and (2) as a potentially useful by-product of this process for future efforts to conduct similarly community-psychology-focused systematic literature reviews, including and beyond research related to intimate partner violence and sexual minority women.
 
-\part{Appendices}
+\newpage
+
+# Appendices
 
 \singlespacing
+
+_Please note that only **Appendix A** is provided in this document. **Appendices B and C** are available online via the publicly available repository and website created as an compendium to this paper (https://eccriley.github.io/CommPsy-SysLitRvw/):_
+
+- _**Appendix B:** https://eccriley.github.io/CommPsy-SysLitRvw/attachments/TEMPLATE-LitDesc.pdf_
+- _**Appendix C:** https://eccriley.github.io/CommPsy-SysLitRvw/attachments/bibs.pdf_
+
+
+\newpage
 
 # Appendix A: Referenced Tables \& Figures
 
