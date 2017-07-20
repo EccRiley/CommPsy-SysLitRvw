@@ -105,9 +105,9 @@ Six separate literature searches were conducted using the [_PsycINFO_](http://ww
 
 # dbsrch ----------------
 
-setwd("../")
+
 source("dbsrch.R")
-setwd("docs")
+
 ```
 
 ```{r dbsrch, results='asis', echo=FALSE}
@@ -130,9 +130,9 @@ kable(dbsrch, caption = "Descriptions of database searches conducted with corres
 ```{r src_journals, opts.label='invisible'}
 
 # JOURNALS ----------------
-setwd("../")
+
 source("journals.R")
-setwd("docs")
+
 ```
 
 ```{r journals, results='asis', echo=FALSE}
@@ -192,9 +192,9 @@ KEYSv0 <- as.character(MAP1$bibkey)
 ```{r src_MAPrqda, opts.label='invisible'}
 
 # MAP-RQDA ----------------
-setwd("../")
+
 source("MAPrqda.R", echo = FALSE)
-setwd("docs")
+
 ```
 
 ```{r csid, results='asis'}
@@ -507,7 +507,7 @@ names(MAP.jrnl) <- c("Category", "Journal")
 MAP.jrnl$Category <- ifelse(MAP.jrnl$Category == "S3",
                          "IPV Interventions",
                          "SMW-Inclusive Research")
-pj <- mpal(1:length(unique(MAP$jrnl)), p = sci)
+pj <- mpal(1:length(unique(MAP$jrnl)))
 library(ggparallel)
 pscat <- c("#a6afbb", pal_my[17])
 
@@ -695,7 +695,7 @@ ftm.d %>% kable(align = rep("r", 3),
                  caption = "Research Designs")
 
 nlabs <- length(unique(ct.d$clab))
-pd <- mpal(1:length(unique(ct.d$clab)), p = sci)
+pd <- mpal(1:length(unique(ct.d$clab)))
 
 ct.d <- dplyr::rename(ct.d, "Category" = scat, "Design" = clab)
 
@@ -745,7 +745,7 @@ ftm.expp %>% kable(align = rep("r", 3),
                    caption = "Experimental Research Designs")
 
 nlabs <- length(unique(ct.exp$clab))
-pexp <- mpal(1:length(unique(ct.exp$clab)), p = sci)
+pexp <- mpal(1:length(unique(ct.exp$clab)))
 
 ct.exp <- dplyr::rename(ct.exp, "Category" = scat, "Experimental Design" = clab)
 
@@ -797,7 +797,7 @@ ftm.mo %>% kable(align = rep("r", 3),
 ### PLOT - methodologies - parset ####
 
 nlabs <- length(unique(ct.mo$clab))
-pmo <- mpal(1:length(unique(ct.mo$clab)), p = sci)
+pmo <- mpal(1:length(unique(ct.mo$clab)))
 
 ct.mo <- dplyr::rename(ct.mo, "Category" = scat, "Methodology" = clab)
 
@@ -843,7 +843,7 @@ ftm.dql %>% kable(align = rep("r", 3),
 ### PLOT - qual designs - parset ####
 
 nlabs <- length(unique(ct.dql$clab))
-pdql <- mpal(1:length(unique(ct.dql$clab)), p = sci)
+pdql <- mpal(1:length(unique(ct.dql$clab)))
 
 ct.dql <- dplyr::rename(ct.dql, "QuaLitative Design" = clab, "Category" = scat)
 
@@ -886,7 +886,7 @@ ftm.ql %>% kable(align = rep("r", 3),
 
 ```{r parset_qlMethods, fig.fullwidth=TRUE}
 ### PLOT - qual methods - parset ####
-pql <- mpal(1:length(unique(ct.ql$clab)), p = sci)
+pql <- mpal(1:length(unique(ct.ql$clab)))
 
 ct.ql <- dplyr::rename(ct.ql, "QuaLitative Methods" = clab, "Category" = scat)
 
@@ -934,7 +934,7 @@ ftm.aqlp %>% kable(align = rep("r", 3),
 ### PLOT - QL analytic approaches - dotchart ####
 
 nlabs <- length(unique(ct.aql$clab))
-paql <- mpal(1:length(unique(ct.aql$clab)), p = sci)
+paql <- mpal(1:length(unique(ct.aql$clab)))
 
 ct.aqlps <- dplyr::rename(ct.aql, "QuaLitative Analytic Approaches" = clab, "Category" = scat)
 
@@ -997,7 +997,7 @@ ftm.dqt %>% kable(align = rep("r", 3),
 ### PLOT - quant designs - parset ####
 
 nlabs <- length(unique(ct.dqt$clab))
-pdqt <- mpal(1:length(unique(ct.dqt$clab)), p = sci)
+pdqt <- mpal(1:length(unique(ct.dqt$clab)))
 
 ct.dqt <- dplyr::rename(ct.dqt, "QuaNTitative Design" = clab, "Category" = scat)
 
@@ -1044,7 +1044,7 @@ ftm.qt %>% kable(align = rep("r", 3),
 ### PLOT - quant Methods - parset ####
 
 nlabs <- length(unique(ct.qt$clab))
-pqt <- mpal(1:length(unique(ct.qt$clab)), p = sci)
+pqt <- mpal(1:length(unique(ct.qt$clab)))
 
 ct.qt <- dplyr::rename(ct.qt, "QuaNTitative Methods" = clab, "Category" = scat)
 
@@ -1092,7 +1092,7 @@ ftm.aqtp %>% kable(align = rep("r", 3),
 ### PLOT - quant analytics - dotchart ####
 
 nlabs <- length(unique(ct.aqt$clab))
-paqt <- mpal(1:length(unique(ct.aqt$clab)), p = sci)
+paqt <- mpal(1:length(unique(ct.aqt$clab)))
 
 ct.aqtps <- dplyr::rename(ct.aqt, "QuaNTitative Analytic Approaches" = clab, "Category" = scat)
 
@@ -1155,7 +1155,7 @@ ftm.rcrd %>% kable(align = rep("r", 3),
 ### PLOT - archival/secondary data sources - parset####
 
 nlabs <- length(unique(ct.rcrd$clab))
-prcrd <- mpal(1:length(unique(ct.rcrd$clab)), p = sci)
+prcrd <- mpal(1:length(unique(ct.rcrd$clab)))
 
 ct.rcrd <- dplyr::rename(ct.rcrd, "Archival Data Source" = clab, "Category" = scat)
 
@@ -1201,7 +1201,7 @@ ftm.dmm %>% kable(align = rep("r", 3),
 ### PLOT - mm designs - parset ####
 
 nlabs <- length(unique(ct.dmm$clab))
-pmm <- mpal(1:length(unique(ct.dmm$clab)), p = sci)
+pmm <- mpal(1:length(unique(ct.dmm$clab)))
 
 ct.dmm <- dplyr::rename(ct.dmm, "Mixed-Methodological Design" = clab, "Category" = scat)
 
@@ -1247,7 +1247,7 @@ ftm.mm %>% kable(align = rep("r", 3),
 ### PLOT - mm methods - parset ####
 
 nlabs <- length(unique(ct.mm$clab))
-pmm <- mpal(1:length(unique(ct.mm$clab)), p = sci)
+pmm <- mpal(1:length(unique(ct.mm$clab)))
 
 ct.mm <- dplyr::rename(ct.mm, "Mixed-Methods" = clab, "Category" = scat)
 
@@ -1354,7 +1354,7 @@ ct.set2$clab <- droplevels(ct.set2$clab)
 t.set2 <- Rtdf(ct.set2$clab)
 
 nlabs <- length(unique(ct.set2$clab))
-pset2 <- mpal(1:length(unique(ct.set2$clab)), p = sci)
+pset2 <- mpal(1:length(unique(ct.set2$clab)))
 
 ct.set2 <- dplyr::rename(ct.set2, "Sampling Settings" = clab, "Category" = scat)
 
@@ -1415,7 +1415,7 @@ Rdotchart(main = "Sampling Methods",
 ### PLOT - samplingMethods - parset ####
 
 nlabs <- length(unique(ct.smthds$clab))
-psmthds <- mpal(1:length(unique(ct.smthds$clab)), p = sci)
+psmthds <- mpal(1:length(unique(ct.smthds$clab)))
 
 ct.smthds <- dplyr::rename(ct.smthds, "Sampling Methods" = clab, "Category" = scat)
 
@@ -1466,7 +1466,7 @@ ftm.eco %>% kable(align = rep("r", 3),
 ### PLOT - eco levels - parset ####
 
 nlabs <- length(unique(ct.eco$clab))
-peco <- mpal(1:length(unique(ct.eco$clab)), p = sci)
+peco <- mpal(1:length(unique(ct.eco$clab)))
 
 ct.eco <- dplyr::rename(ct.eco, "Levels of Analysis" = clab, "Category" = scat)
 
@@ -1514,9 +1514,7 @@ mplvls <- mplvls1[, -1, drop = FALSE]
 vclrs <- rev(grad(1:10, p = nord_polar))[4:7]
 vtclrs <- rev(grad(1:10, p = nord_polar))[6:9]
 
-catpal85 <- sapply(catpal, adjustcolor, alpha.f = 0.85, USE.NAMES = FALSE)
-
-lcvclrs <- c("'1'=vclrs[1]; '2'=vclrs[2]; '3'=vclrs[3]; '4'=vclrs[4]; 'S3'=catpal85[1]; 'S4'=catpal85[2]")
+lcvclrs <- c("'1'=vclrs[1]; '2'=vclrs[2]; '3'=vclrs[3]; '4'=vclrs[4]; 'S3'=catpal[1]; 'S4'=catpal[2]")
 ltclrs <- c("'1'=vtclrs[1]; '2'=vtclrs[2]; '3'=vtclrs[3]; '4'=vtclrs[4]")
 
 llabs1 <- c("'1'='Individual'; '2'='Relationship'; '3'='Community'; '4'='Societal'")
@@ -1991,9 +1989,9 @@ kable(alnet.pr, caption = "Analytic approaches used across ecological levels of 
 
 ```{r aledges, echo=FALSE}
 # knitr::include_graphics("graphics/inputs/arc_analysEs.pdf")
-# setwd("../")
+# 
 # source("alnetg_arc.R")
-# setwd("docs")
+# 
 
 elvl <- c("(L1) Individual", "(L2) Relationship", "(L3) Community", "(L4) Societal")
 eLVL <- c("L1", "L2", "L3", "L4")
@@ -2015,7 +2013,7 @@ al <- within(alfrq, {
 aledges0 <- graph_from_data_frame(aln, directed = FALSE, vertices = al)
 aledges <- get.edgelist(aledges0)
 
-alnetcol <- mpal(alfrq, p = sci, a = 0.5)[-1:-4]
+alnetcol <- mpal(alfrq, a = 0.5)[-1:-4]
 avbrdrs <- c(vclrs[1:4], alnetcol) ## "vclrs" is from "bibs.R" ##
 avclrs <-
     c(adjustcolor(vclrs[1:4], alpha.f = 0.35),
