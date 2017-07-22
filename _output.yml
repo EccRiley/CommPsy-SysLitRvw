@@ -16,11 +16,11 @@ tufte::tufte_handout:
   highlight: monochrome # kate # monochrome # espresso # zenburn # haddock # pygments # tango
   toc: no
   # toc_depth: 1
-  keep_tex: yes
+  keep_tex: no
   md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
   pandoc_args: [
     "--filter", "pandoc-citeproc",
-    "--csl", "../auxDocs/csl/chicago.csl", #chicago-ad.csl
+    "--csl", "../auxDocs/csl/apa.csl", #chicago-ad.csl
     "--bibliography", "../auxDocs/REFs.bib"
   ]
   includes:
@@ -43,7 +43,7 @@ word_TUFTE:
   toc_depth: 1
   pandoc_args: [
     "--filter", "pandoc-citeproc",
-    "--csl", "../auxDocs/csl/apa.csl", #chicago-ad.csl,
+    "--csl", "../auxDocs/csl/chicago.csl", #chicago-ad.csl,
     "--bibliography", "../auxDocs/REFs.bib"
   ]
 
@@ -58,31 +58,12 @@ word_document:
   highlight: monochrome
   keep_md: no
   md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
-  reference_docx: ../auxDocs/refDocx/APA-NEW.docx
+  reference_docx: auxDocs/apa-comps.docx
   toc: no
   # toc_depth: 2
   pandoc_args: [
     "--filter", "pandoc-citeproc",
     "--csl", "../auxDocs/csl/apa.csl",
-    "--bibliography", "../auxDocs/REFs.bib"
-  ]
-
-# ========================================== #
-
-# Meeting Minutes - MS Word #
-word_MINUTES:
-# word_document:
-  fig_caption: yes
-  fig_height: 6
-  fig_width: 6
-  keep_md: no
-  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
-  reference_docx: auxDocs/minutes.docx
-  toc: no
-  # toc_depth: 2
-  pandoc_args: [
-    "--filter", "pandoc-citeproc",
-    "--csl", "../auxDocs/csl/apa.csl", #chicago-ad.csl,
     "--bibliography", "../auxDocs/REFs.bib"
   ]
 
@@ -112,7 +93,7 @@ pdf_document:
 
 # PDF beamer {LaTeX} (with Tufte-Like Styling) #
 beamer_presentation:
-  keep_tex: yes
+  keep_tex: no
   highlight: monochrome
   slide_level: 2
   fig_caption: yes
@@ -130,21 +111,6 @@ beamer_presentation:
   ]
 
 # ========================================== #
-
-# PDF Tufte Handout {tufte} #
-# tufte::tufte_handout:
-#   fig_caption: yes
-#   latex_engine: pdflatex
-#   highlight: kate
-#   toc: yes
-#   keep_tex: no
-#   pandoc_args: [
-# # #     "--filter", "pandoc-citeproc",
-#     "--csl", "../auxDocs/csl/chicago.csl", #chicago-ad.csl
-#     "--bibliography", "../auxDocs/REFs.bib"
-#   ]
-#   includes:
-#     in_header: ../auxDocs/tex/header.tex
 
 # PDF Tufte Book {tufte} #
 tufte::tufte_book:
@@ -172,30 +138,10 @@ bookdown::tufte_book2:
   toc_depth: 2
   pandoc_args: [
     "--filter", "pandoc-citeproc",
-    "--csl", "../auxDocs/csl/chicago.csl"
+    "--csl", "../auxDocs/csl/apa.csl"
   ]
   includes:
     in_header: ../auxDocs/tex/header.tex
-
-# ========================================== #
-
-# PDF - CV #
-pdf_cv:
-# pdf_document:
-  number_sections: no
-  latex_engine: pdflatex
-  toc: no
-  template: ../auxDocs/tex/svm-latex-cv.tex
-  includes:
-    in_header: ../auxDocs/tex/header-cv.tex
-  pandoc_args: [
-    "--variable", "mainfont=ETBembo",
-    "--variable", "sansfont=GillSansMT",
-    "--variable", "monofont=Menlo",
-    "--filter", "pandoc-citeproc",
-    "--csl", "../auxDocs/csl/apa.csl",
-    "--bibliography", "../auxDocs/REFs.bib"
-  ]
 
 # ========================================== #
 
@@ -243,7 +189,7 @@ html_document:
   highlight: monochrome
   css: ../auxDocs/css/tufte-rs.css
   fig_caption: yes
-  keep_md: yes
+  keep_md: no
   md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
   toc: yes
   pandoc_args: [
@@ -254,7 +200,7 @@ html_document:
 
 # HTML Tufte Handout {tufte} #
 tufte::tufte_html:
-  keep_md: yes
+  keep_md: no
   pandoc_args: [
     "--filter", "pandoc-citeproc",
 #    "--csl", "../auxDocs/csl/apa.csl",
