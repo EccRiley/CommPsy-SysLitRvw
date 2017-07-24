@@ -18,6 +18,7 @@ source("bibs.R")
 #'
 #' # Cluster - Topics
 #'
+#+ topsClust
 top <- cb[cb$cat == "TOPIC", ] %>% droplevels()
 top <- within(top, {
     cid <- ifelse(top$cid %in% tpFilter, cid, NA)
@@ -96,7 +97,7 @@ names(topmembers) <- "Group Members"
 pander(topmembers, caption = "Group Memberships Resulting from 4-Group Hierarchical Cluster Solution (Topics)")
 
 library(cluster)
-topkfit <- kmeans(topmat, 5)
+topkfit <- kmeans(topmat, 3)
 p <- pal_sci[c(1, 2, 3, 5, 8)]
 clusplot(topmat, topkfit$cluster, main = '3-Cluster K-Means Solution (Topics)',
          color = T, shade = T, plotchar = F, cex.txt = 0.5,
@@ -104,7 +105,7 @@ clusplot(topmat, topkfit$cluster, main = '3-Cluster K-Means Solution (Topics)',
          labels = 4, lines = 0, col.p = pal_my[19], font.main = 3, verbose = T, span = T)
 pander(t(topkfit$centers), caption = "Per Variable Cluster Means ('centers') for 3-Cluster K-Means Solution (Topics)")
 
-topkpam <- pam(topmat, 3) ## k = n-groups ##
+topkpam <- pam(topmat, 2) ## k = n-groups ##
 topsil <- silhouette(topkpam)
 plot(topsil, main = "Silhouette Plot of 3-Cluster Solution\n(Topics)", font.main = 3, do.n.k = T, col = mpal(1:4, p = grays), cex = 0.5)
 
@@ -209,28 +210,28 @@ barplot(table(top2Grps), col = barcol, border = pal_sci[c(2, 4, 5, 8)], main = "
 # names(top2members) <- "Group Members"
 # pander(top2members, caption = "Group Memberships Resulting from 4-Group Hierarchical Cluster Solution (Topics)")
 
-top2kpam <- pam(topmatt, 5) ## k = n-groups ##
-top2sil <- silhouette(top2kpam)
-plot(top2sil, main = "Silhouette Plot of 3-Cluster Solution\n(Topics)", font.main = 3, do.n.k = T, col = mpal(1:4, p = grays), cex = 0.5)
+# top2kpam <- pam(topmatt, 5) ## k = n-groups ##
+# top2sil <- silhouette(top2kpam)
+# plot(top2sil, main = "Silhouette Plot of 3-Cluster Solution\n(Topics)", font.main = 3, do.n.k = T, col = mpal(1:4, p = grays), cex = 0.5)
 
-top2Cluster <- c(seq(1:3))
+# top2Cluster <- c(seq(1:3))
 
-top2kpam.clus <- round(top2kpam$clusinfo, 2)
-top2kpam.clus <- cbind(top2Cluster, top2kpam.clus)
+# top2kpam.clus <- round(top2kpam$clusinfo, 2)
+# top2kpam.clus <- cbind(top2Cluster, top2kpam.clus)
 
-top2kpam.cwidth <- top2kpam$silinfo[2]
-top2kpam.cwidth <- cbind(top2Cluster, round(top2kpam.cwidth[[1]], 2))
+# top2kpam.cwidth <- top2kpam$silinfo[2]
+# top2kpam.cwidth <- cbind(top2Cluster, round(top2kpam.cwidth[[1]], 2))
 
-top2kpam.sil <- round(top2kpam$silinfo[[1]], 5)
-top2Case <- rownames(top2kpam.sil)
-top2kpam.sil <- cbind(top2Case, top2kpam.sil)
+# top2kpam.sil <- round(top2kpam$silinfo[[1]], 5)
+# top2Case <- rownames(top2kpam.sil)
+# top2kpam.sil <- cbind(top2Case, top2kpam.sil)
 
-kable(top2kpam.clus, col.names = c("Cluster", "Size", "$Max_{Dissimilarity}$", "$\\mu_{Dissimilarity}$", "Diameter", "Separation"), align = c("c", rep("r", ncol(top2kpam.clus) - 1)), caption = "K-pam Cluster Descriptives (Topics)")
+# kable(top2kpam.clus, col.names = c("Cluster", "Size", "$Max_{Dissimilarity}$", "$\\mu_{Dissimilarity}$", "Diameter", "Separation"), align = c("c", rep("r", ncol(top2kpam.clus) - 1)), caption = "K-pam Cluster Descriptives (Topics)")
 
-names(top2kpam$silinfo) <- c("Cluster Width", "$\\mu_{Cluster Width}", "\\mu_{Width_{Overall}}")
-kable(top2kpam.cwidth, caption = "Cluster Widths for 3-Cluster PAM Solution (Topics)", col.names = c("Cluster", "Width"), align = c("c", "r"))
+# names(top2kpam$silinfo) <- c("Cluster Width", "$\\mu_{Cluster Width}", "\\mu_{Width_{Overall}}")
+# kable(top2kpam.cwidth, caption = "Cluster Widths for 3-Cluster PAM Solution (Topics)", col.names = c("Cluster", "Width"), align = c("c", "r"))
 
-kable(top2kpam.sil, col.names = c("Case", "Cluster", "Neighbor", "Silhouette Width"), caption = "Silouette Information Per Case (Topics)", row.names = FALSE)
+# kable(top2kpam.sil, col.names = c("Case", "Cluster", "Neighbor", "Silhouette Width"), caption = "Silouette Information Per Case (Topics)", row.names = FALSE)
 
 #'
 #' \newpage
@@ -285,16 +286,17 @@ topmatcodes <- ftable(top2$clab, top2$tp_clust) %>% as.matrix()
 
 topmatcodespr <- ifelse(topmatcodes == 0, "$\\cdot$", "$\\checkmark$")
 kable(topmatcodespr, caption = "Topic Clusters' Membership")
-
+#'
+#+ kclust_top, fig.fullwidth=TRUE, figPath=TRUE
 library(cluster)
-topbib2fanny <- fanny(topmatbib, 5)
+topbib2fanny <- fanny(topmatbib, 2)
 
-ktopbib <- fanny(topmatbib, 2)
-clusplot(topmatbib, ktopbib$cluster, main = '3-Cluster K-Means Solution (Topics)',
+ktopbib <- kmeans(topmatbib, 2)
+clusplot(topmatbib, ktopbib$cluster, main = '2-Cluster K-Means Solution (Topics)',
          color = T, shade = T, plotchar = F, cex.txt = 0.5,
          col.clus = p, pch = 21, bg = adjustcolor(pal_my[19], alpha.f = .25),
-         labels = 2, lines = 0, col.p = pal_my[19], font.main = 3, verbose = T, span = T)
-pander(t(topkfit$centers), caption = "Per Variable Cluster Means ('centers') for 3-Cluster K-Means Solution (Topics)")
+         labels = 1, lines = 0, col.p = pal_my[19], font.main = 3, verbose = T, span = T)
+pander(t(topkfit$centers), caption = "Per Variable Cluster Means ('centers') for 2-Cluster K-Means Solution (Topics)")
 
 topmatbib3 <- ftable(top2$bibkey2, top2bib$tp_clust) %>% as.matrix()
 tmb_c1 <- ktopbib$cluster[ktopbib$cluster == 1] %>% names()

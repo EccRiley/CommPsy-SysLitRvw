@@ -1,0 +1,13 @@
+---
+title: |
+  | _Major Area Paper:_
+  | Conclusions
+  | (v12.1)
+author: "Rachel M. Smith"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+fignos-plus-name: "Figure "
+tablenos-plus-name: "Table "
+---
+
+
+In fact, the observed disconnect between the individual, relationship, and societal levels of ecological analysis within the literature included in this analysis is an especially concerning limitation of this set of community-based IPV-related literature. Intimate partner and sexual violence inherently involve the close relationships among individuals, including relationships between the perpetrators and victims or survivors of intimate partner and sexual violence, as well as the close connections each party has with others outside of the immediate perpetrator/victim relationship. The latter group is a critical component the context surrounding an individual's participation in an IPV perpetrator intervention, particularly given that individuals engaged in such programs are often required by either or both the programs themselves or the criminal justice system to have either limited or no contact with the victim(s) during their participation in the intervention. Thus, a critically overlooked intersection exists between (a) IPV perpetrator intervention program participants and their peers and mentors within the intervention programs, as well as (b) the structural and cultural practices, institutions, and customs of the societies within which each of the former individuals and close interpersonal relationships exists.

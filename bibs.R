@@ -1,8 +1,7 @@
 #' ---
-#' title: "Appendix C: Results from Qualitative Comparitive Analyses"
+#' title: "Appendix C: Results from Qualitative Comparative Analyses"
 #' author: "Riley M. Smith"
 #' date: "`r format(Sys.Date(), '%d %B %Y')`"
-#' fignos-plus-name: "Figure "
 #' ---
 #'
 #+ setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE
@@ -19,16 +18,16 @@ knitr::opts_chunk$set(
     tidy.opts = list(comment = FALSE),
     # echoRule = NULL,
     # echoRuleb = NULL,
-    fig.height = 5,
+    # fig.height = 5,
     fig.path = "graphics/bibs/rplot-",
     fignos = TRUE,
-    dev = 'pdf',
-    # fig.retina = 6,
+    dev = c('pdf', 'png', 'svg'),
+    fig.retina = 6,
     Rplot = TRUE,
     Rplot_whbg = NULL,
     hideCap = FALSE,
     figPath = FALSE,
-    fpath = NULL)
+    fpath = TRUE)
 
 knitr::opts_hooks$set(fpath = function(options)
 {
@@ -316,7 +315,7 @@ cb <- within(cb, {
     code <- gsub("IVW-\\w+", "IVW", code)
     code <- gsub("SMIN-\\w+", NA, code)
     code <- gsub("HET", NA, code)
-    scat <- factor(scat, labels = c("IPV Interventions", "SMW-Inclusive Research"))
+    scat <- factor(scat, labels = c("IPV Interventions", "SMW-Specific Research"))
 })
 cb <- na.omit(cb) %>% droplevels()
 cb <- cb[, c("caseid", "scat", "journal", "bibkey", "year", "RM", "j.loc", "j.year", "SJR", "Hindex", "jrnl", "case", "cid", "code", "catid", "cat")]
@@ -374,7 +373,7 @@ cpv.s3 <- MAP[MAP$scat == "S3", ]; ## write.csv(cpv.s3[order(cpv.s3$year), c("bi
 cpv.s4 <- MAP[MAP$scat == "S4", ]; ## write.csv(cpv.s4[order(cpv.s4$year), c("bibkey", "year", "title", "journal", "abstract")], "data/MAP-abstracts-S4.csv", row.names = FALSE)
 
 ct.scat <- within(MAP, {
-    scat <- ifelse(scat == "S3", "IPV Interventions", "SMW-Inclusive Research")
+    scat <- ifelse(scat == "S3", "IPV Interventions", "SMW-Specific Research")
 })
 t.scat <- Rtdf(ct.scat$scat, names = c("Category", "N"))
 ## "ct.scat" created in "MAPrqda.R" ##
@@ -394,7 +393,7 @@ t.scat$ymin <- c(0, head(t.scat$ymax, n = -1))
 t.scat$perc <- paste0((round(t.scat$prop, digits = 1)*100), "%")
 # t.scat$labs <- paste("n = ", t.scat$N, " (", t.scat$perc, ")", sep = "")
 
-#+ donut_scat, fig.cap="Proportions of reviewed articles in each of the two overarching research categories: IPV interventions research, and SMW-inclusive IPV research", fig.lab="donut_scat", fig.fullwidth=TRUE
+#+ donut_scat, fig.cap="Proportions of reviewed articles in each of the two overarching research categories: IPV interventions research, and SMW-Specific IPV research", fig.lab="donut_scat", fig.fullwidth=TRUE
 ### PLOT - scat - donut ####
 
 library(ggplot2)
@@ -472,8 +471,8 @@ MAP$cpv <- ifelse(MAP$jrnl %in% j.cp, "CP", "V")
 ftm.j <- Rna(ft.jrnl)
 sum.j <- apply(ftm.j, 1, sum)
 ftm.j <- ifelse(ftm.j == 0, NA, ftm.j)
-ftm.jp <- cbind(ft.jrnl, "**Total**" = sum.j)
-ftm.jp %>% kable(align = rep("r", 3),
+ftm.jp <- cbind(ft.jrnl, "**Total**" = paste0("**", sum.j, "**"))
+ftm.jp %>% kable(align = rep("r", ncol(ftm.jp)),
                  caption = "$N_{articles}$ in Each Research Category per Journal")
 
 Rdotchart(main = expression(paste(italic(N[Articles]), italic(" per Publication"))),
@@ -497,7 +496,7 @@ MAP.jrnl <- MAP[, c("scat", "journal", "jrnl")]
 names(MAP.jrnl) <- c("Category", "J", "Journal")
 MAP.jrnl$Category <- ifelse(MAP.jrnl$Category == "S3",
                             "IPV Interventions",
-                            "SMW-Inclusive Research")
+                            "SMW-Specific Research")
 pj <- mpal(seq_along(unique(MAP$jrnl)), p = ppal)
 library(ggparallel)
 pscat <- c("#a6afbb", pal_my[17])
@@ -510,7 +509,7 @@ parset.jrnl <- ggparset2(list("Journal", "Category"),
                          data = MAP.jrnl,
                          method = "adj.angle", label = TRUE,
                          label.size = lj, text.angle = al.j, order = c(0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(pj, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(pj, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pj), guide = FALSE) + coord_flip() +
     thm_Rtft(ticks = FALSE, ytext = TRUE, xtext = FALSE) #+ scale_y_discrete(labels = c("Category" = "Category", "J" = "Journal"))
@@ -526,7 +525,7 @@ clr.cpv1 <- levels(factor(MAP.jrnl$journal))
 clr.cpv <- ifelse(clr.cpv1 %in% j.cpp, pcpv[1], pcpv[2])
 
 MAP.jrnl$cpv <- ifelse(MAP.jrnl$cpv == "CP", "Community Psychology", "Violence-Specific")
-MAP.jrnl$scat <- ifelse(MAP.jrnl$scat == "S3", "IPV Interventions", "SMW-Inclusive Research")
+MAP.jrnl$scat <- ifelse(MAP.jrnl$scat == "S3", "IPV Interventions", "SMW-Specific Research")
 
 names(MAP.jrnl) <- c("Category", "J", "Discipline", "Journal")
 
@@ -545,10 +544,10 @@ parset.jrnl2 <- ggparset2(list("Journal", "Category", "Discipline"),
                           label = TRUE, label.size = ll.cj,
                           label.face = "bold",
                           text.angle = al.cj, order = c(0, 0, 0)) +
-     scale_fill_manual(values = c(pscat.a,
-                                  adjustcolor(pcpv, alpha.f = 0.75),
-                                  adjustcolor(clr.cpv, alpha.f = 0.55)),
-                       guide = FALSE) +
+    scale_fill_manual(values = c(pscat.a,
+                                 adjustcolor(pcpv, alpha.f = 0.75),
+                                 adjustcolor(clr.cpv, alpha.f = 0.55)),
+                      guide = FALSE) +
     scale_colour_manual(values = c(pscat.a,
                                    adjustcolor(pcpv, alpha.f = 0.85),
                                    adjustcolor(clr.cpv, alpha.f = 0.85)),
@@ -556,8 +555,6 @@ parset.jrnl2 <- ggparset2(list("Journal", "Category", "Discipline"),
     coord_flip() +
     thm_Rtft(ticks = FALSE, ytext = TRUE, xtext = FALSE);
 hideLabs(x = parset.jrnl2, labs = labs(subtitle = "Journals & Research Disciplines by Research Category"))
-
-
 #'
 #'
 #' # Publication Years
@@ -578,11 +575,90 @@ plot(s4hist, col = catpal[2], border = pal_my[19], density = 50, angle = -45, lw
 
 axis(2, at = 0:max(s3hist$counts));
 
-legend(x = 1990, y = 2.75, legend = c("SMW-Inclusive Research", "IPV Interventions Research (general)"), fill = c(pal_sci[8], pal_my[16]), density = 50, angle = c(45, -45), border = NA, bty = 'n', cex = 0.8, text.font = 3, trace = F)
+legend(x = 1990, y = 2.75, legend = c("SMW-Specific Research", "IPV Interventions Research (general)"), fill = c(pal_sci[8], pal_my[16]), density = 50, angle = c(45, -45), border = NA, bty = 'n', cex = 0.8, text.font = 3, trace = F)
 #'
-#+ noEcho, echo=FALSE
-#### NO MORE ECHO ####
-## knitr::opts_chunk$set(echo = FALSE)
+#'
+#+ tl_map, fig.fullwidth=TRUE, fig.width=7, out.width='\\linewidth', fig.align='center', figPath=TRUE
+
+# PLOT - MAPtl ----------------
+
+MAP <- MAP[, c("bibkey", "year", "journal", "caseid", "scat", "jrnl", "cpv", "j.loc", "j.year", "SJR", "Hindex", "title")]
+
+MAPtl <- within(MAP, {
+    ## - making a copy so i don't mess up anything already
+    ##   written below that may depend on the original
+    ##   version of "MAP" ##
+    # bibkey2 <- as.integer(factor(bibkey))
+    bibkey2 <- ifelse(bibkey == "boal2014barriers", "boala2014barriers", bibkey)
+    bibkey2 <- ifelse(bibkey2 == "boal2014impact", "boalb2014impact", bibkey2)
+    bibkey2 <- gsub("(\\w+)(\\d{4})\\w+", "\\1 (\\2)", bibkey2)
+    bibkey2 <- ifelse(bibkey == "boala (2014)", "boal (2014a)", bibkey2)
+    bibkey2 <- ifelse(bibkey == "boalb (2014)", "boal (2014b)", bibkey2)
+    bibkey2 <- sapply(bibkey2, RtCap, USE.NAMES = FALSE)
+    yrv <- ifelse(cpv == "V", year, 0)
+    yrcp <- ifelse(cpv == "CP", year, 0)
+    cpv <- factor(cpv, labels = c("Community-Psychology", "Violence"))
+})
+
+MAPtl <- MAPtl[order(MAPtl$yrv), , drop = FALSE] %>% within({
+    posv <- sequence(rle(sort(yrv))$lengths)
+    posv <- ifelse(yrv == 0, 0, posv)
+    posv <- log(posv + 0.5) * -0.5
+})
+
+MAPtl <- MAPtl[order(MAPtl$yrcp), , drop = FALSE] %>% within({
+    poscp <- sequence(rle(sort(yrcp))$lengths)
+    pos <- ifelse(yrcp == 0, posv, log(poscp - 0.5) * -0.5)
+    # pos <- jitter(pos, amount = 0)
+    ## could've achieved the same in the previous line,
+    ## but wanted to preserve the separate pos* columns just in case ##
+})
+## !!!! THANKS TO THIS SO ANSWER FOR THE "sequence(rle())" solution:
+##      http://stackoverflow.com/a/19998876/5944560
+##      (i spent HOURS trying to figure out how to do this,
+##      only to find that the geniuses behind R
+##      [specifically the {utils} pkg] had already developed
+##      an effecient, vectorized, solution) ##
+
+# grays_nord <- colorRampPalette(pal_nord$polar[c(8, 1)]) ## add to pkg::Riley (in "Rpals.R")##
+vawa <- 1994 ## year original VAWA was passed ##
+vawaclr <- grays_nord(12)[7]
+# yrcnt <- Rtdf(MAPtl$year, names = c("year", "yrcnt"))#[, 1, drop == FALSE]
+
+# as.integer(MAPtl$year) %>% min() -> yrmin
+# as.integer(MAPtl$year) %>% max()+1 -> yrmax
+
+# GGPLOT - tl ----------------
+
+gg.tl <- ggplot(MAPtl, aes(x = year, y = 0, colour = cpv)) +
+    thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE,
+             ptitle = TRUE, xtext = FALSE, xticks = FALSE) +
+    theme(legend.text = element_text(size = rel(0.75), face = "italic"),
+          legend.title = element_text(size = rel(0.95), face = "bold.italic"),
+          legend.background = element_rect(fill = "transparent", size = 0.1, colour = pal_my[19]),
+          legend.key.height = unit(0.5, "cm"),
+          # legend.key = element_rect(size = 1),
+          legend.justification = c(1, 0.67),
+          legend.box.spacing = unit(0.1, "cm")) +
+    labs(colour = "Journal Category", title = "Timeline of Reviewed Research\n") +
+    scale_colour_manual(values = pcpv) + #, guide = FALSE) +
+    geom_hline(yintercept = 0, size = 0.25, color = pal_nord$polar[7], alpha = 0.5) +
+    geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
+                 colour = pal_my[19], alpha = 0.55,
+                 na.rm = TRUE, size = 0.2, linetype = 3) +
+    geom_text(aes(y = pos, x = year, label = bibkey2), hjust = 0.5, vjust = 0,
+              angle = 25, size = 1.9, fontface = "bold", check_overlap = FALSE) +
+    # geom_vline(xintercept = vawa, size = 0.45, color = pal_nord$polar[1], linetype = 3) +
+    geom_text(aes(y = 0, x = vawa, label = "1994 Violence Against Women Act"),
+              alpha = 0.5, angle = 90, colour = adjustcolor(pal_my[19], alpha.f = 0.5), size = 2.75,
+              nudge_x = -0.25,
+              family = "serif", fontface = "italic") +
+    geom_text(aes(y = 0, x = year, label = year), check_overlap = TRUE,
+              vjust = 0.5, hjust = 0.5, angle = 0, colour = pal_my[20],
+              size = 2, fontface = "bold") +
+    xlim(min(MAPtl$year) - 0.25, max(MAPtl$year)) +
+    ylim(min(MAPtl$pos) - 0.15, max(MAPtl$pos) + 0.15)
+gg.tl
 #'
 #' \newpage
 #'
@@ -626,6 +702,70 @@ Rftm <- function(x1, x2, dnn = NULL, zero.action = NA, zero.qt = FALSE) {
 #'
 #' \Frule
 #'
+# reclab(cb$scat) ----------------
+cb$scat2 <- factor(cb$scat, labels = c(1, 2))
+cb$clab <- factor(cb$clab)
+#'
+# s3cb ----------------
+s3cb <- cb[cb$scat2 == 1, ] %>% droplevels
+# s3cb <- s3cb[!duplicated(s3cb), ]
+s3cb.keys <- paste0("@", levels(factor(s3cb$bibkey)))
+#'
+#'
+#+ tl_inv, fig.fullwidth=TRUE, fig.height=2.75, out.width='\\linewidth', figPath=TRUE
+inv <- MAPtl[MAPtl$scat == "S3", ]
+
+tl.inv <- inv[order(inv$year), c("bibkey", "year", "cpv", "journal", "title"), drop = FALSE] %>% droplevels()
+tl.inv$bibkey <- paste0("@", tl.inv$bibkey)
+tl.inv$journal <- paste0("_", tl.inv$journal, "_")
+tl.inv <- dplyr::rename(tl.inv, "Study" = bibkey, "Journal" = journal, "Year Published" = year)
+rownames(tl.inv) <- NULL
+
+inv <- inv[order(inv$yrv), , drop = FALSE] %>% within({
+    posv <- sequence(rle(sort(yrv))$lengths)
+    posv <- ifelse(yrv == 0, 0, posv)
+    posv <- log(posv + 0.75) * -1
+})
+
+inv <- inv[order(inv$yrcp), , drop = FALSE] %>% within({
+    poscp <- sequence(rle(sort(yrcp))$lengths)
+    pos <- ifelse(yrcp == 0, posv, log(poscp - 0.5) * -1)
+})
+# GGPLOT - invtl ----------------
+
+gg.invtl <- ggplot(inv, aes(x = year, y = 0, colour = cpv)) +
+    thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE,
+             ptitle = TRUE, xtext = FALSE, xticks = FALSE) +
+    theme(legend.text = element_text(size = rel(0.55)),
+          legend.title = element_text(size = rel(0.65), face = "bold"),
+          legend.justification = c(1, 0.8),
+          legend.box.spacing = unit(0, "cm")) +
+    # plot.margin = unit(c(1, rep(0.15, 3)), "cm")) +
+    ylim(min(inv$pos) - 0.5, max(inv$pos) + 0.5) +
+    labs(colour = "Journal Category", title = "IPV-Interventions Research Timeline") +
+    scale_colour_manual(values = pcpv) + #, guide = FALSE) +
+    geom_hline(yintercept = 0, size = 0.25, color = pal_nord$polar[7], alpha = 0.5) +
+    geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
+                 colour = pal_my[19], alpha = 0.55,
+                 na.rm = TRUE, size = 0.2, linetype = 3) +
+    geom_text(aes(y = pos, x = year, label = bibkey2), hjust = 0.5, vjust = 1,
+              angle = 25, size = 2.5, fontface = "bold") + #, nudge_y = -0.05) +
+    # geom_vline(xintercept = vawa, size = 0.45, color = pal_nord$polar[1], linetype = 3) +
+    geom_text(aes(y = 0, x = vawa, label = "1994 Violence Against Women Act"),
+              alpha = 0.5, angle = 90, colour = vawaclr, size = 2.5,
+              nudge_x = -0.25, family = "serif", fontface = "italic") +
+    geom_text(aes(y = 0, x = year, label = year), check_overlap = TRUE,
+              vjust = 0.5, hjust = 0.5, angle = 0, colour = pal_my[20],
+              size = 2.5, family = "serif", fontface = "bold") +
+    xlim(min(inv$year) - 0.25, max(inv$year)) +
+    ylim(min(inv$pos) - 0.15, max(inv$pos) + 0.15)
+gg.invtl
+
+tl.inv[, c(1, 4, 2)] %>% kable(caption = "IPV Interventions Research Timeline")
+
+rec.key2scat <- paste0("\"", MAP$bibkey, "\" = \"", MAP$scat, "\"", collapse = "; ")
+
+#'
 #' ## Primary Topics
 #'
 #+ topics
@@ -636,15 +776,15 @@ Rftm <- function(x1, x2, dnn = NULL, zero.action = NA, zero.qt = FALSE) {
 codes.tp <- cb[cb$cat == "TOPIC", "clab"] %>% droplevels()
 ctp.dnn <- c("Topic", "$N_{Articles}$")
 scats.tp <- cb[cb$cat == "TOPIC", "scat"] %>% droplevels()
-stp.dnn <- c("IPV Interventions", "SMW-Inclusive Research")
+stp.dnn <- c("IPV Interventions", "SMW-Specific Research")
 topics <- Rftm(codes.tp, scats.tp, dnn = list(ctp.dnn, stp.dnn))
 
 t.tp <- topics[[1]]
 ftm.tp <- topics[[2]]
 ftm.tp2 <- Rna(ftm.tp)
 sum.tp <- apply(ftm.tp2, 1, sum)
-ftm.tpp <- cbind(ftm.tp, "**Total**" = sum.tp)
-ftm.tpp %>% kable(align = rep("r", 3),
+ftm.tpp <- cbind(ftm.tp, "**Total**" = paste0("**", sum.tp, "**"))
+ftm.tpp %>% kable(align = rep("r", ncol(ftm.tpp)),
                   caption = "Research Topics")
 #'
 #+ dot_topics, fig.fullwidth=TRUE, fig.height = 7.5, figPath=TRUE
@@ -665,22 +805,56 @@ Rdotchart(main = "Research Topics",
 #'
 #' \newpage
 #'
-#+ topics2, fig.fullwidth=TRUE
-dfm.tp2 <- data.frame(ftm.tp)
-names(dfm.tp2) <- c("s3", "s4")
-top.s3 <- data.frame(dfm.tp2$s3, row.names = rownames(dfm.tp2))
-top.s3 <- na.omit(top.s3)
-# top.s3
-top.s4 <- data.frame(dfm.tp2$s4, row.names = rownames(dfm.tp2))
-top.s4 <- na.omit(top.s4)
-# top.s4
+topcb <- cb[cb$cat == "TOPIC", ] %>% droplevels()
+topcb <- topcb[!duplicated(topcb), ]
 
-tp.s3 <- cb[cb$scat == levels(cb$scat)[1] &
-                cb$cat == "TOPIC", ] %>%
-    droplevels()
-tp.s4 <- cb[cb$scat == levels(cb$scat)[2] &
-                cb$cat == "TOPIC", ] %>%
-    droplevels()
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+topcb.tly <- tally(group_by(topcb, clab))
+lvl.top <- paste0(seq(1:nrow(topcb.tly)), " = ", levels(topcb$clab))
+
+topcb$clab2 <- factor(topcb$clab, labels = seq(1:nrow(topcb.tly)))
+# levels(topcb$clab) <- seq(1:length(unique(topcb$clab)))
+ktop <- ftable(topcb$bibkey, topcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+ktop <- ifelse(ktop >= 1, "$\\checkmark$", "$\\cdot$")
+
+ktopscat <- car::recode(rownames(ktop), rec.key2scat)
+ktopscat <- ifelse(ktopscat == "S4", paste0("@", rownames(ktop), "$^*$"), paste0("@", rownames(ktop)))
+rownames(ktop) <- ktopscat
+# rownames(ktop) <- paste0("@", rownames(ktop))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(ktop[, 1:11], caption = "Primary Topics by Study (1/2)", col.names = c()) %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.top[1:11])
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+kable(ktop[, 12:ncol(ktop)],
+      caption = "Primary Topics by Study (2/2)") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.top[12:length(lvl.top)])
+
+# dfm.tp2 <- data.frame(ftm.tp)
+# names(dfm.tp2) <- c("s3", "s4")
+# top.s3 <- data.frame(dfm.tp2$s3, row.names = rownames(dfm.tp2))
+# top.s3 <- na.omit(top.s3)
+# # top.s3
+# top.s4 <- data.frame(dfm.tp2$s4, row.names = rownames(dfm.tp2))
+# top.s4 <- na.omit(top.s4)
+# # top.s4
+#
+# tp.s3 <- cb[cb$scat == levels(cb$scat)[1] &
+#                 cb$cat == "TOPIC", ] %>%
+#     droplevels()
+# tp.s4 <- cb[cb$scat == levels(cb$scat)[2] &
+#                 cb$cat == "TOPIC", ] %>%
+#     droplevels()
+#
 #'
 #' \newpage
 #' ## Research Designs
@@ -689,20 +863,21 @@ tp.s4 <- cb[cb$scat == levels(cb$scat)[2] &
 ## designs ================
 
 ct.d <- cb[cb$cat == "DESIGN", ] %>% droplevels()
-# ct.d <- ct.d[!duplicated(ct.d), ]
+ct.d <- ct.d[!duplicated(ct.d), ]
 # x <- ct.d[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
 # x[, 3] %>% unique()
 
 t.d <- Rtdf(ct.d$clab)
 ct.d$clab <- gsub(" Design", "", ct.d$clab) %>% factor()
+ct.d$clab <- factor(ct.d$clab, labels = paste0(seq(1:nrow(descb.tly)), ". ", levels(ct.d$clab)))
 ft.d <- ftable(ct.d[, c("clab", "scat")], row.vars = 1)
 ftm.d <- matrix(ft.d, nrow = nrow(t.d), byrow = FALSE)
 dimnames(ftm.d) <- list(Design = levels(ct.d$clab),
                         Category = levels(ct.d$scat))
 sum.d <- apply(ftm.d, 1, sum)
 ftm.d <- ifelse(ftm.d == 0, NA, ftm.d)
-ftm.d <- cbind(ftm.d, "**Total**" = sum.d)
-ftm.d %>% kable(align = rep("r", 3),
+ftm.d <- cbind(ftm.d, "**Total**" = paste0("**", sum.d, "**"))
+ftm.d %>% kable(align = rep("r", ncol(ftm.d)),
                 caption = "Research Designs")
 
 nlabs <- length(unique(ct.d$clab))
@@ -724,7 +899,7 @@ parset.dsgn <- ggparset2(list("Design", "Category"),
                          data = ct.d,
                          method = "adj.angle", label = TRUE,
                          label.size = ld, text.angle = al.d, order = c(0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(pd, alpha.f = 0.45)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(pd, alpha.f = 0.45)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pd), guide = FALSE) + coord_flip() +
     thm_Rtft(ticks = FALSE, ytext = TRUE, xtext = FALSE)
@@ -732,6 +907,35 @@ parset.dsgn <- ggparset2(list("Design", "Category"),
 hideLabs(x = parset.dsgn, labs = labs(subtitle = "Research Designs"))
 #'
 #' \newpage
+#'
+
+descb <- cb[cb$cat == "DESIGN", ] %>% droplevels()
+descb <- descb[!duplicated(descb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+descb.tly <- tally(group_by(descb, clab))
+lvl.des <- paste0(seq(1:nrow(descb.tly)), " = ", levels(descb$clab))
+
+descb$clab2 <- factor(descb$clab, labels = seq(1:nrow(descb.tly)))
+# levels(descb$clab) <- seq(1:length(unique(descb$clab)))
+kdes <- ftable(descb$bibkey, descb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+kdes <- ifelse(kdes >= 1, "$\\checkmark$", "$\\cdot$")
+kdesscat <- car::recode(rownames(kdes), rec.key2scat)
+kdesscat <- ifelse(kdesscat == "S4", paste0("@", rownames(kdes), "$^*$"), paste0("@", rownames(kdes)))
+rownames(kdes) <- kdesscat
+# rownames(kdes) <- paste0("@", rownames(kdes))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(kdes, caption = "Primary Research Designs by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.des)
+#'
+#' \newpage
+#'
 #' `r tufte::newthought("\\Large{Experimental Research Designs}")`
 #'
 #+ exp
@@ -751,9 +955,9 @@ dimnames(ftm.exp) <- list("Experimental Design" = levels(ct.exp$clab),
                           Category = levels(ct.exp$scat))
 sum.exp <- apply(ftm.exp, 1, sum)
 ftm.exp <- ifelse(ftm.exp == 0, NA, ftm.exp)
-ftm.expp <- cbind(ftm.exp, "**Total**" = sum.exp)
+ftm.expp <- cbind(ftm.exp, "**Total**" = paste0("**", sum.exp, "**"))
 # rownames(ftm.expp) <- gsub("\\n", "", rownames(ftm.expp))
-ftm.expp %>% kable(align = rep("r", 3),
+ftm.expp %>% kable(align = rep("r", ncol(ftm.expp)),
                    caption = "Experimental Research Designs")
 
 nlabs <- length(unique(ct.exp$clab))
@@ -774,13 +978,42 @@ parset.exp <- ggparset2(list("Experimental Design",
                         data = ct.exp,
                         method = "adj.angle", label = TRUE,
                         label.size = lexp, text.angle = 0, order = c(0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(pexp, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(pexp, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pexp), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
 hideLabs(x = parset.exp, labs = labs(subtitle = "Experimental Designs"))
 #'
 #' \newpage
+#'
+
+expcb <- cb[cb$cat == "DESIGN-EXP", ] %>% droplevels()
+expcb <- expcb[!duplicated(expcb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+expcb.tly <- tally(group_by(expcb, clab))
+lvl.exp <- paste0(seq(1:nrow(expcb.tly)), " = ", levels(expcb$clab))
+
+expcb$clab2 <- factor(expcb$clab, labels = seq(1:nrow(expcb.tly)))
+# levels(expcb$clab) <- seq(1:length(unique(expcb$clab)))
+kexp <- ftable(expcb$bibkey, expcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+kexp <- ifelse(kexp >= 1, "$\\checkmark$", "$\\cdot$")
+kexpscat <- car::recode(rownames(kexp), rec.key2scat)
+kexpscat <- ifelse(kexpscat == "S4", paste0("@", rownames(kexp), "$^*$"), paste0("@", rownames(kexp)))
+rownames(kexp) <- kexpscat
+# rownames(kexp) <- paste0("@", rownames(kexp))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(kexp, caption = "Experimental Designs by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.exp)
+#'
+#' \newpage
+#'
 #' ## Data Collection Methodologies
 #'
 #+ methodologies
@@ -799,8 +1032,8 @@ dimnames(ftm.mo) <- list(Methodology = levels(ct.mo$clab),
                          Category = levels(ct.mo$scat))
 sum.mo <- apply(ftm.mo, 1, sum)
 ftm.mo <- ifelse(ftm.mo == 0, NA, ftm.mo)
-ftm.mo <- cbind(ftm.mo, "**Total**" = sum.mo)
-ftm.mo %>% kable(align = rep("r", 3),
+ftm.mo <- cbind(ftm.mo, "**Total**" = paste0("**", sum.mo, "**"))
+ftm.mo %>% kable(align = rep("r", ncol(ftmmo)),
                  caption = "Methodologies")
 
 #+ parset_methodologies, fig.fullwidth=TRUE
@@ -819,11 +1052,38 @@ parset.mo <- ggparset2(list("Methodology", "Category"),
                        data = ct.mo,
                        method = "adj.angle", label = TRUE,
                        label.size = lmo, text.angle = 0, order = c(0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(pmo, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(pmo, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pmo), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = TRUE, xtext = FALSE) #+ coord_flip()
 hideLabs(x = parset.mo, labs = labs(subtitle = "Methodologies"))
+#'
+#' \newpage
+#'
+mocb <- cb[cb$cat == "METHODS", ] %>% droplevels()
+mocb <- mocb[!duplicated(mocb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+mocb.tly <- tally(group_by(mocb, clab))
+lvl.mo <- paste0(seq(1:nrow(mocb.tly)), " = ", levels(mocb$clab))
+
+mocb$clab2 <- factor(mocb$clab, labels = seq(1:nrow(mocb.tly)))
+# levels(mocb$clab) <- seq(1:length(unique(mocb$clab)))
+kmo <- ftable(mocb$bibkey, mocb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+kmo <- ifelse(kmo >= 1, "$\\checkmark$", "$\\cdot$")
+kmoscat <- car::recode(rownames(kmo), rec.key2scat)
+kmoscat <- ifelse(kmoscat == "S4", paste0("@", rownames(kmo), "$^*$"), paste0("@", rownames(kmo)))
+rownames(kmo) <- kmoscat
+# rownames(kmo) <- paste0("@", rownames(kmo))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(kmo, caption = "Methodology by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.mo)
 #'
 #' \newpage
 #'
@@ -844,8 +1104,8 @@ dimnames(ftm.dql) <- list("Qua**L**itative Design" = levels(ct.dql$clab),
 # t.dql
 sum.dql <- apply(ftm.dql, 1, sum)
 ftm.dql <- ifelse(ftm.dql == 0, NA, ftm.dql)
-ftm.dql <- cbind(ftm.dql, "**Total**" = sum.dql)
-ftm.dql %>% kable(align = rep("r", 3),
+ftm.dql <- cbind(ftm.dql, "**Total**" = paste0("**", sum.dql, "**"))
+ftm.dql %>% kable(align = rep("r", ncol(ftm.dql)),
                   caption = "Qua**L**itative Designs")
 
 #+ parset_qlDesigns, fig.fullwidth=TRUE
@@ -863,11 +1123,39 @@ parset.dql <- ggparset2(list("QuaLitative Design", "Category"),
                         data = ct.dql,
                         method = "adj.angle", label = TRUE,
                         label.size = ldql, text.angle = 0, order = c(0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(pdql, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(pdql, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pdql), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
 hideLabs(x = parset.dql, labs = labs(subtitle = "Qualitative Research Designs"))
+#'
+#' \newpage
+#'
+dqlcb <- cb[cb$cat == "D-QL", ] %>% droplevels()
+dqlcb <- dqlcb[!duplicated(dqlcb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
+dqlcb.tly <- tally(group_by(dqlcb, clab))
+lvl.dql <- paste0(seq(1:nrow(dqlcb.tly)), " = ", levels(dqlcb$clab))
+
+dqlcb$clab2 <- factor(dqlcb$clab, labels = seq(1:nrow(dqlcb.tly)))
+# levels(dqlcb$clab) <- seq(1:length(unique(dqlcb$clab)))
+kdql <- ftable(dqlcb$bibkey, dqlcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+kdql <- ifelse(kdql >= 1, "$\\checkmark$", "$\\cdot$")
+kdqlscat <- car::recode(rownames(kdql), rec.key2scat)
+kdqlscat <- ifelse(kdqlscat == "S4", paste0("@", rownames(kdql), "$^*$"), paste0("@", rownames(kdql)))
+rownames(kdql) <- kdqlscat
+# rownames(kdql) <- paste0("@", rownames(kdql))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(kdql, caption = "Qualitative Designs by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.dql)
 #'
 #'  \newpage
 #' `r tufte::newthought("\\large{QuaLitative \\textit{Methods}}")`
@@ -888,8 +1176,8 @@ dimnames(ftm.ql) <- list("Qua**L**itative Method(s)" = levels(ct.ql$clab),
 
 sum.ql <- apply(ftm.ql, 1, sum)
 ftm.ql <- ifelse(ftm.ql == 0, NA, ftm.ql)
-ftm.ql <- cbind(ftm.ql, "**Total**" = sum.ql)
-ftm.ql %>% kable(align = rep("r", 3),
+ftm.ql <- cbind(ftm.ql, "**Total**" = paste0("**", sum.ql, "**"))
+ftm.ql %>% kable(align = rep("r", ncol(ftm.ql)),
                  caption = "Qua**L**itative Method(s)")
 
 #+ parset_qlMethods, fig.fullwidth=TRUE
@@ -905,11 +1193,39 @@ parset.ql <- ggparset2(list("QuaLitative Methods", "Category"),
                        data = ct.ql,
                        method = "adj.angle", label = TRUE,
                        label.size = lql, text.angle = 0, order = c(0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(pql, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(pql, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pql), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
 hideLabs(x = parset.ql, labs = labs(subtitle = "Qualitative Research Methods"))
+#'
+#' \newpage
+#'
+mqlcb <- cb[cb$cat == "M-QL", ] %>% droplevels()
+mqlcb <- mqlcb[!duplicated(mqlcb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
+mqlcb.tly <- tally(group_by(mqlcb, clab))
+lvl.mql <- paste0(seq(1:nrow(mqlcb.tly)), " = ", levels(mqlcb$clab))
+
+mqlcb$clab2 <- factor(mqlcb$clab, labels = seq(1:nrow(mqlcb.tly)))
+# levels(mqlcb$clab) <- seq(1:length(unique(mqlcb$clab)))
+kmql <- ftable(mqlcb$bibkey, mqlcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+kmql <- ifelse(kmql >= 1, "$\\checkmark$", "$\\cdot$")
+kmqlscat <- car::recode(rownames(kmql), rec.key2scat)
+kmqlscat <- ifelse(kmqlscat == "S4", paste0("@", rownames(kmql), "$^*$"), paste0("@", rownames(kmql)))
+rownames(kmql) <- kmqlscat
+# rownames(kmql) <- paste0("@", rownames(kmql))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(kmql, caption = "Qua**L**itative Methods by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.mql)
 #'
 #' \newpage
 #'
@@ -929,12 +1245,12 @@ ft.aql2 <- ftable(ct.aql[, c("code", "scat")], row.vars = 1)
 ftm.aql <- matrix(ft.aql, nrow = nrow(t.aql), byrow = FALSE)
 dimnames(ftm.aql) <- list("QuaLitative Data Analytic Approaches" = levels(ct.aql$clab),
                           scat = c("IPV Interventions",
-                                   "SMW-Inclusive Research"))
+                                   "SMW-Specific Research"))
 sum.aql <- apply(ftm.aql, 1, sum)
 ftm.aql <- ifelse(ftm.aql == 0, NA, ftm.aql)
-ftm.aqlp <- cbind(ftm.aql, "**Total**" = sum.aql)
+ftm.aqlp <- cbind(ftm.aql, "**Total**" = paste0("**", sum.aql, "**"))
 # rownames(ftm.aqlp) <- gsub("\\n", "", rownames(ftm.aqlp))
-ftm.aqlp %>% kable(align = rep("r", 3),
+ftm.aqlp %>% kable(align = rep("r", ncol(ftm.aqlp)),
                    caption = "QuaLitative Analytic Approaches")
 
 #+ dot_qlAnalytics, fig.fullwidth=TRUE, fig.height=7
@@ -989,12 +1305,40 @@ parset.aql <- ggparset2(rev(list("Category", "QuaLitative Analytic Approaches"))
                         text.angle = 0, #text.offset = os.cj,
                         label = TRUE, label.size = laql,
                         label.hjust = 0.5) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(paql, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(paql, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, paql), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE) #+ coord_flip()
 hideLabs(x = parset.aql, labs = labs(subtitle = "QuaLitative Analytics"))
 
+#'
+#' \newpage
+#'
+aqlcb <- cb[cb$cat == "A-QL", ] %>% droplevels()
+aqlcb <- aqlcb[!duplicated(aqlcb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
+aqlcb.tly <- tally(group_by(aqlcb, clab))
+lvl.aql <- paste0(seq(1:nrow(aqlcb.tly)), " = ", levels(aqlcb$clab))
+
+aqlcb$clab2 <- factor(aqlcb$clab, labels = seq(1:nrow(aqlcb.tly)))
+# levels(aqlcb$clab) <- seq(1:length(unique(aqlcb$clab)))
+kaql <- ftable(aqlcb$bibkey, aqlcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+kaql <- ifelse(kaql >= 1, "$\\checkmark$", "$\\cdot$")
+kaqlscat <- car::recode(rownames(kaql), rec.key2scat)
+kaqlscat <- ifelse(kaqlscat == "S4", paste0("@", rownames(kaql), "$^*$"), paste0("@", rownames(kaql)))
+rownames(kaql) <- kaqlscat
+# rownames(kaql) <- paste0("@", rownames(kaql))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(kaql, caption = "Qua**L**itative Analytic Approaches by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.aql)
 
 #'
 #'
@@ -1016,8 +1360,8 @@ dimnames(ftm.dqt) <- list("Qua**NT**itative Design" = levels(ct.dqt$clab),
 # t.dqt
 sum.dqt <- apply(ftm.dqt, 1, sum)
 ftm.dqt <- ifelse(ftm.dqt == 0, NA, ftm.dqt)
-ftm.dqt <- cbind(ftm.dqt, "**Total**" = sum.dqt)
-ftm.dqt %>% kable(align = rep("r", 3),
+ftm.dqt <- cbind(ftm.dqt, "**Total**" = paste0("**", sum.dqt, "**"))
+ftm.dqt %>% kable(align = rep("r", ncol(ftm.dqt)),
                   caption = "Qua**NT**itative Designs")
 
 #+ parset_qtDesigns, fig.fullwidth=TRUE
@@ -1036,11 +1380,40 @@ parset.dqt <- ggparset2(list("QuaNTitative Design",
                         data = ct.dqt,
                         method = "adj.angle", label = TRUE,
                         label.size = ldqt, text.angle = 0, order = c(0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(pdqt, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(pdqt, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pdqt), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
 hideLabs(x = parset.dqt, labs = labs(subtitle = "QuaNTitative Research Designs"))
+#'
+#' \newpage
+#'
+dqtcb <- cb[cb$cat == "D-QT", ] %>% droplevels()
+dqtcb <- dqtcb[!duplicated(dqtcb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
+dqtcb.tly <- tally(group_by(dqtcb, clab))
+lvl.dqt <- paste0(seq(1:nrow(dqtcb.tly)), " = ", levels(dqtcb$clab))
+
+dqtcb$clab2 <- factor(dqtcb$clab, labels = seq(1:nrow(dqtcb.tly)))
+# levels(dqtcb$clab) <- seq(1:length(unique(dqtcb$clab)))
+kdqt <- ftable(dqtcb$bibkey, dqtcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+kdqt <- ifelse(kdqt >= 1, "$\\checkmark$", "$\\cdot$")
+kdqtscat <- car::recode(rownames(kdqt), rec.key2scat)
+kdqtscat <- ifelse(kdqtscat == "S4", paste0("@", rownames(kdqt), "$^*$"), paste0("@", rownames(kdqt)))
+rownames(kdqt) <- kdqtscat
+# rownames(kdqt) <- paste0("@", rownames(kdqt))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(kdqt, caption = "Qua**NT**itative Designs by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.dqt)
+
 #'
 #'
 #' \newpage
@@ -1062,8 +1435,8 @@ dimnames(ftm.qt) <- list("Qua**NT**itative Method" = levels(ct.qt$clab),
 # t.qt
 sum.qt <- apply(ftm.qt, 1, sum)
 ftm.qt <- ifelse(ftm.qt == 0, NA, ftm.qt)
-ftm.qt <- cbind(ftm.qt, "**Total**" = sum.qt)
-ftm.qt %>% kable(align = rep("r", 3),
+ftm.qt <- cbind(ftm.qt, "**Total**" = paste0("**", sum.qt, "**"))
+ftm.qt %>% kable(align = rep("r", ncol(ftm.qt)),
                  caption = "Qua**NT**itative Methods")
 
 #+ parset_qtMethods, fig.fullwidth=TRUE, fig.height=6
@@ -1082,11 +1455,40 @@ parset.qt <- ggparset2(list("QuaNTitative Methods",
                        data = ct.qt,
                        method = "adj.angle", label = TRUE,
                        label.size = lqt, text.angle = 0, order = c(0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(pqt, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(pqt, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pqt), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
 hideLabs(x = parset.qt, labs = labs(subtitle = "Quantitative Research Methods"))
+#'
+#' \newpage
+#'
+mqtcb <- cb[cb$cat == "M-QT", ] %>% droplevels()
+mqtcb <- mqtcb[!duplicated(mqtcb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
+mqtcb.tly <- tally(group_by(mqtcb, clab))
+lvl.mqt <- paste0(seq(1:nrow(mqtcb.tly)), " = ", levels(mqtcb$clab))
+
+mqtcb$clab2 <- factor(mqtcb$clab, labels = seq(1:nrow(mqtcb.tly)))
+# levels(mqtcb$clab) <- seq(1:length(unique(mqtcb$clab)))
+kmqt <- ftable(mqtcb$bibkey, mqtcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+kmqt <- ifelse(kmqt >= 1, "$\\checkmark$", "$\\cdot$")
+kmqtscat <- car::recode(rownames(kmqt), rec.key2scat)
+kmqtscat <- ifelse(kmqtscat == "S4", paste0("@", rownames(kmqt), "$^*$"), paste0("@", rownames(kmqt)))
+rownames(kmqt) <- kmqtscat
+# rownames(kmqt) <- paste0("@", rownames(kmqt))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(kmqt, caption = "Qua**NT**itative Methods by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.mqt)
+
 #'
 #' \newpage
 #'
@@ -1106,12 +1508,12 @@ ft.aqt2 <- ftable(ct.aqt[, c("code", "scat")], row.vars = 1)
 ftm.aqt <- matrix(ft.aqt, nrow = nrow(t.aqt), byrow = FALSE)
 dimnames(ftm.aqt) <- list("QuaNTitative Data Analytic Approaches" = levels(ct.aqt$clab),
                           scat = c("IPV Interventions",
-                                   "SMW-Inclusive Research"))
+                                   "SMW-Specific Research"))
 
 sum.aqt <- apply(ftm.aqt, 1, sum)
 ftm.aqt <- ifelse(ftm.aqt == 0, NA, ftm.aqt)
-ftm.aqtp <- cbind(ftm.aqt, "**Total**" = sum.aqt)
-ftm.aqtp %>% kable(align = rep("r", 3),
+ftm.aqtp <- cbind(ftm.aqt, "**Total**" = paste0("**", sum.aqt, "**"))
+ftm.aqtp %>% kable(align = rep("r", ncol(ftm.aqtp)),
                    caption = "Qua**NT**itative Analytic Approaches")
 
 #+ dot_qtAnalytics, fig.fullwidth=TRUE, fig.height=7
@@ -1150,7 +1552,7 @@ parset.aqt <- ggparset2(rev(list("Category",
                         text.angle = 0, #text.offset = os.cj,
                         label = TRUE, label.size = laqt,
                         label.hjust = 0.5) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(paqt, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(paqt, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, paqt), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE) #+ coord_flip()
@@ -1165,6 +1567,35 @@ hideLabs(x = parset.aqt, labs = labs(subtitle = "QuaNTitative Analytics"))
 #     scale_colour_manual(values = c(pscat, paqt), guide = FALSE) +
 #     thm_Rtft(ticks = FALSE, ytext = FALSE)
 # hideLabs(x = parset.aqt, labs = labs(subtitle = "Quantitative Analytics"))
+#'
+#' \newpage
+#'
+aqtcb <- cb[cb$cat == "A-QT", ] %>% droplevels()
+aqtcb <- aqtcb[!duplicated(aqtcb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
+aqtcb.tly <- tally(group_by(aqtcb, clab))
+lvl.aqt <- paste0(seq(1:nrow(aqtcb.tly)), " = ", levels(aqtcb$clab))
+
+aqtcb$clab2 <- factor(aqtcb$clab, labels = seq(1:nrow(aqtcb.tly)))
+# levels(aqtcb$clab) <- seq(1:length(unique(aqtcb$clab)))
+kaqt <- ftable(aqtcb$bibkey, aqtcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+kaqt <- ifelse(kaqt >= 1, "$\\checkmark$", "$\\cdot$")
+kaqtscat <- car::recode(rownames(kaqt), rec.key2scat)
+kaqtscat <- ifelse(kaqtscat == "S4", paste0("@", rownames(kaqt), "$^*$"), paste0("@", rownames(kaqt)))
+rownames(kaqt) <- kaqtscat
+# rownames(kaqt) <- paste0("@", rownames(kaqt))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(kaqt, caption = "Qua**NT**itative Analytic Approaches by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.aqt)
+
 #'
 #'
 #' \newpage
@@ -1185,8 +1616,8 @@ dimnames(ftm.rcrd) <- list("Archival Data Source" = levels(ct.rcrd$clab),
 # t.rcrd
 sum.rcrd <- apply(ftm.rcrd, 1, sum)
 ftm.rcrd <- ifelse(ftm.rcrd == 0, NA, ftm.rcrd)
-ftm.rcrd <- cbind(ftm.rcrd, "**Total**" = sum.rcrd)
-ftm.rcrd %>% kable(align = rep("r", 3),
+ftm.rcrd <- cbind(ftm.rcrd, "**Total**" = paste0("**", sum.rcrd, "**"))
+ftm.rcrd %>% kable(align = rep("r", ncol(ftm.rcrd)),
                    caption = "Archival Data Sources")
 
 #+ parset_archivalDataSrcs, fig.fullwidth=TRUE
@@ -1213,6 +1644,35 @@ hideLabs(x = parset.rcrd, labs = labs(subtitle = "Archival/Secondary Data Source
 #'
 #' \newpage
 #'
+rcrdcb <- cb[cb$cat == "M-RCRD", ] %>% droplevels()
+rcrdcb <- rcrdcb[!duplicated(rcrdcb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
+rcrdcb.tly <- tally(group_by(rcrdcb, clab))
+lvl.rcrd <- paste0(seq(1:nrow(rcrdcb.tly)), " = ", levels(rcrdcb$clab))
+
+rcrdcb$clab2 <- factor(rcrdcb$clab, labels = seq(1:nrow(rcrdcb.tly)))
+# levels(rcrdcb$clab) <- seq(1:length(unique(rcrdcb$clab)))
+krcrd <- ftable(rcrdcb$bibkey, rcrdcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+krcrd <- ifelse(krcrd >= 1, "$\\checkmark$", "$\\cdot$")
+krcrdscat <- car::recode(rownames(krcrd), rec.key2scat)
+krcrdscat <- ifelse(krcrdscat == "S4", paste0("@", rownames(krcrd), "$^*$"), paste0("@", rownames(krcrd)))
+rownames(krcrd) <- krcrdscat
+# rownames(krcrd) <- paste0("@", rownames(krcrd))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(krcrd, caption = "Archival/Secondary Data Sources by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.rcrd)
+
+#'
+#' \newpage
+#'
 #' `r tufte::newthought("\\Large{Mixed-Methodological \\textit{Designs}}")`
 #'
 #+ mmDesigns
@@ -1227,12 +1687,12 @@ ft.dmm <- ftable(ct.dmm[, c("clab", "scat")], row.vars = 1)
 ftm.dmm <- matrix(ft.dmm, nrow = nrow(t.dmm), byrow = FALSE)
 dimnames(ftm.dmm) <- list("Mixed-Methodological Design" = levels(ct.dmm$clab),
                           scat = c("IPV Interventions",
-                                   "SMW-Inclusive Research"))
+                                   "SMW-Specific Research"))
 # t.dmm
 sum.dmm <- apply(ftm.dmm, 1, sum)
 ftm.dmm <- ifelse(ftm.dmm == 0, NA, ftm.dmm)
-ftm.dmm <- cbind(ftm.dmm, "**Total**" = sum.dmm)
-ftm.dmm %>% kable(align = rep("r", 3),
+ftm.dmm <- cbind(ftm.dmm, "**Total**" = paste0("**", sum.dmm, "**"))
+ftm.dmm %>% kable(align = rep("r", ncol(ftm.dmm)),
                   caption = "Mixed-Methodological Designs")
 
 #+ parset_mixedMethods, fig.fullwidth=TRUE
@@ -1251,11 +1711,40 @@ parset.dmm <- ggparset2(list("Mixed-Methodological Design",
                         data = ct.dmm,
                         method = "adj.angle", label = TRUE,
                         label.size = ldmm, text.angle = 0, order = c(0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(pmm, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(pmm, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pmm), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
 hideLabs(x = parset.dmm, labs = labs(subtitle = "Mixed-Methods Research Designs"))
+#'
+#' \newpage
+#'
+dmmcb <- cb[cb$cat == "D-MM", ] %>% droplevels()
+dmmcb <- dmmcb[!duplicated(dmmcb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
+dmmcb.tly <- tally(group_by(dmmcb, clab))
+lvl.dmm <- paste0(seq(1:nrow(dmmcb.tly)), " = ", levels(dmmcb$clab))
+
+dmmcb$clab2 <- factor(dmmcb$clab, labels = seq(1:nrow(dmmcb.tly)))
+# levels(dmmcb$clab) <- seq(1:length(unique(dmmcb$clab)))
+kdmm <- ftable(dmmcb$bibkey, dmmcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+kdmm <- ifelse(kdmm >= 1, "$\\checkmark$", "$\\cdot$")
+kdmmscat <- car::recode(rownames(kdmm), rec.key2scat)
+kdmmscat <- ifelse(kdmmscat == "S4", paste0("@", rownames(kdmm), "$^*$"), paste0("@", rownames(kdmm)))
+rownames(kdmm) <- kdmmscat
+# rownames(kdmm) <- paste0("@", rownames(kdmm))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(kdmm, caption = "Mixed-Methods Designs by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.dmm)
+
 #'
 #' \newpage
 #' `r tufte::newthought("\\large{Mixed (QuaLitative \\& QuaNTitative) \\textit{Methods}}")`
@@ -1272,12 +1761,12 @@ ft.mm <- ftable(ct.mm[, c("clab", "scat")], row.vars = 1)
 ftm.mm <- matrix(ft.mm, nrow = nrow(t.mm), byrow = FALSE)
 dimnames(ftm.mm) <- list("Mixed-Methods" = levels(ct.mm$clab),
                          scat = c("IPV Interventions",
-                                  "SMW-Inclusive Research"))
+                                  "SMW-Specific Research"))
 # t.mm
 sum.mm <- apply(ftm.mm, 1, sum)
 ftm.mm <- ifelse(ftm.mm == 0, NA, ftm.mm)
-ftm.mm <- cbind(ftm.mm, "**Total**" = sum.mm)
-ftm.mm %>% kable(align = rep("r", 3),
+ftm.mm <- cbind(ftm.mm, "**Total**" = paste0("**", sum.mm, "**"))
+ftm.mm %>% kable(align = rep("r", ncol(ftm.mm)),
                  caption = "Mixed-Methods")
 
 #+ parset_mmMethods, fig.fullwidth = TRUE
@@ -1296,11 +1785,40 @@ parset.mm <- ggparset2(list("Mixed-Methods",
                        data = ct.mm,
                        method = "adj.angle", label = TRUE,
                        label.size = lmm, text.angle = 0, order = c(0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(pmm, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(pmm, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pmm), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
 hideLabs(x = parset.mm, labs = labs(subtitle = "Mixed-Methods"))
+#'
+#' \newpage
+#'
+mmmcb <- cb[cb$cat == "M-MM", ] %>% droplevels()
+mmmcb <- mmmcb[!duplicated(mmmcb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
+mmmcb.tly <- tally(group_by(mmmcb, clab))
+lvl.mmm <- paste0(seq(1:nrow(mmmcb.tly)), " = ", levels(mmmcb$clab))
+
+mmmcb$clab2 <- factor(mmmcb$clab, labels = seq(1:nrow(mmmcb.tly)))
+# levels(mmmcb$clab) <- seq(1:length(unique(mmmcb$clab)))
+kmmm <- ftable(mmmcb$bibkey, mmmcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+kmmm <- ifelse(kmmm >= 1, "$\\checkmark$", "$\\cdot$")
+kmmmscat <- car::recode(rownames(kmmm), rec.key2scat)
+kmmmscat <- ifelse(kmmmscat == "S4", paste0("@", rownames(kmmm), "$^*$"), paste0("@", rownames(kmmm)))
+rownames(kmmm) <- kmmmscat
+# rownames(kmmm) <- paste0("@", rownames(kmmm))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(kmmm, caption = "Mixed-Methods by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.mmm)
+
 #'
 #' \newpage
 #' ## Target Populations & Sampling Frames
@@ -1318,7 +1836,7 @@ ftm.pop <- matrix(ft.pop, nrow = nrow(t.pop), byrow = FALSE)
 dimnames(ftm.pop) <-
     list(
         "Populations" = levels(ct.pop$clab),
-        scat = c("IPV Interventions", "SMW-Inclusive Research")
+        scat = c("IPV Interventions", "SMW-Specific Research")
     )
 
 sum.pop <- apply(ftm.pop, 1, sum)
@@ -1341,6 +1859,43 @@ Rdotchart(main = "Populations",
           color = c(rep(catpal[1], nrow(ftm.pop)), rep(catpal[2], nrow(ftm.pop))))
 #'
 #' \newpage
+#'
+popcb <- cb[cb$cat == "POPULATION", ] %>% droplevels()
+popcb <- popcb[!duplicated(popcb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
+popcb.tly <- tally(group_by(popcb, clab))
+lvl.pop <- paste0(seq(1:nrow(popcb.tly)), " = ", levels(popcb$clab))
+
+popcb$clab2 <- factor(popcb$clab, labels = seq(1:nrow(popcb.tly)))
+# levels(popcb$clab) <- seq(1:length(unique(popcb$clab)))
+kpop <- ftable(popcb$bibkey, popcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+kpop <- ifelse(kpop >= 1, "$\\checkmark$", "$\\cdot$")
+kpopscat <- car::recode(rownames(kpop), rec.key2scat)
+kpopscat <- ifelse(kpopscat == "S4", paste0("@", rownames(kpop), "$^*$"), paste0("@", rownames(kpop)))
+rownames(kpop) <- kpopscat
+# rownames(kpop) <- paste0("@", rownames(kpop))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(kpop[, 1:9], caption = "Sampling Frame by Study (1/2)") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.pop[1:9])
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(kpop[, 9:length(lvl.pop)], caption = "Sampling Frame by Study (2/2)") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.pop[9:length(lvl.pop)])
+
+#'
+#' \newpage
 #' ## Sampling Settings
 #'
 #+ settings
@@ -1357,7 +1912,7 @@ ftm.set <- matrix(ft.set, nrow = nrow(t.set), byrow = FALSE)
 dimnames(ftm.set) <-
     list(
         "Sampling Settings" = levels(ct.set$clab),
-        scat = c("IPV Interventions", "SMW-Inclusive Research")
+        scat = c("IPV Interventions", "SMW-Specific Research")
     )
 
 sum.set <- apply(ftm.set, 1, sum)
@@ -1401,11 +1956,49 @@ parset.set <- ggparset2(list("Sampling Settings",
                         data = ct.set2,
                         method = "adj.angle", label = TRUE,
                         label.size = lset, text.angle = 0, order = c(0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(pset2, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(pset2, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, pset2), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
 hideLabs(x = parset.set, labs = labs(subtitle = "Sampling Settings"))
+#'
+#' \newpage
+#'
+ssetcb <- cb[cb$cat == "M-SETTINGS", ] %>% droplevels()
+ssetcb <- ssetcb[!duplicated(ssetcb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
+ssetcb.tly <- tally(group_by(ssetcb, clab))
+lvl.sset <- paste0(seq(1:nrow(ssetcb.tly)), " = ", levels(ssetcb$clab))
+
+ssetcb$clab2 <- factor(ssetcb$clab, labels = seq(1:nrow(ssetcb.tly)))
+# levels(ssetcb$clab) <- seq(1:length(unique(ssetcb$clab)))
+ksset <- ftable(ssetcb$bibkey, ssetcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+ksset <- ifelse(ksset >= 1, "$\\checkmark$", "$\\cdot$")
+kssetscat <- car::recode(rownames(ksset), rec.key2scat)
+kssetscat <- ifelse(kssetscat == "S4", paste0("@", rownames(ksset), "$^*$"), paste0("@", rownames(ksset)))
+rownames(ksset) <- kssetscat
+# rownames(ksset) <- paste0("@", rownames(ksset))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(ksset[,1:12], caption = "Sampling Settings by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.sset[1:12])
+
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(ksset[,13:length(lvl.sset)], caption = "Sampling Settings by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.sset[13:length(lvl.sset)])
+
 #'
 #' \newpage
 #' ## Sampling Methods
@@ -1423,7 +2016,7 @@ ftm.smthds <- matrix(ft.smthds, nrow = nrow(t.smthds), byrow = FALSE)
 dimnames(ftm.smthds) <-
     list(
         "Populations" = levels(ct.smthds$clab),
-        scat = c("IPV Interventions", "SMW-Inclusive Research")
+        scat = c("IPV Interventions", "SMW-Specific Research")
     )
 
 sum.smthds <- apply(ftm.smthds, 1, sum)
@@ -1460,23 +2053,52 @@ parset.smthds <- ggparset2(list("Sampling Methods", "Category"),
                            data = ct.smthds,
                            method = "adj.angle", label = TRUE,
                            label.size = lsmthds, text.angle = 0, order = c(0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(psmthds, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(psmthds, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, psmthds), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
 hideLabs(x = parset.smthds, labs = labs(subtitle = "Sampling Methods"))
+#'
+#' \newpage
+#'
+smthdcb <- cb[cb$cat == "M-SAMPLING", ] %>% droplevels()
+smthdcb <- smthdcb[!duplicated(smthdcb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
+smthdcb.tly <- tally(group_by(smthdcb, clab))
+lvl.smthd <- paste0(seq(1:nrow(smthdcb.tly)), " = ", levels(smthdcb$clab))
+
+smthdcb$clab2 <- factor(smthdcb$clab, labels = seq(1:nrow(smthdcb.tly)))
+# levels(smthdcb$clab) <- seq(1:length(unique(smthdcb$clab)))
+ksmthd <- ftable(smthdcb$bibkey, smthdcb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+ksmthd <- ifelse(ksmthd >= 1, "$\\checkmark$", "$\\cdot$")
+ksmthdscat <- car::recode(rownames(ksmthd), rec.key2scat)
+ksmthdscat <- ifelse(ksmthdscat == "S4", paste0("@", rownames(ksmthd), "$^*$"), paste0("@", rownames(ksmthd)))
+rownames(ksmthd) <- ksmthdscat
+# rownames(ksmthd) <- paste0("@", rownames(ksmthd))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(ksmthd, caption = "Sampling Methods by Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.smthd)
 
 #'
 #' \newpage
 #'
-#' # \textsc{Ecological Network Analysis: Data Analytic Approaches}
+#'
+#' ## Levels of Analysis Invovled in The Included Literature
 #'
 #' \Frule
 #'
 #'
 #+ echo=FALSE
 
-knitr::opts_chunk$set(fig.path = "graphics/EcoLvls/rplot-")
+knitr::opts_chunk$set(fig.path = "docs/graphics/EcoLvls/rplot-")
 
 #+ ecoLvls
 ## eco levels of analysis ================
@@ -1491,12 +2113,12 @@ ft.eco <- ftable(ct.eco[, c("clab", "scat")], row.vars = 1)
 ftm.eco <- matrix(ft.eco, nrow = nrow(t.eco), byrow = FALSE)
 dimnames(ftm.eco) <- list("Ecological Levels of Analysis" = levels(ct.eco$clab),
                           scat = c("IPV Interventions",
-                                   "SMW-Inclusive Research"))
+                                   "SMW-Specific Research"))
 # t.eco
 sum.eco <- apply(ftm.eco, 1, sum)
 ftm.eco <- ifelse(ftm.eco == 0, NA, ftm.eco)
-ftm.eco <- cbind(ftm.eco, "**Total**" = sum.eco)
-ftm.eco %>% kable(align = rep("r", 3),
+ftm.eco <- cbind(ftm.eco, "**Total**" = paste0("**", sum.eco, "**"))
+ftm.eco %>% kable(align = rep("r", ncol(ftml.eco)),
                   caption = "Mixed-Methodological Designs")
 
 #+ parset_ecoLvls, fig.fullwidth=TRUE
@@ -1515,22 +2137,49 @@ parset.eco <- ggparset2(list("Levels of Analysis",
                         data = ct.eco,
                         method = "adj.angle", label = TRUE,
                         label.size = leco, text.angle = 0, order = c(0, 0)) +
-     scale_fill_manual(values = c(pscat.a, adjustcolor(peco, alpha.f = 0.55)),
+    scale_fill_manual(values = c(pscat.a, adjustcolor(peco, alpha.f = 0.55)),
                       guide = FALSE) +
     scale_colour_manual(values = c(pscat, peco), guide = FALSE) +
     thm_Rtft(ticks = FALSE, ytext = FALSE)
 hideLabs(x = parset.eco, labs = labs(subtitle = "Ecological Levels of Analysis"))
+#'
+#' \newpage
+#'
+ecocb <- cb[cb$cat == "ECO", ] %>% droplevels()
+ecocb <- ecocb[!duplicated(ecocb), ]
+
+# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
+# x[, 3] %>% unique()
+
+ecocb.tly <- tally(group_by(ecocb, clab))
+lvl.eco <- paste0(seq(1:nrow(ecocb.tly)), " = ", levels(ecocb$clab))
+
+ecocb$clab2 <- factor(ecocb$clab, labels = seq(1:nrow(ecocb.tly)))
+# levels(ecocb$clab) <- seq(1:length(unique(ecocb$clab)))
+keco <- ftable(ecocb$bibkey, ecocb$clab2) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
+keco <- ifelse(keco >= 1, "$\\checkmark$", "$\\cdot$")
+kecoscat <- car::recode(rownames(keco), rec.key2scat)
+kecoscat <- ifelse(kecoscat == "S4", paste0("@", rownames(keco), "$^*$"), paste0("@", rownames(keco)))
+rownames(keco) <- kecoscat
+# rownames(keco) <- paste0("@", rownames(keco))
+#'
+#' \newpage
+#'
+#+ echo=FALSE
+# panderOptions("table.split.table", 120)
+kable(keco, caption = "Ecological Levels of Analysis Involved in Each Study") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.eco)
 
 #'
 #' \newpage
 #'
-#' # \textsc{Ecological Network Analysis}
+#' # Ecological **Network** Analysis
 #'
 #+ ecoLvlsData
 ## SEE "MAPlvls.R" FOR MORE DETAILED COMMENTARY ON THE REMAINING CODE BELOW ##
 
 # DATA - ECO-LEVELS ----------------
-
 
 mpeco0 <- read.csv("data/mapeco.csv")
 mplvls0 <- read.csv("data/maplvls.csv")
@@ -1545,21 +2194,20 @@ mplvls1$nsys <- apply(mplvls1[, 6:8], 1, sum)
 rownames(mplvls1) <- mplvls1[, 1]
 mplvls <- mplvls1[, -1, drop = FALSE]
 #'
-#' # Ecological Levels of Analysis
 #'
 #+ clrs_labs
 
 # COLORS & LABELS ----------------
 
-vclrs <- rev(grad(1:10))[4:7]
-vtclrs <- rev(grad(1:10))[6:9]
+vclrs <- rev(grad(1:10, p = nord_polar))[4:7]
+vtclrs <- rev(grad(1:10, p = nord_polar))[6:9]
 
 catpal85 <- adjustcolor(catpal, alpha.f = 0.85)
 lcvclrs <- c("1 = vclrs[1]; 2 = vclrs[2]; 3 = vclrs[3]; 4 = vclrs[4]; 'S3' = catpal[1]; 'S4' = catpal[2]")
 ltclrs <- c("1 = vtclrs[1]; 2 = vtclrs[2]; 3 = vtclrs[3]; 4 = vtclrs[4]")
 
 llabs1 <- c("1 = 'Individual'; 2 = 'Relationship'; 3 = 'Community'; 4 = 'Societal'")
-sclabs <- c("'S3' = 'IPV Interventions Research'; 'S4' = 'SMW-Inclusive IPV Research'")
+sclabs <- c("'S3' = 'IPV Interventions Research'; 'S4' = 'SMW-Specific IPV Research'")
 #'
 #+ l_MAP
 
@@ -1596,7 +2244,7 @@ llongv01 <- within(llongv0, {
     x <- car::recode(x, llabs1)
 })
 
-kindex <- nrow(llongv01)-4
+kindex <- nrow(llongv01) - 4
 
 llongv01$vclr[1:kindex] <- gsub("\\w+\\d{4}\\w+", NA, llongv01$cvclr[1:kindex])
 llongv01$vclr <- as.character(llongv01$vclr)
@@ -1617,28 +2265,105 @@ llongbi2 <- llongbi1[, c(2, 1)] %>% dplyr::rename("from" = to, "to" = from)
 # GRAPH DATA - LVLS ----------------
 
 library(igraph)
-llongg <- graph_from_data_frame(llong, directed = F, vertices = llongv)
+
+llongg <- graph_from_data_frame(llong, directed = FALSE, vertices = llongv)
 
 lvnames0 <- vertex_attr(llongg, "name")
-lvnames1 <- gsub("(\\w+)\\d{4}\\w+", "\\1", lvnames0)
+lvnames1 <- gsub("(\\w+)(\\d{4})\\w+", "\\1 (\\2)", lvnames0)
 
 lvnames <- sapply(lvnames1, RtCap, USE.NAMES = FALSE)
 
 V(llongg)$name <- lvnames
-
 V(llongg)$size <- V(llongg)$Freq+1
 V(llongg)$color <- adjustcolor(V(llongg)$vclr, alpha.f = 0.5)
 V(llongg)$frame.color <- adjustcolor(V(llongg)$vclr, alpha.f = 0.85)
 E(llongg)$width <- 0.35
 
-kindex.g <- V(llongg)$name %>% length()-4
+kindex.g <- V(llongg)$name %>% length() - 4
 lblsize <- c(log(V(llongg)$size[1:kindex.g])*0.5, log(V(llongg)$size[-1:-kindex.g])*0.2)
 #'
 #+ net_lvls_bibkeys, fig.fullwidth=TRUE, figPath=TRUE
+
 # PLOT - `llongg` ----------------
 par(mar = rep(0, 4))
 lfr <- layout_with_fr(llongg) %>% norm_coords()
 plot(llongg, rescale = T, layout = lfr, vertex.label.color = V(llongg)$cvclr, vertex.label.cex = lblsize)
+#'
+#' \newpage
+#'
+#' ## Ecological Network Adjacency Matrix^[See Also: @lincoln2014adjacency]
+#'
+#+ net_lvls_keys_bibkeys_mat, dev="png", fig.retina=6, fig.fullwidth=TRUE, fig.cap=sprintf("Ecological Network: Levels of Analysis x Case. Group memberships derived from %s [@brandes2008on]", c("communality clustering algorithm which maximizes modularity across all possible partitions of the graph data in order to calculate the optimal cluster structure for the data", "eigenvalues computed for each case on each level of analysis presented in the matrix")), figPath=TRUE
+
+llg.d <- graph_from_data_frame(llong, directed = TRUE, vertices = llongv[, c("x", "Freq")])
+
+llongg_comm <- cluster_louvain(llongg)
+llg.d_comm <- cluster_optimal(llg.d)
+
+V(llg.d)$name <- lvnames
+V(llg.d)$comm <- membership(llg.d_comm) ## node groupings according to 'optimal community structure' of the graph data ##
+    ## ^STALLS ON *UN*DIRECTED GRAPH^ ##
+E(llg.d)$xcomm <- crossing(llg.d_comm, llg.d)
+V(llg.d)$deg <- degree(llg.d) ## vertex degrees (i.e., N_{adjacentEdges} per node) ##
+V(llg.d)$close <- centr_clo(llg.d)$res ## node-level closeness scores ##
+V(llg.d)$btw <- centr_betw(llg.d)$res ## node-level betweenness scores ##
+V(llg.d)$eig <- centr_eigen(llg.d)$vector ## node-level eigenvector scores ##
+V(llg.d)$eigVal <- centr_eigen(llg.d)$value ## eigenvalue corresponding to V(llg.d)$eig (above) ##
+
+llg.nde <- get.data.frame(llg.d, what = "vertices")
+llg.edg <- get.data.frame(llg.d, what = "edges") %>%
+    inner_join(llg.nde %>% select(name, comm), by = c("from" = "name")) %>%
+    inner_join(llg.nde %>% select(name, comm), by = c("to" = "name")) %>%
+    mutate(group = ifelse(comm.x == comm.y, comm.x, NA) %>% factor())
+
+llg.nde.a <- sort(llg.nde$name)
+
+pdat0 <- llg.edg %>% mutate( ## base plot data, arranged alphabettically by 'llg.nde.a' values (i.e., llg.nde$name), which is not ideal, but good to have a base dataframe just in case ##
+    to = factor(to, levels = llg.nde.a),
+    from = factor(from, levels = llg.nde.a))
+
+llg.comm <- (llg.nde %>% arrange(comm))$name
+pdat.comm <- llg.edg %>% mutate( ## plot data arranged by node communities ##
+    to = factor(to, levels = llg.comm),
+    from = factor(from, levels = llg.comm))
+
+llg.mat1 <- ggplot(pdat.comm, aes(x = to, y = from, fill = group)) +
+    geom_raster() +
+    thm_Rtft(ytitle = FALSE, xtitle = FALSE, ptitle = T, pcaption = TRUE) + ## I ADDED THIS USING A THEME FROM MY "Riley" PKG ##
+    scale_fill_manual(values = mpal(seq_along(unique(na.omit(pdat.comm$group)))), na.value = pal_my[2], labels = c("Group-1", "Group-2", "Group-3", "Multi-Group")) +
+    # Because we need the x and y axis to display every node,
+    # not just the nodes that have connections to each other,
+    # make sure that ggplot does not drop unused factor levels -- @lincoln2014adjacency
+    scale_x_discrete(drop = TRUE) + ## except in my case, i want to drop the unused levels bc the data used to generate the network graph data is specifically setup so that the only unique values in the "to" column are the ecological levels of analysis involved in each study, and vise-versa in the "from column, so a matrix plot showing all levels on both axes is inappropriate for these data. ##
+    scale_y_discrete(drop = TRUE) +
+    theme(
+        axis.text.x = element_text(angle = 0, hjust = 0.5),
+        # Force the plot into a square aspect ratio
+        aspect.ratio = 1)#,
+        # Hide the legend (optional)
+        # legend.position = "none")
+hideLabs(x = llg.mat1, labs = labs(title = "Ecological Network: Levels of Analysis x Case"))#, caption = "Groups Represent Caclulated Cluster Memberships using  "))
+
+llg.eig <- (llg.nde %>% arrange(eig))$name
+pdat.eig <- llg.edg %>% mutate( ## plot data arranged by node eigenvalues ##
+    to = factor(to, levels = llg.eig),
+    from = factor(from, levels = llg.eig))
+
+llg.mat2 <- ggplot(pdat.eig, aes(x = from, y = to, fill = group)) +
+    geom_raster() +
+    thm_Rtft(ytitle = FALSE, xtitle = FALSE, ptitle = T, pcaption = TRUE) +
+    scale_fill_manual(values = mpal(seq_along(unique(na.omit(pdat.eig$group)))), na.value = pal_my[2], labels = c("Group-1", "Group-2", "Group-3", "Multi-Group")) +
+    scale_x_discrete(drop = TRUE) +
+    scale_y_discrete(drop = TRUE) +
+    theme(
+        axis.text.y = element_text(angle = 90, hjust = 0.5, size = rel(.85)),
+        axis.text.x = element_text(angle = 270, hjust = 0, size = rel(.85)),
+        aspect.ratio = 1,
+        plot.caption = element_text(size = rel(0.75)))
+
+hideLabs(x = llg.mat2, labs = labs(subtitle = "Ecological Netowrk: Levels of Analysis", caption = "Group memberships derived from clustering algorithm which maximizes modularity\nacross all possible partitions of the graph data in order to calculate the\noptimal cluster structure for the data (Brandes et al., 2008)"))
+#'
+#' `r tufte::newthought("The above adjacency matrix plot")` provides several pieces of information.
 
 #+ lvls_lnet
 
@@ -1703,7 +2428,7 @@ lfrq <- Rtdf(lfrq3, names = c("lvl", "Freq"))
 
 # `lnetg` ----------------
 
-library(igraph)
+# library(igraph) ## not necessary - but included as reminder and in case I move/copy the code later ##
 lnetg <- graph_from_data_frame(lnet, directed = FALSE, vertices = lfrq)
 V(lnetg)$size <- V(lnetg)$Freq*1.5
 lnetcol <- mpal(lfrq, a = 0.8)
@@ -1751,7 +2476,7 @@ ldeg <- log(degree(lnetg))
 larcs <- lnetft %>% matrix()
 larcs <- ifelse(larcs == 0, NA, larcs) %>% na.omit()
 
-#+ arc_lvls, fig.height=3.75, fig.fullwidth=TRUE
+#+ arc_lvls_TEST, fig.height=3.75, fig.fullwidth=TRUE
 
 # PLOT - `lnet - arcplot()` ----------------
 par(mar = c(5, 0, 0, 0))
@@ -1827,7 +2552,7 @@ sfrq <- Rtdf(sfrq3, names = c("lvl", "Freq"))
 # GRAPH DATA - ECO SYS ----------------
 
 
-library(igraph) ## not necessary - but included as reminder and in case I move/copy the code later ##
+# library(igraph) ## not necessary - but included as reminder and in case I move/copy the code later ##
 
 snetg <- graph_from_data_frame(snet, directed = FALSE, vertices = sfrq)
 V(snetg)$size <- V(snetg)$Freq*1.5
@@ -1852,8 +2577,6 @@ plot(snetg, rescale = T, layout = ls1n, edge.arrow.size = .2, vertex.label.color
 # plot(lnetg, rescale = T, layout = ll3n, edge.arrow.size = .2, vertex.label.color = "#1a1e22", vertex.frame.color = NA, margin = c(0, -0.15, -0.15, 0.05)); box(which = "figure")
 # plot(snetg, rescale = T, layout = ls1n, edge.arrow.size = .2, vertex.label.color = "#1a1e22", vertex.frame.color = NA, margin = c(0, 0, 0, -0.5)); box(which = "figure")
 # par(mpar, mfrow = c(1, 1))
-
-
 #'
 #'
 #' \newpage
@@ -1962,7 +2685,7 @@ tv <- Rtdf(tv3, names = c("id", "Freq"))
 tv[, 1] <- as.character(tv[, 1])
 # `tlnetg` ----------------
 
-library(igraph)
+# library(igraph) ## not necessary - but included as reminder and in case I move/copy the code later ##
 tlnetg <- graph_from_data_frame(tlnet[, 1:2], directed = FALSE, vertices = tlfrq)
 V(tlnetg)$size <- V(tlnetg)$Freq*3
 tlnetcol <- mpal(tlfrq, a = 0.8)[-1:-4] %>% adjustcolor(alpha.f = 0.5)
@@ -2113,7 +2836,7 @@ av <- Rtdf(av3, names = c("id", "Freq"))
 av[, 1] <- as.character(av[, 1])
 # `alnetg` ----------------
 
-library(igraph)
+# library(igraph) ## not necessary - but included as reminder and in case I move/copy the code later ##
 alnetg <- graph_from_data_frame(alnet[, 1:2], directed = FALSE, vertices = alfrq)
 V(alnetg)$size <- V(alnetg)$Freq*1.5
 alnetcol <- mpal(alfrq, a = 0.8)[-1:-4] %>% adjustcolor(alpha.f = 0.5)
@@ -2255,828 +2978,284 @@ mtext(text = allabs_pl, side = 4, cex = 0.5, adj = 0, padj = 0.5, las = 2, outer
 #'
 #' `r allabs1`
 #'
-#+ echo=FALSE
-par(op)
-knitr::opts_chunk$set(fig.path = "graphics/bibkeys/rplot-",
-                      fig.show = 'asis')#, echo = TRUE)
-# options(warn = -1)
-#'
-#' \Frule
-#'
 #' \newpage
+#' 
+#' # Cluster Analysis: Topics Covered in Each Study
 #'
+#+ echo=FALSE
+knitr::opts_chunk$set(fig.path = "graphics/cluster/rplot-tops-")
 #'
-#+ tl_map, fig.fullwidth=TRUE, fig.width=7, out.width='\\linewidth', fig.align='center', figPath=TRUE
+#+ clust_h_topics, fig.fullwidth=TRUE, figPath=TRUE
+top <- cb[cb$cat == "TOPIC", ] %>% droplevels()
+top <- within(top, {
+    cid <- ifelse(top$cid %in% tpFilter, cid, NA)
+})
 
-# MAPtl ----------------
-MAP <- MAP[, c("bibkey", "year", "journal", "caseid", "scat", "jrnl", "cpv", "j.loc", "j.year", "SJR", "Hindex", "title")]
-
-MAPtl <- within(MAP, {
-    ## - making a copy so i don't mess up anything already
-    ##   written below that may depend on the original
-    ##   version of "MAP" ##
-    # bibkey2 <- as.integer(factor(bibkey))
+top <- within(top, {
     bibkey2 <- ifelse(bibkey == "boal2014barriers", "boala2014barriers", bibkey)
     bibkey2 <- ifelse(bibkey2 == "boal2014impact", "boalb2014impact", bibkey2)
     bibkey2 <- gsub("(\\w+)(\\d{4})\\w+", "\\1 (\\2)", bibkey2)
-    bibkey2 <- ifelse(bibkey == "boala (2014)", "boal (2014a)", bibkey2)
-    bibkey2 <- ifelse(bibkey == "boalb (2014)", "boal (2014b)", bibkey2)
+    bibkey2 <- ifelse(bibkey2 == "boala (2014)", "boal (2014a)", bibkey2)
+    bibkey2 <- ifelse(bibkey2 == "boalb (2014)", "boal (2014b)", bibkey2)
     bibkey2 <- sapply(bibkey2, RtCap, USE.NAMES = FALSE)
-    yrv <- ifelse(cpv == "V", year, 0)
-    yrcp <- ifelse(cpv == "CP", year, 0)
-    cpv <- factor(cpv, labels = c("Community-Psychology", "Violence"))
+    bibkey3 <- paste0("@", bibkey)
+    clab <- gsub(" \\(General\\) ", "", clab)
+    clab <- gsub(" \\(General\\)", "", clab)
+    clab <- gsub("IPV Victimization", "IPV - V", clab)
+    clab <- gsub("IPV Perpetration", "IPV - P", clab)
+    clab <- gsub("IPV Perpetrator", "IPV - P", clab)
+    clab <- gsub("Victims'/Survivors'", "IPV - V", clab)
+    clab <- gsub("IPV Intervention", "Intervention", clab)
+    clab <- gsub("Intervention Program", "Intervention", clab)
+    clab <- gsub("Intervention/Prevention", "Intervention", clab)
+    clab <- gsub("Evaluation", "Eval.", clab)
+    clab <- gsub("Interventions", "Intervention", clab)
+    clab <- gsub("Coordinated Community Response to IPV", "CCR", clab)
+    clab <- gsub("Key Stakeholders", "Stakeholders", clab)
+})
+rec.clab2cid2 <- paste0("\"", top$clab, "\" = \"", top$cid, "\"", collapse = "; ")
+
+top <- na.omit(top)
+# top$bibkey.pr <- paste0("@", top$bibkey)
+# rec.key2pr <- paste0("\"", top$bibkey, "\" = \"", top$bibkey.pr, "\"", collapse = "; ")
+
+Rtdf(top$clab, names = c(" ", "$N_{Articles}$")) %>%
+    kable(align = c("l", "r"))
+
+topmat <- ftable(top$bibkey2, top$cid) %>% as.matrix()
+topmatpr <- ftable(top$bibkey3, top$clab) %>% as.matrix() ## "ks4" == "bibkeys - s4" ##
+
+# topmatt <- t(topmat)
+topmatt <- ftable(top$bibkey2, top$clab) %>% as.matrix() %>% t() ## "ks4" == "bibkeys - s4" ##
+topmattpr <- ftable(top$bibkey3, top$clab) %>% as.matrix() %>% t() ## "ks4" == "bibkeys - s4" ##
+
+kable(Rmsmm(as.data.frame(topmatpr)))
+kable(Rmsmm(as.data.frame(topmattpr)))
+
+topdist <- dist(topmat)
+Rmsmm(topdist)
+topclust <- hclust(topdist, method = "ward.D2")
+# names(topclust)
+# topclust$merge
+# topclust$height
+# topclust$order
+# topclust$labels <- paste0("@", topclust$labels)
+
+palette(pal_my)
+par(mar = c(0,2,0.7,0))
+plot(topclust, sub = ' ', xlab = ' ', main = "Bibkeys Clustered by Topics",
+     frame.plot = F, col = 20, col.main = 18, col.axis = 18,
+     cex = 0.8, cex.main = 1, cex.axis = 0.65, lwd = 1.5,
+     font.main = 3)
+abline(a = 3.5, b = 0, lty = 3, lwd = 1.5,
+       col = adjustcolor(pal_my[19], alpha.f = 0.75))
+rect.hclust(topclust, h = 3.5, border = "#3B0C67") -> rhcl
+par(op)
+topGrps <- cutree(topclust, 3)
+barplot(table(topGrps), col = pal_sci[1], border = pal_sci[1], main = "Cluster Member Counts - Topics", xlab = ' ', cex = 1.25, cex.main = 1.15, cex.lab = 1, cex.axis = 0.85)
+
+as.data.frame(table(topGrps)) %>%
+    dplyr::rename(Group = topGrps, Nmembers = Freq) %>% ## 'rename()' {dplyr} args: [output]=[input]
+    kable(caption = "4-Group Solution Membership Counts (Topics)")
+topmembers <- sapply(unique(topGrps),function(g) paste(rownames(topmat)[topGrps == g]))
+names(topmembers) <- paste0("Group.", seq_along(topmembers))
+topmembers <- t(t(topmembers))
+names(topmembers) <- "Group Members"
+pander(topmembers, caption = "Group Memberships Resulting from 4-Group Hierarchical Cluster Solution (Topics)")
+
+library(cluster)
+topkfit <- kmeans(topmat, 3)
+p <- pal_sci[c(1, 2, 3, 3)]
+clusplot(topmat, topkfit$cluster, main = '4-Cluster K-Means Solution (Topics)',
+         color = T, shade = T, plotchar = F, cex.txt = 0.5,
+         col.clus = p, pch = 21, bg = adjustcolor(pal_my[19], alpha.f = .25),
+         labels = 4, lines = 0, col.p = pal_my[19], font.main = 3, verbose = T, span = T)
+pander(t(topkfit$centers), caption = "Per Variable Cluster Means ('centers') for 4-Cluster K-Means Solution (Topics)")
+#'
+#' -----
+#'
+#' # Which topics cluster with other topics?
+#'
+#'
+#+ clust_km_top, fig.fullwidth=TRUE, figPath=TRUE
+top2dist <- dist(topmatt)
+
+Rmsmm(top2dist)
+
+
+top2clust <- hclust(top2dist, method = "ward.D2")
+# names(top2clust)
+# top2clust$merge
+# top2clust$height
+# top2clust$order
+# top2clust$labels
+
+palette(pal_my)
+par(mar = c(0,2,0.7,0))
+plot(top2clust, sub = ' ', xlab = ' ', main = "Topics Clustered by Bibkeys",
+     frame.plot = F, col = 20, col.main = 18, col.axis = 18,
+     cex = 0.65, cex.main = 1, cex.axis = 0.65, lwd = 1.5,
+     font.main = 3)
+abline(a = 2.8, b = 0, lty = 3, lwd = 1.5,
+       col = adjustcolor(pal_sci[4], alpha.f = 0.75))
+rect.hclust(top2clust, h = 2.8,
+            border = adjustcolor(pal_sci[4], alpha.f = 0.75)) -> rhcl.h28
+
+par(op)
+top2clusts <- list()
+for (i in 1:length(rhcl.h28)) {
+    top2clusts[[i]] <- car::recode(names(rhcl.h28[[i]]), rec.clab2cid2)
+}
+
+top2 <- within(top, {
+    tp_c1 <- ifelse(cid %in% top2clusts[[1]], 1, 0)
+    tp_c2 <- ifelse(cid %in% top2clusts[[2]], 1, 0)
+    tp_c3 <- ifelse(cid %in% top2clusts[[3]], 1, 0)
+    tp_c4 <- ifelse(cid %in% top2clusts[[4]], 1, 0)
+    tp_c5 <- ifelse(cid %in% top2clusts[[5]], 1, 0)
+    tp_clust <- ifelse(cid %in% top2clusts[[1]], "C-1", NA)
+    tp_clust <- ifelse(cid %in% top2clusts[[2]], "C-2", tp_clust)
+    tp_clust <- ifelse(cid %in% top2clusts[[3]], "C-3", tp_clust)
+    tp_clust <- ifelse(cid %in% top2clusts[[4]], "C-4", tp_clust)
+    tp_clust <- ifelse(cid %in% top2clusts[[5]], "C-5", tp_clust)
 })
 
-MAPtl <- MAPtl[order(MAPtl$yrv), , drop = FALSE] %>% within({
-    posv <- sequence(rle(sort(yrv))$lengths)
-    posv <- ifelse(yrv == 0, 0, posv)
-    posv <- log(posv + 0.5) * -0.5
-})
+top2bib <- top2[, c("bibkey2", "code", paste0("tp_c", 1:5), "tp_clust")]
+# top2bib <- top2bib[!duplicated(top2bib), ]
+topmatbib <- ftable(top2bib$bibkey2, top2bib$tp_clust) %>% as.matrix()
 
-MAPtl <- MAPtl[order(MAPtl$yrcp), , drop = FALSE] %>% within({
-    poscp <- sequence(rle(sort(yrcp))$lengths)
-    pos <- ifelse(yrcp == 0, posv, log(poscp - 0.5) * -0.5)
-    # pos <- jitter(pos, amount = 0)
-    ## could've achieved the same in the previous line,
-    ## but wanted to preserve the separate pos* columns just in case ##
-})
-## !!!! THANKS TO THIS SO ANSWER FOR THE "sequence(rle())" solution:
-##      http://stackoverflow.com/a/19998876/5944560
-##      (i spent HOURS trying to figure out how to do this,
-##      only to find that the geniuses behind R
-##      [specifically the {utils} pkg] had already developed
-##      an effecient, vectorized, solution) ##
+barcol <- adjustcolor(pal_sci[c(2, 4, 5, 8)], alpha.f = 0.65)
+top2Grps <- cutree(top2clust, 5)
+barplot(table(top2Grps), col = barcol, border = pal_sci[c(2, 4, 5, 8)], main = "Cluster Member Counts - Topics", xlab = ' ', cex = 1.25, cex.main = 1.15, cex.lab = 1, cex.axis = 0.85)
 
-# grays_nord <- colorRampPalette(pal_nord$polar[c(8, 1)]) ## add to pkg::Riley (in "Rpals.R")##
-vawa <- 1994 ## year original VAWA was passed ##
-vawaclr <- grays_nord(12)[7]
-# yrcnt <- Rtdf(MAPtl$year, names = c("year", "yrcnt"))#[, 1, drop == FALSE]
-
-# as.integer(MAPtl$year) %>% min() -> yrmin
-# as.integer(MAPtl$year) %>% max()+1 -> yrmax
-
-# GGPLOT - tl ----------------
-
-gg.tl <- ggplot(MAPtl, aes(x = year, y = 0, colour = cpv)) +
-    thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE,
-             ptitle = TRUE, xtext = FALSE, xticks = FALSE) +
-    theme(legend.text = element_text(size = rel(0.75), face = "italic"),
-          legend.title = element_text(size = rel(0.95), face = "bold.italic"),
-          legend.background = element_rect(fill = "transparent", size = 0.1, colour = pal_my[19]),
-          legend.key.height = unit(0.5, "cm"),
-          # legend.key = element_rect(size = 1),
-          legend.justification = c(1, 0.67),
-          legend.box.spacing = unit(0.1, "cm")) +
-    labs(colour = "Journal Category", title = "Timeline of Reviewed Research\n") +
-    scale_colour_manual(values = pcpv) + #, guide = FALSE) +
-    geom_hline(yintercept = 0, size = 0.25, color = pal_nord$polar[7], alpha = 0.5) +
-    geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
-                 colour = pal_my[19], alpha = 0.55,
-                 na.rm = TRUE, size = 0.2, linetype = 3) +
-    geom_text(aes(y = pos, x = year, label = bibkey2), hjust = 0.5, vjust = 0,
-              angle = 25, size = 1.9, fontface = "bold", check_overlap = FALSE) +
-    # geom_vline(xintercept = vawa, size = 0.45, color = pal_nord$polar[1], linetype = 3) +
-    geom_text(aes(y = 0, x = vawa, label = "1994 Violence Against Women Act"),
-              alpha = 0.5, angle = 90, colour = adjustcolor(pal_my[19], alpha.f = 0.5), size = 2.75,
-              nudge_x = -0.25,
-              family = "serif", fontface = "italic") +
-    geom_text(aes(y = 0, x = year, label = year), check_overlap = TRUE,
-              vjust = 0.5, hjust = 0.5, angle = 0, colour = pal_my[20],
-              size = 2, fontface = "bold") +
-    xlim(min(MAPtl$year) - 0.25, max(MAPtl$year)) +
-    ylim(min(MAPtl$pos) - 0.15, max(MAPtl$pos) + 0.15)
-gg.tl
+as.data.frame(table(top2Grps)) %>%
+    dplyr::rename(Group = top2Grps, Nmembers = Freq) %>% ## 'rename()' {dplyr} args: [output]=[input]
+    kable(caption = "3-Group Solution Membership Counts (Topics)")
+top2members <- sapply(unique(top2Grps),function(g) paste(car::recode(rownames(topmatt), rec.cid2clab)[top2Grps == g]))
+names(top2members) <- paste0("Group.", seq_along(top2members))
+top2members <- t(t(top2members))
+names(top2members) <- "Group Members"
+pander(top2members, caption = "Group Memberships Resulting from 4-Group Hierarchical Cluster Solution (Topics)")
 #'
 #' \newpage
 #'
-#' # \textsc{IPV Intervention \& Prevention Research}
-#'
-#' \Frule
-#'
-# reclab(cb$scat) ----------------
-levels(cb$scat) <- c(1, 2)
-cb$clab <- factor(cb$clab)
-#'
-# s3cb ----------------
-s3cb <- cb[cb$scat == 1, ] %>% droplevels
-s3cb.keys <- paste0("@", levels(s3cb$bibkey))
-#'
-#'
-#+ tl_inv, fig.fullwidth=TRUE, fig.height=2.75, out.width='\\linewidth', figPath=TRUE
-inv <- MAPtl[MAPtl$scat == "S3", ]
+#+ hClust_bibkeys
+topmatbib.di <- Rdich(topmatbib)
+topbibdist.di <- dist(topmatbib.di)
+topbibclust.di <- hclust(topbibdist.di, method = "ward.D2")
 
-tl.inv <- inv[order(inv$year), c("bibkey", "year", "cpv", "journal", "title"), drop = FALSE] %>% droplevels()
-tl.inv$bibkey <- paste0("@", tl.inv$bibkey)
-tl.inv$journal <- paste0("_", tl.inv$journal, "_")
-tl.inv <- dplyr::rename(tl.inv, "Study" = bibkey, "Journal" = journal, "Year Published" = year)
-rownames(tl.inv) <- NULL
+topbibdist <- dist(topmatbib)
+topbibclust <- hclust(topbibdist, method = "ward.D2")
 
-inv <- inv[order(inv$yrv), , drop = FALSE] %>% within({
-    posv <- sequence(rle(sort(yrv))$lengths)
-    posv <- ifelse(yrv == 0, 0, posv)
-    posv <- log(posv + 0.75) * -1
-})
+palette(pal_my)
+par(mar = c(0,2,0.7,0))
+plot(topbibclust, sub = ' ', xlab = ' ', main = "Bibkey Clusters based on Topics Clusters",
+     frame.plot = F, col = 20, col.main = 18, col.axis = 18,
+     cex = 0.65, cex.main = 1, cex.axis = 0.65, lwd = 1.5,
+     font.main = 3)
+abline(a = 4, b = 0, lty = 3, lwd = 1.5,
+       col = pal_sci[8])
+# rect.hclust(top2clust, h = 2.8,
+#             border = adjustcolor(pal_my[18], alpha.f = 0.75))
+rect.hclust(hclust(dist(topmatbib), method = "ward.D2"),
+            h = 4, border = pal_sci[8]) -> rhcl_bib
 
-inv <- inv[order(inv$yrcp), , drop = FALSE] %>% within({
-    poscp <- sequence(rle(sort(yrcp))$lengths)
-    pos <- ifelse(yrcp == 0, posv, log(poscp - 0.5) * -1)
-})
-# GGPLOT - invtl ----------------
+topmatbib2 <- ftable(top2$bibkey3, top2bib$tp_clust) %>% as.matrix()
+kable(topmatbib2, caption = "Bibkey Clusters based on Topics Clusters", format.args = list(zero.print = ".") )
 
-gg.invtl <- ggplot(inv, aes(x = year, y = 0, colour = cpv)) +
-    thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE,
-             ptitle = TRUE, xtext = FALSE, xticks = FALSE) +
-    theme(legend.text = element_text(size = rel(0.55)),
-          legend.title = element_text(size = rel(0.65), face = "bold"),
-          legend.justification = c(1, 0.8),
-          legend.box.spacing = unit(0, "cm")) +
-    # plot.margin = unit(c(1, rep(0.15, 3)), "cm")) +
-    ylim(min(inv$pos) - 0.5, max(inv$pos) + 0.5) +
-    labs(colour = "Journal Category", title = "IPV-Interventions Research Timeline") +
-    scale_colour_manual(values = pcpv) + #, guide = FALSE) +
-    geom_hline(yintercept = 0, size = 0.25, color = pal_nord$polar[7], alpha = 0.5) +
-    geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
-                 colour = pal_my[19], alpha = 0.55,
-                 na.rm = TRUE, size = 0.2, linetype = 3) +
-    geom_text(aes(y = pos, x = year, label = bibkey2), hjust = 0.5, vjust = 1,
-              angle = 25, size = 2.5, fontface = "bold") + #, nudge_y = -0.05) +
-    # geom_vline(xintercept = vawa, size = 0.45, color = pal_nord$polar[1], linetype = 3) +
-    geom_text(aes(y = 0, x = vawa, label = "1994 Violence Against Women Act"),
-              alpha = 0.5, angle = 90, colour = vawaclr, size = 2.5,
-              nudge_x = -0.25, family = "serif", fontface = "italic") +
-    geom_text(aes(y = 0, x = year, label = year), check_overlap = TRUE,
-              vjust = 0.5, hjust = 0.5, angle = 0, colour = pal_my[20],
-              size = 2.5, family = "serif", fontface = "bold") +
-    xlim(min(inv$year) - 0.25, max(inv$year)) +
-    ylim(min(inv$pos) - 0.15, max(inv$pos) + 0.15)
-gg.invtl
+c1 <- names(rhcl.h28[[1]]) %>% as.list
+c2 <- names(rhcl.h28[[2]]) %>% as.list
+c3 <- names(rhcl.h28[[3]]) %>% as.list
+c4 <- names(rhcl.h28[[4]]) %>% as.list
+c5 <- names(rhcl.h28[[5]]) %>% as.list
 
-tl.inv[, c(1, 4, 2)] %>% kable(caption = "IPV Interventions Research Timeline")
+cat(tufte::newthought("'C-1 Topics:"))
 
+pander(c1)
+
+cat(tufte::newthought("'C-2 Topics:"))
+
+pander(c2)
+
+cat(tufte::newthought("'C-3 Topics:"))
+
+pander(c3)
+
+cat(tufte::newthought("'C-4 Topics:"))
+
+pander(c4)
+
+cat(tufte::newthought("'C-5 Topics:"))
+
+pander(c5)
+
+topmatcodes <- ftable(top2$clab, top2$tp_clust) %>% as.matrix()
+
+topmatcodespr <- ifelse(topmatcodes == 0, "$\\cdot$", "$\\checkmark$")
+kable(topmatcodespr, caption = "Topic Clusters' Membership")
 #'
 #' \newpage
 #'
-
-#' ## Research Topics
-#'
-#+ topics_s3
-## s3cb - TOPICS ================
-
-# levels(droplevels(cb[cb$cat == "TOPIC", "clab"])) %>% as.list() %>% pander()
-# l1tops <-levels(droplevels(cb[cb$cat == "TOPIC", "clab"]))[c(12, 16, )]
-
-s3top <- s3cb[s3cb$cat == "TOPIC", ] %>% droplevels()
-s3top <- s3top[!duplicated(s3top), ]
-# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s3top$clab, s3top$jrnl)
-Rtdf(s3top$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Primary Topics Distribution (IPV Interventions Research)", align = c("l", "r"))
-
-lvls3.tp <- paste0(seq(1:length(unique(s3top$clab))), " = ", levels(s3top$clab))
-levels(s3top$clab) <- seq(1:length(unique(s3top$clab)))
-ks3tp <- ftable(s3top$bibkey, s3top$clab) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
-ks3tp <- ifelse(ks3tp >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks3tp) <- paste0("@", rownames(ks3tp))
-#'
-#' \newpage
-#'
-#+ echo=FALSE
-# panderOptions("table.split.table", 120)
-kable(ks3tp[, 1:9], caption = "Primary Topics by Study (IPV Interventions Research [1/2])")
-pander(lvls3.tp[1:9])
-#'
-#' \newpage
-#'
-#+ echo=FALSE
-kable(ks3tp[, 10:ncol(ks3tp)], caption = "Primary Topics by Study (IPV Interventions Research [2/2])")
-pander(lvls3.tp[10:length(lvls3.tp)])
-#'
-#' \newpage
-#' ## Target Populations/Sampling Frames
-#'
-#+ pop_s3
-## s3cb - POPULATIONS ================
-s3pop <- s3cb[s3cb$cat == "POPULATION", ] %>% droplevels()
-s3pop <- s3pop[!duplicated(s3pop), ]
-# x <- s3pop[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s3pop$clab, s3pop$jrnl)
-Rtdf(s3pop$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Populations Included (IPV Interventions Research)", align = c("l", "r"))
-
-lvla3.pop <- paste0(seq(1:length(unique(s3pop$clab))), " = ", levels(s3pop$clab))
-levels(s3pop$clab) <- seq(1:length(unique(s3pop$clab)))
-ks3pop <- ftable(s3pop$bibkey, s3pop$clab) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
-ks3pop <- ifelse(ks3pop >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks3pop) <- paste0("@", rownames(ks3pop))
-kable(ks3pop, caption = "Populations Included by Study (IPV Interventions Research)")
-pander(lvla3.pop)
-#'
-#'
-#' \newpage
-#'
-#' ## Sampling Settings
-#'
-#'
-#+ setLvls_s3
-s3set <- s3cb[s3cb$cat == "M-SETTINGS", ] %>% droplevels()
-s3set <- s3set[!duplicated(s3set), ]
-# x <- s3set[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4ql$clab, s4ql$jrnl)
-Rtdf(s3set$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Sampling Settings (IPV Interventions Research)", align = c("l", "r"))
-
-lvla3.set <- paste0(seq(1:length(unique(s3set$clab))), " = ", levels(s3set$clab))
-levels(s3set$clab) <- seq(1:length(unique(s3set$clab)))
-ks3set <- ftable(s3set$bibkey, s3set$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks3set <- ifelse(ks3set >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks3set) <- paste0("@", rownames(ks3set))
-kable(ks3set[, 1:10], caption = "Sampling Settings by Study (IPV Interventions Research [1/2])")
-pander(lvla3.set[1:9])
-#'
-#' \newpage
-#'
-#+ echo=FALSE
-kable(ks3set[, 11:ncol(ks3set)], caption = "Sampling Settings by Study (IPV Interventions Research [2/2])")
-pander(lvla3.set[10:length(lvla3.set)])
-#'
-#'
-#' \newpage
-#'
-#' ## Sampling Methods
-#'
-#'
-#+ smthds_s3
-s3smthds <- s3cb[s3cb$cat == "M-SAMPLING", ] %>% droplevels()
-s3smthds <- s3smthds[!duplicated(s3smthds), ]
-# x <- s3smthds[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4ql$clab, s4ql$jrnl)
-Rtdf(s3smthds$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Ecological Levels of Analysis (IPV Interventions Research)", align = c("l", "r"))
-
-lvla3.smthds <- paste0(seq(1:length(unique(s3smthds$clab))), " = ", levels(s3smthds$clab))
-levels(s3smthds$clab) <- seq(1:length(unique(s3smthds$clab)))
-ks3smthds <- ftable(s3smthds$bibkey, s3smthds$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks3smthds <- ifelse(ks3smthds >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks3smthds) <- paste0("@", rownames(ks3smthds))
-kable(ks3smthds, caption = "Sampling Methods by Study (IPV Interventions Research)")
-pander(lvla3.smthds)
-#'
-#'
-#' \newpage
-#'
-#' # Research Designs by Study
-#'
-#+ designs_s3
-## s3cb - DESIGNS ================
-s3d <- s3cb[s3cb$cat == "DESIGN", ] %>% droplevels()
-s3d <- s3d[!duplicated(s3d), ]
-# x <- s3d[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s3d$clab, s3d$jrnl)
-Rtdf(s3d$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Research Design (IPV Interventions Research)", align = c("l", "r"))
-
-lvla3.mo <- paste0(seq(1:length(unique(s3d$clab))), " = ", levels(s3d$clab))
-levels(s3d$clab) <- seq(1:length(unique(s3d$clab)))
-ks3d <- ftable(s3d$bibkey, s3d$clab) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
-ks3d <- ifelse(ks3d >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks3d) <- paste0("@", rownames(ks3d))
-kable(ks3d, caption = "Research Design by Study (IPV Interventions Research)")
-pander(lvla3.mo)
-#'
-#' \newpage
-#'
-#' ## Overarching Methodology
-#'
-#+ mthds_s3
-## s3cb - METHODS ================
-s3mo <- s3cb[s3cb$cat == "METHODS", ] %>% droplevels()
-s3mo <- s3mo[!duplicated(s3mo), ]
-# x <- s3mo[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s3mo$clab, s3mo$jrnl)
-Rtdf(s3mo$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Overarching Methodology (IPV Interventions Research)", align = c("l", "r"))
-
-lvla3.mo <- paste0(seq(1:length(unique(s3mo$clab))), " = ", levels(s3mo$clab))
-levels(s3mo$clab) <- seq(1:length(unique(s3mo$clab)))
-ks3mo <- ftable(s3mo$bibkey, s3mo$clab) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
-ks3mo <- ifelse(ks3mo >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks3mo) <- paste0("@", rownames(ks3mo))
-kable(ks3mo, caption = "Methodology by Study (IPV Interventions Research)")
-pander(lvla3.mo)
-#'
-#' \newpage
-#'
-#' ## Qua**L**itative Methods
-#'
-#+ QL_s3
-## s3cb - QUAL ================
-
-s3ql <- s3cb[s3cb$cat == "M-QL", ] %>% droplevels()
-s3ql <- s3ql[!duplicated(s3ql), ]
-# x <- s3ql[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s3ql$clab, s3ql$jrnl)
-Rtdf(s3ql$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Qua**L**itative Methods (IPV Interventions Research)", align = c("l", "r"))
-
-lvla3.ql <- paste0(seq(1:length(unique(s3ql$clab))), " = ", levels(s3ql$clab))
-levels(s3ql$clab) <- seq(1:length(unique(s3ql$clab)))
-ks3ql <- ftable(s3ql$bibkey, s3ql$clab) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
-ks3ql <- ifelse(ks3ql >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks3ql) <- paste0("@", rownames(ks3ql))
-kable(ks3ql, caption = "Qua**L**itative Methods by Study (IPV Interventions Research)")
-pander(lvla3.ql)
-#'
-#' ## Qua**L**itative Analytic Appraoches (IPV Interventions)
-#'
-#+ qlAnalytics_s3
-## s3cb - QUAL ================
-s3aql <- s3cb[s3cb$cat == "A-QL", ] %>% droplevels()
-# s3aql <- s3ql[!duplicated(s3aql), ]
-# x <- s3aql[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s3aql$clab, s3aql$jrnl)
-Rtdf(s3aql$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Qua**L**itative Methods (IPV Interventions Research)", align = c("l", "r"))
-
-lvla3.ql <- paste0(seq(1:length(unique(s3aql$clab))), " = ", levels(s3aql$code))
-levels(s3aql$clab) <- seq(1:length(unique(s3aql$clab)))
-ks3aql <- ftable(s3aql$bibkey, s3aql$clab) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
-ks3aql <- ifelse(ks3aql >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks3aql) <- paste0("@", rownames(ks3aql))
-kable(ks3aql, caption = "Qua**L**itative Analytic Approaches by Study (IPV Interventions Research)")
-pander(lvla3.ql)
-#'
-#' \newpage
-#'
-#' ## Qua**NT**itative Methods
-#'
-#+ qtMethods_s3
-## s3cb - QUANT ================
-s3qt <- s3cb[s3cb$cat == "M-QT", ] %>% droplevels()
-s3qt <- s3ql[!duplicated(s3qt), ]
-# x <- s3qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s3qt$clab, s3qt$jrnl)
-Rtdf(s3qt$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Qua**NT**itative Methods (IPV Interventions Research)", align = c("l", "r"))
-
-lvla3.qt <- paste0(seq(1:length(unique(s3qt$clab))), " = ", levels(s3qt$clab))
-levels(s3qt$clab) <- seq(1:length(unique(s3qt$clab)))
-ks3qt <- ftable(s3qt$bibkey, s3qt$clab) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
-ks3qt <- ifelse(ks3qt >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks3qt) <- paste0("@", rownames(ks3qt))
-kable(ks3qt, caption = "Qua**NT**itative Methods by Study (IPV Interventions Research)")
-pander(lvla3.qt)
-#'
-#' ## QuaNTtitative Analytic Approaches
-#'
-#+ AQT_s3
-## s3cb - QUANT - ANALYSIS ================
-s3aqt <- s3cb[s3cb$cat == "A-QT", ] %>% droplevels()
-# s3aqt <- s3ql[!duplicated(s3aqt), ]
-# x <- s3aqt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s3aqt$clab, s3aqt$jrnl)
-Rtdf(s3aqt$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Qua**NT**itative Methods (IPV Interventions Research)", align = c("l", "r"))
-
-lvls3.aqt <- paste0(seq(1:length(unique(s3aqt$clab))), " = ", as.character(levels(s3aqt$clab)))
-levels(s3aqt$clab) <- seq(1:length(unique(s3aqt$clab)))
-ks3aqt <- ftable(s3aqt$bibkey, s3aqt$clab) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
-ks3aqt <- ifelse(ks3aqt >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks3aqt) <- paste0("@", rownames(ks3aqt))
-kable(ks3aqt, caption = "Qua**NT**itative Methods by Study (IPV Interventions Research)")
-pander(lvls3.aqt)
-#'
-#' \newpage
-#' ## Mixed-Methods
-#'
-#+ mmr_s3
-## s3cb - MIXED-MTHDS ================
-s3mm <- s3cb[s3cb$cat == "M-MM", ] %>% droplevels()
-s3mm <- s3mm[!duplicated(s3mm), ]
-# x <- s3mm[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s3mm$clab, s3mm$jrnl)
-Rtdf(s3mm$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Mixed-Methods (IPV Interventions Research)", align = c("l", "r"))
-
-lvls3.mm <- paste0(seq(1:length(unique(s3mm$clab))), " = ", levels(s3mm$clab))
-levels(s3mm$clab) <- seq(1:length(unique(s3mm$clab)))
-ks3mm <- ftable(s3mm$bibkey, s3mm$clab) %>% as.matrix ## "ks3" == "bibkeys - s3" ##
-ks3mm <- ifelse(ks3mm >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks3mm) <- paste0("@", rownames(ks3mm))
-kable(ks3mm, caption = "Mixed-Methods by Study (IPV Interventions Research)")
-pander(lvls3.mm)
-#'
-#'
-#' \newpage
-#'
-#' ## Ecological Levels of Analysis
-#'
-#'
-#+ ecoLvls_s3
-s3eco <- s3cb[s3cb$cat == "ECO", ] %>% droplevels()
-s3eco <- s3eco[!duplicated(s3eco), ]
-# x <- s3eco[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4ql$clab, s4ql$jrnl)
-Rtdf(s3eco$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Ecological Levels of Analysis (IPV Interventions Research)", align = c("l", "r"))
-
-lvls3.eco <- paste0(seq(1:length(unique(s3eco$clab))), " = ", levels(s3eco$clab))
-levels(s3eco$clab) <- seq(1:length(unique(s3eco$clab)))
-ks3eco <- ftable(s3eco$bibkey, s3eco$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks3eco <- ifelse(ks3eco >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks3eco) <- paste0("@", rownames(ks3eco))
-kable(ks3eco, caption = "Levels of Analysis by Study (IPV Interventions Research)")
-pander(lvls3.eco)
-#'
-#' \newpage
-#'
-#' # \textsc{SMW-Inclusive IPV Research}
-#'
-#' \Frule
-#'
-#+ s4cb
-# s4cb ----------------
-s4cb <- cb[cb$scat == 2, ] %>% droplevels
-s4cb.keys <- paste0("@", levels(s4cb$bibkey))
-# s4cb.keys %>% as.list() %>% pander
-#'
-#+ tl_smw, fig.fullwidth=TRUE, fig.height=2, out.width='\\linewidth', fig.show='asis', figPath=TRUE
-smw <- MAPtl[MAPtl$scat == "S4", ]
-
-tl.smw <- smw[order(smw$year), c("bibkey", "year", "cpv", "journal", "title")] %>% droplevels()
-
-tl.smw$bibkey <- paste0("@", tl.smw$bibkey)
-tl.smw$journal <- paste0("_", tl.smw$journal, "_")
-tl.smw <- dplyr::rename(tl.smw, "Study" = bibkey, "Journal" = journal, "Year Published" = year)
-rownames(tl.smw) <- NULL
-
-# psmw <- pal_sci[1:length(unique(smw$journal))]
-# smw$pos <- rep_len(c(1, -1), length(smw$pos))
-
-
-smw <- smw[order(smw$yrv), , drop = FALSE] %>% within({
-    posv <- sequence(rle(sort(yrv))$lengths)
-    posv <- ifelse(yrv == 0, 0, posv)
-    posv <- log(posv + 0.5) * -1
-})
-
-smw <- smw[order(smw$yrcp), , drop = FALSE] %>% within({
-    poscp <- sequence(rle(sort(yrcp))$lengths)
-    pos <- ifelse(yrcp == 0, posv, log(poscp - 0.5) * -0.5)
-})
-# GGPLOT - smwtl ----------------
-
-gg.smwtl <- ggplot(smw, aes(x = year, y = 0, colour = cpv)) +
-    thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE,
-             ptitle = TRUE, xtext = FALSE, xticks = FALSE) +
-    theme(legend.text = element_text(size = rel(0.55)),
-          legend.title = element_text(size = rel(0.65), face = "bold"),
-          legend.justification = c(1, 0.635),
-          legend.box.spacing = unit(0, "cm")) +
-    # plot.margin = unit(c(1, rep(0.15, 3)), "cm")) +
-    ylim(min(smw$pos) - 0.5, max(smw$pos) + 0.5) +
-    labs(colour = "Journal Category", title = "SMW-Inclusive IPV Research Timeline\n") +
-    scale_colour_manual(values = pcpv) + #, guide = FALSE) +
-    geom_hline(yintercept = 0, size = 0.25, color = pal_nord$polar[7], alpha = 0.5) +
-    geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
-                 colour = pal_my[19], alpha = 0.55,
-                 na.rm = TRUE, size = 0.2, linetype = 3) +
-    geom_text(aes(y = pos, x = year, label = bibkey2), hjust = 0.5, vjust = 0,
-              angle = 45, size = 2.5, fontface = "bold") + #, nudge_y = -0.05) +
-    geom_text(aes(y = 0, x = year, label = year), check_overlap = TRUE,
-              vjust = 0.5, hjust = 0.5, angle = 0, colour = pal_my[20],
-              size = 2.5, family = "serif", fontface = "bold") +
-    xlim(min(smw$year) - 0.25, max(smw$year))
-gg.smwtl
-
-tl.smw[, c(1, 4)] %>% kable(caption = "SMW-Inclusive Research Timeline")
-
-
-#'
-#' \newpage
-#'
-#' ## Research Topics
-#'
-#+ topics_s4
-## s4cb - TOPICS ================
-s4top <- s4cb[s4cb$cat == "TOPIC", ] %>% droplevels()
-s4top <- s4top[!duplicated(s4top), ]
-# x <- s4top[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4top$clab, s4top$jrnl)
-Rtdf(s4top$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Primary Topics (SMW-Inclusive Research)",
-          align = c("l", "r"))
-
-lvls4.tp <- paste0(seq(1:length(unique(s4top$clab))), " = ", levels(s4top$clab))
-levels(s4top$clab) <- seq(1:length(unique(s4top$clab)))
-ks4tp <- ftable(s4top$bibkey, s4top$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks4tp <- ifelse(ks4tp >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks4tp) <- paste0("@", rownames(ks4tp))
-
-#'
-#+ echo=FALSE
-kable(ks4tp, caption = "Primary Topics by Study (SMW-Inclusive Research)")
-pander(lvls4.tp)
-#'
-#' \newpage
-#' ## Target Populations/Sampling Frames
-#'
-#+ pop_s4
-## s4cb - POPULATIONS ================
-s4pop <- s4cb[s4cb$cat == "POPULATION", ] %>% droplevels()
-s4pop <- s4pop[!duplicated(s4pop), ]
-# x <- s4pop[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4pop$clab, s4pop$jrnl)
-Rtdf(s4pop$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Populations Included (SMW-Inclusive Research)",
-          align = c("l", "r"))
-
-lvla4.pop <- paste0(seq(1:length(unique(s4pop$clab))), " = ", levels(s4pop$clab))
-levels(s4pop$clab) <- seq(1:length(unique(s4pop$clab)))
-ks4pop <- ftable(s4pop$bibkey, s4pop$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks4pop <- ifelse(ks4pop >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks4pop) <- paste0("@", rownames(ks4pop))
-
-#'
-#+ echo=FALSE
-kable(ks4pop, caption = "Populations Included by Study (SMW-Inclusive Research)")
-pander(lvla4.pop)
-#'
-#'
-#' \newpage
-#'
-#' ## Sampling Settings
-#'
-#'
-#+ setLvls_s4
-s4set <- s4cb[s4cb$cat == "M-SETTINGS", ] %>% droplevels()
-s4set <- s4set[!duplicated(s4set), ]
-# x <- s4set[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4ql$clab, s4ql$jrnl)
-Rtdf(s4set$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Sampling Settings (SMW-Inclusive Research)",
-          align = c("l", "r"))
-
-lvla4.set <- paste0(seq(1:length(unique(s4set$clab))), " = ", levels(s4set$clab))
-levels(s4set$clab) <- seq(1:length(unique(s4set$clab)))
-ks4set <- ftable(s4set$bibkey, s4set$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks4set <- ifelse(ks4set >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks4set) <- paste0("@", rownames(ks4set))
-
-#'
-#+ echo=FALSE
-kable(ks4set, caption = "Sampling Settings by Study (SMW-Inclusive IPV Research)")
-pander(lvla4.set)
-#'
-#'
-#' \newpage
-#'
-#' ## Sampling Methods
-#'
-#'
-#+ smthdsLvls_s4
-s4smthds <- s4cb[s4cb$cat == "M-SAMPLING", ] %>% droplevels()
-s4smthds <- s4smthds[!duplicated(s4smthds), ]
-# x <- s4smthds[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4ql$clab, s4ql$jrnl)
-Rtdf(s4smthds$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Sampling Methods (SMW-Inclusive Research)",
-          align = c("l", "r"))
-
-lvla4.smthds <- paste0(seq(1:length(unique(s4smthds$clab))), " = ", levels(s4smthds$clab))
-levels(s4smthds$clab) <- seq(1:length(unique(s4smthds$clab)))
-ks4smthds <- ftable(s4smthds$bibkey, s4smthds$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks4smthds <- ifelse(ks4smthds >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks4smthds) <- paste0("@", rownames(ks4smthds))
-
-#'
-#+ echo=FALSE
-kable(ks4smthds, caption = "Sampling Methods by Study (SMW-Inclusve Research)")
-pander(lvla4.smthds)
-#'
-#' \newpage
-#'
-#' # Research Designs by Study (SMW-Inclusvive Research)
-#'
-#+ designs_s4
-## s4cb - DESIGNS ================
-s4d <- s4cb[s4cb$cat == "DESIGN", ] %>% droplevels()
-s4d <- s4d[!duplicated(s4d), ]
-# x <- s4d[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4d$clab, s4d$jrnl)
-Rtdf(s4d$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Research Design (SMW-Inclusive Research)", align = c("l", "r"))
-
-lvla3.mo <- paste0(seq(1:length(unique(s4d$clab))), " = ", levels(s4d$clab))
-levels(s4d$clab) <- seq(1:length(unique(s4d$clab)))
-ks4d <- ftable(s4d$bibkey, s4d$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks4d <- ifelse(ks4d >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks4d) <- paste0("@", rownames(ks4d))
-kable(ks4d, caption = "Research Design by Study (SMW-Inclusive Research)")
-pander(lvla3.mo)
-#'
-#' \newpage
-#'
-#' ## Overarching Methodology
-#'
-#+ mthds_s4
-## s4cb - METHODS ================
-s4mo <- s4cb[s4cb$cat == "METHODS", ] %>% droplevels()
-s4mo <- s4mo[!duplicated(s4mo), ]
-# x <- s4mo[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4mo$clab, s4mo$jrnl)
-
-Rtdf(s4mo$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Overarching Methodology (SMW-Inclusive Research)",
-          align = c("l", "r"))
-lvla4.mo <- paste0(seq(1:length(unique(s4mo$clab))), " = ", levels(s4mo$clab))
-levels(s4mo$clab) <- seq(1:length(unique(s4mo$clab)))
-ks4mo <- ftable(s4mo$bibkey, s4mo$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks4mo <- ifelse(ks4mo >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks4mo) <- paste0("@", rownames(ks4mo))
-#'
-#+ echo=FALSE
-kable(ks4mo, caption = "Methodology by Study (SMW-Inclusive Research)")
-pander(lvla4.mo)
-#'
-#' \newpage
-#' <!-- ## qual Methods -->
-#'
-#+ QL_s4
-## s4cb - QUAL ================
-s4ql <- s4cb[s4cb$cat == "M-QL", ] %>% droplevels()
-s4ql <- s4ql[!duplicated(s4ql), ]
-# x <- s4ql[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4ql$clab, s4ql$jrnl)
-Rtdf(s4ql$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Qua**L**itative Methods (SMW-Inclusive Research)", align = c("l", "r"))
-
-lvla4.ql <- paste0(seq(1:length(unique(s4ql$clab))), " = ", levels(s4ql$clab))
-levels(s4ql$clab) <- seq(1:length(unique(s4ql$clab)))
-ks4ql <- ftable(s4ql$bibkey, s4ql$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks4ql <- ifelse(ks4ql >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks4ql) <- paste0("@", rownames(ks4ql))
-#'
-#+ echo=FALSE
-kable(ks4ql, caption = "Qua**L**itative Methods by Study (SMW-Inclusive Research)")
-pander(lvla4.ql)
-
-#'
-#' ## Qua**NT**itative Analytic Appraoches
-#'
-#+ AQL_s4
-## s4cb - QUAL ================
-s4aqt <- s4cb[s4cb$cat == "A-QT", ] %>% droplevels()
-# s4aqt <- s4ql[!duplicated(s4aqt), ]
-# x <- s4aqt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4aqt$clab, s4aqt$jrnl)
-Rtdf(s4aqt$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Qua**NT**itative Methods (IPV Interventions Research)", align = c("l", "r"))
-
-lvla4.qt <- paste0(seq(1:length(unique(s4aqt$clab))), " = ", levels(s4aqt$clab))
-levels(s4aqt$clab) <- seq(1:length(unique(s4aqt$clab)))
-ks4aqt <- ftable(s4aqt$bibkey, s4aqt$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks4aqt <- ifelse(ks4aqt >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks4aqt) <- paste0("@", rownames(ks4aqt))
-#'
-#+ echo=FALSE
-kable(ks4aqt, caption = "Qua**NT**itative Analytic Approaches by Study (IPV Interventions Research)")
-pander(lvla4.qt)
-#'
-#'  \newpage
-#' ## QuaNTitative Methods
-#'
-#+ QT_s4
-## s4cb - QUANT ================
-s4qt <- s4cb[s4cb$cat == "M-QT", ] %>% droplevels()
-s4qt <- s4qt[!duplicated(s4qt), ]
-# x <- s4qt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4qt$clab, s4qt$jrnl)
-Rtdf(s4qt$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Qua**NT**itative Methods (SMW-Inclusive Research)", align = c("l", "r"))
-
-lvla4.qt <- paste0(seq(1:length(unique(s4qt$clab))), " = ", levels(s4qt$clab))
-levels(s4qt$clab) <- seq(1:length(unique(s4qt$clab)))
-ks4qt <- ftable(s4qt$bibkey, s4qt$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks4qt <- ifelse(ks4qt >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks4qt) <- paste0("@", rownames(ks4qt))
-kable(ks4qt, caption = "Qua**NT**itative Methods by Study (SMW-Inclusive Research)")
-pander(lvla4.qt)
-#'
-#' ## Quantitative Analytic Appraoches
-#'
-#+ AQT_s4
-## s4cb - QUANT ================
-s4aqt <- s4cb[s4cb$cat == "A-QT", ] %>% droplevels()
-# s4aqt <- s4ql[!duplicated(s4aqt), ]
-# x <- s4aqt[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4aqt$clab, s4aqt$jrnl)
-Rtdf(s4aqt$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Qua**NT**itative Methods (IPV Interventions Research)", align = c("l", "r"))
-
-lvla4.qt <- paste0(seq(1:length(unique(s4aqt$clab))), " = ", levels(s4aqt$code))
-levels(s4aqt$clab) <- seq(1:length(unique(s4aqt$clab)))
-ks4aqt <- ftable(s4aqt$bibkey, s4aqt$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks4aqt <- ifelse(ks4aqt >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks4aqt) <- paste0("@", rownames(ks4aqt))
-kable(ks4aqt, caption = "Qua**NT**itative Analytic Approaches by Study (IPV Interventions Research)")
-pander(lvla4.qt)
-#'
-#' \newpage
-#' ## Mixed-Methods
-#'
-#+ mmr_s4
-## s4cb - MIXED-MTHDS ================
-s4mm <- s4cb[s4cb$cat == "M-MM", ] %>% droplevels()
-s4mm <- s4mm[!duplicated(s4mm), ]
-# s4ql <- s4ql[!duplicated(s4ql), ]
-# x <- s4ql[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4mm$clab, s4mm$jrnl)
-Rtdf(s4mm$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Mixed-Methods (SMW-Inclusive Research)", align = c("l", "r"))
-
-lvla4.mm <- paste0(seq(1:length(unique(s4mm$clab))), " = ", levels(s4mm$clab))
-levels(s4mm$clab) <- seq(1:length(unique(s4mm$clab)))
-ks4mm <- ftable(s4mm$bibkey, s4mm$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks4mm <- ifelse(ks4mm >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks4mm) <- paste0("@", rownames(ks4mm))
-kable(ks4mm, caption = "Mixed-Methods by Study (SMW-Inclusive Research)")
-pander(lvla4.mm)
-#'
-#'
-#' \newpage
-#'
-#' ## Ecological Levels of Analysis
-#'
-#'
-#+ ecoLvls_s4
-s4eco <- s4cb[s4cb$cat == "ECO", ] %>% droplevels()
-s4eco <- s4eco[!duplicated(s4eco), ]
-# x <- s4eco[, c("bibkey", "clab")] %>% ftable() %>% data.frame()
-# x[, 3] %>% unique()
-
-# ftable(s4ql$clab, s4ql$jrnl)
-Rtdf(s4eco$clab, names = c(" ", "$N_{Articles}$")) %>%
-    kable(caption = "Ecological Levels of Analysis (SMW-Inclusive Research)", align = c("l", "r"))
-
-lvla4.eco <- paste0(seq(1:length(unique(s4eco$clab))), " = ", levels(s4eco$clab))
-levels(s4eco$clab) <- seq(1:length(unique(s4eco$clab)))
-ks4eco <- ftable(s4eco$bibkey, s4eco$clab) %>% as.matrix ## "ks4" == "bibkeys - s4" ##
-ks4eco <- ifelse(ks4eco >= 1, "$\\checkmark$", "$\\cdot$")
-rownames(ks4eco) <- paste0("@", rownames(ks4eco))
-kable(ks4eco, caption = "Levels of Analysis by Study (SMW-Inclusive Research)")
-pander(lvla4.eco)
-
+#+ clust_km, fig.fullwidth=TRUE, fig.cap="3-Group K-Means Clustering Solution for Primary Topics Covered Across the Included Literature", figPath=TRUE
+library(cluster)
+palette(pal_my)
+par(mar = c(0,2,0.7,0))
+plot(topbibclust.di, sub = ' ', xlab = ' ', main = "Bibkey Clusters based on Topics Clusters",
+     frame.plot = F, col = 20, col.main = 18, col.axis = 18,
+     cex = 0.65, cex.main = 1, cex.axis = 0.65, lwd = 1.5,
+     font.main = 3)
+abline(a = 3, b = 0, lty = 3, lwd = 1.5,
+       col = pal_sci[8])
+rect.hclust(hclust(dist(topmatbib), method = "ward.D2"),
+            h = 3, border = pal_sci[8]) -> rhcl_bib
 par(pmar)
+km.topbib.di <- kmeans(topmatbib.di, 3)
+# tb.di.fanmemb0 <- fan.topbib.di$membership
+# fan.mu <- apply(tb.di.fanmemb0, 2, mean)
+# tb.di.fanmemb1 <- ifelse(tb.di.fanmemb0 < fan.mu, 0, 1)
+
+clusplot(topmatbib.di, km.topbib.di$cluster, main = ' ', color = T, shade = T, plotchar = F, cex.txt = 0.5, col.clus = p, pch = 21, bg = adjustcolor(pal_my[19], alpha.f = .25), labels = 0, lines = 0, col.p = pal_my[19], font.main = 3, verbose = T, span = T)
+
+# pander(, caption = "Per Variable Cluster Means ('centers') for 2-Cluster K-Means Solution (Topics)")
+
+# topmatbib3 <- ftable(top2$bibkey2, top2bib$tp_clust) %>% as.matrix()
+# tmb_c1 <- fan.topbib.di$clustering[fan.topbib.di$clustering == 1] %>% names()
+# tmb_c2 <- fan.topbib.di$clustering[fan.topbib.di$clustering == 2] %>% names()
+# tmb_c3 <- fan.topbib.di$clustering[fan.topbib.di$clustering == 3] %>% names()
+tmb_c1 <- km.topbib.di$cluster[km.topbib.di$cluster == 1] %>% names()
+tmb_c2 <- km.topbib.di$cluster[km.topbib.di$cluster == 2] %>% names()
+tmb_c3 <- km.topbib.di$cluster[km.topbib.di$cluster == 3] %>% names()
+
+rec.key2key <- paste0("\"", top2$bibkey2, "\" = \"", top2$bibkey, "\"", collapse = "; ")
+
+# fans <- data.frame(bibkey = recode(names(fan.topbib.di$clustering), rec.key2key), fan_memb = fan.topbib.di$clustering)
+# rownames(fans) <- NULL
+# top3 <- merge(top2, fans, by = "bibkey")
+km <- data.frame(bibkey = recode(names(km.topbib.di$cluster), rec.key2key), km_memb = km.topbib.di$cluster)
+rownames(km) <- NULL
+top3 <- merge(top2, km, by = "bibkey")
+top3 <- within(top3, {
+	km1 <- ifelse(km_memb == 1, 1, 0)
+	km2 <- ifelse(km_memb == 2, 1, 0)
+	km3 <- ifelse(km_memb == 3, 1, 0)
+})
+kmbib <- top3[, c("bibkey", "scat", "km1", "km2", "km3")]
+kmbib <- kmbib[!duplicated(kmbib), ]
+kmtop <- top3[, c("code", "clab", "km1", "km2", "km3")]
+kmtop <- kmtop[!duplicated(kmtop), ]
+
+
+levels(top3$scat) <- c("IPV Interventions", "SMW-Specific")
+ftable(top3$km_memb, top3$scat)
+ftable(top3$bibkey, top3$km_memb)
+ftable(top3$clab, top3$km_memb)
+# ftable(top3$fan_memb, top3$scat)
+# ftable(top3$bibkey, top3$fan_memb)
+# ftable(top3$clab, top3$fan_memb)
+
 #'
-#' \newpage\onehalfspacing
+#' \newpage
 #'
-#' # References`r Rcite_r(file = "../auxREFs.bib", footnote = TRUE)`
+#' # References
 #'
 #' \refs
-#'
