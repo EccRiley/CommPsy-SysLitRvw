@@ -8,14 +8,14 @@
 # SETUP ----------------
 
 source("../SETUP.R") ## SEE EccRiley.github.io/Rrscs/SETUP.R ##
-options(width = 75)
+options(width = 60)
 knitr::opts_chunk$set(
     tidy = TRUE,
     echo = TRUE,
     fig.keep = 'high',
     fig.show = 'asis',
     results = 'asis',
-    tidy.opts = list(comment = FALSE),
+    tidy.opts = list(comment = FALSE, blank = FALSE),
     # echoRule = NULL,
     # echoRuleb = NULL,
     # fig.height = 5,
@@ -302,6 +302,8 @@ MAP$jrnl <- sapply(as.character(MAP$journal), Rabbr)
 
 # CTBL/CB ----------------
 
+rec.key2scat <- paste0("\"", MAP$bibkey, "\" = \"", MAP$scat, "\"", collapse = "; ")
+
 cb <- merge(MAP, ctbl, by = c("caseid", "scat"))
 cb <- within(cb, {
     # journal <- droplevels(journal)
@@ -329,7 +331,7 @@ cb$clab <- factor(cb$clab)
 #'
 #' \newpage
 #'
-#' ## Codebook
+#' # Codebook
 #'
 #+ cdbk
 catt <- Rtdf(cdbk$catlab, names = c("Information Category", "$N_{sub-codes}$"))
@@ -382,7 +384,7 @@ t.scat %>% kable(caption = "Count of Articles in Each Research Category")
 scat.t <- table(ct.scat$scat)
 scat.bn <- Rbinom(scat.t)
 
-scat.bn %>% kable(caption = "Binomial Test of the Difference in Search Category Proportions", col.names = c("Alternative", "Null Value ($\\mathpzc{\\pi_{0}}$)", "Parameter", "Estimate", "$\\mathpzc{\\chisq}$", "$\\mathpzc{p}$-value", "CI"), format = 'latex', booktabs = T, escape = FALSE)
+scat.bn %>% kable(caption = "Binomial Test of the Difference in Search Category Proportions", col.names = c("Alternative", "Null Value ($\\mathpzc{\\pi_{0}}$)", "Parameter", "Estimate", "$\\mathpzc{\\chisq}$", "$\\mathpzc{p}$-value", "CI"), escape = FALSE)
 
 N.MAP <- nrow(MAP)
 options(Rperc_n = N.MAP)
@@ -409,9 +411,15 @@ scat.p <- ggplot(t.scat, aes(fill = Category,
     geom_rect() +
     coord_polar(theta = "y") +
     xlim(c(0, 4)) +
-    annotate("text", x = 0, y = 0, label = "Category Proportions", family = "serif", size = 5, fontface = "italic") +
-    geom_text(aes(x = 3.5, y = c(0.1, 0.60), label = t.scat$perc, #angle = c(-35, -35),
-                  fontface = "bold"), colour = pal_my[2], size = 5.5, family = "serif", vjust = 0.3) +
+    annotate("text", x = 0, y = 0,
+             label = "Category Proportions",
+             family = "serif", size = 5,
+             fontface = "italic") +
+    geom_text(aes(x = 3.5, y = c(0.1, 0.60),
+                  label = t.scat$perc, #angle = c(-35, -35),
+                  fontface = "bold"),
+              colour = pal_my[2], size = 5.5,
+              family = "serif", vjust = 0.3) +
     # labs(title = "", fill = "Research Category") +
     thm_Rtft(ytitle = FALSE) +
     theme(axis.text = element_blank(),
@@ -425,6 +433,7 @@ scat.p
 #' \newpage
 #'
 #' # Publication Titles
+#'
 #' \Frule
 #'
 #+ pub_titles
@@ -464,7 +473,7 @@ MAP$cpv <- ifelse(MAP$jrnl %in% j.cp, "CP", "V")
 #'
 #' \newpage
 #'
-#' ## Research Category by Journal & Journal Category
+#' # Research Category by Journal & Journal Category
 #'
 #+ dot_scatXjournal
 ### PLOT - scat-x-journal - dotchart ####
@@ -502,7 +511,8 @@ library(ggparallel)
 pscat <- c("#a6afbb", pal_my[17])
 pscat.a <- adjustcolor(pscat, alpha.f = 0.5)
 
-al.j <- c(rep(90, length(unique(MAP.jrnl$Journal))), rep(0, length(unique(MAP.jrnl$Category))))
+al.j <- c(rep(90, length(unique(MAP.jrnl$Journal))),
+          rep(0, length(unique(MAP.jrnl$Category))))
 t.jrnl$log <- log(t.jrnl[, 2]) + 3
 lj <- c(t.jrnl[, 3], rep(3.50, length(unique(MAP.jrnl$Category))))
 parset.jrnl <- ggparset2(list("Journal", "Category"),
@@ -511,7 +521,8 @@ parset.jrnl <- ggparset2(list("Journal", "Category"),
                          label.size = lj, text.angle = al.j, order = c(0, 0)) +
     scale_fill_manual(values = c(pscat.a, adjustcolor(pj, alpha.f = 0.55)),
                       guide = FALSE) +
-    scale_colour_manual(values = c(pscat, pj), guide = FALSE) + coord_flip() +
+    scale_colour_manual(values = c(pscat, pj), guide = FALSE) +
+    coord_flip() +
     thm_Rtft(ticks = FALSE, ytext = TRUE, xtext = FALSE) #+ scale_y_discrete(labels = c("Category" = "Category", "J" = "Journal"))
 
 hideLabs(x = parset.jrnl, labs = labs(subtitle = "Journals"))
@@ -524,8 +535,10 @@ pcpv <- pp[c(11, 30)]
 clr.cpv1 <- levels(factor(MAP.jrnl$journal))
 clr.cpv <- ifelse(clr.cpv1 %in% j.cpp, pcpv[1], pcpv[2])
 
-MAP.jrnl$cpv <- ifelse(MAP.jrnl$cpv == "CP", "Community Psychology", "Violence-Specific")
-MAP.jrnl$scat <- ifelse(MAP.jrnl$scat == "S3", "IPV Interventions", "SMW-Specific Research")
+MAP.jrnl$cpv <- ifelse(MAP.jrnl$cpv == "CP", "Community Psychology",
+                       "Violence-Specific")
+MAP.jrnl$scat <- ifelse(MAP.jrnl$scat == "S3", "IPV Interventions",
+                        "SMW-Specific Research")
 
 names(MAP.jrnl) <- c("Category", "J", "Discipline", "Journal")
 
@@ -554,7 +567,8 @@ parset.jrnl2 <- ggparset2(list("Journal", "Category", "Discipline"),
                         guide = FALSE) +
     coord_flip() +
     thm_Rtft(ticks = FALSE, ytext = TRUE, xtext = FALSE);
-hideLabs(x = parset.jrnl2, labs = labs(subtitle = "Journals & Research Disciplines by Research Category"))
+hideLabs(x = parset.jrnl2,
+         labs = labs(subtitle = "Journals & Research Disciplines by Research Category"))
 #'
 #'
 #' # Publication Years
@@ -662,8 +676,9 @@ gg.tl
 #'
 #' \newpage
 #'
-#' # Research Topics, Sampling Frames, and Methodologies
+#' # Publication Dates & Journals
 #'
+#' \Frule
 #'
 #+ FUN_Rftm
 
@@ -699,16 +714,14 @@ Rftm <- function(x1, x2, dnn = NULL, zero.action = NA, zero.qt = FALSE) {
                          deparse(substitute(x2))))
     return(y)
 }
-#'
-#' \Frule
-#'
-# reclab(cb$scat) ----------------
+
+### recode cb$scat & cb$sclab ####
 cb$scat2 <- factor(cb$scat, labels = c(1, 2))
 cb$clab <- factor(cb$clab)
-#'
-# s3cb ----------------
+
+### s3cb ####
 s3cb <- cb[cb$scat2 == 1, ] %>% droplevels
-# s3cb <- s3cb[!duplicated(s3cb), ]
+s3cb <- s3cb[!duplicated(s3cb), ]
 s3cb.keys <- paste0("@", levels(factor(s3cb$bibkey)))
 #'
 #'
@@ -762,16 +775,72 @@ gg.invtl <- ggplot(inv, aes(x = year, y = 0, colour = cpv)) +
 gg.invtl
 
 tl.inv[, c(1, 4, 2)] %>% kable(caption = "IPV Interventions Research Timeline")
-
-rec.key2scat <- paste0("\"", MAP$bibkey, "\" = \"", MAP$scat, "\"", collapse = "; ")
-
 #'
-#' ## Primary Topics
+#' \newpage
+#'
+### s4cb ####
+s4cb <- cb[cb$scat2 == 2, ] %>% droplevels
+s4cb <- s4cb[!duplicated(s4cb), ]
+s4cb.keys <- paste0("@", levels(factor(s4cb$bibkey)))
+#'
+#'
+#+ tl_smw, fig.fullwidth=TRUE, fig.height=2.75, out.width='\\linewidth', figPath=TRUE
+smw <- MAPtl[MAPtl$scat == "S4", ]
+
+tl.smw <- smw[order(smw$year), c("bibkey", "year", "cpv", "journal", "title"), drop = FALSE] %>% droplevels()
+tl.smw$bibkey <- paste0("@", tl.smw$bibkey)
+tl.smw$journal <- paste0("_", tl.smw$journal, "_")
+tl.smw <- dplyr::rename(tl.smw, "Study" = bibkey, "Journal" = journal, "Year Published" = year)
+rownames(tl.smw) <- NULL
+
+smw <- smw[order(smw$yrv), , drop = FALSE] %>% within({
+    posv <- sequence(rle(sort(yrv))$lengths)
+    posv <- ifelse(yrv == 0, 0, posv)
+    posv <- log(posv + 0.75) * -1
+})
+
+smw <- smw[order(smw$yrcp), , drop = FALSE] %>% within({
+    poscp <- sequence(rle(sort(yrcp))$lengths)
+    pos <- ifelse(yrcp == 0, posv, log(poscp - 0.5) * -1)
+})
+# GGPLOT - smwtl ----------------
+
+gg.smwtl <- ggplot(smw, aes(x = year, y = 0, colour = cpv)) +
+    thm_Rtft(yticks = FALSE, ytext = FALSE, ytitle = FALSE, ltitle = TRUE,
+             ptitle = TRUE, xtext = FALSE, xticks = FALSE) +
+    theme(legend.text = element_text(size = rel(0.55)),
+          legend.title = element_text(size = rel(0.65), face = "bold"),
+          legend.justification = c(1, 0.8),
+          legend.box.spacing = unit(0, "cm")) +
+    # plot.margin = unit(c(1, rep(0.15, 3)), "cm")) +
+    ylim(min(smw$pos) - 0.5, max(smw$pos) + 0.5) +
+    labs(colour = "Journal Category", title = "IPV-Interventions Research Timeline") +
+    scale_colour_manual(values = pcpv) + #, guide = FALSE) +
+    geom_hline(yintercept = 0, size = 0.25, color = pal_nord$polar[7], alpha = 0.5) +
+    geom_segment(aes(y = 0, yend = pos, x = year, xend = year),
+                 colour = pal_my[19], alpha = 0.55,
+                 na.rm = TRUE, size = 0.2, linetype = 3) +
+    geom_text(aes(y = pos, x = year, label = bibkey2), hjust = 0.5, vjust = 1,
+              angle = 25, size = 2.5, fontface = "bold") + #, nudge_y = -0.05) +
+    # geom_vline(xintercept = vawa, size = 0.45, color = pal_nord$polar[1], linetype = 3) +
+    geom_text(aes(y = 0, x = vawa, label = "1994 Violence Against Women Act"),
+              alpha = 0.5, angle = 90, colour = vawaclr, size = 2.5,
+              nudge_x = -0.25, family = "serif", fontface = "italic") +
+    geom_text(aes(y = 0, x = year, label = year), check_overlap = TRUE,
+              vjust = 0.5, hjust = 0.5, angle = 0, colour = pal_my[20],
+              size = 2.5, family = "serif", fontface = "bold") +
+    xlim(min(smw$year) - 0.25, max(smw$year)) +
+    ylim(min(smw$pos) - 0.15, max(smw$pos) + 0.15)
+gg.smwtl
+
+tl.smw[, c(1, 4, 2)] %>% kable(caption = "SMW-Specific IPV Research Timeline")
+#'
+#' \newpage
+#'
+#' # Primary Topics
 #'
 #+ topics
-
 ## topics ================
-# cb$clab <- factor(cb$clab)
 
 codes.tp <- cb[cb$cat == "TOPIC", "clab"] %>% droplevels()
 ctp.dnn <- c("Topic", "$N_{Articles}$")
@@ -838,26 +907,10 @@ kable(ktop[, 12:ncol(ktop)],
       caption = "Primary Topics by Study (2/2)") %>%
     add_footnote("SMW-Specific", notation = "symbol")
 pander(lvl.top[12:length(lvl.top)])
-
-# dfm.tp2 <- data.frame(ftm.tp)
-# names(dfm.tp2) <- c("s3", "s4")
-# top.s3 <- data.frame(dfm.tp2$s3, row.names = rownames(dfm.tp2))
-# top.s3 <- na.omit(top.s3)
-# # top.s3
-# top.s4 <- data.frame(dfm.tp2$s4, row.names = rownames(dfm.tp2))
-# top.s4 <- na.omit(top.s4)
-# # top.s4
-#
-# tp.s3 <- cb[cb$scat == levels(cb$scat)[1] &
-#                 cb$cat == "TOPIC", ] %>%
-#     droplevels()
-# tp.s4 <- cb[cb$scat == levels(cb$scat)[2] &
-#                 cb$cat == "TOPIC", ] %>%
-#     droplevels()
-#
 #'
 #' \newpage
-#' ## Research Designs
+#'
+#' # Research Designs
 #'
 #+ designs
 ## designs ================
@@ -869,7 +922,6 @@ ct.d <- ct.d[!duplicated(ct.d), ]
 
 t.d <- Rtdf(ct.d$clab)
 ct.d$clab <- gsub(" Design", "", ct.d$clab) %>% factor()
-ct.d$clab <- factor(ct.d$clab, labels = paste0(seq(1:nrow(descb.tly)), ". ", levels(ct.d$clab)))
 ft.d <- ftable(ct.d[, c("clab", "scat")], row.vars = 1)
 ftm.d <- matrix(ft.d, nrow = nrow(t.d), byrow = FALSE)
 dimnames(ftm.d) <- list(Design = levels(ct.d$clab),
@@ -1014,7 +1066,7 @@ pander(lvl.exp)
 #'
 #' \newpage
 #'
-#' ## Data Collection Methodologies
+#' # Data Collection Methodologies
 #'
 #+ methodologies
 ## methodologies ================
@@ -1033,7 +1085,7 @@ dimnames(ftm.mo) <- list(Methodology = levels(ct.mo$clab),
 sum.mo <- apply(ftm.mo, 1, sum)
 ftm.mo <- ifelse(ftm.mo == 0, NA, ftm.mo)
 ftm.mo <- cbind(ftm.mo, "**Total**" = paste0("**", sum.mo, "**"))
-ftm.mo %>% kable(align = rep("r", ncol(ftmmo)),
+ftm.mo %>% kable(align = rep("r", ncol(ftm.mo)),
                  caption = "Methodologies")
 
 #+ parset_methodologies, fig.fullwidth=TRUE
@@ -1821,7 +1873,8 @@ pander(lvl.mmm)
 
 #'
 #' \newpage
-#' ## Target Populations & Sampling Frames
+#'
+#' # Target Populations & Sampling Frames
 #'
 #+ populations
 ## populations ================
@@ -1896,7 +1949,8 @@ pander(lvl.pop[9:length(lvl.pop)])
 
 #'
 #' \newpage
-#' ## Sampling Settings
+#'
+#' # Sampling Settings
 #'
 #+ settings
 ## settings ================
@@ -2001,7 +2055,8 @@ pander(lvl.sset[13:length(lvl.sset)])
 
 #'
 #' \newpage
-#' ## Sampling Methods
+#'
+#' # Sampling Methods
 #'
 #+ samplingMethods
 ## samplingMethods ================
@@ -2091,7 +2146,7 @@ pander(lvl.smthd)
 #' \newpage
 #'
 #'
-#' ## Levels of Analysis Invovled in The Included Literature
+#' # Levels of Analysis Invovled in The Included Literature
 #'
 #' \Frule
 #'
@@ -2118,7 +2173,7 @@ dimnames(ftm.eco) <- list("Ecological Levels of Analysis" = levels(ct.eco$clab),
 sum.eco <- apply(ftm.eco, 1, sum)
 ftm.eco <- ifelse(ftm.eco == 0, NA, ftm.eco)
 ftm.eco <- cbind(ftm.eco, "**Total**" = paste0("**", sum.eco, "**"))
-ftm.eco %>% kable(align = rep("r", ncol(ftml.eco)),
+ftm.eco %>% kable(align = rep("r", ncol(ftm.eco)),
                   caption = "Mixed-Methodological Designs")
 
 #+ parset_ecoLvls, fig.fullwidth=TRUE
@@ -2291,7 +2346,7 @@ plot(llongg, rescale = T, layout = lfr, vertex.label.color = V(llongg)$cvclr, ve
 #'
 #' \newpage
 #'
-#' ## Ecological Network Adjacency Matrix^[See Also: @lincoln2014adjacency]
+#' # Ecological Network Adjacency Matrix^[See Also: @lincoln2014adjacency]
 #'
 #+ net_lvls_keys_bibkeys_mat, dev="png", fig.retina=6, fig.fullwidth=TRUE, fig.cap=sprintf("Ecological Network: Levels of Analysis x Case. Group memberships derived from %s [@brandes2008on]", c("communality clustering algorithm which maximizes modularity across all possible partitions of the graph data in order to calculate the optimal cluster structure for the data", "eigenvalues computed for each case on each level of analysis presented in the matrix")), figPath=TRUE
 
@@ -2302,7 +2357,7 @@ llg.d_comm <- cluster_optimal(llg.d)
 
 V(llg.d)$name <- lvnames
 V(llg.d)$comm <- membership(llg.d_comm) ## node groupings according to 'optimal community structure' of the graph data ##
-    ## ^STALLS ON *UN*DIRECTED GRAPH^ ##
+## ^STALLS ON *UN*DIRECTED GRAPH^ ##
 E(llg.d)$xcomm <- crossing(llg.d_comm, llg.d)
 V(llg.d)$deg <- degree(llg.d) ## vertex degrees (i.e., N_{adjacentEdges} per node) ##
 V(llg.d)$close <- centr_clo(llg.d)$res ## node-level closeness scores ##
@@ -2340,8 +2395,8 @@ llg.mat1 <- ggplot(pdat.comm, aes(x = to, y = from, fill = group)) +
         axis.text.x = element_text(angle = 0, hjust = 0.5),
         # Force the plot into a square aspect ratio
         aspect.ratio = 1)#,
-        # Hide the legend (optional)
-        # legend.position = "none")
+# Hide the legend (optional)
+# legend.position = "none")
 hideLabs(x = llg.mat1, labs = labs(title = "Ecological Network: Levels of Analysis x Case"))#, caption = "Groups Represent Caclulated Cluster Memberships using  "))
 
 llg.eig <- (llg.nde %>% arrange(eig))$name
@@ -2616,7 +2671,8 @@ arcplot(sedges, col.arcs = hsv(0, 0, 0.1, 0.06), pch.nodes = 21, bg.nodes = adju
 #'
 #' \newpage
 #'
-#' ## \textsc{Network Analysis: Substantive Research Topics}
+#' ## Network Analysis: Substantive Research Topics
+#'
 #+ tlnet
 cbt <- cb[cb$cat == "TOPIC",
           c("bibkey", "scat", "cat", "code", "clab")] %>% droplevels()
@@ -2979,7 +3035,7 @@ mtext(text = allabs_pl, side = 4, cex = 0.5, adj = 0, padj = 0.5, las = 2, outer
 #' `r allabs1`
 #'
 #' \newpage
-#' 
+#'
 #' # Cluster Analysis: Topics Covered in Each Study
 #'
 #+ echo=FALSE
@@ -3235,9 +3291,9 @@ km <- data.frame(bibkey = recode(names(km.topbib.di$cluster), rec.key2key), km_m
 rownames(km) <- NULL
 top3 <- merge(top2, km, by = "bibkey")
 top3 <- within(top3, {
-	km1 <- ifelse(km_memb == 1, 1, 0)
-	km2 <- ifelse(km_memb == 2, 1, 0)
-	km3 <- ifelse(km_memb == 3, 1, 0)
+    km1 <- ifelse(km_memb == 1, 1, 0)
+    km2 <- ifelse(km_memb == 2, 1, 0)
+    km3 <- ifelse(km_memb == 3, 1, 0)
 })
 kmbib <- top3[, c("bibkey", "scat", "km1", "km2", "km3")]
 kmbib <- kmbib[!duplicated(kmbib), ]

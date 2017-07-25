@@ -27,4 +27,8 @@
 >
 > > "We also present separate models for male and female same-sex groups to determine if the patterns of relationships differ across gender. This comparison based on sex is informed by the literature discussed earlier that suggests male and female same-sex couples may have different experiences with the law enforcement response to intimate partner violence." [pp. 384--385]
 >
-> `r tufte::quote_footer("--- [@pattavina2007comparison, p. 149]")`
+> `r tufte::quote_footer("--- [@pattavina2007comparison, p. 384]")`
+
+> "It may be that it simply takes the passage of a mandatory-arrest law to convince officers that women can be the victims of other women in domestic situations."
+> 
+> `r tufte::quote_footer("--- [@pattavina2007comparison, p. 388]")`

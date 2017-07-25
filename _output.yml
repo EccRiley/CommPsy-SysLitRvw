@@ -89,10 +89,10 @@ word_document:
   fig_height: 6
   fig_width: 6
   keep_md: no
+  toc: yes
+  toc_depth: 1
   md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
   reference_docx: auxDocs/apa-comps.docx
-  toc: yes
-  # toc_depth: 2
   pandoc_args: [
     "--filter", "pandoc-fignos",
     "--filter", "pandoc-tablenos",
