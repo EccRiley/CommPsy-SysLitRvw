@@ -1,0 +1,2 @@
+*.svg filter=lfs diff=lfs merge=lfs -text
+bibs_html.html filter=lfs diff=lfs merge=lfs -text

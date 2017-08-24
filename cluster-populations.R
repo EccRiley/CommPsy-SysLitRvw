@@ -8,15 +8,16 @@
 #'
 #+ echo=FALSE
 knitr::opts_template$set(invisible = list(echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE, fig.keep='none', fig.show='none'))
-knitr::opts_chunk$set(fig.path="graphics/cluster/rplot-pops-")
+knitr::opts_chunk$set(fig.path="graphics/cluster/rplot-")
 #'
 #+ srcbibs, opts.label='invisible'
-source("bibs.R")
+source("QCA.R")
 #'
 #' \newpage
 #'
 #' # Cluster - Populations
 #'
+#+ hclust_pops
 pop <- cb[cb$cat == "POPULATION", ] %>% droplevels()
 pop$bibkey <- paste0("@", pop$bibkey)
 
@@ -62,7 +63,8 @@ names(popmembers) <- paste0("Group.", seq_along(popmembers))
 popmembers <- t(t(popmembers))
 names(popmembers) <- "Group Members"
 pander(popmembers, caption = "Group Memberships Resulting from 4-Group Hierarchical Cluster Solution (Populations)")
-
+#'
+#+ kclust_pops
 library(cluster)
 popkfit <- kmeans(popmat, 3)
 palette(pal_sci)

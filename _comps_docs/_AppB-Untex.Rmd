@@ -1,0 +1,218 @@
+
+---
+title: NULL
+author: NULL
+date: NULL
+---
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE}
+
+## source("../SETUP.R")
+knitr::opts_chunk$set(
+    tidy = FALSE,
+    echo = FALSE,
+    fig.keep = 'high',
+    fig.show = 'hold',
+    results = 'asis'
+)
+sm <- function(x) {
+    if (knitr:::is_latex_output()) {
+    sprintf("\\small{%s}", x)
+    } else {
+        sprintf("<span style=\"font-size:75%%;\">%s</span>", x)
+    }
+}
+```
+
+## Citation
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+## Substantive Research Topic(s)
+
+`r tufte::newthought("Study Purpose(s)")`
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+`r tufte::newthought("Research Question(s) (RQs)")`
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+_Including theoretical model(s) (if applicable)_
+
+`r tufte::newthought("Hypotheses")`
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+_Including hypothesized/statistical model(s) (if applicable)_
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+## Target Population(s) & Sampling Frame(s)
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+### Target Population(s) _(By Level of Specificity)_
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+`r tufte::newthought("Includes")`
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+`r tufte::newthought("Excludes")`
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+### Sampling Frame Setting(s)
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+### Sampling Frame _(By Level of Specificity)_
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+`r tufte::newthought("Includes")`
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+`r tufte::newthought("Excludes")`
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+## Sampling Method(s) _(By Sampling Frame Level)_
+
+&#10065;  `r tufte::newthought("Probability/Random")`
+
+&#10065;  `r tufte::newthought("Purposive")`
+
+&#10065;  `r tufte::newthought("Convenience")`
+
+## Study Design(s)
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+### Qua**L**itative Research Designs _(if applicable)_
+
+&#10065;  `r tufte::newthought("Grounded Theory")`
+
+&#10065;  `r tufte::newthought("Phenomenology")`
+
+&#10065;  `r tufte::newthought("Ethnography")`
+
+&#10065;  `r tufte::newthought("Case-Study")`
+
+&#10065;  `r tufte::newthought("Narrative/Descriptive")`
+
+&#10065;  _Biographical_
+
+&#10065;  _Historical_
+
+### Qua**NT**itative Research Designs _(if applicable)_
+
+&#10065;  `r tufte::newthought("Experimental")`
+
+&#10065;  _Longitudinal_
+
+&#10065;  _Pre-Post_
+
+&#10065;  `r tufte::newthought("Randomized Control Trial (RCT)")`
+
+&#10065;  _RCT - Longitudinal_
+
+&#10065;  _RCT - Pre-Post_
+
+&#10065;  `r tufte::newthought("Quasi-Experimental")`
+
+&#10065;  `r tufte::newthought("Cross-Sectional")`
+
+## Methodology
+
+&#10065;  `r tufte::newthought("Qualitative")`
+
+&#10065;  `r tufte::newthought("Quantitative")`
+
+&#10065;  `r tufte::newthought("Mixed-Methods")`
+
+## Data Collection Method(s) / Data Source(s) _(By Sampling Frame Level & Methodology)_
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+`r tufte::newthought("Measure(s)")`
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+`r tufte::newthought("Archival / Secondary Data Source(s)")`
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+## Data Analytic Approach(es)
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+## Key Findings
+
+`r tufte::newthought("Sample Characteristics")` _(By sampling frame level & methodology)_
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+`r tufte::newthought("Findings")` _(by methodology & hypothesis/RQ)_
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+
+## Social Ecological Levels of Analysis
+
+&#10065;  `r tufte::newthought("Individual")`
+
+&#10065;  `r tufte::newthought("Relationship")`
+
+&#10065;  `r tufte::newthought("Community")`
+
+&#10065;  `r tufte::newthought("Societal")`
+
+## Miscellaneous Notes
+
+-------------------------------------------------------------
+.
+-------------------------------------------------------------
+

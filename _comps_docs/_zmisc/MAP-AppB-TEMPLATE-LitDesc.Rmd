@@ -1,0 +1,209 @@
+---
+title: Appendix B. Literature Description & Data Extraction Form
+author: Rachel M. Smith
+date: NULL
+---
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE}
+# source("../SETUP.R")
+knitr::opts_chunk$set(
+    tidy = FALSE,
+    echo = FALSE,
+    fig.keep = 'high',
+    fig.show = 'hold',
+    results = 'asis'
+)
+sm <- function(x) {
+    if (knitr:::is_latex_output()) {
+    sprintf("\\small{%s}", x)
+    } else {
+        sprintf("<span style=\"font-size:75\%;\">%s</span>", x)
+    }
+}
+```
+
+\newpage
+
+# Citation
+
+# Substantive Research Topic(s)
+
+\Frule
+
+`r tufte::newthought("Study Purpose(s)")`
+
+`r tufte::newthought("Research Question(s) (RQs)")`
+
+\vspace*{-0.25em}
+
+\hspace*{1em} _`r sm("Including theoretical model(s) (if applicable)")`_
+
+`r tufte::newthought("Hypotheses")`
+
+\vspace*{-0.25em}
+
+\hspace*{1em} _`r sm("Including hypothesized/statistical model(s) (if applicable)")`_
+
+\tufteskip
+
+# Target Population(s) & Sampling Frame(s)
+
+\Frule
+
+## Target Population(s)
+
+\vspace*{-0.5em}
+
+\hspace*{1em} _`r sm("By Level of Specificity")`_
+
+
+`r tufte::newthought("Includes")`
+
+`r tufte::newthought("Excludes")`
+
+## Sampling Frame Setting(s)
+
+\tufteskip
+
+## Sampling Frame (By Level of Specificity)
+
+`r tufte::newthought("Includes")`
+
+`r tufte::newthought("Excludes")`
+
+\tufteskip
+
+# Sampling Method(s) (By Sampling Frame Level)
+
+\Frule
+
+\parindent=1em\ $\square$ Probability/Random
+
+\parindent=1em\ $\square$ Purposive
+
+\parindent=1em\ $\square$ Convenience
+
+\tufteskip
+
+# Study Design(s)
+
+\Frule
+
+## Qua**L**itative Research Designs
+
+\vspace*{-0.5em}
+
+\hspace*{1em} _`r sm("(if applicable)")`_
+
+
+<!-- \hspace*{1em} $\square$ Multi-method design -->
+
+\parindent=1em\ $\square$ \textsc{Grounded Theory}
+
+\parindent=1em\ $\square$ \textsc{Phenomenology}
+
+\parindent=1em\ $\square$ \textsc{Ethnography}
+
+\parindent=1em\ $\square$ \textsc{Case-Study}
+
+\parindent=1em\ $\square$ \textsc{Narrative/Descriptive}
+
+\parindent=2.25em\ $\square$ Biographical
+
+\parindent=2.25em\ $\square$ Historical
+
+
+## Qua**NT**itative Research Designs
+
+\vspace*{-0.5em}
+
+\hspace*{1em} _`r sm("(if applicable)")`_
+
+\parindent=1em\ $\square$ \textsc{Experimental}
+
+\parindent=2.5em\ $\square$ Longitudinal
+
+\parindent=2.5em\ $\square$ Pre-Post
+
+\parindent=2.5em\ $\square$ \textsc{Randomized Control Trial (RCT)}
+
+\parindent=3.25em\ $\square$ RCT - Longitudinal
+
+\parindent=3.25em\ $\square$ RCT - Pre-Post
+
+\parindent=1em\ $\square$ \textsc{Quasi-Experimental}
+
+\parindent=1em\ $\square$ \textsc{Cross-Sectional}
+
+# Methodology
+
+\Frule
+
+\parindent=1em\ $\square$ \textsc{Qualitative}
+
+\parindent=1em\ $\square$ \textsc{Quantitative}
+
+\parindent=1em\ $\square$ \textsc{Mixed-Methods}
+
+\tufteskip
+
+# Data Collection Method(s) / Data Source(s)
+
+\vspace*{-0.5em}
+
+\hspace*{1em} _`r sm("By Sampling Frame Level \\& Methodology")`_
+
+\Frule
+
+`r tufte::newthought("Measure(s)")`
+
+`r tufte::newthought("Archival / Secondary Data Source(s)")`
+
+\tufteskip
+
+# Data Analytic Approach(es)
+
+\Frule
+
+\tufteskip
+
+\newpage
+
+# Key Findings
+
+\Frule
+
+`r tufte::newthought("Sample Characteristics")`
+
+\vspace*{-0.25em}
+
+\hspace*{1em} _`r sm("By sampling frame level \\& methodology")`_
+
+`r tufte::newthought("Findings")`
+
+\vspace*{-0.25em}
+
+\hspace*{1em} _`r sm("by methodology \\& hypothesis/RQ")`_
+
+\tufteskip
+
+# Social Ecological Levels of Analysis
+
+\Frule
+
+\parindent=1em\ $\square$ \textsc{Individual}
+
+\parindent=1em\ $\square$ \textsc{Relationship}
+
+\parindent=1em\ $\square$ \textsc{Community}
+
+\parindent=1em\ $\square$ \textsc{Societal}
+
+\SFrule
+
+![Social-Ecological Model](graphics/inputs/sem.pdf){#fig:sem}
+
+`r tufte::quote_footer("--- @centers2015social; @dahlberg2002violence")`
+
+\newpage
+\refs

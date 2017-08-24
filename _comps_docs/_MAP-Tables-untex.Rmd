@@ -1,0 +1,172 @@
+---
+title: |
+  | Major Area Paper
+  | (v13.1)
+author: "Rachel M. Smith"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+fignos-plus-name: "Figure "
+tablenos-plus-name: "Table "
+---
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE, fig.show='none', fig.keep='none'}
+source("z.R")
+knitr::opts_chunk$set(echo = FALSE)
+panderOptions("p.copula", ", and ")
+```
+
+# Tables
+
+```{r dbsrchkable2}
+##BELOW IS FOR .DOCX OUTPUT##
+dbsrch[, 2] <- sapply(dbsrch[, 2], Rretex, op = 2, USE.NAMES = F)
+dbsrch[, 2] <- gsub("\\\\textsc\\{(.*?)}", "**\\1**", dbsrch[, 2])
+dbsrch[, 3] <- sapply(dbsrch[, 3], Rretex, op = 2, USE.NAMES = F)
+dbsrch[, 3] <- gsub("\\\\footnotesize\\{(.*?)\\}", "\\1", dbsrch[, 3])
+names(dbsrch) <- c("", "Database Search[note]", "$Range_{N_{Results}}$")
+library(kableExtra)
+kable(dbsrch, caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned {#tbl:dbsrch}", align = c("r", "l", "l")) %>%
+    add_footnote("For each database search, multiple search terms were included for the subject/keywords parameters to represent intimate partner violence<br /><br />", threeparttable = TRUE)
+```
+
+```{r jcpkable2}
+jlvls <- levels(MAP$journal)
+jncp <- j.cppr[!levels(factor(j.cppr)) %in% jlvls]
+levels(MAP$journal) <- c(jlvls, jncp)
+jcpv <- Rtdf(MAP$journal, names = c("j", "frq"))
+jcpv$cpv <- ifelse(jcpv$j %in% j.cppr, "Community Psychology", "Violence")
+jv <- jcpv[jcpv$cpv == "Violence", c("j", "frq")]
+jcp <- jcpv[jcpv$cpv != "Violence", c("j", "frq")]
+kable(jcp, col.names = c("Publication Title", "$N_{articles}$"), caption = "_Community-Psychology_-Specific Journal Titles Included in Literature Database Searches with the Corresponding Number of Formally Reviewed Articles per Journal {#tbl:jcp}")
+```
+
+```{r jvkable2}
+kable(jv, col.names = c("Publication Title", "$N_{articles}$"), caption = "_Violence_-Specific Journal Titles Included in Literature Database Searches with the Corresponding Number of Formally Reviewed Articles per Journal Included {#tbl:jv}")
+```
+
+```{r jsftkable}
+MAP$journal <- droplevels(MAP$journal)
+MAPp <- MAP[, c("journal", "scat")] %>% dplyr::rename("Publication Title" = journal, "Research Category" = scat)
+MAPp[, 2] <- factor(MAPp[, 2],
+                    labels = c("IPV Interventions Research",
+                               "SMW-Specific IPV Research"))
+jsft1 <- ftable(MAPp) %>% as.matrix()
+jsft2 <- ifelse(jsft1 == 0, NA, jsft1)
+jsftt <- apply(jsft2, 1, sum, na.rm = TRUE)
+jsftt <- paste0("**", jsftt, "**")
+jsft <- cbind(jsft2, jsftt)
+kable(jsft, col.names = c(colnames(jsft)[1:2], "$N_{Articles_{Total}}$"), caption = "Number of Formally Reviewed Articles per Journal in Each Research Domain Covered in this Review {#tbl:jsft}", align = c("c", "c", "c"))
+```
+
+```{r cdbk, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE, fig.show='none', fig.keep='none'}
+source("cdbk.R")
+```
+
+```{r tblcdbk2}
+# cdbk.ft$clab <- gsub("\n", "", cdbk.ft$clab)
+kable(cdbk.ft, col.names = c("**Information Category**", "Codes"), caption = "Codebook Constructed from the Discrete Summative Data Compiled Across the Formally Reviewed Literature {#tbl:cdbk}", align = c("r", "l"))
+```
+
+```{r ftmtpp}
+ftm.tpp %>% kable(align = rep("r", 3),
+                  caption = "Substantive Research Topics Covered {#tbl:ftmtpp}")
+```
+
+```{r ktop}
+kable(ktop[, 1:11], caption = "Substantive Research Topics by Study (1/2) {#tbl:ktop}")
+pander(lvl.top[1:11])
+kable(ktop[, 12:length(lvl.top)], caption = "Substantive Research Topics by Study (2/2)")
+pander(lvl.top[12:length(lvl.top)])
+```
+
+```{r ftmpopp}
+ftm.popp %>% kable(align = rep("r", ncol(ftm.popp)), caption = "Populations _Included_ in Sampling Frames among the Reviewed Literature {#tbl:ftmpopp}")
+```
+
+```{r kpop}
+kable(kpop[, 1:9], caption = "Sampling Frames by Study (1/2) {#tbl:kpop}") %>%
+    add_footnote("SMW-Inclusive", notation = "symbol")
+pander(lvl.pop[1:9])
+kable(kpop[, 10:length(lvl.pop)], caption = "Sampling Frames by Study (2/2)") %>%
+    add_footnote("SMW-Inclusive", notation = "symbol")
+pander(lvl.pop[10:length(lvl.pop)])
+```
+
+```{r ftmsetp}
+ftm.setp %>% kable(align = rep("r", ncol(ftm.setp)), caption = "Sampling Settings among the Reviewed Literature {#tbl:ftmsetp}")
+```
+
+```{r ksset}
+kable(ksset[, 1:12], caption = "Sampling Settings by Study (1/2) {#tbl:ksset}") %>%
+    add_footnote("SMW-Inclusive", notation = "symbol")
+pander(lvl.sset[1:12])
+kable(ksset[, 13:length(lvl.sset)], caption = "Sampling Settings by Study (2/2) ") %>%
+    add_footnote("SMW-Inclusive", notation = "symbol")
+pander(lvl.sset[13:length(lvl.sset)])
+```
+
+```{r ftmaql}
+rownames(ftm.aqlp) <- gsub("\n", "", rownames(ftm.aqlp))
+ftm.aqlp %>% kable(align = rep("r", 3),
+                    caption = "QuaLitative Analytic Approaches Employed across the Reviewed Literature {#tbl:aql}")
+```
+
+```{r kaql}
+kable(kaql, caption = "Qua**L**itative Analytic Approaches by Study {#tbl:kaql}") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.aql)
+```
+
+```{r ftmaqt}
+ftm.aqtp %>% kable(align = rep("r", 3),
+                    caption = "QuaNTitative Analytic Approaches Employed across the Reviewed Literature {#tbl:aqt}")
+```
+
+```{r kaqt}
+kable(kaqt, caption = "Qua**NT**itative Analytic Approaches by Study {#tbl:kaqt}") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.aqt)
+```
+
+```{r ftmexpp}
+rownames(ftm.expp) <- gsub("\n", "", rownames(ftm.expp))
+ftm.expp %>% kable(align = rep("r", 3),
+                   caption = "Experimental Research Designs {#tbl:expp}")
+```
+
+```{r kexp}
+kable(kexp, caption = "Experimental Designs by Study {#tbl:kexp}") %>%
+    add_footnote("SMW-Specific", notation = "symbol")
+pander(lvl.exp)
+```
+
+# Figures
+
+![Social-Ecological Model](graphics/inputs/sem.png){#fig:sem}
+
+![Timeline of publication years of the reviewed literature](graphics/inputs/hist_yrXscat-1.png){#fig:yrhist}
+
+![Publication Year by Study](graphics/inputs/tl_map-1.png){#fig:tl_map}
+
+![Systematic Literature Search and Inclusion Flow-Chart](graphics/inputs/flowchart.png){#fig:flowchart}
+
+![Substantive Research Topics Covered across the Reviewed Empirical Research](graphics/inputs/dot_topics-1.png){#fig:topics}
+
+![Target Populations _Included_ in the Sampling Frames among the Review Literature in Each Substantive Research Category](graphics/inputs/dot_populations-1.png){#fig:populations}
+
+![Sampling Methods Employed among the Review Literature in Each Substantive Research Category](graphics/inputs/dot_sampling-1.png){#fig:sampling}
+
+![Qualitative Data Analytic Approaches Implemented among the Review Literature in Each Substantive Research Category](graphics/inputs/parset_qlAnalytics-1.png){#fig:aql}
+
+![Quantitative Data Analytic Approaches Implemented among the Review Literature in Each Substantive Research Category](graphics/inputs/parset_qtAnalytics-1.png){#fig:aqt}
+
+![Ecological Network: Levels of Analysis. Group memberships derived from clustering algorithm which maximizes modularity across all possible partitions of the graph data in order to calculate the optimal cluster structure for the data [@brandes2008on]](graphics/inputs/net_lvls_keys_bibkeys_mat-1.png){#fig:llgmat}
+
+![K-Means cluster analysis results visualization](graphics/inputs/clust_km-2.png){#fig:kclust_top}
+
+![Network graph of the levels of analysis involved in the reviewed literature](graphics/inputs/net_lvls_bibkeys-1.png){#fig:keysnet}
+
+![`r alnetg_cap`](graphics/inputs/arc_aledges2-1.png){#fig:arc_analyses}
+
+![Network Visualization Of The Ecological Levels of Analysis (left) and Systems (right) Involved Across The Reviewed Literature](graphics/inputs/net_snetgfr-1.png){#fig:sysnet}
+
+# References

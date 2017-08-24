@@ -8,16 +8,16 @@
 #'
 #+ echo=FALSE
 knitr::opts_template$set(invisible = list(echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE, fig.keep='none', fig.show='none'))
-knitr::opts_chunk$set(fig.path="graphics/cluster/rplot-sampMethods-")
+knitr::opts_chunk$set(fig.path="graphics/cluster/rplot-")
 #'
 #+ srcbibs, opts.label='invisible'
-source("bibs.R")
+source("QCA.R")
 #'
 #' \newpage
 #'
 #' # Cluster - Sampling Methods
 #'
-
+#+ hclust_smthds
 sm <- cb[cb$cat == "M-SAMPLING", ] %>% droplevels()
 # sm2 <- cb[cb$cat == "M-SETTINGS", ] %>% droplevels()
 # sm <- rbind(sm1, sm2)
@@ -65,7 +65,8 @@ names(smmembers) <- paste0("Group.", seq_along(smmembers))
 smmembers <- t(t(smmembers))
 names(smmembers) <- "Group Members"
 pander(smmembers, caption = "Group Memberships Resulting from 4-Group Hierarchical Cluster Solution (Sampling Methods)")
-
+#'
+#+ kclust_smthds
 library(cluster)
 smkfit <- kmeans(smmat, 3)
 palette(pal_sci)

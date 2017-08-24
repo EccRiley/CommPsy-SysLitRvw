@@ -11,7 +11,7 @@ knitr::opts_template$set(invisible = list(echo=FALSE, results='hide', message=FA
 knitr::opts_chunk$set(fig.path="graphics/cluster/rplot-")
 #'
 #+ srcbibs, opts.label='invisible'
-source("bibs.R", verbose = FALSE)
+source("bibs_html.R", verbose = FALSE)
 #'
 dat <- cb[!duplicated(cb), ]
 dat <- within(dat, {
@@ -48,8 +48,7 @@ plot(clust, sub = ' ', xlab = ' ', main = " ",
 abline(a = 7, b = 0, lty = 3, lwd = 1.5,
        col = adjustcolor(pal_my[19], alpha.f = 0.75))
 rect.hclust(clust, h = 7, border = "#3B0C67") -> rhcl
-#'
-#+ fig.margin=TRUE
+
 Grps <- cutree(clust, 4)
 barplot(table(Grps), col = , border = 18, main = " ", xlab = ' ', cex = 1.25, cex.main = 1.15, cex.lab = 1, cex.axis = 0.85)
 #'
@@ -76,6 +75,7 @@ kable(data.frame(members[4, ]), caption = "Group-4 Members")
 #'
 #' \newpage
 #'
+#+ kclust_all
 library(cluster)
 kfit <- kmeans(matt, 4)
 palette(pal_sci)

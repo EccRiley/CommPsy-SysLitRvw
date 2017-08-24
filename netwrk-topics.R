@@ -1,4 +1,4 @@
-source("bibs.R")
+source("QCA.R")
 
 
 cbt <- cb[cb$cat == "TOPIC",

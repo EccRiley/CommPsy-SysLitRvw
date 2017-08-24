@@ -8,6 +8,7 @@ cdbk.ft1$Freq <- ifelse(cdbk.ft1$Freq == 0, NA, cdbk.ft1$Freq)
 cdbk.ft <- na.omit(cdbk.ft1)[, 1:2]
 rownames(cdbk.ft) <- NULL
 cdbk.ft$catlab <- as.character(cdbk.ft$catlab)
+cdbk.ft$catlab <- gsub("^0(\\d\\.)", "\\1", cdbk.ft$catlab)
 cdbk.ft$catlab <- ifelse(duplicated(cdbk.ft$catlab), NA, paste0("**", cdbk.ft$catlab, "**"))
 cdbk.ft <- cdbk.ft[, c("catlab", "clab"), drop = FALSE]
 

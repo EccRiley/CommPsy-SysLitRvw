@@ -1,0 +1,22 @@
+---
+title: "Challenging the Gender Binary"
+date: "2014-04-10"
+---
+
+> "Yet it is important to note that the majority of existing risk models, risk assessment instruments, and prevention and intervention strategies were primarily developed with heterosexual samples and then applied to FSSIPV. It is only recently that researchers have begun to examine the role of minority stress (e.g., internalized homophobia and discrimination) as risk factors for IPV in same-sex relationships [@balsam2005relationship]."
+>
+> `r tufte::quote_footer("[@hassouneh2008influence, p. 311]")`
+>
+> "Historically, heterosexual discourse has engendered persons as being feminine or masculine. This duality has created gender role stereotypes that many view as immutable biological categories rather than social constructions. Perper and Cornog (2000) describe this form of biological categorization:"
+>
+> > "Western cultural traditions have created two idealized categories, called Man and Woman, that co-align gender roles, sexual activities, and anatomy. In everyday and vivid words, Men enact masculine gender roles, have sex with women, and have big muscles, penises, and testicles. Women enact feminine gender roles, have sex with men, and have breats, vaginas, and clitorises. (p.101)."
+>
+> In addition to focusing on women’s anatomy and sexual behavior, traditional gender role stereotyping has portrayed women as being innately nonviolent, caretaking, and nurturing [@gilbert2002discourses; @girshick2002no; @perilla2003working]. This perception has significant implications for women who behave in ways that are incongruent with traditional gender stereotypical roles, such as women who perpetrate violence and women who have sex with women. Such women may be viewed as being unnatural, deviant, a threat to the status quo of existing gender relations in families and society.
+>
+> > `r tufte::quote_footer("[@hassouneh2008influence, p. 312]")`
+
+-----
+
+# References
+
+<div class="refs">
