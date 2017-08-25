@@ -18,7 +18,7 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 
 ## Synthesis & Methodological Evaluation
 
-# Literature Synthesis \& Review  <!-- Part III. -->
+# Literature Synthesis \& Review  <!-- Part III. --> {.shrink}
 
 ## Summative Characteristics of the Included Literature
 

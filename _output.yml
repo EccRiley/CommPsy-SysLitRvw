@@ -136,10 +136,11 @@ beamer_presentation:
   highlight: monochrome # kate # monochrome # espresso # zenburn # haddock # pygments # tango
   keep_tex: no
   slide_level: 2
+  toc: no
   fig_caption: yes
   template: ../auxDocs/tex/svmLatexBeamer.tex
   includes:
-    in_header: auxDocs/PSUbeamerStyle.tex
+    in_header: ../auxDocs/tex/PSUbeamerStyle.tex
   pandoc_args: [
     "--variable", "mainfont=ETBembo",
     "--variable", "sansfont=GillSansMT",
