@@ -28,11 +28,6 @@ h1:not(.title)::after {
 }
 </style>
 
-<hr class="Bold"/>
-<div style="text-align:center;">
-`r Riley::Rcite_r(file = "../auxDocs/REFs.bib", footnote = FALSE, Rnote = "Graphics on this page were created using")`
-</div>
-<hr class="SemiBold">
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE}
 knitr::opts_chunk$set(echo = FALSE, results = 'asis')
@@ -65,6 +60,12 @@ panderOptions("p.wrap", "")
 
 library(Riley); library(ggplot2); library(igraph); library(ggparallel); library(arcdiagram); library(ggthemes); library(Riley)
 ```
+
+<hr class="Bold"/>
+<div style="text-align:center;">
+`r Riley::Rcite_r(file = "../auxDocs/REFs.bib", footnote = FALSE, Rnote = "Graphics on this page were created using")`
+</div>
+<hr class="SemiBold">
 
 # Donut Plot via the **`ggplot2`** package
 
