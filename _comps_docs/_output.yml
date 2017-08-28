@@ -1,0 +1,413 @@
+# ================================================ #
+# Rmarkdown YAML Output Specifications             #
+#     Created and maintained by Riley Smith        #
+#     Saved with string encoding Unicode (UTF-8)   #
+#     ~/git/comps
+# ================================================ #
+
+# ------------------------------------------ #
+
+# PDF Tufte Handout {tufte} #
+tufte::tufte_handout:
+  highlight: monochrome # kate # monochrome # espresso # zenburn # haddock # pygments # tango
+  number_sections: yes
+  fig_caption: yes
+  latex_engine: pdflatex
+  toc: yes
+  toc_depth: 2
+  keep_tex: no
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/apa-RS-noIssue.csl", #chicago-ad.csl
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]
+  includes:
+    in_header: ../auxDocs/tex/header.tex
+
+# ------------------------------------------ #
+
+# PDF Tufte Book {tufte} #
+tufte::tufte_book:
+  highlight: monochrome # kate # monochrome # espresso # zenburn # haddock # pygments # tango
+  number_sections: yes
+  fig_caption: yes
+  latex_engine: pdflatex
+  toc: yes
+  toc_depth: 2
+  keep_tex: no
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/apa-RS-noIssue.csl",
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]
+  includes:
+    in_header: ../auxDocs/tex/header.tex
+
+########################################################
+# ----------------------- MS-Docx ----------------------- #
+########################################################
+
+# MS Word (Tufte-like Styling) #
+word_TUFTE:
+# word_document:
+  highlight: monochrome # kate # monochrome # espresso # zenburn # haddock # pygments # tango
+  fig_caption: yes
+  fig_height: 6
+  fig_width: 6
+  keep_md: no
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  reference_docx: auxDocs/tft.docx
+  toc: yes
+  toc_depth: 1
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/chicago.csl", #chicago-ad.csl,
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]
+
+# ========================================== #
+
+# MS Word (APA Compliant) #
+# word_APA:
+word_document:
+  highlight: monochrome # kate # monochrome # espresso # zenburn # haddock # pygments # tango
+  fig_caption: yes
+  fig_height: 6
+  fig_width: 6
+  keep_md: no
+  toc: no
+  # toc_depth: 1
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  reference_docx: auxDocs/apa-comps.docx
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/apa-RS-noIssue.csl",
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]
+
+########################################################
+# ----------------------- PDF ----------------------- #
+########################################################
+
+# PDF Standard #
+pdf_document:
+  highlight: monochrome # kate # monochrome # espresso # zenburn # haddock # pygments # tango
+  number_sections: no
+  latex_engine: pdflatex
+  toc: no
+  # toc_depth: 1
+  includes:
+    in_header: ../auxDocs/tex/header3.tex
+  pandoc_args: [
+    "--variable", "mainfont=ETBembo",
+    "--variable", "sansfont=GillSansMT",
+    "--variable", "monofont=consolas",
+    "--variable", "fontsize=12pt",
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/apa-RS-noIssue.csl",
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]
+# ========================================== #
+
+# PDF beamer {LaTeX} (with Tufte-Like Styling) #
+beamer_presentation:
+  highlight: monochrome # kate # monochrome # espresso # zenburn # haddock # pygments # tango
+  keep_tex: yes
+  slide_level: 1
+  toc: no
+  fig_caption: yes
+  template: ../auxDocs/tex/svmLatexBeamer.tex
+  includes:
+    in_header: ../auxDocs/tex/PSUbeamerStyle.tex
+  pandoc_args: [
+    "--variable", "mainfont=ETBembo",
+    "--variable", "sansfont=GillSansMT",
+    "--variable", "monofont=Menlo",
+    "--variable", "fontsize=9pt",
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/apa-RS-noIssue.csl",
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]
+
+# ========================================== #
+
+# PDF Tufte Book2 {bookdown} #
+bookdown::tufte_book2:
+  highlight: monochrome # kate # monochrome # espresso # zenburn # haddock # pygments # tango
+  number_sections: yes
+  latex_engine: pdflatex
+  fig_caption: yes
+  keep_tex: no
+  toc: yes
+  toc_depth: 2
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/apa-RS-noIssue.csl"
+  ]
+  includes:
+    in_header: ../auxDocs/tex/header.tex
+
+# ========================================== #
+
+# PDF Syllabus #
+pdf_syllabus:
+# pdf_document:
+  highlight: monochrome # kate # monochrome # espresso # zenburn # haddock # pygments # tango
+  keep_tex: true
+  fig_caption: yes
+  latex_engine: pdflatex
+  template: ../auxdocs/tex/svm-syllabus.tex
+  number_sections: no
+  toc: yes
+  toc_depth: 2
+  includes:
+    in_header: ../auxDocs/tex/header3.tex
+  pandoc_args: [
+    "--variable", "mainfont=ETBembo",
+    "--variable", "sansfont=GillSansMT",
+    "--variable", "monofont=Menlo",
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/chicago.csl",
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]
+
+########################################################
+# ----------------------- HTML ----------------------- #
+########################################################
+
+# HTML Notebook {Rmarkdown
+html_notebook:
+  highlight: monochrome # kate # monochrome # espresso # zenburn # haddock # pygments # tango
+  # css: auxDocs/riley.css #../auxDocs/css/tufte-rs.css
+  fig_caption: yes
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  toc: yes
+  toc_float: yes
+  self_contained: yes
+  include:
+    before_body:
+        - "auxDocs/_navbar-head.html"
+        - "auxDocs/_navbar.html"
+    after_body: "auxDocs/_footer.html"
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/apa.csl",
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]
+
+# HTML {Rmarkdown} #
+html_document:
+  highlight: monochrome
+  css: auxDocs/riley.css #../auxDocs/css/tufte-rs.css
+  fig_caption: yes
+  keep_md: no
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  toc: yes
+  toc_float: yes
+  include:
+      before_body:
+          - "auxDocs/_navbar-head.html"
+          - "auxDocs/_navbar.html"
+      after_body: "auxDocs/_footer.html"
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/chicago.csl",
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]
+
+# HTML Tufte Handout {tufte} #
+tufte::tufte_html:
+  keep_md: no
+  highlight: monochrome
+  fig_caption: yes
+  toc: yes
+  toc_float: yes
+  toc_depth: 1
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/apa-RS-noIssue.csl",
+    "--bibliography", "../auxDocs/REFs.bib",
+  ]
+
+# ========================================== #
+
+# HTML Tufte Book {tufte} #
+bookdown::tufte_html_book:
+  highlight: textmate
+  fig_caption: yes
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  toc: yes
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/chicago.csl",
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]
+
+# HTML Tufte Book - 2 {bookdown} #
+bookdown::tufte_html2:
+  highlight: textmate
+  fig_caption: yes
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  toc: yes
+  toc_depth: 2
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/chicago.csl",
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]
+
+# ========================================== #
+
+# HTML2 {bookdown}#
+bookdown::html_document2:
+  highlight: monochrome
+  fig_caption: yes
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  toc: yes
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/chicago.csl",
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]
+
+# ========================================== #
+
+# HTML kube {markdowntemplates} #
+markdowntemplates::kube:
+  highlight: textmate
+  css: ../auxDocs/css/riley.css #../auxDocs/css/tufte-rs.css
+  keep_md: no
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/apa-RS-noIssue.csl",
+    "--bibliography", "../auxDocs/REFs.bib",
+  ]
+
+# ========================================================= #
+# ------------------ HTML PRESENTATIONS ------------------ #
+# ========================================================= #
+
+# HTML ioslides #
+ioslides_presentation:
+  css: ../auxDocs/css/riley.css #../auxDocs/css/tufte-rs.css
+  fig_caption: yes
+  fig_height: 4.05
+  fig_width: 6.75
+  fig_retina: 4
+  keep_md: no
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/apa-RS-noIssue.csl",
+    "--bibliography", "../auxDocs/REFs.bib",
+  ]
+
+# ========================================== #
+
+# HTML slidy #
+slidy_presentation:
+  css: ../auxDocs/css/riley.css #../auxDocs/css/tufte-rs.css
+  fig_caption: yes
+  fig_height: 4.05
+  fig_width: 6.75
+  fig_retina: 4
+  keep_md: no
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/apa-RS-noIssue.csl",
+    "--bibliography", "../auxDocs/REFs.bib",
+  ]
+
+
+#######################################################
+# ----------------- EPUB {bookdown} ----------------- #
+#######################################################
+# rmarkdown::render("THDef_A_epub.Rmd", "bookdown::epub_book")
+# bookdown::kindlegen("THDef_A_epub.epub")
+bookdown::epub_book:
+  stylesheet: ../auxDocs/css/tufte_Kindle.css
+  fig_caption: yes
+  md_extensions: +footnotes+autolink_bare_uris+blank_before_blockquote+implicit_figures+hard_line_breaks+escaped_line_breaks+header_attributes+inline_notes+table_captions+multiline_tables+pipe_tables
+  toc: yes
+  toc_depth: 2
+  cover_image: "graphics/inputs/EBook_Title_Page2.png"
+  pandoc_args: [
+    "--filter", "pandoc-fignos",
+    "--filter", "pandoc-tablenos",
+    "--variable", "fignos-plus-name=Figure ",
+    "--variable", "tablenos-plus-name=Table ",
+    "--filter", "pandoc-citeproc",
+    "--csl", "../auxDocs/csl/chicago.csl",
+    "--bibliography", "../auxDocs/REFs.bib"
+  ]

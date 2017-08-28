@@ -1,0 +1,99 @@
+---
+title: "A Methodological Review of Community-Based Research Related to Intimate Partner Violence"
+author: "Rachel Smith-Hunter"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+---
+
+# Condensed Outline {.shrink}
+
+\textsc{\textcolor{mnblue}{Introduction}} <!-- Part I. -->
+
+- Research Questions
+- Rationale
+- Guiding Community-Psychology Theoretical Frameworks
+
+\textsc{\textcolor{mnblue}{Systematic Literature Search \& Review Methods}} <!-- Part II. -->
+
+- Analytic Approach
+- Initial Literature Screening, Assessment, \& Organization
+- Synthesis & Methodological Evaluation
+
+\textsc{\textcolor{mnblue}{Literature Synthesis \& Review}}  <!-- Part III. -->
+
+- Summative Characteristics of the Included Literature
+- Sampling Frame Definitions and Sampling Methods
+- Methodologies & Methods Utilized
+- Ecological Levels of Analysis Reflected in the Literature
+- IPV Perpetration Interventions
+- Perpetrator Intervention Programs' Efficacy
+- Processes of Change
+- Public Policy & Program Practices
+- Prevention-Oriented IPV Intervention Programs
+- IPV Prevention Program Implementation & Evaluation Methods
+- Assessing Risk of IPV among Sexual Minority Women
+- Police Responses to Same-Gender IPV
+
+\textsc{\textcolor{mnblue}{Summative Methodological Critique}} <!-- Part IV. -->
+
+- Implementation of Community-Psychological Values, Theory \& Methods
+- Ecological-Validity
+
+\textsc{\textcolor{mnblue}{Discussion}} <!-- Part V. -->
+- Limitations of This Review
+- Implications
+
+# Introduction <!-- PART I. -->
+
+- Rationale
+        - Intersecting Community-Psychology Theory \& Research Methodology
+
+- Guiding Community-Psychology Theoretical Frameworks
+        - Ecological systems theory and the Social Ecological Model
+        - Protective (versus risk) Factors
+        - 'The inextricable relationship of empowerment and politics' **[@riger1993what, p. 283]**.
+
+
+# Systematic Literature Search \& Review Methods <!-- PART II. -->
+
+- Analytic Approach
+    - Initial Literature Screening, Assessment, \& Organization
+    - Synthesis & Methodological Evaluation
+        - Defining and Evaluating Methodological Rigor
+
+
+# Literature Synthesis \& Review <!-- PART III. --> {.shrink}
+
+- Summative Characteristics of the Included Literature
+    - Sampling Frame Definitions and Sampling Methods
+    - Methodologies & Methods Utilized
+    - Ecological Levels of Analysis Reflected in the Literature
+        - Substantive Research Topics at Varying Levels of Ecological Analysis
+
+- IPV Perpetration Interventions
+    - Perpetrator Intervention Programs' Efficacy
+    - Processes of Change
+    - Public Policy & Program Practices
+
+- Prevention-Oriented IPV Intervention Programs
+    - IPV Prevention Program Implementation & Evaluation Methods
+
+- IPV Research Specifically Inclusive of Sexual Minority Women
+    - Assessing Risk of IPV among Sexual Minority Women
+        - IPV Risk Factors, Causes, \& Consequences among Sexual Minority Youth
+    - Police Responses to Same-Gender IPV
+
+# Part IV. Summative Methodological Critique <!-- PART IV. -->
+
+- Implementation of Community-Psychological Values, Theory \& Methods
+        - Stakeholder Input \& Intervention Settings
+
+- Ecological-Validity
+
+# Part V. Discussion <!-- PART V. -->
+
+- Limitations of This Review
+
+- Implications
+
+# References {.allowframebreaks}
+\refs

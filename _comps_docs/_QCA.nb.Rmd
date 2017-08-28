@@ -2,8 +2,6 @@
 title: "Qualitative Comparative Analyses Source Code"
 ---
 
-<!-- <script type="text/javascript" src="auxDocs/codeFolding.js"></script> -->
-
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE, cache=FALSE}
 # SETUP ----------------
 source("../SETUP.R") ## SEE EccRiley.github.io/Rrscs/SETUP.R ##
@@ -81,12 +79,16 @@ Six separate literature searches were conducted using the [_PsycINFO_](http://ww
 6. --- _FSSIPV Intervention Evaluations_
 
 ```{r src_dbsrch, opts.label='invisible'}
-# dbsrch ----------------
 source("dbsrch.R")
 ```
 
 ```{r dbsrch, results='asis',echo=FALSE}
-# pander(dbsrch, justify = c("right", "left", "centre"), caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned")
+dbsrch[, 2] <- sapply(dbsrch[, 2], Rretex, op = 2, USE.NAMES = F)
+dbsrch[, 2] <- gsub("\\\\textsc\\{(.*?)\\}", "**\\1**", dbsrch[, 2])
+dbsrch[, 3] <- sapply(dbsrch[, 3], Rretex, op = 2, USE.NAMES = F)
+dbsrch[, 3] <- gsub("\\\\footnotesize\\{(.*?)\\}", "\\1", dbsrch[, 3])
+names(dbsrch) <- c("", "Database Search[note]", "$Range_{N_{Results}}$")
+
 library(kableExtra)
 kable(dbsrch, caption = "Descriptions of database searches conducted with corresponding ranges of the number of results returned", justify = c("r", "l", "l")) %>%
     add_footnote(c("Note: For each database search, multiple search terms were included for the subject/keywords parameters to represent intimate partner violence", "'PI' = PsycINFO; 'WoS' = Web of Science", threeparttable = TRUE))
@@ -99,13 +101,13 @@ kable(dbsrch, caption = "Descriptions of database searches conducted with corres
 source("journals.R")
 ```
 
-**Community-psychology journals.** included in database searches:
+`r tufte::newthought("Community-psychology journals")` included in database searches:
 
 ```{r journals, results='asis', echo=FALSE}
 j.cpp %>% as.list() %>% pander()
 ```
 
-**Violence-specific journals.** selected for inclusion in database searches.
+`r tufte::newthought("Violence-specific journals")` selected for inclusion in database searches.
 
 ```{r journals2, results='asis', echo=FALSE}
 j.vp %>% as.list() %>% pander()
@@ -255,7 +257,7 @@ MAP$jrnl <- sapply(as.character(MAP$journal), Rabbr)
 
 # Systematically-Reviewed Literature
 
-**The resulting selection of empirical literature.**, representing a community-psychology-focused subset of the U.S.-based IPV-related literature, was reviewed using a `primarily deductive` _qualitative comparative analytic approach_ [_QCA_; @leech2007array; @onwuegbuzie2017framework]. This approach was conducted as part of an initial data reduction and organization process in which the reviewed literature was categorized according to the commonalities in overarching research topics, target populations, sampling frames, sampling and data collection methodologies, and data analytic approaches. In addition, the QCA approach served as a systematic method for examining the similarities, differences, and anomalies within the groups identified in the initial data reduction and organization process [@onwuegbuzie2017framework; @onwuegbuzie2009qualitative]. The qualitative comparative analysis of the reviewed literature was aided by the _`RQDA`_ package created for use with the _`R` Statistical Programming Language and Environment_ [@R-RQDA; @R-base].
+`r tufte::newthought("The resulting selection of empirical literature")`, representing a community-psychology-focused subset of the U.S.-based IPV-related literature, was reviewed using a `primarily deductive` _qualitative comparative analytic approach_ [_QCA_; @leech2007array; @onwuegbuzie2017framework]. This approach was conducted as part of an initial data reduction and organization process in which the reviewed literature was categorized according to the commonalities in overarching research topics, target populations, sampling frames, sampling and data collection methodologies, and data analytic approaches. In addition, the QCA approach served as a systematic method for examining the similarities, differences, and anomalies within the groups identified in the initial data reduction and organization process [@onwuegbuzie2017framework; @onwuegbuzie2009qualitative]. The qualitative comparative analysis of the reviewed literature was aided by the _`RQDA`_ package created for use with the _`R` Statistical Programming Language and Environment_ [@R-RQDA; @R-base].
 
 ```{r cb}
 # CTBL/CB ----------------
@@ -381,8 +383,7 @@ ft.jrnl <- with(MAP, {
 dimnames(ft.jrnl) <- list("Publication Title" = levels(MAP$journal),
                           Category = levels(MAP$scat))
 ft.jrnl <- ifelse(ft.jrnl == 0, NA, ft.jrnl)
-ft.jrnl %>% kable(caption = "Number of Publications in Each Research Category per Journal",
-                  align = c("l", "r", "r"))
+ft.jrnl %>% kable(caption = "Number of Publications in Each Research Category per Journal", align = c("l", "r", "r"), col.names = c("Publication Title", "Category"))
 cpv.s3$jrnl <- sapply(as.character(cpv.s3$journal), Rabbr) %>% factor()
 cpv.s4$jrnl <- sapply(as.character(cpv.s4$journal), Rabbr) %>% factor()
 j.cp <- sapply(j.cp, Rabbr, USE.NAMES = FALSE)
@@ -773,16 +774,20 @@ rownames(ktop) <- ktopscat
 
 ```{r echo=FALSE}
 # panderOptions("table.split.table", 120)
-kable(ktop[, 1:11], caption = "Primary Topics by Study (1/2)", col.names = c()) %>%
+kable(ktop[, 1:11], caption = "Primary Topics by Study (1/2)") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.top[1:11])
+cat("</span>")
 ```
 
 ```{r echo=FALSE}
 kable(ktop[, 12:ncol(ktop)],
       caption = "Primary Topics by Study (2/2)") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.top[12:length(lvl.top)])
+cat("</span>")
 ```
 
 # Research Designs
@@ -847,7 +852,9 @@ rownames(kdes) <- kdesscat
 # panderOptions("table.split.table", 120)
 kable(kdes, caption = "Primary Research Designs by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.des)
+cat("</span>")
 ```
 
 **Experimental Research Designs.**
@@ -913,7 +920,9 @@ rownames(kexp) <- kexpscat
 # panderOptions("table.split.table", 120)
 kable(kexp, caption = "Experimental Designs by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.exp)
+cat("</span>")
 ```
 
 # Data Collection Methodologies
@@ -974,7 +983,9 @@ rownames(kmo) <- kmoscat
 # panderOptions("table.split.table", 120)
 kable(kmo, caption = "Methodology by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.mo)
+cat("</span>")
 ```
 
 **QuaLitative Research _Designs_.**
@@ -1034,7 +1045,9 @@ rownames(kdql) <- kdqlscat
 # panderOptions("table.split.table", 120)
 kable(kdql, caption = "Qualitative Designs by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.dql)
+cat("</span>")
 ```
 
 **QuaLitative _Methods_.**
@@ -1093,7 +1106,9 @@ rownames(kmql) <- kmqlscat
 # panderOptions("table.split.table", 120)
 kable(kmql, caption = "Qua**L**itative Methods by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.mql)
+cat("</span>")
 ```
 
 **QuaLitative Data Analytic Approaches.**
@@ -1186,7 +1201,9 @@ rownames(kaql) <- kaqlscat
 # panderOptions("table.split.table", 120)
 kable(kaql, caption = "Qua**L**itative Analytic Approaches by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.aql)
+cat("</span>")
 ```
 
 **QuaNTitative Research _Designs_.**
@@ -1247,7 +1264,9 @@ rownames(kdqt) <- kdqtscat
 # panderOptions("table.split.table", 120)
 kable(kdqt, caption = "Qua**NT**itative Designs by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.dqt)
+cat("</span>")
 ```
 
 **QuaNTitative _Methods_.**
@@ -1309,7 +1328,9 @@ rownames(kmqt) <- kmqtscat
 # panderOptions("table.split.table", 120)
 kable(kmqt, caption = "Qua**NT**itative Methods by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.mqt)
+cat("</span>")
 ```
 
 **QuaNTitative Data Analytic Approaches.**
@@ -1399,7 +1420,9 @@ rownames(kaqt) <- kaqtscat
 # panderOptions("table.split.table", 120)
 kable(kaqt, caption = "Qua**NT**itative Analytic Approaches by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.aqt)
+cat("</span>")
 ```
 
 **Archival/Secondary Data Sources.**
@@ -1461,7 +1484,9 @@ rownames(krcrd) <- krcrdscat
 # panderOptions("table.split.table", 120)
 kable(krcrd, caption = "Archival/Secondary Data Sources by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.rcrd)
+cat("</span>")
 ```
 
 **Mixed-Methodological _Designs_.**
@@ -1524,7 +1549,9 @@ rownames(kdmm) <- kdmmscat
 # panderOptions("table.split.table", 120)
 kable(kdmm, caption = "Mixed-Methods Designs by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.dmm)
+cat("</span>")
 ```
 
 **Mixed (QuaLitative & QuaNTitative) _Methods_.**
@@ -1587,7 +1614,9 @@ rownames(kmmm) <- kmmmscat
 # panderOptions("table.split.table", 120)
 kable(kmmm, caption = "Mixed-Methods by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.mmm)
+cat("</span>")
 ```
 
 # Target Populations & Sampling Frames
@@ -1645,14 +1674,18 @@ rownames(kpop) <- kpopscat
 # panderOptions("table.split.table", 120)
 kable(kpop[, 1:9], caption = "Sampling Frame by Study (1/2)") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.pop[1:9])
+cat("</span>")
 ```
 
 ```{r echo=FALSE}
 # panderOptions("table.split.table", 120)
 kable(kpop[, 9:length(lvl.pop)], caption = "Sampling Frame by Study (2/2)") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.pop[9:length(lvl.pop)])
+cat("</span>")
 ```
 
 # Sampling Settings
@@ -1732,14 +1765,18 @@ rownames(ksset) <- kssetscat
 # panderOptions("table.split.table", 120)
 kable(ksset[,1:12], caption = "Sampling Settings by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.sset[1:12])
+cat("</span>")
 ```
 
 ```{r echo=FALSE}
 # panderOptions("table.split.table", 120)
 kable(ksset[,13:length(lvl.sset)], caption = "Sampling Settings by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.sset[13:length(lvl.sset)])
+cat("</span>")
 ```
 
 # Sampling Methods
@@ -1813,10 +1850,12 @@ rownames(ksmthd) <- ksmthdscat
 # panderOptions("table.split.table", 120)
 kable(ksmthd, caption = "Sampling Methods by Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.smthd)
+cat("</span>")
 ```
 
-# Levels of Analysis Invovled in The Included Literature
+# Levels of Analysis Involved in The Included Literature
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(fig.path = "graphics/EcoLvls/rplot-")
@@ -1878,7 +1917,9 @@ rownames(keco) <- kecoscat
 # panderOptions("table.split.table", 120)
 kable(keco, caption = "Ecological Levels of Analysis Involved in Each Study") %>%
     add_footnote("SMW-Specific", notation = "symbol")
+cat("<span class='tnote'>")
 pander(lvl.eco)
+cat("</span>")
 ```
 
 # Ecological **Network** Analysis
@@ -2294,7 +2335,7 @@ tlblsize <- c(log(V(tlnetg)$size[1:4])*0.125, log(V(tlnetg)$size[5:tindex.g])*0.
 ```{r tlnetg_cap, echo=FALSE}
 tlabs <- gsub("&", "&", tlabs)
 tlabs <- paste(tlabs, collapse = ", ")
-tlnetg_cap <- paste0("Network Diagram Showing Relations among Substantive Research Topics (numbered graph nodes) Covered & Ecological Levels of Analysis (named graph nodes) Involved among the Reviewed Literature: _", tlabs, "_")
+tlnetg_cap <- "Network Diagram Showing Relations among Substantive Research Topics (numbered graph nodes) Covered & Ecological Levels of Analysis (named graph nodes) Involved among the Reviewed Literature"
 # PLOTS - `tlnetg` (layout-0 & layout-2) ----------------
 ```
 
@@ -2320,6 +2361,8 @@ tpMuAll <- mean(tlnet$Freq)
 # l2tpRawMu/tpMuAll
 # l2tpWgtMu/tpMuAll
 ```
+
+<span class="tnote">`r tlabs`</span>
 
 ```{r cbanl}
 cbanl <- cb[cb$cat == "A-QT" | cb$cat == "A-QL",
@@ -2520,7 +2563,7 @@ mtext(text = allabs_pl, side = 4, cex = 0.5, adj = 0, padj = 0.5, las = 2, outer
 # title(sub = allabs_pl, adj =  0, cex.sub = 0.5, line = -14)
 ```
 
-`r allabs1`
+<span class="tnote">`r allabs1`</span>
 
 # Cluster Analysis: Topics Covered in Each Study
 
