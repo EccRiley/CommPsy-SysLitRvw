@@ -41,7 +41,7 @@ book.mobi
 
 comps-r alias
 
-*.pdf
+#*.pdf
 .Rproj.user
 
 data/RQDA/zcomps-rqda-map-backup alias
